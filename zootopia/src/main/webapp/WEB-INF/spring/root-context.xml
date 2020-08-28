@@ -94,7 +94,7 @@
      	@Service, @Repository를 스캔하는 설정
      	- use-default-filter : 기본적인 스캔을 하지 못하도록 설정(false)
      -->
-     <context:component-scan base-package="com.kh.spring26" use-default-filters="false">
+     <context:component-scan base-package="com.kh.zootopia" use-default-filters="false">
      	<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
      	<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
      	<context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
