@@ -29,8 +29,7 @@ public class MemberController {
 	
 	@Autowired
 	private MemberDao memberDao;
-	@Autowired
-	private SqlSession sqlSession;  // 나중에 꼭 지우기
+
 	@Autowired
 	private PassEmailService sender;
 	
