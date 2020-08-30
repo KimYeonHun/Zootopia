@@ -50,12 +50,15 @@ public class MemberController {
 	}
 	
 	
-
+// 비밀 번호 찾기 
 	@GetMapping("/findpass")
 	public String findpw() {
-		
+
 		return "/member/findpass";
-	}
+}
+
+		
+	
 	
 
 	
