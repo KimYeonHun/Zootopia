@@ -5,12 +5,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="member">
 
-<select id="login" parameterType="memberDto" resultType="memerDto">
+<select id="login" parameterType="memberDto" resultType="memberDto">
 	SELECT * FROM MEMBER 
 	WHERE MEMBER_ID = #{MEMEBER_ID} and MEMBER_PW = #{MEMBER_PW}
 </select>
 
-	
+<update id="update">
+UPDATE member SET email = #{email}, member_pw = #{member_pw},phone=#{phone},
+					member_name = #{member_name}
+					where id = #{id}
+</update>
 </mapper>
 
 
