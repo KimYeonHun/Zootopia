@@ -20,8 +20,6 @@ import com.kh.zootopia.service.PassEmailService;
 public class findpassController {
 	
 	@Autowired
-	private SqlSession sqlSession;
-	@Autowired
 	private MemberDao memberDao;
 	@Autowired
 	private PassEmailService sender;
@@ -32,11 +30,8 @@ public class findpassController {
 			@RequestParam String member_id,
 			@RequestParam String email ) {
 		
-		
-		Map<String, Object> map = new HashMap<>();
-		map.put("member_id", member_id);
-		map.put("email", email);
-		int user = sqlSession.selectOne("member.findpw", map);
+
+		int user = memberDao.searchpw(member_id, email);
 		if(user ==1) {
 			// 1. 파라미터 값으로 아이디와 이메일을 받는다 
 			int info =memberDao.searchpw(member_id,email);

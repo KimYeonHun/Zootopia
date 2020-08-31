@@ -15,5 +15,7 @@ public interface PassEmailService {
 	void sendSimpleMessage(String email,String title,String text); // 한사람에게 보낼때
 	
 
+	
+
 
 }

@@ -11,13 +11,15 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.kh.zootopia.entity.MemberDto;
+import com.kh.zootopia.repository.MemberDao;
 
 @Service
 public class PassEmailServiceImpl implements PassEmailService {
 
 	@Autowired
 	private JavaMailSender sender;
-	
+	@Autowired
+	private MemberDao memberDao;
 
 
 	@Override
@@ -38,6 +40,7 @@ public class PassEmailServiceImpl implements PassEmailService {
 		
 	}
 
+	
 	
 	
 

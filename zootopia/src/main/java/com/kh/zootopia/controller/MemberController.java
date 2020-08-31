@@ -30,8 +30,7 @@ public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
 
-	@Autowired
-	private PassEmailService sender;
+
 	
 	@GetMapping("/login")
 	public String login() {
@@ -55,8 +54,6 @@ public class MemberController {
 
 		return "/member/findpass";
 }
-
-		
 	
 	
 
