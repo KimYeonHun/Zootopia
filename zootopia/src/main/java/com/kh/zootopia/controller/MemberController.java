@@ -73,11 +73,13 @@ public class MemberController {
 		// 1. 파라미터 값으로 이름과 이메일을 받는다 
 		String info=memberDao.searchid(member_name, email);
 //		System.out.println(info);
+		if(info!=null) {
 		model.addAttribute("member_id", info);
+		// 해당 정보가 있으면 저장하고, 인증번호 랜덤 생성 후 , 메일 발송
 		
-		//2. 해당 이메일로 인증 번호 전송 
-//		sender.sendSimpleMessage(email, "[zootopia] 인증번호 안내입니다", "인증번호");
-		// 3. 인증번호 일치 시 아이디 보여줌 
+		
+		}
+
 			
 	
 		return "/member/findid";
