@@ -9,5 +9,7 @@ public interface MemberDao {
 	
 	void changepw(String member_id);
 	
+	String searchid(String member_name,String email);
+	
 
 }

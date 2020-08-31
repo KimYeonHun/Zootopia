@@ -29,7 +29,8 @@ public class MemberController {
 	
 	@Autowired
 	private MemberDao memberDao;
-
+	@Autowired
+	private PassEmailService sender;
 
 	
 	@GetMapping("/login")
@@ -55,7 +56,32 @@ public class MemberController {
 		return "/member/findpass";
 }
 	
+// 아이디 찾기 
+	@GetMapping("/findid")
+	public String findid() {
+		
+		return "/member/findid";
+	}
 	
+	@PostMapping("/findid")
+	public String findid(
+			@RequestParam String member_name,
+			@RequestParam String email,
+			Model model
+			) {
+		
+		// 1. 파라미터 값으로 이름과 이메일을 받는다 
+		String info=memberDao.searchid(member_name, email);
+//		System.out.println(info);
+		model.addAttribute("member_id", info);
+		
+		//2. 해당 이메일로 인증 번호 전송 
+//		sender.sendSimpleMessage(email, "[zootopia] 인증번호 안내입니다", "인증번호");
+		// 3. 인증번호 일치 시 아이디 보여줌 
+			
+	
+		return "/member/findid";
+	}
 
 	
 }

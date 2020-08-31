@@ -34,17 +34,17 @@ public class findpassController {
 		int user = memberDao.searchpw(member_id, email);
 		if(user ==1) {
 			// 1. 파라미터 값으로 아이디와 이메일을 받는다 
-			int info =memberDao.searchpw(member_id,email);
+//			int info =memberDao.searchpw(member_id,email);
 			
 			
 		// 2. 정보가 일치하면 비밀번호 변경
-			if(info!=0) {
+			
 				memberDao.changepw(member_id);
 				
 				//3. 변경된 비밀번호를 이메일로 발송	
 				sender.sendSimpleMessage(email, "[zootopia] 임시 비밀번호 발급 안내 입니다", "임시 비밀번호: zoo123%^");
 		
-		}
+		
 			return 1;
 		}else {
 			return 0;

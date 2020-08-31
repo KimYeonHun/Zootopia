@@ -23,6 +23,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	update member set member_pw ='zoo123%^' where member_id = #{member_id} 
 </update>
 	
+	
+<select id="findid" parameterType="map" resultType="String">
+	select member_id from member 
+	where member_name=#{member_name} and email=#{email}
+</select>	
+	
 </mapper>
 
 
