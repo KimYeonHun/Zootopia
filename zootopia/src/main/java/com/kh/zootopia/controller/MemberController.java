@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.zootopia.entity.MemberDto;
 import com.kh.zootopia.repository.MemberDao;
+import com.kh.zootopia.service.CertService;
 import com.kh.zootopia.service.PassEmailService;
 
 
@@ -31,6 +32,8 @@ public class MemberController {
 	private MemberDao memberDao;
 	@Autowired
 	private PassEmailService sender;
+	@Autowired
+	private CertService certService;
 
 	
 	@GetMapping("/login")
@@ -74,10 +77,15 @@ public class MemberController {
 		String info=memberDao.searchid(member_name, email);
 //		System.out.println(info);
 		if(info!=null) {
+	
+		String secret=certService.CreateCert(info);
+		//인증번호 랜덤 생성 후 ,
+		
+		sender.sendSimpleMessage(email, "[zootopia]아이디 찾기 인증번호 안내입니다", 
+				"인증번호: "+secret);
+		//메일 발송
 		model.addAttribute("member_id", info);
-		// 해당 정보가 있으면 저장하고, 인증번호 랜덤 생성 후 , 메일 발송
-		
-		
+		// 회원 아이디 저장  
 		}
 
 			

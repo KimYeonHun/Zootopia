@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 인증번호 발급 -->
 	<insert id="insertCert"  parameterType="certDto" >
-		insert into cert values(#{member_id},#{secret},sysdate)
+		INSERT INTO cert(member_id,secret,when) VALUES(#{member_id},#{secret},SYSDATE)
 	</insert>
 	
 </mapper>
