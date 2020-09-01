@@ -52,13 +52,41 @@ public class MemberDaoImpl implements MemberDao{
 	}
 
 
+	
+	
+	/////////////////////////////////////////
 	// 아이디 찾기 랜덤 번호 추가
 	@Override
 	public void insert(CertDto certDto) {
 		
 		sqlSession.insert("member.insertCert",certDto);
 	}
+	@Override
+	public boolean validate(CertDto certDto) {
+		
+		CertDto result = sqlSession.selectOne("member.validate",certDto);
+		if(result !=null) {
+			sqlSession.delete("member.remove",result);
+		}
+		
+		return result !=null;
 
+	}
+
+	@Override
+	public void clearAll() {
+		sqlSession.delete("member.clear");
+		
+	}
+
+	@Override
+	public String CertId(String secret) {
+		
+		return sqlSession.selectOne("member.certId",secret);
+	}
+
+	
+	////////////////////////////////
 	
 	
 	

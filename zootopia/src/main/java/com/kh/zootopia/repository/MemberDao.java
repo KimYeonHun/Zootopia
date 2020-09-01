@@ -12,8 +12,13 @@ public interface MemberDao {
 	
 	String searchid(String member_name,String email);
 	
-	// 인증 번호
-	void insert(CertDto certDto);
 	
-
+	/////////////////////////////
+	// 아이디 찾기 인증 번호
+	void insert(CertDto certDto);
+	boolean validate(CertDto certDto);
+	void clearAll();
+	String CertId(String  secret);
+	
+	///////////////////////////
 }

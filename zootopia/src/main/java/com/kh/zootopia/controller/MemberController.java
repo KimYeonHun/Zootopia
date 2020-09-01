@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kh.zootopia.entity.CertDto;
 import com.kh.zootopia.entity.MemberDto;
 import com.kh.zootopia.repository.MemberDao;
 import com.kh.zootopia.service.CertService;
@@ -69,8 +70,8 @@ public class MemberController {
 	@PostMapping("/findid")
 	public String findid(
 			@RequestParam String member_name,
-			@RequestParam String email,
-			Model model
+			@RequestParam String email
+			
 			) {
 		
 		// 1. 파라미터 값으로 이름과 이메일을 받는다 
@@ -84,14 +85,41 @@ public class MemberController {
 		sender.sendSimpleMessage(email, "[zootopia]아이디 찾기 인증번호 안내입니다", 
 				"인증번호: "+secret);
 		//메일 발송
-		model.addAttribute("member_id", info);
-		// 회원 아이디 저장  
+		
 		}
 
-			
-	
-		return "/member/findid";
+		return "redirect:check";
 	}
+	
+	@GetMapping("/check")
+	public String check() {
+		return "cert/certnuminput";
+	}
+	
+	@PostMapping("/check")
+	@ResponseBody
+	public int check(
+			@RequestParam String secret,
+			Model model
+			) {
+		
+		String member_id= memberDao.CertId(secret);
+		boolean result = memberDao.validate(CertDto.builder().member_id(member_id)
+				.secret(secret)
+				.build());
+		model.addAttribute("member_id", member_id);
+		// 회원 아이디 저장  
+		
+		if(result==true) {
+			return 1;
+		}else {
+			return 0;
+		}
+		
+		
+	}
+	
+	
 
 	
 }
