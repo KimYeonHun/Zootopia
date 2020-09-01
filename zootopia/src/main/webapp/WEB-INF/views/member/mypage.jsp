@@ -45,11 +45,31 @@ margin-left:50%;
 			</div>
 			<div class="w3-container">
 		  <div class="w3-card">
-    <img src="C:/Users/user1/Desktop/petsitter.png">
+	<div class="inputArea">
+ <input type="file" id="gdsImg" name="file" />
+ <div class="select_img"><img src="" /></div>
+ 
+ <script>
+  $("#gdsImg").change(function(){
+   if(this.files && this.files[0]) {
+    var reader = new FileReader;
+    reader.onload = function(data) {
+     $(".select_img img").attr("src", data.target.result).width(500);        
+    }
+    reader.readAsDataURL(this.files[0]);
+   }
+  });
+ </script>
+</div>
+
+
+
     <div class="w3-container">
 
+<label>이름</label> 
  <input class="w3-form" type="text" id="name" name="member_name" readonly value="${ member.name }">
     
+    <label>권한</label> 
 <input class="w3-form" type="text" id="auth" name="auth" readonly value="${ member.auth}">
     </div>
 
