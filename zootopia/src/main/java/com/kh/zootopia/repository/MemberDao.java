@@ -1,5 +1,6 @@
 package com.kh.zootopia.repository;
 
+import com.kh.zootopia.entity.CertDto;
 import com.kh.zootopia.entity.MemberDto;
 
 public interface MemberDao {
@@ -10,6 +11,9 @@ public interface MemberDao {
 	void changepw(String member_id);
 	
 	String searchid(String member_name,String email);
+	
+	// 인증 번호
+	void insert(CertDto certDto);
 	
 
 }
