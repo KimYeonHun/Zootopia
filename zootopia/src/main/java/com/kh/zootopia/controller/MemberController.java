@@ -95,29 +95,8 @@ public class MemberController {
 	public String check() {
 		return "cert/certnuminput";
 	}
+
 	
-	@PostMapping("/check")
-	@ResponseBody
-	public int check(
-			@RequestParam String secret,
-			Model model
-			) {
-		
-		String member_id= memberDao.CertId(secret);
-		boolean result = memberDao.validate(CertDto.builder().member_id(member_id)
-				.secret(secret)
-				.build());
-		model.addAttribute("member_id", member_id);
-		// 회원 아이디 저장  
-		
-		if(result==true) {
-			return 1;
-		}else {
-			return 0;
-		}
-		
-		
-	}
 	
 	
 
