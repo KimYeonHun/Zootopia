@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="validate" parameterType="certDto" resultType="CertDto">
 	<![CDATA[select * from cert where 
 	member_id= #{member_id} and secret=#{secret}
-	and when between sysdate- 1/24/60 and sysdate]]> 
+	and when between sysdate- 10/24/60 and sysdate]]> 
 </select>
 
 <delete id="remove" parameterType="certDto">
