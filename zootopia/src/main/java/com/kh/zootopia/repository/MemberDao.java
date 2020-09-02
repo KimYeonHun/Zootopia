@@ -12,6 +12,10 @@ public interface MemberDao {
 	
 	String  searchid(String member_name,String email);
 	
+
+	boolean login(MemberDto memberDto);
+
+	MemberDto get(String member_id);
 	
 	/////////////////////////////
 	// 아이디 찾기 인증 번호

@@ -39,10 +39,19 @@ public class MemberController {
 	}
 
 	@PostMapping("/login")
-	public String login(@RequestParam String MEMBER_ID, @RequestParam String MEMBER_PW, HttpSession session) {
-		session.setAttribute("userinfo", MEMBER_ID);
-		return "redirect:/";
+	public String login(
+			@ModelAttribute MemberDto memberDto,
+			HttpSession session) {
+		if(memberDao.login(memberDto)) {
+			MemberDto find = memberDao.get(memberDto.getMember_id());
+			session.setAttribute("userinfo", find);
+			return "refirect:/";	
+		}
+		else {
+			return "redirect:login?error";
+		}
 	}
+
 
 // 비밀 번호 찾기 
 	@GetMapping("/findpass")
