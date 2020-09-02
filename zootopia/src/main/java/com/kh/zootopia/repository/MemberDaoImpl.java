@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kh.zootopia.entity.CertDto;
 import com.kh.zootopia.entity.MemberDto;
 
 
@@ -17,8 +18,6 @@ public class MemberDaoImpl implements MemberDao{
 	@Autowired
 	private SqlSession sqlSession;
 	
-	@Autowired
-	private MemberDao memberDao;
 
 	
 
@@ -42,6 +41,46 @@ public class MemberDaoImpl implements MemberDao{
 		
 	}
 
+	
+	
+	
+	/////////////////////////////////////////
+// 아이디 찾기 
+	@Override
+	public String searchid(String member_name, String email) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("member_name", member_name);
+		map.put("email", email);
+
+		return sqlSession.selectOne("member.findid",map);
+	}
+
+	// 아이디 찾기 랜덤 번호 추가
+	@Override
+	public void insert(CertDto certDto) {
+		
+		sqlSession.insert("member.insertCert",certDto);
+	}
+	@Override
+	public boolean validate(CertDto certDto) {
+		
+		CertDto result = sqlSession.selectOne("member.validate",certDto);
+		if(result !=null) {
+			sqlSession.delete("member.remove",result);
+		}
+		
+		return result !=null;
+
+	}
+
+	@Override
+	public String CertId(String secret) {
+		
+		return sqlSession.selectOne("member.certId",secret);
+	}
+
+	
+	////////////////////////////////
 	
 	
 	
