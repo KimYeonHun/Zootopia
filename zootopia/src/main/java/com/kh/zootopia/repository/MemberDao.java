@@ -10,14 +10,14 @@ public interface MemberDao {
 	
 	void changepw(String member_id);
 	
-	String searchid(String member_name,String email);
+	String  searchid(String member_name,String email);
 	
 	
 	/////////////////////////////
 	// 아이디 찾기 인증 번호
 	void insert(CertDto certDto);
 	boolean validate(CertDto certDto);
-	void clearAll();
+	
 	String CertId(String  secret);
 	
 	///////////////////////////

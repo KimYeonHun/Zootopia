@@ -3,6 +3,8 @@ package com.kh.zootopia.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kh.zootopia.entity.CertDto;
 import com.kh.zootopia.repository.MemberDao;
+import com.kh.zootopia.service.CertService;
 import com.kh.zootopia.service.PassEmailService;
 
 @RestController
@@ -24,6 +27,8 @@ public class HelpController {
 	private MemberDao memberDao;
 	@Autowired
 	private PassEmailService sender;
+	@Autowired 
+	private CertService certService;
 
 	// 회원 비밀번호 찾기
 	@PostMapping("/password")
@@ -46,23 +51,7 @@ public class HelpController {
 			return 0;
 		}
 	}
+	
 
-	// 인증 번호 확인
-	@PostMapping("/certid")
-	public int check(@RequestParam String secret, Model model) {
-
-		String member_id = memberDao.CertId(secret);
-		boolean result = memberDao.validate(CertDto.builder().member_id(member_id).secret(secret).build());
-
-		// 회원 아이디 저장
-
-		if (result == true) {
-			model.addAttribute("member_id", member_id);
-			return 1;
-		} else {
-			return 0;
-		}
-
-	}
 
 }

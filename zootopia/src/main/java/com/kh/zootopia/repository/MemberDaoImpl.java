@@ -41,6 +41,10 @@ public class MemberDaoImpl implements MemberDao{
 		
 	}
 
+	
+	
+	
+	/////////////////////////////////////////
 // 아이디 찾기 
 	@Override
 	public String searchid(String member_name, String email) {
@@ -51,10 +55,6 @@ public class MemberDaoImpl implements MemberDao{
 		return sqlSession.selectOne("member.findid",map);
 	}
 
-
-	
-	
-	/////////////////////////////////////////
 	// 아이디 찾기 랜덤 번호 추가
 	@Override
 	public void insert(CertDto certDto) {
@@ -71,12 +71,6 @@ public class MemberDaoImpl implements MemberDao{
 		
 		return result !=null;
 
-	}
-
-	@Override
-	public void clearAll() {
-		sqlSession.delete("member.clear");
-		
 	}
 
 	@Override
