@@ -42,9 +42,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT * FROM MEMBER WHERE member_id = #{member_id}
 </select>
 
-
-
-
 <select id="findpw" parameterType="map" resultType="int">
 	SELECT count(*) FROM MEMBER 
 	WHERE member_id=#{member_id} AND email=#{email}
@@ -82,7 +79,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="certId" parameterType="certDto" resultType="String">
 SELECT member_id FROM cert WHERE secret=#{secret}
 </select>
-
 
 </mapper>
 
