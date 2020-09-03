@@ -16,13 +16,13 @@ import com.kh.zootopia.entity.grapeVO;
 
 @Controller
 @CrossOrigin("*")
-@RequestMapping("/petsitter")
+@RequestMapping("/member")
 public class petsitterMypageController{
 
 @GetMapping("/petsitterpage")
 
 public String petsitterpage() {
-	return "petsitter/petsitterpage";
+	return "member/petsitterpage";
 }
 @PostMapping("/petsitterpage")
 public List<grapeVO> grpae(){
