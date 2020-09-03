@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		
 		<typeAlias type="com.kh.zootopia.entity.MemberDto" alias="memberDto"/>
-	<typeAlias type="com.kh.zootopia.entity.GallaryDto" alias="gallaryDto"/> 
+	
 	</typeAliases>
 	
 </configuration>
