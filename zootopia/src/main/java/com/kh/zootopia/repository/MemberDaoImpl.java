@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import com.kh.zootopia.entity.CertDto;
@@ -18,6 +19,30 @@ public class MemberDaoImpl implements MemberDao{
 	@Autowired
 	private SqlSession sqlSession;
 	
+	private PasswordEncoder encoder;
+
+	//로그인
+
+	@Override
+	public boolean login(MemberDto memberDto) {
+		//아이디로 회원정보를 가져오고
+		MemberDto find = sqlSession.selectOne("member.get",memberDto.getMember_id());
+		//아이디가 있다면
+		if(find!=null) {
+			//조회된 비밀번호와 입력된비밀번호를 비교
+			boolean pass = encoder.matches(memberDto.getMember_pw(),find.getMember_pw());
+			if(pass) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public MemberDto get(String member_id) {
+		MemberDto find = sqlSession.selectOne("member.get",member_id);
+		return find;
+	}
 
 	
 
