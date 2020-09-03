@@ -3,9 +3,36 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+
+function preview(){
+    //console.log("preview 실행!");
+    
+    var fileTag = document.querySelector("input[name=f]");
+    
+    console.log(fileTag.files);
+    //if(fileTag에 선택된 파일이 있다면){
+    if(fileTag.files.length > 0){
+        //하나라고 가정하고 0번 위치의 파일만 읽어와서 미리보기를 실행!
+        
+        var reader = new FileReader();
+        reader.onload = function(data){//data는 읽은 파일의 내용
+            //미리보기를 구현
+            var imgTag = document.querySelector("img");
+            imgTag.src = data.target.result;
+        };
+        reader.readAsDataURL(fileTag.files[0]);//읽도록 지시
+    }
+    else{//취소한 경우
+        var imgTag = document.querySelector("img");
+        imgTag.src = "";
+    }
+    
+}
+    </script> 
 <style>
    .w3-input {
     padding: 8px;
@@ -37,6 +64,10 @@ margin-left:50%;
 <title>마이페이지</title>
 </head>
 <body>
+
+
+
+
 	<div class="w3-content w3-container w3-margin-top">
 		<div class="w3-container w3-card-4">
 			<div class="w3-center w3-large w3-margin-top">
@@ -46,25 +77,21 @@ margin-left:50%;
 			<div class="w3-container">
 		  <div class="w3-card">
 	<div class="inputArea">
- <input type="file" id="gdsImg" name="file" />
- <div class="select_img"><img src="" /></div>
  
- <script>
-  $("#gdsImg").change(function(){
-   if(this.files && this.files[0]) {
-    var reader = new FileReader;
-    reader.onload = function(data) {
-     $(".select_img img").attr("src", data.target.result).width(500);        
-    }
-    reader.readAsDataURL(this.files[0]);
-   }
-  });
- </script>
+
+ 
+
 </div>
 
 
+<div>
+<label>프로필 사진</label>
+      <img  width="415" height="300">  
 
-    <div class="w3-container">
+ <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
+ onchange="preview();">
+       </div>         
+   
 
 <label>이름</label> 
  <input class="w3-form" type="text" id="name" name="member_name" readonly value="${ member.name }">
@@ -128,5 +155,6 @@ margin-left:50%;
 			</div>
 			</div>
 			</div>
+			
 </body>
 </html>

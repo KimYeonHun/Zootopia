@@ -7,11 +7,8 @@ import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
 public class GallaryDto {
-	private int no;
-	private String title;
-	private String explain;
-	private String fname;
-	private long fsize;
-	private String ftype;
-	private String when;
+	private int PETSITTER_NO;
+	private String pet_file_name;
+	private long pet_file_size;
+	private String pet_file_type;
 }
