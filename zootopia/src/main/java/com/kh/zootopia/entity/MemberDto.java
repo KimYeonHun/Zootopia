@@ -1,3 +1,5 @@
+
+
 package com.kh.zootopia.entity;
 
 import lombok.AllArgsConstructor;
@@ -11,4 +13,9 @@ public class MemberDto {
 	phone,auth,member_name,post,baseaddr,extraaddr,email,
 	gender;
 	
+
 }  
+
+
+
+
