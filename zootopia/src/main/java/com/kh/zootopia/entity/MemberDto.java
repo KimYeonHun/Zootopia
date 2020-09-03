@@ -1,3 +1,5 @@
+
+
 package com.kh.zootopia.entity;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,3 +16,4 @@ public class MemberDto {
 	gender;
 	
 }
+
