@@ -37,7 +37,7 @@ function preview(){
      <script> 
         $(function(){
          
-            $.get("http://localhost:8080/zootopia/petsitter/petsitterpage", function(response){
+            $.get("http://localhost:8080/zootopia/member/petsitterpage", function(response){
                 console.log(response);
            
 
