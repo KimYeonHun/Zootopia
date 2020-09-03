@@ -51,6 +51,12 @@ public class MemberController {
 			return "redirect:login?error";
 		}
 	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
 
 
 // 비밀 번호 찾기 
