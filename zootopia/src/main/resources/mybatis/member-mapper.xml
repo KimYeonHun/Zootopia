@@ -5,10 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="member">
 
-<select id="login" parameterType="memberDto" resultType="memberDto">
-	SELECT * FROM MEMBER 
-	WHERE MEMBER_ID = #{MEMEBER_ID} and MEMBER_PW = #{MEMBER_PW}
-</select>
 
 	<!-- 회원가입  -->
 	<insert id="join" parameterType="memberDto">
@@ -37,12 +33,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{gender}
 		)
 	</insert>
-
-	<select id="get" resultType="memberDto" parameterType="string">
-		SELECT * FROM member WHERE member_id = #{member_id}
-	</select>
-	
-
 
 <select id="login" parameterType="memberDto" resultType="memberDto">
 	SELECT * FROM MEMBER 
