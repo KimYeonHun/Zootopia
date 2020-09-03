@@ -18,8 +18,31 @@ public class MemberDaoImpl implements MemberDao{
 	
 	@Autowired
 	private SqlSession sqlSession;
-	
+
+	@Autowired
 	private PasswordEncoder encoder;
+	
+
+
+	@Override
+	public boolean join(MemberDto memberDto) {
+		
+		MemberDto find = sqlSession.selectOne( "member.get",
+		memberDto.getMember_id());
+		
+		
+		if(find == null) {
+			memberDto.setMember_pw(encoder.encode(memberDto.getMember_pw()));
+			
+			sqlSession.insert("member.join", memberDto);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+
 
 	//로그인
 
@@ -105,7 +128,6 @@ public class MemberDaoImpl implements MemberDao{
 	}
 
 	
-	////////////////////////////////
 	
 	
 	

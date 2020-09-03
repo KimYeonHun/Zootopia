@@ -1,7 +1,11 @@
 package com.kh.zootopia.repository;
 
-import com.kh.zootopia.entity.CertDto;
+
 import com.kh.zootopia.entity.MemberDto;
+
+import com.kh.zootopia.entity.CertDto;
+
+
 
 public interface MemberDao {
 	
@@ -23,6 +27,9 @@ public interface MemberDao {
 	boolean validate(CertDto certDto);
 	
 	String CertId(String  secret);
+
+
+	boolean join(MemberDto memberDto);
 	
-	///////////////////////////
+
 }

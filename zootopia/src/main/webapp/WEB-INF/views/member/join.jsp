@@ -80,6 +80,16 @@
 	        }).open();
 	    }
 	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			 $('#submit').click(function () {
+		          // getter
+		          var radioVal = $('input[name="gender"]:checked').val();
+		          alert(radioVal);
+		        });
+			
+		});
+	</script>
 	        
 </head>
 
@@ -111,34 +121,35 @@
                     </div>
                     <div class="form-group">
                         <label>생년월일</label>
-                        <input type="date" name=" birthday" class="form-control">
+                        <input type="date" name="birthday" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>휴대전화</label>
-                        <input type="text" name=" phone" class="form-control">
+                        <input type="text" name="phone" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>이메일</label>
-                        <input type="text" name=" email" class="form-control">
+                        <input type="text" name="email" class="form-control">
                     </div>
                     <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-info">성별</label>
                             <label class="btn btn-info">
-                                <input type="radio" name="gender" id="option2" autocomplete="off"> 남
+                               <input value="남" type="radio" name="gender" id="option1" autocomplete="off"> 남
                             </label>
                             <label class="btn btn-info">
-                                <input type="radio" name="gender" id="option3" autocomplete="off"> 여
+                                <input value="여" type="radio" name="gender" id="option2" autocomplete="off"> 여
                             </label>
                         </div>
                     </div>
                     <div class="form-group">
                         <input type="button" class="btn btn-info" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br><br>
-                        <input type="text" id="sample6_postcode" placeholder="우편번호" name=" post" class="form-control"><br>
+                        <input type="text" id="sample6_postcode" placeholder="우편번호" name="post" class="form-control"><br>
                     	<span id="guide" style="color:#999;display:none"></span>
-                    	<input type="text" id="sample6_address" placeholder="주소" name=" baseaddr" class="form-control"><br>
-						<input type="text" id="sample6_detailAddress" placeholder="상세주소"  name=" exrtaaddr" class="form-control">
+                    	<input type="text" id="sample6_address" placeholder="주소" name="baseaddr" class="form-control"><br>
+						<input type="text" id="sample6_detailAddress" placeholder="상세주소"  name="extraaddr" class="form-control">
 						<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
+						
                     </div>
                    
 			
@@ -146,7 +157,7 @@
 				
 					
 					
-                    <button type="submit" class="btn btn-info btn-block">로그인</button>
+                    <button id="submit" type="submit" class="btn btn-info btn-block">회원가입</button>
                 </form>
             </div>
         </div>
