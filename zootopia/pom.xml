@@ -223,6 +223,22 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>
+		<!-- 
+			웹소켓 의존성
+			- spring-websocket : 스프링에서 지원하는 웹소켓 모듈
+			- jackson-databind : 자바에서 JSON 관련 처리를 수행하는 모듈 
+		-->
+			<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.11.2</version>
+		</dependency>
 
 <dependency>
 		    <groupId>commons-fileupload</groupId>
