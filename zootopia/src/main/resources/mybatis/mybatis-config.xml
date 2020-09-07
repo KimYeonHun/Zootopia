@@ -24,6 +24,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 		<typeAlias type="com.kh.zootopia.entity.CertDto" alias="certDto"/>
 		
+		<typeAlias type="com.kh.zootopia.entity.PetSitterDto" alias="petSitterDto"/>
+		
+		
 
 	</typeAliases>
 	

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="petsitter">
+
+	<insert id="petsitter_join" parameterType="petSitterDto">
+		INSERT INTO petsitter(
+			petsitter_no,
+			member_id,
+			petsitter_nick,
+			petsitter_career,
+			career_info,
+			available_time,
+			photo,
+			sitter_accept,
+			petsitter_email
+		) VALUES (
+		PETSITTER_seq,
+		#{member_id},
+		#{petsitter_nick},
+		#{petsitter_career},
+		#{career_info},
+		#{available_time},
+		#{photo},
+		#{sitter_accept},
+		#{petsitter_email}
+		)
+	</insert>
+
+
+</mapper>
+
+
+
+
