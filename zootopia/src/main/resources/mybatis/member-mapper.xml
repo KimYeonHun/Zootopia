@@ -6,7 +6,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="member">
 
 
-
 	<!-- 회원가입  -->
 	<insert id="join" parameterType="memberDto">
 		insert into member(
@@ -36,9 +35,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 
+
 	
 <select id="getList"  parameterType="String" resultType="memberDto">
 	select * from member where member_id=#{member_id}
+</select>
+<select id="login" parameterType="memberDto" resultType="memberDto">
+	SELECT * FROM MEMBER 
+	WHERE MEMBER_ID = #{MEMEBER_ID} and MEMBER_PW = #{MEMBER_PW}
+</select>
+<select id="get" resultType="memberDto" parameterType="string">
+	SELECT * FROM MEMBER WHERE member_id = #{member_id}
+
 </select>
 
 <select id="findpw" parameterType="map" resultType="int">
