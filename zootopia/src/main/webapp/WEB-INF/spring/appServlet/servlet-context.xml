@@ -79,10 +79,9 @@
 	-->
 	<interceptors>
 			<interceptor>
-<!-- 				<mapping path="/**"/> -->
-				<mapping path="/mypage/*page"/>
-				<mapping path="/petsitter/**"/>
-				
+				<mapping path="/**"/>
+				<exclude-mapping path="/member/log*"/>
+				<exclude-mapping path="/member/join"/>
 				<beans:bean class="com.kh.zootopia.interceptor.MemberInterceptor"></beans:bean>
 			</interceptor>
 		</interceptors>
