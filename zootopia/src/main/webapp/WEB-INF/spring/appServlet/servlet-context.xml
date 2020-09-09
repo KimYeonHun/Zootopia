@@ -77,6 +77,15 @@
 			</interceptor>
 		</interceptors>
 	-->
+	<interceptors>
+			<interceptor>
+<!-- 				<mapping path="/**"/> -->
+				<mapping path="/mypage/*page"/>
+				<mapping path="/petsitter/**"/>
+				
+				<beans:bean class="com.kh.zootopia.interceptor.MemberInterceptor"></beans:bean>
+			</interceptor>
+		</interceptors>
 
 	
 	

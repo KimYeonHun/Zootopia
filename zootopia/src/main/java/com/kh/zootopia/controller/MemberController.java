@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.kh.zootopia.entity.CertDto;
 
 import com.kh.zootopia.entity.MemberDto;
+import com.kh.zootopia.entity.PetSitterDto;
 import com.kh.zootopia.repository.MemberDao;
 import com.kh.zootopia.service.CertService;
 import com.kh.zootopia.service.PassEmailService;
@@ -34,7 +35,8 @@ public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
 
-	
+	@Autowired
+	private SqlSession sqlSession;
 	
 	
 	//////////////////////////////
@@ -158,5 +160,35 @@ public class MemberController {
 	}
 
 	/////////////////////////////////////////////////
+	
+	
+	////////////펫시터 가입 ^^ ///////////////
+	
+	@GetMapping("/petsitter_join")
+	public String petsitter_join(
+			@RequestParam String member_id,
+			HttpSession session
+			){
+		MemberDto mdto = sqlSession.selectOne("member.getList",member_id);
+		session.setAttribute("userinfo", mdto);
+		
+		return "petsitter/petsitter_join";
+	}
+	
+	@PostMapping("/petsitter_join")
+	public String petsitter_join(
+			HttpSession session,
+			@ModelAttribute PetSitterDto petSitterDto,
+			Model model
+			) {
+		Object member = session.getAttribute("userinfo");
+		model.addAttribute("memberinfo", member);
+		sqlSession.insert("petsitter.petsitter_join",petSitterDto);
+		
+		return  "petsitter/join_result";
+	}
+	
+
+
 
 }
