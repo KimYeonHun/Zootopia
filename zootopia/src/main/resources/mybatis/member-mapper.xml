@@ -37,6 +37,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	
+<select id="getList" parameterType="String" resultType="memberDto">
+	select * from member where member_id=#{member_id}
+</select>
 
 <select id="findpw" parameterType="map" resultType="int">
 	SELECT count(*) FROM MEMBER 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.kh.zootopia.entity.CertDto;
 
@@ -27,6 +28,7 @@ import com.kh.zootopia.service.PassEmailService;
 
 @Controller
 @RequestMapping("/member")
+
 public class MemberController {
 
 	@Autowired
@@ -52,10 +54,11 @@ public class MemberController {
 	@PostMapping("/login")
 	public String login(
 			@ModelAttribute MemberDto memberDto,
-			HttpSession session) {
+			HttpSession session, Model model) {
 		if(memberDao.login(memberDto)) {
 			MemberDto find = memberDao.get(memberDto.getMember_id());
 			session.setAttribute("userinfo", find);
+			
 			return "refirect:/";	
 		}
 		else {
@@ -122,9 +125,9 @@ public class MemberController {
 			// 메일 발송
 			session.setAttribute("member_id", info);
 			return "redirect:check";
-		} else {// 여기는 아이디가 없는곳이죠
-			// model.addAttribute("member_id", info);//그러니까 이코드는 있으나마나입니다(아이디가 없는데니까)
-			return "redirect:findid?error";// 수업때 하던 방식
+		} else {
+		
+			return "redirect:findid?error";
 		}
 	}
 

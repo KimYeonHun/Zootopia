@@ -25,7 +25,7 @@
 	}
 
 	function haveCheck2(chk) {
-		var have = document.getElementsByName("sitter_checklist2");
+		var have = document.getElementsByName("sitter_checklist_two");
 
 		for (j = 0; j < have.length; j++) {
 			if (have[j] != chk) {
@@ -74,36 +74,36 @@
 				</div>
 				<br><br>
 				<div class="offset-lg-2 col-lg-8">
-				<form class="form">
+				<form class="form" action="petsitter_join" method="post">
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">펫시터 활동 시 사용할 닉네임을 입력해주세요</label>  
-				<input type="text" name="petsitter_nick"  class="form-control">
+				<input type="text" name="petsitter_nick"  class="form-control" required>
+				</div>
+				<input type="hidden" name="member_id "value="${memberinfo.member_id}">
+				 <div class="form-group">
+				<label class="font-weight-bold text-primary">본명</label><input type="text"  class="form-control" value="${memberinfo.member_name}">
 				</div>
 				
 				 <div class="form-group">
-				<label class="font-weight-bold text-primary">본명</label><input type="text"  class="form-control" value="${member_name}">
+				<label class="font-weight-bold text-primary">나이</label><input type="text"   class="form-control" value="${memberinfo.birthday}"> 
 				</div>
 				
 				 <div class="form-group">
-				<label class="font-weight-bold text-primary">나이</label><input type="text"   class="form-control" value="${birthday}"> 
-				</div>
-				
-				 <div class="form-group">
-				<label class="font-weight-bold text-primary">성별</label><input type="text"  class="form-control"  value="${gender}">  
+				<label class="font-weight-bold text-primary">성별</label><input type="text"  class="form-control"  value="${memberinfo.gender}">  
 				</div>
 				
 				<div class="form-group">
-				<label class="font-weight-bold text-primary" >연락처</label><input type="text"   class="form-control" value="${phone}">
+				<label class="font-weight-bold text-primary" >연락처</label><input type="text"   class="form-control" value="${memberinfo.phone}">
 				<!--  회원정보 수정 시 수정 할 수 있도록... -->
 				</div>
 				
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">경력사항</label>
-				<textarea name="petsitter_career"  class="form-control " rows="5"></textarea>
+				<textarea name="petsitter_career"  class="form-control " rows="5" required></textarea>
 				</div>
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">자기 소개</label>
-				<textarea name="career_info"  class="form-control" rows="5"></textarea>
+				<textarea name="career_info"  class="form-control" rows="5" required></textarea>
 				</div>
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">돌봄 가능한 요일(중복 선택 가능)</label><br>
@@ -118,7 +118,7 @@
 				
 				<div class="form-group">
 				<label class="font-weight-bold text-primary" >돌봄 가능한 시간대</label>
-				<input type="time" name="start" class="form-control">~<input type="time" name="finish" class="form-control" ><br>
+				<input type="time" name="start" class="form-control" required>~<input type="time" name="finish" class="form-control"  required><br>
 				</div>
 				
 				<div class="form-group">
@@ -137,45 +137,45 @@
 				
 				 
 				
-				 <input type="checkbox"   class="control-input" name="sitter_checklist2" id="join_type" value="20"onclick="haveCheck2(this);">
+				 <input type="checkbox"   class="control-input" name="sitter_checklist_two" id="join_type" value="20"onclick="haveCheck2(this);">
 				 <label for="join_type">8년미만&nbsp;</label><br>
 				 
 				 
-				 <input type="checkbox"  class="control-input" name="sitter_checklist2" id="join_type" value="25" onclick="haveCheck2(this);">
+				 <input type="checkbox"  class="control-input" name="sitter_checklist_two" id="join_type" value="25" onclick="haveCheck2(this);">
 				 <label for="join_type">8년 이상</label><br>
 				 </div>
 				 
 				 <div class="form-group">
 				  <label class="font-weight-bold text-primary">돌봄경험에 해당되는 부분을 체크해주세요(중복 선택 가능)</label><br>
-				 <input type="checkbox" class="control-input"  id="join_type" value="5">
+				 <input type="checkbox" name="sitter_checklist_three" class="control-input"  id="join_type" value="5">
 				 <label>5개월 미만의 반려동물 케어 경험이 있습니다.&nbsp;&nbsp;</label><br>
 				 
-				 <input type="checkbox" class="control-input"  id="join_type" value="10">
+				 <input type="checkbox" name="sitter_checklist_three" class="control-input"  id="join_type" value="10">
 				 <label>15세 이상 노령반려동물 케어 경험이 있습니다.</label><br>
 				 
-				 <input type="checkbox" class="control-input"  id="join_type" value="10">
+				 <input type="checkbox" name="sitter_checklist_three" class="control-input"  id="join_type" value="10">
 				 <label>대형견 반려 경험 혹은 돌봄 경험이 있습니다.&ensp;&nbsp;&nbsp; </label><br>
 				 
-				 <input type="checkbox"  class="control-input" id="join_type" value="10">
+				 <input type="checkbox" name="sitter_checklist_three"  class="control-input" id="join_type" value="10">
 				 <label>문제견 반려 경험 혹은 돌봄 경험이 있습니다.&ensp;&nbsp;&nbsp;</label><br>
 				 
-				  <input type="checkbox"  class="control-input" id="join_type" value="30">
+				  <input type="checkbox"  name="sitter_checklist_three" class="control-input" id="join_type" value="30">
 				  <label>펫시터로 활동한 경험이 있습니다.&emsp; &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;</label><br>
 				  </div>
 				  
 				  <div class="form-group">
 				  <label class="font-weight-bold text-primary">[강아지]강아지가 경계하거나 이빨을 보이며 공격하려는 경우 어떻게 대처하실건가요?</label>
-				 <textarea name="sitter_checklist3"  class="form-control" rows="5"></textarea>
+				 <textarea name="sitter_checklist_four"  class="form-control" rows="5"></textarea>
 				 </div>
 				 
 				 <div class="form-group">
 				 <label class="font-weight-bold text-primary">[고양이]돌봄중 고양이가 나오지 않고 숨어만 있다면 어떻게 하시겠습니까?</label>
-				 <textarea name="sitter_checklist4"  class="form-control" rows="5"></textarea>
+				 <textarea name="sitter_checklist_five"  class="form-control" rows="5"></textarea>
 				</div>
 				
 				<div class="form-group">
-				<label class="font-weight-bold text-primary">돌봄에 있어 가장 중요하게 생각하는 부분에 대해서 설명해주세요.</label> 
-				<textarea  class="form-control" rows="5"></textarea>
+				<label class="font-weight-bold text-primary">돌봄에 있어 가장 중요하게 생각하는 부분에 대해서 설명해주세요.</label>
+				<textarea  class="form-control" rows="5" name="sitter_checklist_six"  required></textarea>
 				</div>
 				
 				<button type="submit" class="btn btn-primary ">펫시터 지원</button>

@@ -8,13 +8,16 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"integrity="sha512-VGxuOMLdTe8EmBucQ5vYNoYDTGijqUsStF6eM7P3vA/cM1pqOwSBv/uxw94PhhJJn795NlOeKBkECQZ1gIzp6A=="crossorigin="anonymous">
+	</script>
 
 	<script>
 		function findPW(){
 			
 			var id = document.querySelector(".member_id").value;
 			var email=document.querySelector(".email").value;
-
+			
 			
 			axios({
 				url:"${pageContext.request.contextPath}/help/password?member_id="+id+"&email="+email,
@@ -39,22 +42,36 @@
 			}		
 	</script>
 
+	<style>
+		#wrap{
+			margin-top:250px;
+		}
+		#findTitle{
+			margin-bottom:50px;
+		}
+	</style>
 
-
-	<div class="continer-fluid">
-		<div>
-    <h1> 비밀번호 찾기</h1>
+	<div class="continer-fluid text-center" id="wrap">
+		<div class="row">
+		<div class="offset-4 col-4">
+		
+    <h2 class="text-primary" id="findTitle"> 비밀번호 찾기</h2>
     
-
- 
-    	<input type="text" class="member_id" name="member_id"placeholder="아이디">
-    	<input type="text" class="email" name="email"placeholder="이메일">
+	<div class="form">
+	<div class="form-group">
+    	<input type="text" class="member_id form-control" name="member_id"placeholder="아이디"  required>
+    	</div>
+    	<div class="form-group">
+    	<input type="text" class="email form-control" name="email"placeholder="이메일" required>
+  	</div>
     	
     	
     	
-    	<button class="btn btn-primary " onclick="findPW();"><span class="spinner-border"></span>비밀번호 찾기</button>
-	</div>
+    	<button class="btn btn-primary " onclick="findPW();">비밀번호 찾기</button>
+      </div>
 </div>
+   	</div>
+	</div>
    
    
    
