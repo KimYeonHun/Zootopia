@@ -2,6 +2,7 @@ package com.kh.zootopia.repository;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,11 +85,14 @@ public class MemberDaoImpl implements MemberDao{
 
 	// 비밀번호 변경
 	@Override
-	public void changepw(String member_id) {
-		sqlSession.update("member.changepw", member_id);
+	public void changepw(String member_id, String member_pw) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("member_id", member_id);
+		map.put("member_pw", member_pw);
+		
+		sqlSession.update("member.changepw", map);
 		
 	}
-
 	
 	
 	
