@@ -100,9 +100,17 @@ margin-left:50%;
 <input class="w3-form" type="text" id="auth" name="auth" readonly value="${ member.auth}">
     </div>
 
-
+     <div>
+     <div class="w3-container">
+		  <div class="w3-card">
+	<div class="inputArea">
+ 
+<a href="pet" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">MY 펫 </a>
+</div>
   </div>
-  <br>
+  </div>
+  </div>
+  
 			<div>
 				<form id="member" action="../member/mypage" method="post">
 					
