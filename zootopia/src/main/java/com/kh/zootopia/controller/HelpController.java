@@ -32,6 +32,7 @@ public class HelpController {
 	private PassEmailService sender;
 	@Autowired
 	private PasswordEncoder encoder;
+
 	@Autowired
 	private SqlSession sqlSession;
 	// 회원 비밀번호 찾기
@@ -42,20 +43,22 @@ public class HelpController {
 		if (user == 1) {
 			// 1. 파라미터 값으로 아이디와 이메일을 받는다
 //			int info =memberDao.searchpw(member_id,email);
-
+			
 			// 2. 정보가 일치하면 비밀번호 변경
-			
-			
-			
+		
+			// 임시비밀번호 생성
 			String member_pw = random();
-			memberDao.changepw(member_id,member_pw);
 			
-			MemberDto memberDto = sqlSession.selectOne("member.getList",member_id);
-			String enc = encoder.encode(memberDto.getMember_pw());
-			memberDto.setMember_pw(enc);
-
-			// 3. 변경된 비밀번호를 이메일로 발송
+			// 암호화 되기 전 내용 메일로 발송
 			sender.sendSimpleMessage(email, "[zootopia] 임시 비밀번호 발급 안내 입니다", "임시 비밀번호: "+member_pw);
+			// 서버에서는 암호화 저장 
+			String enc=encoder.encode(member_pw);
+			memberDao.changepw(member_id,enc); // DB에 들어갈 비밀번호를 암호화 
+			
+			
+			
+			// 3. 변경된 비밀번호를 이메일로 발송
+			
 
 			return 1;
 		} else {

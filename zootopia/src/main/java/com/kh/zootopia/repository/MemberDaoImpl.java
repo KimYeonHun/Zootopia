@@ -90,6 +90,8 @@ public class MemberDaoImpl implements MemberDao{
 		map.put("member_id", member_id);
 		map.put("member_pw", member_pw);
 		
+		
+		
 		sqlSession.update("member.changepw", map);
 		
 	}
