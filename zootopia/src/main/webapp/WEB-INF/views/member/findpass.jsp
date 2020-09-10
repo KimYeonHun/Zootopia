@@ -49,6 +49,12 @@
 		#findTitle{
 			margin-bottom:50px;
 		}
+		
+		#login-wrap{
+			margin-top: 100px;
+			margin-left:10px;
+		
+		}
 	</style>
 
 	<div class="continer-fluid text-center" id="wrap">
@@ -68,6 +74,13 @@
     	
     	
     	<button class="btn btn-primary " onclick="findPW();">비밀번호 찾기</button>
+      </div>
+      
+      <div class="row" id="login-wrap">
+      <div class="offset-2 col-8">
+      		<a class="btn btn-info " href="${pageContext.request.contextPath}/">메인화면</a>
+      		&emsp;<a class="btn btn-info" href="${pageContext.request.contextPath}/member/login">로그인 하러 가기</a>
+      		</div>
       </div>
 </div>
    	</div>

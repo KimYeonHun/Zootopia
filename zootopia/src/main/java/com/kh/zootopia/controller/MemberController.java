@@ -157,8 +157,11 @@ public class MemberController {
 	@GetMapping("/result_id")
 	public String result_id(Model model, HttpSession session) {
 		String member_id = (String) session.getAttribute("member_id");
-		model.addAttribute("member_id", member_id);
-		return "cert/certid_result";
+	
+			model.addAttribute("member_id", member_id);
+			return "cert/certid_result";
+		
+		
 	}
 
 	/////////////////////////////////////////////////
