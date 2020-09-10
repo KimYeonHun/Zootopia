@@ -128,8 +128,8 @@
      <!--
 		단방향 암호화 중에서 BCrypt라는 방식을 쓸 수 있도록  해주는 도구
 	-->
-		<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
-	</bean>
+<!-- 		<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"> -->
+<!-- 	</bean> -->
 	
      
      
