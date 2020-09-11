@@ -100,7 +100,6 @@
      	<context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
      </context:component-scan> 
      
-     <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
      
      <!-- 
      	스케줄러 사용 설정
@@ -123,21 +122,6 @@
      	- @Aspect 과 그 하위 어노테이션을 활성화
       -->
      <aop:aspectj-autoproxy/>
-     
-     
-     <!--
-		단방향 암호화 중에서 BCrypt라는 방식을 쓸 수 있도록  해주는 도구
-	-->
-<!-- 		<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"> -->
-<!-- 	</bean> -->
-	
-     
-     
-     
-     
-     
-     
-     
      
 
 </beans>
