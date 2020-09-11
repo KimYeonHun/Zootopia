@@ -5,10 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="member">
 
-<select id="login" parameterType="memberDto" resultType="memberDto">
-	SELECT * FROM MEMBER 
-	WHERE MEMBER_ID = #{MEMEBER_ID} and MEMBER_PW = #{MEMBER_PW}
-</select>
 
 	<!-- 회원가입  -->
 	<insert id="join" parameterType="memberDto">
@@ -38,12 +34,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</insert>
 
-	<select id="get" resultType="memberDto" parameterType="string">
-		SELECT * FROM member WHERE member_id = #{member_id}
-	</select>
-	
-
-
 <select id="login" parameterType="memberDto" resultType="memberDto">
 	SELECT * FROM MEMBER 
 	WHERE MEMBER_ID = #{MEMEBER_ID} and MEMBER_PW = #{MEMBER_PW}
@@ -51,9 +41,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="get" resultType="memberDto" parameterType="string">
 	SELECT * FROM MEMBER WHERE member_id = #{member_id}
 </select>
-
-
-
 
 <select id="findpw" parameterType="map" resultType="int">
 	SELECT count(*) FROM MEMBER 
@@ -92,7 +79,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="certId" parameterType="certDto" resultType="String">
 SELECT member_id FROM cert WHERE secret=#{secret}
 </select>
-
 
 </mapper>
 

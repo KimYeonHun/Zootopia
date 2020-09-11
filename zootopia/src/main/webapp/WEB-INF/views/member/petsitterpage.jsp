@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <script>
-
 function preview(){
     //console.log("preview 실행!");
     
@@ -38,7 +37,7 @@ function preview(){
      <script> 
         $(function(){
          
-            $.get("http://localhost:8080/zootopia/petsitter/petsitterpage", function(response){
+            $.get("http://localhost:8080/zootopia/member/petsitterpage", function(response){
                 console.log(response);
            
 
@@ -168,10 +167,7 @@ margin-left:50%;
 	<div class="inputArea">
 
 
- 
-
-
- <canvas id="chart"></canvas>
+ <canvas width="442" height="221" class="chartjs-render-monitor" id="chart" style="width: 442px; height: 221px; display: block;"></canvas>
     </div>
      
      
