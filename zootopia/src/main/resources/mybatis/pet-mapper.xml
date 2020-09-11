@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pet">
+
+<insert id="insertPet">
+        insert into
+        pet(
+            pet_name,
+            pet_gender,
+            pet_kind,
+            pet_type,
+            pet_age ,
+            pet_size,
+            pet_total,
+            pet_intro,
+            pet_vaccin,
+            pet_toilet)
+        values(
+            #{pet_name},
+             #{pet_gender},
+             #{pet_kind},
+             #{pet_type},
+             #{pet_age },
+             #{pet_size},
+             #{pet_total},
+             #{pet_intro},
+             #{pet_vaccin},
+            #{pet_toilet} ,
+            )
+            
+    </insert>
+    
+    <update id="updatePet">
+        update pet set
+            pet_name = #{pet_name}
+            ,pet_gender = #{pet_gender}
+            ,pet_kind  = #{pet_kind}
+            ,pet_type = #{pet_type}
+            ,pet_age  = #{pet_age}
+            ,pet_size = #{pet_size}
+            ,pet_total = #{pet_total}
+            ,pet_intro = #{pet_intro }
+            ,pet_vaccin = #{pet_vaccin}
+            ,pet_toilet = #{pet_toilet})
+        where
+            member_id = #{member_id}
+    </update>
+    
+    <delete id="deletePet">
+        delete from pet
+        where
+           member_id = #{member_id}
+    </delete>
+   
+    </mapper>
