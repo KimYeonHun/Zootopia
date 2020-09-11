@@ -49,18 +49,6 @@
                         <input type="text" name="pet_name" class="form-control">
                     </div>
                    
-                   <div class="form-group">
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-info">종류</label>
-                            <label class="btn btn-info">
-                               <input value="강아지" type="radio" name="pet_type" id="option1" autocomplete="off"> 강아지
-                            </label>
-                            <label class="btn btn-info">
-                                <input value="고양이" type="radio" name="pet_type" id="option2" autocomplete="off"> 고양이
-                            </label>
-                        </div>
-                    </div>
-
                     <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-info">성별</label>
@@ -72,11 +60,25 @@
                             </label>
                         </div>
                     </div>
-                 
+                    
                     <div class="form-group">
                         <label>품종</label>
-                        <input type="text" name="pet_type" class="form-control">
+                        <input type="text" name="pet_kind" class="form-control">
                     </div>
+                    
+                   <div class="form-group">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-info">종류</label>
+                            <label class="btn btn-info">
+                               <input value="반려견" type="radio" name="pet_type" id="option1" autocomplete="off">반려견
+                            </label>
+                            <label class="btn btn-info">
+                                <input value="반려묘" type="radio" name="pet_type" id="option2" autocomplete="off">반려묘
+                            </label>
+                        </div>
+                    </div>
+
+                 
                     <div class="form-group">
                         <label>펫 나이</label>
                         <input type="number" name="pet_age" class="form-control">
@@ -98,7 +100,7 @@
                             
                            <div class="form-group">
                         <label>펫수</label>
-                        <input type="number" name="pet_count" class="form-control">
+                        <input type="number" name="pet_total" class="form-control">
                     </div>
                    
                      <label>세부 사항</label>
