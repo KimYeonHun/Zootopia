@@ -56,7 +56,10 @@ public class MemberController {
 		if(memberDao.login(memberDto)) {
 			MemberDto find = memberDao.get(memberDto.getMember_id());
 			session.setAttribute("userinfo", find);
-			return "redirect:/";	
+
+
+			return "redirect:/test/home";	
+
 		}
 		else {
 			return "redirect:login?error";
