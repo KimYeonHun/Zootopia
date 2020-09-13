@@ -72,4 +72,8 @@ public class TestController {
 			}
 	}
 //////////성공///////////////////////
+	@GetMapping("/chattest")
+	public String chattest() throws Exception{
+		return"test/chattest";	
+	}
 }
