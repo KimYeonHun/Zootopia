@@ -14,9 +14,9 @@ public class PetServiceImpl implements PetDao {
 	    private SqlSession sqlSession;
 	    
 	 @Override
-	    public void insertPet(PetDto PetDto) {
-	       PetDao.insertPet = sqlSession.getMapper(PetMapper.class);
-
+	    public void insertPet(PetDto PetDto) throws Exception {
+		 PetMapper mapper = sqlSession.getMapper( PetMapper.class);
+	        mapper.insertPet(PetDto);
 	    }
 	 
 	    public void updatePet(PetDto PetDto) throws Exception {

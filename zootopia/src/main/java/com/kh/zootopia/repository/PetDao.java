@@ -6,13 +6,19 @@ public interface PetDao {
 
 
 
+PetMapper insertPet = null;
+
 // pet 등록
- public void insertBoard(PetDto PetDto ) throws Exception;
+void insertPet(PetDto PetDto ) throws Exception;
     
     // pet 수정
- public void updateBoard(PetDto  PetDto ) throws Exception;
+void updatePet(PetDto  PetDto ) throws Exception;
     
     // pet 삭제
- public void deleteBoard(PetDto  PetDto ) throws Exception;
+void deletePet(PetDto  PetDto ) throws Exception;
+
+
+
+
  
 }
