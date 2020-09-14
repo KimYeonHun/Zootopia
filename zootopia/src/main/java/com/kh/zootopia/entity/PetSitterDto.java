@@ -8,8 +8,13 @@ import lombok.NoArgsConstructor;
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
 public class PetSitterDto {
 
-	private int petsitter_no;
-	private String member_id,petsitter_nick,petsitter_career,career_info,available_time,
-	sitter_checklist,sitter_checklist_two,sitter_checklist_three,sitter_checklist_four,sitter_checklist_five,sitter_checklist_six,photo,sitter_accept,petsitter_email;
+	private int petsitter_no,sitter_checklist,sitter_checklist_two,care_one,care_two,care_three,
+	care_four,care_five;
+	
+	private String member_id,petsitter_nick,petsitter_career,career_info,available_start_time,available_finish_time,
+	sitter_checklist_four,sitter_checklist_five,sitter_checklist_six,sitter_accept;
+	
+	
+	private String monday,tuesday ,wednesday ,thursday ,friday ,saturday ,sunday; 
 	
 }

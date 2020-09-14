@@ -6,41 +6,81 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="petsitter">
 
 	<insert id="petsitter_join" parameterType="petSitterDto">
+	
 		INSERT INTO petsitter(
 			petsitter_no,
 			member_id,
 			petsitter_nick,
 			petsitter_career,
 			career_info,
-			available_day,
-			available_time,
+			monday,
+			tuesday ,
+			wednesday ,
+			thursday ,
+			friday ,
+			saturday ,
+			sunday,
+			available_start_time,
+			available_finish_time,
 			sitter_checklist,
 			sitter_checklist_two,
-			sitter_checklist_three,
+			care_one,
+			care_two,
+			care_three,
+			care_four,
+			care_five,
 			sitter_checklist_four,
 			sitter_checklist_five,
 			sitter_checklist_six,
-			photo,
-			sitter_accept,
-			petsitter_email
+			sitter_accept
 		) VALUES (
-		PETSITTER_seq.nextval,
+		#{petsitter_no},
 		#{member_id},
 		#{petsitter_nick},
 		#{petsitter_career},
 		#{career_info},
-		#{available_time},
+		#{monday},
+		#{tuesday},
+		#{wednesday},
+		#{thursday},
+		#{friday},
+		#{saturday},
+		#{sunday},
+		to_date(#{available_start_time}, 'hh24:mi'),
+		to_date(#{available_finish_time}, 'hh24:mi'),
 		#{sitter_checklist},
 		#{sitter_checklist_two},
-		#{sitter_checklist_three},
+		#{care_one},
+		#{care_two},
+		#{care_three},
+		#{care_four},
+		#{care_five},
 		#{sitter_checklist_four},
 		#{sitter_checklist_five},
 		#{sitter_checklist_six},
-		#{photo},
-		#{sitter_accept},
-		#{petsitter_email}
+		'미승인'
+		
 		)
 	</insert>
+	
+	
+	<insert id="sitter_file" parameterType="petFileDto">
+		insert into pet_file(
+		petsitter_no,
+		pet_file_name,
+		pet_file_size,
+		pet_file_type
+		) values(
+		#{petsitter_no},
+		#{pet_file_name},
+		#{pet_file_size},
+		#{pet_file_type}
+		)
+	</insert>
+	
+	<select id="getSeq" resultType="int">
+		select PETSITTER_seq.nextval from dual
+	</select>
 
 
 </mapper>

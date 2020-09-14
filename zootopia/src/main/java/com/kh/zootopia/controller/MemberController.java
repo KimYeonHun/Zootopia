@@ -35,8 +35,7 @@ public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
 
-	@Autowired
-	private SqlSession sqlSession;
+
 	
 	
 	//////////////////////////////
@@ -60,7 +59,7 @@ public class MemberController {
 		if(memberDao.login(memberDto)) {
 			MemberDto find = memberDao.get(memberDto.getMember_id());
 			session.setAttribute("userinfo", find);
-
+			
 			
 			return "redirect:/";	
 
