@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.zootopia.entity.PetDto;
 
-@Service("petDaoService")
+@Service("petService")
 public class PetServiceImpl implements PetDao {
 	
 	
