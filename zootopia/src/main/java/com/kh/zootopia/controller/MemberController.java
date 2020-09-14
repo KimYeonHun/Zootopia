@@ -63,6 +63,7 @@ public class MemberController {
 			
 			return "redirect:/";	
 
+
 		}
 		else {
 			return "redirect:login?error";

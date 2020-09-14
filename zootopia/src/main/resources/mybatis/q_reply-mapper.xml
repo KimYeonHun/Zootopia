@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="q_resply">
+	
+	<!-- 시퀀스 생성  -->
+	<select id="getSeq" resultType="int">
+		select qr_no_seq.nextval from dual
+	</select>
+	
+	<!-- 댓글 등록 -->
+	
+	<insert id="write" parameterType="q_replyDto">
+		insert into q_reply(
+			q_board_no,
+			qr_no,	
+			qr_content,
+			qr_writer,
+			qr_regdate
+		) values(
+			#{q_board_no}, <!-- dao에서 불러올거 -->
+			#{qr_no},	 <!-- 시퀀스 번호 생성으로 작동으로 들어갈거  -->
+			#{qr_content},	
+			#{qr_writer},	<!-- 작성자 세션으로 불러올거 -->
+			sysdate			
+		)
+		
+		
+		
+	</insert>
+	
+	<select id="get" resultType="q_replyDto" parameterType="int">
+		SELECT * FROM q_board WHERE q_board_no = #{q_board_no}
+	</select>
+	<update id="read" parameterType="int">
+		UPDATE q_board 
+		SET q_read = q_read+1
+		WHERE q_board_no=#{q_board_no}
+	</update>
+	
+	
+	<select id="getList" resultType="q_replyDto" parameterType="int">
+		SELECT * FROM
+		q_board B INNER JOIN q_reply R
+		ON b.Q_BOARD_NO=r.Q_BOARD_NO WHERE b.Q_BOARD_NO=#{q_board_no}
+		ORDER BY r.qr_regdate DESC
+	</select>
+	
+	
+	
+</mapper>
+
+
+
+

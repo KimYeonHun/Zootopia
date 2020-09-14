@@ -4,7 +4,7 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 가입</title>
 
@@ -82,10 +82,8 @@
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			 $('#submit').click(function () {
-		          // getter
-		          var radioVal = $('input[name="gender"]:checked').val();
-		          alert(radioVal);
+			 $('#submit').click(function () {   
+		          var radioVal = $('input[name="gender"]:checked').val();   
 		        });
 			
 		});
