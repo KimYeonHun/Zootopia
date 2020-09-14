@@ -76,4 +76,12 @@ public class TestController {
 	public String chattest() throws Exception{
 		return"test/chattest";	
 	}
+	@GetMapping("chattest2")
+	public String chattest2() throws Exception{
+		return"test/chattest2";
+	}
+	@GetMapping("chattest3")
+	public String chattest3() throws Exception{
+		return"test/chattest3";
+	}
 }

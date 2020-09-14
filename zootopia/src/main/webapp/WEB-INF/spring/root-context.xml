@@ -5,7 +5,9 @@
 	xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
@@ -71,7 +73,7 @@
 
 	<!-- 필터는 DispatcherServlet과 동일한 시점에 생겨야 하므로 전역 설정파일(root-context.xml)에 생성 -->
 <!-- 	<bean id="testFilter" class="com.kh.spring16.filter.TestFilter"></bean> -->
-
+<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
     <!-- 
 		이메일 전송 도구를 등록
 	 -->

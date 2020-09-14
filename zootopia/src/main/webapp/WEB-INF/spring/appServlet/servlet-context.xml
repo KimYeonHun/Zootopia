@@ -79,7 +79,16 @@
 	-->
 
 	
-	
+	<!-- 
+		웹소켓 작업을 처리하는 서버를 등록
+		- websocket 관련 설정 태그가 필요(namespace를 추가)
+	 -->
+<beans:bean id="ChatServer" class="com.kh.zootopia.websocket.WebsocketChatServer"></beans:bean>
+   <websocket:handlers>
+
+      <!-- 접속주소는 ws://localhost:8080/zootopia/chattest2 -->
+      <websocket:mapping handler="ChatServer" path="/chattest2"/>
+   </websocket:handlers>
 	
 </beans:beans>
 
