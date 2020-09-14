@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</insert>
 	
-	<select id="get" resultType="q_boardDto" parameterType="int">
+	<select id="get" resultType="q_replyDto" parameterType="int">
 		SELECT * FROM q_board WHERE q_board_no = #{q_board_no}
 	</select>
 	<update id="read" parameterType="int">
@@ -41,7 +41,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	
-	
+	<select id="getList" resultType="q_replyDto" parameterType="int">
+		SELECT * FROM
+		q_board B INNER JOIN q_reply R
+		ON b.Q_BOARD_NO=r.Q_BOARD_NO WHERE b.Q_BOARD_NO=#{q_board_no}
+		ORDER BY r.qr_regdate DESC
+	</select>
 	
 	
 	
