@@ -52,6 +52,14 @@ public class PetSitterDaoImpl implements PetSitterDao {
 		
 	}
 
+	@Override
+	public int getNick(String  petsitter_nick) throws Exception {
+		
+		int result = sqlSession.selectOne("petsitter.getNick",petsitter_nick);
+		
+		return result;
+	}
+
 
 
 	

@@ -18,6 +18,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script type="text/javascript">
+
+// 다중 체크박스 (하나만 선택되게 하기)
 	function haveCheck1(chk) {
 		var have = document.getElementsByName("sitter_checklist");
 
@@ -28,7 +30,7 @@
 
 		}
 	}
-
+	// 다중 체크박스 (하나만 선택되게 하기)
 	function haveCheck2(chk) {
 		var have = document.getElementsByName("sitter_checklist_two");
 
@@ -175,13 +177,11 @@
 		
 
 	
-
-	
 </script>
 <style>
 
 	textarea{
-		 resize: none
+		 resize: none;
 	}
 	
 	#wrap{
@@ -191,6 +191,7 @@
 	.select_img img {
 		margin:20px 0;
 	}
+	
 </style>
 
 
@@ -227,7 +228,8 @@
 				<input type="hidden" name="member_id "value="${userinfo.member_id}">
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">펫시터 활동 시 사용할 닉네임을 입력해주세요</label>  
-				<input type="text" name="petsitter_nick"  class="form-control" required>
+				<input type="text" name="petsitter_nick"  id="petsitter_nick"class="form-control" required>
+<!-- 				<button class="btn btn-primary"  type="button" id="nickChk"  value="N" >중복 확인</button> -->
 				</div>
 				
 				 <div class="form-group">
@@ -395,8 +397,14 @@
 				</form>
 				</div>
 				</div>
-			
-		
+			<c:if test="${param.overlap !=null}">
+				<script>
+				
+						alert("중복체크는 나중에!");
+				
+				</script>
+<!-- 				<div><h6 class="font-weight-bold text-danger">이미지를 등록해주세요</h6></div> -->
+				</c:if>
 		
 	</div>
 

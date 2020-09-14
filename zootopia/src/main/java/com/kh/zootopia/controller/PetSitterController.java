@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.zootopia.entity.MemberDto;
@@ -53,21 +54,26 @@ public class PetSitterController {
 			@ModelAttribute PetFileDto petFileDto,
 			@RequestParam MultipartFile photo
 			
-			) throws IllegalStateException, IOException {
+			) throws Exception {
 
-//		 MemberDto memberInfo= (MemberDto)session.getAttribute("memberInfo");
+	
+		int result = petSitterDao.getNick(petSitterDto.getPetsitter_nick());
 		
-//	     petSitterDao.getSeq(petSitterDto);
-		 // 번호를 뽑고 
-		
-		 
-			if(photo.getSize()!=0) {
+		if(result==0) { // 닉네임이 중복이 아닐때
+			
+			if(photo.getSize()!=0) {// 아이디가 중복아니고 사진이 들어있을 때
 				
 				petSitterDao.photo(petFileDto, photo, petSitterDto);
-				 return  "redirect:petsitter_result";
+			}else {
+				return "redirect:petsitter_join?error";	
 			}
+			return  "redirect:petsitter_result";
+		}else { //중복일 때
 			
-			return "redirect:petsitter_join?error";
+			return "redirect:petsitter_join?overlap";
+		}
+	
+		
 		
 	}
 	
@@ -77,7 +83,14 @@ public class PetSitterController {
 		return "petsitter/petsitter_result";
 	}
 	
-	
+//	
+//	@PostMapping("/getnick")
+//	@ResponseBody
+//	public int getNick(String  petsitter_nick) throws Exception {
+//		int result = petSitterDao.getNick(petsitter_nick);
+//		return result ;
+//	}
+//	
 	
 
 
