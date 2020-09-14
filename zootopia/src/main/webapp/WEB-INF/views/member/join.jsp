@@ -82,10 +82,8 @@
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			 $('#submit').click(function () {
-		          // getter
-		          var radioVal = $('input[name="gender"]:checked').val();
-		          alert(radioVal);
+			 $('#submit').click(function () {   
+		          var radioVal = $('input[name="gender"]:checked').val();   
 		        });
 			
 		});
