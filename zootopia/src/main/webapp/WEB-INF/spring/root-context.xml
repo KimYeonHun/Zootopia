@@ -100,7 +100,6 @@
      	<context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
      </context:component-scan> 
      
-     <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
      
      <!-- 
      	스케줄러 사용 설정
@@ -123,17 +122,6 @@
      	- @Aspect 과 그 하위 어노테이션을 활성화
       -->
      <aop:aspectj-autoproxy/>
-     
-     
-     
-	
-     
-     
-     
-     
-     
-     
-     
      
 
 </beans>

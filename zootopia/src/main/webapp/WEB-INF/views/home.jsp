@@ -70,7 +70,9 @@
 			<div class="col-md-offset-2 col-md-8 col-sm-12">
 				<div class="home-thumb">
 					<h1 class="wow fadeInUp" data-wow-delay="0.4s">ZOOTOPIA</h1>
+
           			<c:if test="${not empty userinfo eq 'false'}">
+
           			<a href="member/login" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그인</a>
 	                <a href="member/join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">회원가입</a>
 					</c:if>
