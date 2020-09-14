@@ -42,6 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="get" resultType="q_boardDto" parameterType="int">
 		SELECT * FROM q_board WHERE q_board_no = #{q_board_no}
 	</select>
+	
 	<update id="read" parameterType="int">
 		UPDATE q_board 
 		SET q_read = q_read+1
@@ -49,9 +50,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	
-	
-	
-	<!-- 게시글 목록 -->
 	<select id="getList" resultType="q_boardDto">
 		SELECT * FROM q_board 
 		ORDER BY q_board_no DESC
@@ -71,8 +69,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 		ORDER BY q_board_no DESC
 	</select>
+	 
+	<update id="q_update" parameterType="q_boardDto">
+
+	UPDATE q_board SET
+	 q_title=#{q_title},
+	  q_content=#{q_content},
+	  q_when=sysdate
+	WHERE q_board_no =#{q_board_no}
 	
-	
+   </update>
 	
 	
 </mapper>

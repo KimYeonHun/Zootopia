@@ -30,4 +30,22 @@ public class Q_BoardDaoImpl implements Q_BoardDao{
 		return q_boardDto;
 	}
 
+
+	@Override
+	public Q_BoardDto get(int q_board_no) {
+		Q_BoardDto q_boardDto = sqlSession.selectOne("q_board.get", q_board_no);
+		return q_boardDto;
+	}
+
+
+	@Override
+	public void q_update(Q_BoardDto q_boardDto) {
+		sqlSession.update("q_board.q_update", q_boardDto);
+	}
+	
+	
+	
+
+	
+
 }

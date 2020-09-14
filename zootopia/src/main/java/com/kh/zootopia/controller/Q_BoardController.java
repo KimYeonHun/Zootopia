@@ -38,42 +38,55 @@ public class Q_BoardController {
 	@Autowired
 	private Q_ReplyDao q_replyDao;
 	
-	@GetMapping("/write")
+	@GetMapping("/q_write")
 	public String write() {
-		return "q_board/write";
+		return "q_board/q_write";
 	}
 	
-	@PostMapping("/write")
+	@PostMapping("/q_write")
 	public String write(
 			HttpSession session,
 			@ModelAttribute Q_BoardDto q_boardDto,
 			RedirectAttributes attr) {
-		MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
+		 MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
 		q_boardDto.setMember_id(userinfo.getMember_id());
 		int no = q_boardDao.write(q_boardDto);
 		attr.addAttribute("q_board_no",no);
-		return "redirect:content";
+		return "redirect:q_content";
 	}
 	
-	@GetMapping("/content")
+	@GetMapping("/q_content")
 	public String content(
 			@RequestParam int q_board_no,
 			Model model) {
 		Q_BoardDto q_boardDto = q_boardDao.read(q_board_no);
 		model.addAttribute("q_boardDto", q_boardDto);
 		
+		
+		System.out.println("----------------------");
+		System.out.println(q_board_no);
+		
+		List<Q_ReplyDto> list = sqlSession.selectList("q_resply.getList", q_board_no);
+		System.out.println(list.toString());
+		model.addAttribute("list", list);
+		
 		return "q_board/q_content";
 	}
 	
 	
 	
-	@GetMapping("/list")
+	@GetMapping("/q_list")
 	public String list(Model model) {
 		List<Q_BoardDto> list = sqlSession.selectList("q_board.getList");
 		model.addAttribute("list", list);
-		
-//		return "/WEB-INF/views/board/list.jsp";
-		return "q_board/list";
+		return "q_board/q_list";
+	}
+	
+	@GetMapping("/q_list_data")
+	@ResponseBody
+	public List<Q_BoardDto> listData(Model model) {
+		List<Q_BoardDto> list = sqlSession.selectList("q_board.getList");
+		return list;
 	}
 	
 	@PostMapping("/search")
@@ -89,7 +102,7 @@ public class Q_BoardController {
 		List<Q_BoardDto> list = sqlSession.selectList("q_board.search", param);
 		model.addAttribute("list", list);
 		
-		return "q_board/list";
+		return "q_board/q_list";
 	}
 	
 	@RequestMapping("/union")
@@ -106,7 +119,7 @@ public class Q_BoardController {
 		List<Q_BoardDto> list = sqlSession.selectList("q_board.unionList", map);
 		model.addAttribute("list", list);
 		
-		return "q_board/list";
+		return "q_board/q_list";
 	}
 	
 	@PostMapping("/reply")
@@ -118,27 +131,50 @@ public class Q_BoardController {
 			@ModelAttribute Q_ReplyDto q_replyDto
 			) {
 		
-		System.out.println("----------------------------------------------------------------");
-		System.out.println(qr_content);
-		System.out.println(q_board_no);
+//		System.out.println(qr_content);
+//		System.out.println(q_board_no);
 		MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
-		System.out.println("작성자"+userinfo.getMember_id());
+//		System.out.println("작성자"+userinfo.getMember_id());
 		int no = sqlSession.selectOne("q_resply.getSeq");
-		System.out.println("리플 번호" + no);
+//		System.out.println("리플 번호" + no);
 		
 		q_replyDto.setQ_board_no(q_board_no);
 		q_replyDto.setQr_no(no);
 		q_replyDto.setQr_content(qr_content);
 		q_replyDto.setQr_writer(userinfo.getMember_id());
 		
-		sqlSession.insert("q_resply.write", q_replyDto);
+		try {
+			sqlSession.insert("q_resply.write", q_replyDto);
+			return "success";
+		} catch(Exception e) {
+			return "fail";
+		}
 		
-		return "success";
+		
+		
 
 	}
 	
 	
-	
+	@GetMapping("/q_edit")
+	public String edit(
+			@RequestParam int q_board_no,
+			Model model) {
+		Q_BoardDto q_boardDto = q_boardDao.get(q_board_no);
+		model.addAttribute("q_boardDto", q_boardDto);
+		
+		return "q_board/q_edit";
+	}
+	@PostMapping("/q_edit")
+	public String edit(
+			@ModelAttribute Q_BoardDto q_boardDto
+			) {
+		
+		sqlSession.update("q_board.q_update", q_boardDto);
+		
+		return "redirect:q_content?q_board_no="+q_boardDto.getQ_board_no();
+	}
+
 	
 	
 	

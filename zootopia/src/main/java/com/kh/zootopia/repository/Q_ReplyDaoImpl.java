@@ -14,5 +14,8 @@ public class Q_ReplyDaoImpl implements Q_ReplyDao{
 	private SqlSession sqlSession;
 	
 	
+	
+	
+	
 
 }
