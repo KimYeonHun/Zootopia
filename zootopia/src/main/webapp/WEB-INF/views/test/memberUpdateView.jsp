@@ -12,21 +12,21 @@
 	 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<title>회원가입</title>
 	</head>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			// 취소
+	<script>
+	$(document).ready(function(){
+		// 취소
 			$(".cencle").on("click", function(){
 				
 				location.href = "/";
 						    
-			})
+ 			})
 		
 			
 			});
 			
 				
 			
-		})
+
 		function preview(){
     //console.log("preview 실행!");
     
@@ -53,14 +53,16 @@
 }
 	</script>
 	<body>
-	<div>
+<form action="../test/memberimg" method="post" enctype="mutipart/form-data">
 <label>프로필 사진</label>
       <img  width="415" height="300">  
 
  <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
  onchange="preview();">
+ <button class="btn btn-success" type="submit">등록</button>
+ </form>        
  <c:set var="TextValue" value="${userinfo.birthday}"/>
-       </div>     
+         
 		<section id="container">
 			<form action="../test/memberUpdate" method="post">
 				<div class="form-group has-feedback">

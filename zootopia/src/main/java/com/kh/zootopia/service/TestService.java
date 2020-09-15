@@ -1,8 +1,12 @@
 package com.kh.zootopia.service;
 
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.List;
 import com.kh.zootopia.entity.MemberDto;
+import com.kh.zootopia.entity.memberFileDto;
 import com.kh.zootopia.repository.MemberDao;
 
 public interface TestService {
@@ -14,4 +18,6 @@ public interface TestService {
 	
 	//실험
 	public boolean passpw(MemberDto memberDto);
+
+	public void imgadd(memberFileDto mfDto, MultipartFile file);
 }

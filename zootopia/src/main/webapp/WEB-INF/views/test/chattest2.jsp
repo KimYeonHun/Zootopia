@@ -17,7 +17,7 @@
 	//웹소켓 접속 함수
 	var socket;//소켓이있어야 종료되므로 밖으로꺼낸다
 	function connect(){
-		var uri = "ws://localhost:8082/zootopia/chattest2";//ip,외부ip쓰시오
+		var uri = "ws://localhost:8080/zootopia/chattest2";//ip,외부ip쓰시오
 		socket = new WebSocket(uri);//연결
 		
 		//연결 알려줌

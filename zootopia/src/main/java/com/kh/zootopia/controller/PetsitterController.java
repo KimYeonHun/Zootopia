@@ -27,7 +27,7 @@ import com.kh.zootopia.entity.grapeVO;
 
 @Controller
 @RequestMapping("/member")
-public class MypageController{
+public class PetsitterController{
 
 @Autowired
 private MemberDao mdao;

@@ -7,8 +7,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.zootopia.entity.MemberDto;
+import com.kh.zootopia.entity.memberFileDto;
 
 @Repository
 public class TestDaoImpl implements TestDao{
@@ -34,7 +36,13 @@ public class TestDaoImpl implements TestDao{
 					}
 				}
 				return false;
-			}			
+			}		
+	
+	//test
+	@Override
+	public void imgadd(memberFileDto mfDto) {
+		sql.insert("member.imgadd",mfDto);
+	}
 }
 	
 

@@ -96,8 +96,25 @@ SELECT member_id FROM cert WHERE secret=#{secret}
 	WHERE MEMBER_ID = #{member_id}
 	</select>
 
+<!-- 이미지 등록 -->
+<insert id="imgadd" parameterType="mfDto">
+	<![CDATA[
+	INSERT INTO MEMBER_FILE
+	(
+	MEMBER_FILE_NAME,
+	MEMBER_FILE_SIZE,
+	MEMBER_FILE_TYPE
+	)
+	VALUES
+	(
+	#{member_file_name},
+	#{member_file_size},
+	#{member_file_type}
+		)
+		]]>
+</insert>
+<!-- 이미지 조회 -->
+<select id="seq" resultType="String">
+	select member_file.nextval from dual;
+</select>
 </mapper>
-
-
-
-

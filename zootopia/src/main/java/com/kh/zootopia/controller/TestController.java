@@ -1,5 +1,6 @@
 package com.kh.zootopia.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -17,9 +18,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.zootopia.entity.MemberDto;
+import com.kh.zootopia.entity.memberFileDto;
 import com.kh.zootopia.repository.MemberDao;
 import com.kh.zootopia.repository.TestDao;
 import com.kh.zootopia.service.TestService;
@@ -71,6 +74,7 @@ public class TestController {
 				return "redirect:passcheck?error";
 			}
 	}
+	
 //////////성공///////////////////////
 	@GetMapping("/chattest")
 	public String chattest() throws Exception{
@@ -83,5 +87,12 @@ public class TestController {
 	@GetMapping("chattest3")
 	public String chattest3() throws Exception{
 		return"test/chattest3";
+	}
+	//////
+	@RequestMapping(value="/memberimg", method = RequestMethod.POST)
+		public String memberimg(@ModelAttribute memberFileDto mfDto,@RequestParam MultipartFile file)throws IllegalStateException, IOException {
+		
+		service.imgadd(mfDto,file);
+		return "redirect:/test/home";
 	}
 }
