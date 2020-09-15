@@ -120,62 +120,137 @@
 	//////////////////////////////////////////////////
 	
 	
-	function one(){
 	
-		if($("input:checkbox[name=care_one]").is(":checked") ){
-			$("input:checkbox[name=care_one]").val('5');
-			
-		}else{
-			$('input[name=one]').val('0');
-		}
-		
-		}
-		
 	
-		function  two() {
+	
+	
+	///////////////////////////////////////////////
+	//1. 무엇을 : 닉네임 중복검사를
+	//2. 언제 : 적었을때 바로(oninput) , 입력하고 나서(onblur)
+	//3. 어떻게 : 비동기 통신으로
+	//4. 예상결과 : 0이면 사용가능, 1이면 사용불가
+	function nicknameCheck(){
+		console.log("닉네임검사 시작");
 		
-			if($("input:checkbox[name=care_two]").is(":checked") == true){
-				$('input[name=two]').val('10');
-				
-			}else{
-				$('input[name=two]').val('0');
-			}
-			
-		}
-			
-			function  three() {
-				
-				if($("input:checkbox[name=care_three]").is(":checked") == true){
-					$('input[name=three]').val('10');
-					
-				}else{
-					$('input[name=three]').val('0');
-				}
-				
-			}
-				
-				function  four() {
-				
-					if($("input:checkbox[name=care_four]").is(":checked") == true){
-						$('input[name=four]').val('10');
-						
-					}else{
-						$('input[name=four]').val('0');
-					}
-					
-				}
-				
-				function  five() {
-				
-					if($("input:checkbox[name=care_five]").is(":checked") == true){
-						$('input[name=five]').val('30');
-						
-					}else{
-						$('input[name=five]').val('0');
-					}
-				}
-		
+		var nickname = document.querySelector("input[name=petsitter_nick]").value;
+// 		console.log("nickname", nickname);
 
+		var len = nickname.length;
+		var isValid = len >=2 && len <8
+		
+		axios({
+			url:"${pageContext.request.contextPath}/petsitter/getnick?petsitter_nick="+nickname,
+			method:"POST",
+			data:{
+				petsitter_nick : nickname  // 서버 이름 :petsitter_nick 변수 이름: nickname
+			}
+		})
+		.then(function(response){
+			console.log(response.data);
+
+				var nickLength = document.querySelector(".nick-length");
+				var spanNick = document.querySelector(".span-nick");
+				if(response.data ==0){ // 중복이 아니고 
+					if(isValid){//글자가 맞을 때 
+						spanNick.textContent="사용 가능한 닉네임입니다";
+					}else{
+						spanNick.textContent="닉네임은 2~8자 이내로 입력해주세요";
+					}
+				}else{
+					spanNick.textContent="사용할 수 없는 닉네임 입니다";
+				}	
+		});
+	}
+
+		
+		
+	///////////////////////////////////////////////
+	
+	
+	
+
+		
+////////////////////////////////////////////////////////////
+///////////////////길이 검사 /////////////////////////
+
+function checkLength1(){
+	var check_list = document.querySelector(".checkLength1").value;
+	
+	var len = check_list.length;
+	
+	var countTag = document.querySelector(".letter-count1");
+	countTag.textContent = len;
+	
+}
+		
+function checkLength2(){
+	var check_list = document.querySelector(".checkLength2").value;
+	
+	var len = check_list.length;
+	
+	var countTag = document.querySelector(".letter-count2");
+	countTag.textContent = len;
+	
+}
+
+function checkLength3(){
+	var check_list = document.querySelector(".checkLength3").value;
+	
+	var len = check_list.length;
+	
+	var countTag = document.querySelector(".letter-count3");
+	countTag.textContent = len;
+	
+}
+
+///////////////////////////////////////////
+//////////////닉네임 길이 검사 /////////////
+
+function checkNick(){
+	
+// 	var nick = document.querySelector("input[name=petsitter_nick]").value;
+	
+// 	var len = nick.length;
+	
+// 	var isValid = len >=2 && len <8
+	
+// 	if(!isValid){
+// 		var span = document.querySelector("input[name=petsitter_nick]+span");
+// 		span.textContent="닉네임은 2~8자 이내로 입력해주세요 "
+		
+// 	}else{
+// 		var span = document.querySelector("input[name=petsitter_nick]+span");
+// 		span.textContent="";
+// 	}
+	
+	
+}
+
+
+
+//////////////////////////
+// 경력 길이 검사 
+//////////////////////////
+	function careerlength1(){
+	var check_list = document.querySelector(".career").value;
+	
+	var len = check_list.length;
+	
+	var countTag = document.querySelector(".career-count1");
+	countTag.textContent = len;
+	
+}
+
+	function careerlength2(){
+		var check_list = document.querySelector(".introduce").value;
+		
+		var len = check_list.length;
+		
+		var countTag = document.querySelector(".career-count2");
+		countTag.textContent = len;
+		
+	}
+	
 	
 </script>
 <style>
@@ -191,6 +266,14 @@
 	.select_img img {
 		margin:20px 0;
 	}
+	
+/* 	.nick .span-nick{ */
+/* 		margin-top:20px; */
+/* 	} */
+
+.nick{
+	margin-bottom:10px;
+}
 	
 </style>
 
@@ -228,7 +311,9 @@
 				<input type="hidden" name="member_id "value="${userinfo.member_id}">
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">펫시터 활동 시 사용할 닉네임을 입력해주세요</label>  
-				<input type="text" name="petsitter_nick"  id="petsitter_nick"class="form-control" required>
+				<input type="text" name="petsitter_nick"  id="petsitter_nick"class="form-control nick" oninput="nicknameCheck();"required>
+				<span class="text-danger nick-length"></span>
+				<span class="text-danger span-nick"></span>
 <!-- 				<button class="btn btn-primary"  type="button" id="nickChk"  value="N" >중복 확인</button> -->
 				</div>
 				
@@ -253,11 +338,13 @@
 				
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">경력사항</label>
-				<textarea name="petsitter_career"  class="form-control " rows="5" required></textarea>
+				<textarea name="petsitter_career"  class="form-control career " rows="5" oninput="careerlength1();" required></textarea>
+				<span class="career-count1">0</span> /1000
 				</div>
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">자기 소개</label>
-				<textarea name="career_info"  class="form-control" rows="5" required></textarea>
+				<textarea name="career_info"  class="form-control introduce" rows="5" oninput="careerlength2();" required></textarea>
+				<span class="career-count2">0</span> /1000
 				</div>
 				
 				<div class="form-group">
@@ -331,45 +418,49 @@
 				 
 				 <div class="form-group">
 				  <label class="font-weight-bold text-primary">돌봄경험에 해당되는 부분을 체크해주세요(중복 선택 가능)</label><br>
-				 <input type="checkbox" name="care_one" class="control-input "   onchange= "one()">
-				 <input type="hidden" name="one" />
+				 <input type="checkbox" name="care_one" class="control-input "  value="5">
+<!-- 				 <input type="hidden" name="one" /> -->
 				 <label>5개월 미만의 반려동물 케어 경험이 있습니다.&nbsp;&nbsp;</label><br>
 				 
-				 <input type="checkbox" name="care_two" class="control-input "   onchange= "two()">
-				 <input type="hidden" name="two" />
+				 <input type="checkbox" name="care_two" class="control-input "  value="10">
+<!-- 				 <input type="hidden" name="two" /> -->
 				 <label>15세 이상 노령반려동물 케어 경험이 있습니다.</label><br>
 				 
-				 <input type="checkbox" name="care_three" class="control-input "   onchange= "three()">
-				 <input type="hidden" name="three" />
+				 <input type="checkbox" name="care_three" class="control-input "  value="10">
+<!-- 				 <input type="hidden" name="three" /> -->
 				 <label>대형견 반려 경험 혹은 돌봄 경험이 있습니다.&ensp;&nbsp; </label><br>
 				 
-				 <input type="checkbox" name="care_four"  class="control-input "    onchange= "four()">
-				 <input type="hidden" name="four" />
+				 <input type="checkbox" name="care_four"  class="control-input "    value="10">
+<!-- 				 <input type="hidden" name="four" /> -->
 				 <label>문제견 반려 경험 혹은 돌봄 경험이 있습니다.&ensp;&nbsp;</label><br>
 				 
-				  <input type="checkbox"  name="care_five"   class="control-input "  onchange= "five()">
-				  <input type="hidden" name="five" />
+				  <input type="checkbox"  name="care_five"   class="control-input "  value="30">
+<!-- 				  <input type="hidden" name="five" /> -->
 				  <label>펫시터로 활동한 경험이 있습니다.&emsp; &emsp;&emsp;&emsp;&emsp;&nbsp;</label><br>
 				  </div>
 				  
 				  <div class="form-group">
 				  <label class="font-weight-bold text-primary">[강아지]강아지가 경계하거나 이빨을 보이며 공격하려는 경우 어떻게 대처하실건가요?</label>
-				 <textarea name="sitter_checklist_four"  class="form-control" rows="5"></textarea>
+				 <textarea name="sitter_checklist_four"  class="form-control checkLength1 " rows="5" oninput="checkLength1();"></textarea>
+				 <span class="letter-count1">0</span> /1000
 				 </div>
+			
 				 
 				 <div class="form-group">
 				 <label class="font-weight-bold text-primary">[고양이]돌봄중 고양이가 나오지 않고 숨어만 있다면 어떻게 하시겠습니까?</label>
-				 <textarea name="sitter_checklist_five"  class="form-control" rows="5"></textarea>
+				 <textarea name="sitter_checklist_five"  class="form-control checkLength2" rows="5" oninput="checkLength2();"></textarea>
+				 <span class="letter-count2">0</span> /1000
 				</div>
 				
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">돌봄에 있어 가장 중요하게 생각하는 부분에 대해서 설명해주세요.</label>
-				<textarea  class="form-control" rows="5" name="sitter_checklist_six"  required></textarea>
+				<textarea  class="form-control checkLength3" rows="5" name="sitter_checklist_six " oninput="checkLength3();"></textarea>
+				<span class="letter-count3 ">0</span> /1000
 				</div>
 				
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">활동시 사용할 사진을 업로드해주세요(사진 필수)</label>
-				<br><input type="file" value="파일 업로드" name="photo" id="imgfile" multiple accept=".jpg,.png,.gif" >
+				<br><input type="file" value="파일 업로드" name="photo" id="imgfile" multiple accept=".jpg,.png,.gif" required>
 				<div class="select_img"><img src="" /></div>
 				</div>
 				
@@ -397,14 +488,7 @@
 				</form>
 				</div>
 				</div>
-			<c:if test="${param.overlap !=null}">
-				<script>
-				
-						alert("중복체크는 나중에!");
-				
-				</script>
-<!-- 				<div><h6 class="font-weight-bold text-danger">이미지를 등록해주세요</h6></div> -->
-				</c:if>
+			
 		
 	</div>
 
