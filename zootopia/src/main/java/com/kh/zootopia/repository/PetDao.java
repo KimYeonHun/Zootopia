@@ -1,24 +1,13 @@
 package com.kh.zootopia.repository;
 
+import com.kh.zootopia.entity.MemberDto;
 import com.kh.zootopia.entity.PetDto;
 
 public interface PetDao {
 
+	// pet정보 수정
+		public void petUpdate(PetDto petDto)throws Exception;
+		
+	
 
-
-PetMapper insertPet = null;
-
-// pet 등록
-void insertPet(PetDto PetDto ) throws Exception;
-    
-    // pet 수정
-void updatePet(PetDto  PetDto ) throws Exception;
-    
-    // pet 삭제
-void deletePet(PetDto  PetDto ) throws Exception;
-
-
-
-
- 
-}
+	}

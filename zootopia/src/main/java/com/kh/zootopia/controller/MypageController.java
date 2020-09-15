@@ -18,11 +18,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.zootopia.entity.MemberDto;
 import com.kh.zootopia.repository.MemberDao;
-
+import com.kh.zootopia.service.MypageService;
 import com.kh.zootopia.entity.grapeVO;
 
 @Controller
@@ -31,22 +32,47 @@ public class MypageController{
 
 @Autowired
 private MemberDao mdao;
+@Autowired
+private MypageService service;
 
 @GetMapping("/mypage")
 public String page() {
 	return "member/mypage";
 }
 
-
-
-@GetMapping("/mypage2")
-public String page2() {
-	return "member/mypage2";
+@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
+public String registerUpdateView() throws Exception{
+	
+	return "member/memberUpdateView";
 }
 
 
+@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
+public String registerUpdate(MemberDto memberDto, HttpSession session) throws Exception{
+	
+	service.memberUpdate(memberDto);
+	
+	
+	return "redirect:/member/passcheck";
+}
 
 
+@RequestMapping(value="/passcheck", method = RequestMethod.GET)
+public String passcheck() throws Exception{
+	//1페이지를 보여준다
+	return "member/passcheck";
+}
+@RequestMapping(value="/passcheck", method = RequestMethod.POST)
+	public String passcheck(@ModelAttribute MemberDto memberDto) {
+		boolean result = mdao.passcheck(memberDto);
+		if(result) {
+			return"redirect:/member/memberUpdateView";
+		}		  
+		else {
+			return "redirect:passcheck?error";
+		}
+}
+//////////성공///////////////////////
 
 @GetMapping("/petsitterpage")
 

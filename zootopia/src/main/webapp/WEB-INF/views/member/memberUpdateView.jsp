@@ -26,7 +26,7 @@
 			
 				
 			
-		})
+		
 		function preview(){
     //console.log("preview 실행!");
     

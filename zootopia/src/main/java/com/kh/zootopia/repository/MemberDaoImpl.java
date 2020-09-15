@@ -128,6 +128,14 @@ public class MemberDaoImpl implements MemberDao{
 		return sqlSession.selectOne("member.certId",secret);
 	}
 
+
+
+	@Override
+	public boolean passcheck(MemberDto memberDto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 
 }

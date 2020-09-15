@@ -1,7 +1,6 @@
 package com.kh.zootopia.repository;
 
-import java.util.HashMap;
-import java.util.Map;
+
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.kh.zootopia.entity.MemberDto;
 
 @Repository
-public class TestDaoImpl implements TestDao{
+public class MypageDaoImpl implements MypageDao{
 	@Autowired
 	private SqlSession sql;
 	

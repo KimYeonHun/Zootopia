@@ -2,7 +2,7 @@ package com.kh.zootopia.repository;
 
 import com.kh.zootopia.entity.MemberDto;
 
-public interface TestDao {
+public interface MypageDao {
 	// 회원정보 수정
 	public void memberUpdate(MemberDto memberDto)throws Exception;
 	

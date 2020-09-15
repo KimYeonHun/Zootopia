@@ -20,17 +20,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			email,
 			gender
 		) values(
-			#{member_id},
-			#{member_pw},
+			#{member_id, jdbcType=VARCHAR},
+			#{member_pw, jdbcType=VARCHAR},
 			#{birthday},
-			#{phone},
-			#{auth},
-			#{member_name},
+			#{phone, jdbcType=VARCHAR},
+			#{auth, jdbcType=VARCHAR},
+			#{member_name, jdbcType=VARCHAR},
 			#{post},
 			#{baseaddr},
-			#{extraaddr},
-			#{email},
-			#{gender}
+			#{extraaddr, jdbcType=VARCHAR},
+			#{email, jdbcType=VARCHAR},
+			#{gender, jdbcType=VARCHAR}
 		)
 	</insert>
 

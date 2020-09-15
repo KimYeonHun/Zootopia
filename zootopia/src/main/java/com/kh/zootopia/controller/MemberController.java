@@ -33,11 +33,8 @@ public class MemberController {
 	private MemberDao memberDao;
 
 	
-	
-	
-	//////////////////////////////
 	//////로그인////////////////////
-	/////////////////////////////
+
 
 	@Autowired
 	private PassEmailService sender;
@@ -58,7 +55,7 @@ public class MemberController {
 			session.setAttribute("userinfo", find);
 
 
-			return "redirect:/test/home";	
+			return "/home";	
 
 		}
 		else {

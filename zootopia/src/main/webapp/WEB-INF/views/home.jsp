@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 
@@ -68,9 +69,16 @@
 			<div class="col-md-offset-2 col-md-8 col-sm-12">
 				<div class="home-thumb">
 					<h1 class="wow fadeInUp" data-wow-delay="0.4s">ZOOTOPIA</h1>
-          			
-          			<a href="member/login" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그인</a>
-	                <a href="member/join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">회원가입</a>
+	                <c:choose>
+	                	<c:when test="${not empty userinfo.member_id}">
+		          			<a href="${pageContext.request.contextPath}/member/logout" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그아웃</a>
+	                		<a href="${pageContext.request.contextPath}/member/mypage" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">마이페이지</a>
+	                	</c:when>
+	                	<c:otherwise>
+		          			<a href="${pageContext.request.contextPath}/member/login" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그인</a>
+			                <a href="${pageContext.request.contextPath}/member/join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">회원가입</a>
+	                	</c:otherwise>
+	                </c:choose>
 				</div>
 			</div>
 

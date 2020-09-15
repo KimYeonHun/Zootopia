@@ -94,10 +94,10 @@ margin-left:50%;
    
 
 <label>이름</label> 
- <input class="w3-form" type="text" id="name" name="member_name" readonly value="${ member.name }">
+ <input class="w3-form" type="text" id="name" name="member_name" readonly value="${userinfo.member_name}">
     
     <label>권한</label> 
-<input class="w3-form" type="text" id="auth" name="auth" readonly value="${ member.auth}">
+<input class="w3-form" type="text" id="auth" name="auth" readonly value="${userinfo.auth}">
     </div>
 
      <div>
@@ -112,44 +112,44 @@ margin-left:50%;
   </div>
   
 			<div>
-				<form id="member" action="../member/mypage" method="post">
+				<form id="member" action="../member/memberUpdate" method="POST">
 					
 					<p>
 						<label>아이디</label> 
-						<input class="w3-input" type="text" id="id" name="id" readonly value="${ member.id }"> 
+						<input class="w3-input" type="text" id="id" name="id" readonly value="${userinfo.member_id}"> 
 					</p>
 			
 					<p>
 						<label>이메일</label> 
-						<input class="w3-input" type="text" id="email" name="email" readonly value="${ member.email }"> 
+						<input class="w3-input" type="text" id="email" name="email" readonly value="${userinfo.email}"> 
 					</p>
 					<p>
 						<label>생일</label> 
-						<input class="w3-input" type="date" id="birth" name="birth" readonly value="${ member.birth }"> 
+						<input class="w3-input" type="date" id="birth" name="birth" readonly value="${userinfo.birthday}"> 
 					</p>
 					<p>
 						<label>전화 번호</label> 
-						<input class="w3-input" type="text" id="phone" name="phone" readonly value="${ member.phone }"> 
+						<input class="w3-input" type="text" id="phone" name="phone" readonly value="${userinfo.phone}"> 
 					</p>
 					
 					<p>
 						<label>성별</label> 
-						<input class="w3-form" type="text" id="gender" name="gender" readonly value="${ member.gender }">
+						<input class="w3-form" type="text" id="gender" name="gender" readonly value="${userinfo.gender}">
 						 
 					</p>
 					<p>
 						<label>우편번호</label> 
-						<input class="w3-form" type="text" id="post" name="post" readonly value="${ member.post }">
+						<input class="w3-form" type="text" id="post" name="post" readonly value="${userinfo.post}">
 						 
 					</p>
 					<p>
 						<label>기본 주소</label> 
-						<input class="w3-form" type="text" id="BASEADDR" name="BASEADDR" readonly value="${ member.baseaddr }">
+						<input class="w3-form" type="text" id="BASEADDR" name="BASEADDR" readonly value="${userinfo.baseaddr}">
 						 
 					</p>
 					<p>
 						<label>상세 주소</label> 
-						<input class="w3-form" type="text" id="EXTRAADDR" name="EXTRAADDR" readonly value="${ member.extraaddr }">
+						<input class="w3-form" type="text" id="EXTRAADDR" name="EXTRAADDR" readonly value="${userinfo.extraaddr}">
 						 
 					</p>
 					
