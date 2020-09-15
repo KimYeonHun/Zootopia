@@ -81,6 +81,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </update>
 	
 	
+	<delete id="q_delete" parameterType="int">
+		delete from q_board where q_board_no = #{q_board_no}
+	</delete>
+	
+	
+	
 </mapper>
 
 
