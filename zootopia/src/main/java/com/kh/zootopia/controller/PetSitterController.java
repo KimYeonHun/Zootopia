@@ -65,12 +65,12 @@ public class PetSitterController {
 				petSitterDao.photo(petFileDto, photo, petSitterDto);
 			}
 			return  "redirect:petsitter_result";
-		}else { //중복일 때
+		
+		}else { //중복일때
 			
 			return "redirect:petsitter_join?error";
 		}
-	
-		
+
 		
 	}
 	

@@ -156,7 +156,7 @@
 					}else{
 						spanNick.textContent="닉네임은 2~8자 이내로 입력해주세요";
 					}
-				}else{
+				}else{// 중복일 때
 					spanNick.textContent="사용할 수 없는 닉네임 입니다";
 				}	
 		});
@@ -479,7 +479,7 @@ function checkNick(){
 				
 				<c:if test="${param.error !=null}">
 				<script>
-					alert("이미지를 등록해주세요");
+					alert("닉네임이 중복되어 등록을 진행할 수 없습니다");
 				</script>
 <!-- 				<div><h6 class="font-weight-bold text-danger">이미지를 등록해주세요</h6></div> -->
 				</c:if>
