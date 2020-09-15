@@ -4,9 +4,9 @@
 
 
 
-<form action="write" method="post">
+<form action="q_write" method="post">
 	말머리 : <input type="text" name="q_head"><br><br>
 	제목 : <input type="text" name="q_title"><br><br>
-	내용 : <input type="text" name="q_content"><br><br>
+	내용 : <textarea name="q_content"></textarea><br><br>
 	<input type="submit" value="등록">
 </form>

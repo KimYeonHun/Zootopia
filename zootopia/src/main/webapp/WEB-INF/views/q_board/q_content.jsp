@@ -47,7 +47,17 @@
             });
         }
     </script>
-
+	
+	<script>
+	function del(q_board_no) {
+		var chk = confirm("정말 삭제하시겠습니까?");
+		if (chk) {
+			location.href='delete?q_board_no='+q_board_no;
+		}
+	}	
+</script>
+	
+	
 	
 
 </head>
@@ -74,7 +84,7 @@
 
                         </tr>
                         <tr>
-                            <th scope="col">작성자 : ${userinfo.member_id}</th>
+                            <th scope="col">작성자 : ${q_boardDto.member_id}</th>
 
                         </tr>
                         <tr>
@@ -89,12 +99,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td width="20px"><a href="q_list">목록</a> | <a
-                                    href="${pageContext.request.contextPath}/q_board/q_edit?q_board_no=${q_boardDto.q_board_no}">수정</a>
-                                | 삭제</td>
-
-                        </tr>
+                        
+						<div style="float: right;">
+						<c:if test="${userinfo.member_id eq q_boardDto.member_id}">
+							<input type="button" value="수정" onclick="location.href='q_edit?q_board_no=${q_boardDto.q_board_no}'">
+							<input type="button" value="삭제" onclick="del(${q_boardDto.q_board_no})">
+							</c:if>
+							<input type="button" value="목록" onclick="location.href='q_list';">
+						</div>
+                        
                     </tbody>
                 </table>
             </div>

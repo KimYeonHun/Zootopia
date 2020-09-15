@@ -35,10 +35,10 @@
     <div class="dropdown">
         <button class="dropbtn">메뉴</button>
     <div class="dropdown-content">
+        <a href="#">??</a>
+        <a href="#">??</a>
         <a href="q_board/q_list">Q&A</a>
-        <a href="#">??</a>
-        <a href="#">??</a>
-        <a href="#">??</a>
+        <a href="f_board/f_list">F&A</a>
       </div>
     </div>
     
