@@ -42,6 +42,17 @@ public class Q_BoardDaoImpl implements Q_BoardDao{
 	public void q_update(Q_BoardDto q_boardDto) {
 		sqlSession.update("q_board.q_update", q_boardDto);
 	}
+
+
+	@Override
+	public void q_delete(int q_board_no) {
+		sqlSession.delete("q_board.q_delete", q_board_no);
+		
+	}
+
+
+
+	
 	
 	
 	
