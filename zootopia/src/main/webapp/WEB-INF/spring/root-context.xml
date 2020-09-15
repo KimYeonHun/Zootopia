@@ -95,8 +95,7 @@
      </bean>
      
      
-     <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-     
+    
      <!-- 
      	@Service, @Repository를 스캔하는 설정
      	- use-default-filter : 기본적인 스캔을 하지 못하도록 설정(false)
@@ -129,9 +128,8 @@
      	- @Aspect 과 그 하위 어노테이션을 활성화
       -->
      <aop:aspectj-autoproxy/>
-     
+    </beans>
 
-</beans>
 
 
 
