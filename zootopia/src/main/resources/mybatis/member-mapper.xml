@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+
+
+	<!-- 회원가입  -->
+	<insert id="join" parameterType="memberDto">
+		insert into member(
+			member_id,
+			member_pw,
+			birthday,
+			phone,
+			auth,
+			member_name,
+			post,baseaddr,
+			extraaddr,
+			email,
+			gender
+		) values(
+			#{member_id},
+			#{member_pw},
+			#{birthday},
+			#{phone},
+			#{auth},
+			#{member_name},
+			#{post},
+			#{baseaddr},
+			#{extraaddr},
+			#{email},
+			#{gender}
+		)
+	</insert>
+
+
+
+	
+<select id="getList"  parameterType="String" resultType="memberDto">
+	select * from member where member_id=#{member_id}
+</select>
+
+<select id="login" parameterType="memberDto" resultType="memberDto">
+	SELECT * FROM MEMBER 
+	WHERE MEMBER_ID = #{MEMEBER_ID} and MEMBER_PW = #{MEMBER_PW}
+</select>
+<select id="get" resultType="memberDto" parameterType="string">
+	SELECT * FROM MEMBER WHERE member_id = #{member_id}
+
+</select>
+
+
+<select id="findpw" parameterType="map" resultType="int">
+	SELECT count(*) FROM MEMBER 
+	WHERE member_id=#{member_id} AND email=#{email}
+</select>
+
+<!-- 메일 발송 후 비밀번호변경 -->
+<update id="changepw" parameterType="map">
+	update member set member_pw =#{member_pw} where member_id = #{member_id} 
+</update>
+	
+	
+<select id="findid" parameterType="map" resultType="String">
+	select member_id from member 
+	where member_name=#{member_name} and email=#{email}
+</select>	
+
+
+<!-- 인증번호 발급 -->
+	<insert id="insertCert"  parameterType="certDto" >
+		INSERT INTO cert(member_id,secret,when) VALUES(#{member_id},#{secret},SYSDATE)
+	</insert>
+
+<!-- 인증 번호 확인 -->
+<select id="validate" parameterType="certDto" resultType="CertDto">
+	<![CDATA[select * from cert where 
+	member_id= #{member_id} and secret=#{secret}
+	and when between sysdate- 10/24/60 and sysdate]]> 
+</select>
+
+<delete id="remove" parameterType="certDto">
+	delete cert where member_id=#{member_id} and secret =#{secret}
+</delete>
+
+
+<select id="certId" parameterType="certDto" resultType="String">
+SELECT member_id FROM cert WHERE secret=#{secret}
+</select>
+
+<!-- <delete id="deletePW" parameterType="String"> -->
+<!-- 	delete 	 -->
+<!-- </delete> -->
+
+<!-- test -->
+ <!-- 로그인 -->
+
+<!-- 회원정보 수정 -->
+	<update id="memberUpdate" parameterType="memberDto">
+		UPDATE MEMBER SET member_name = #{member_name},email = #{email},birthday = #{birthday},phone = #{phone},post = #{post},gender = #{gender},BASEADDR = #{baseaddr},EXTRAADDR = #{extraaddr}
+		WHERE member_id = #{member_id}
+	</update>
+<!-- 비번체크 -->
+	<select id="checkpw" resultType="memberDto">
+	SELECT MEMBER_PW FROM MEMBER
+	WHERE MEMBER_ID = #{member_id}
+	</select>
+
+
+</mapper>
+
+
+
+

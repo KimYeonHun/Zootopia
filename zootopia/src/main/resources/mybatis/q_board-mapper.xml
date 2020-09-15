@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="q_board">
+	
+	<!-- 시퀀스 생성  -->
+	<select id="getSeq" resultType="int">
+		select q_board_seq.nextval from dual
+	</select>
+	
+	<!-- 게시글 등록 -->
+	
+	<insert id="write" parameterType="q_boardDto">
+		insert into q_board(
+		q_board_no,
+		q_read,
+		q_replycount,
+		q_group_no,
+		member_id,
+		q_title,
+		q_head,
+		q_content,
+		q_when,
+		q_file
+		)
+		values(
+		#{q_board_no},
+		0,
+		0,
+		0,
+		#{member_id, jdbcType=VARCHAR},
+		#{q_title},
+		#{q_head},
+		#{q_content},
+		sysdate,
+		#{q_file, jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<select id="get" resultType="q_boardDto" parameterType="int">
+		SELECT * FROM q_board WHERE q_board_no = #{q_board_no}
+	</select>
+	
+	<update id="read" parameterType="int">
+		UPDATE q_board 
+		SET q_read = q_read+1
+		WHERE q_board_no=#{q_board_no}
+	</update>
+	
+	
+	<select id="getList" resultType="q_boardDto">
+		SELECT * FROM q_board 
+		ORDER BY q_board_no DESC
+	</select>
+	
+	
+	<select id="search" resultType="q_boardDto" parameterType="map">
+		SELECT * FROM q_board
+		WHERE instr(${type}, #{keyword}) > 0
+		ORDER BY q_board_no DESC
+	</select>
+	
+	<select id="unionList" resultType="q_boardDto" parameterType="map">
+		SELECT * FROM q_board
+		<if test="type != null and keyword != null">
+		WHERE instr(${type}, #{keyword}) > 0
+		</if>
+		ORDER BY q_board_no DESC
+	</select>
+	 
+	<update id="q_update" parameterType="q_boardDto">
+
+	UPDATE q_board SET
+	 q_title=#{q_title},
+	  q_content=#{q_content},
+	  q_when=sysdate
+	WHERE q_board_no =#{q_board_no}
+	
+   </update>
+	
+	
+</mapper>
+
+
+
+

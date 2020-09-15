@@ -90,15 +90,19 @@
          </property>
      </bean>
      
+     
+     <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+     
      <!-- 
      	@Service, @Repository를 스캔하는 설정
      	- use-default-filter : 기본적인 스캔을 하지 못하도록 설정(false)
      -->
-     <context:component-scan base-package="com.kh.spring26" use-default-filters="false">
+     <context:component-scan base-package="com.kh.zootopia" use-default-filters="false">
      	<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
      	<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
      	<context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
      </context:component-scan> 
+     
      
      <!-- 
      	스케줄러 사용 설정
@@ -121,6 +125,7 @@
      	- @Aspect 과 그 하위 어노테이션을 활성화
       -->
      <aop:aspectj-autoproxy/>
+     
 
 </beans>
 
