@@ -13,6 +13,14 @@ public class MemberDto {
 	phone,auth,member_name,post,baseaddr,extraaddr,email,
 	gender;
 	
+	
+	public int  getAge() {
+		String year =birthday.substring(0,4);
+		int a = Integer.parseInt(year); 
+		int age = 2020-a+1;
+		return age;
+	}
+	
 
 }  
 

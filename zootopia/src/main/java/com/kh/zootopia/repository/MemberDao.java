@@ -3,6 +3,13 @@ package com.kh.zootopia.repository;
 
 import com.kh.zootopia.entity.MemberDto;
 
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import com.kh.zootopia.entity.CertDto;
 
 
@@ -12,7 +19,7 @@ public interface MemberDao {
 	int searchpw(String member_id, String email);
 
 	
-	void changepw(String member_id);
+	void changepw(String member_id, String member_pw);
 	
 	String  searchid(String member_name,String email);
 	
@@ -31,5 +38,4 @@ public interface MemberDao {
 
 	boolean join(MemberDto memberDto);
 	
-
 }
