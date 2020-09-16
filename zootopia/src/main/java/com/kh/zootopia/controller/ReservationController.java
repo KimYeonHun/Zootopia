@@ -24,12 +24,23 @@ public class ReservationController {
 		return "/member/reservation/ready";
 	}
 	
-	@GetMapping("/reserve")
-	public String reserve() {
-		return "/member/reservation/reserve";
+	@GetMapping("/reserve_step1")
+	public String reserve_step1() {
+		return "/member/reservation/reserve_step1";
 	}
-	@PostMapping("/reserve")
-	public String reserve(
+	@PostMapping("/reserve_step1")
+	public String reserve_step1(
+			@ModelAttribute ReserveDto reserveDto,
+			HttpSession session
+			) {
+		return "redirect:/member/reservation/reserve_step2";
+	}
+	@GetMapping("/reserve_step2")
+	public String reserve_step2() {
+		return "/member/reservation/reserve_step2";
+	}
+	@PostMapping("/reserve_step2")
+	public String reserve_step2(
 			@ModelAttribute ReserveDto reserveDto,
 			HttpSession session
 			) {
