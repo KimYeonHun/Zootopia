@@ -56,14 +56,15 @@
 // 		    title: "테스트",	//캘린더 상단에 보여주는 타이틀
 		    todayHighlight : true ,	//오늘 날짜에 하이라이팅 기능 기본값 :false 
 		    toggleActive : false,	//이미 선택된 날짜 선택하면 기본값 : false인경우 그대로 유지 true인 경우 날짜 삭제
-		    weekStart : 1 ,//달력 시작 요일 선택하는 것 기본값은 0인 일요일 
+		    weekStart : 0 ,//달력 시작 요일 선택하는 것 기본값은 0인 일요일 
 		    language : "ko"	//달력의 언어 선택, 그에 맞는 js로 교체해줘야한다.
 		    
 		});//datepicker end
 	});//ready end
 </script>
 
-    
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+ 
 <h1 class="text-primary">예약</h1>
 
 
@@ -72,7 +73,7 @@
 
 
 		<label class="font-weight-bold text-primary"> 예약하실 날짜를 선택해주세요</label><br>
-		<input type="text" id="datePicker" class="form-control" name ="reservation_day" >	
+		<input type="text" id="datePicker" class="form-control" name ="reservation_day" required >	
 
 
 
@@ -82,7 +83,7 @@
 
 <!--    	<div class="col-4"> -->
 
-				<br><select name="available_start_time">
+				<br><select name="available_start_time" required>
 					<option value="">--</option>
 					<option value="09:00">09:00</option>
 					<option value="10:00">10:00</option>
@@ -100,7 +101,7 @@
 				</select>
 				부터
 			
-				<select name="available_finish_time">
+				<select name="available_finish_time" required>
 					<option value="">--</option>
 					<option value="09:00">09:00</option>
 					<option value="10:00">10:00</option>
@@ -120,11 +121,16 @@
 
 <button type="submit" class="btn btn-primary "> 펫시터 검색</button>
 <!-- </div>	 -->
-
+<c:forEach var="petsitter" items="${list}">
+<!-- 펫시터 사진 펫시터 이름  펫시터 경력 (경력 어떻게 보여줄지..?) 예약하기 버튼  : 이름 선택 시 펫시터 상세 정보 보는 페이지-->
+<p>사진</p>
+<p>${petsitter.petsitter_nick}</p>
+<p>${petsitter.petsitter_career}</p>
+</c:forEach>
 
 <!-- <div class="col-2"> -->
 
-<a class="btn btn-primary" href="reserve_step2">다음</a>
+<!-- <a class="btn btn-primary" href="reserve_step2">다음</a> -->
 
 	</form>
 

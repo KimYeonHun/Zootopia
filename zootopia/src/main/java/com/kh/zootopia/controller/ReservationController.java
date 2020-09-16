@@ -50,7 +50,6 @@ public class ReservationController {
 	
 	
 	@PostMapping("/reserve_step1")
-	@ResponseBody
 	public String reserve_step1(
 			
 			@RequestParam String reservation_day,
