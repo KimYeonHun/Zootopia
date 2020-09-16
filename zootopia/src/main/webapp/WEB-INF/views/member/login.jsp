@@ -2,67 +2,87 @@
     pageEncoding="UTF-8"%>	 
 <html lang="en">
   <head>
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="24280442418-g6kg71ns4a6qlpo1ffk3pjk1711t83d4.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js" integrity="sha512-VGxuOMLdTe8EmBucQ5vYNoYDTGijqUsStF6eM7P3vA/cM1pqOwSBv/uxw94PhhJJn795NlOeKBkECQZ1gIzp6A==" crossorigin="anonymous">	</script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      }
-    </script>
-    <h1>로그인</h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/minty/bootstrap.min.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"integrity="sha512-VGxuOMLdTe8EmBucQ5vYNoYDTGijqUsStF6eM7P3vA/cM1pqOwSBv/uxw94PhhJJn795NlOeKBkECQZ1gIzp6A=="crossorigin="anonymous">
+	</script>
+
+  	<style>
+		#wrap{
+			margin-top:250px;
+		}
+		#findTitle{
+			margin-bottom:50px;
+		}
+		
+		#login-wrap{
+			margin-top: 100px;
+			margin-left:10px;
+		
+		}
+		
+		</style>
+    
+  
   </head>
   <body>
-    <form action="login" method="post">
-	아이디 <input type="text" name="member_id" required>
-	비밀번호 <input type="password" name="member_pw" required>
-	<input type="submit" value="로그인"><br><br>
-	<button><a href="findid">아이디 찾기</a></button>
-	<button><a href="findpass">비밀번호 찾기</a></button>
+    <div class="continer-fluid text-center" id="wrap">
+	<div class="row">
+	<div class="offset-4 col-4">
+		
+    <h1 class="text-primary" id="findTitle">로그인</h1>
+    
+    <div class="form">
+   	 <form action="login" method="post">
+   			 
+    <div  class="form-group">
+	 <input type="text" name="member_id" class=" form-control"placeholder="아이디"  required>
+	 </div>
+	 
+	  <div class="form-group">
+	 <input type="password" name="member_pw"class=" form-control" placeholder="비밀번호"  required>
+	 </div>
+	 
+	<button class="btn btn-primary" >로그인</button><br><br>
+	 </form> 
+	</div>
+	
+	<a  class="btn btn-info"href="findid">아이디 찾기</a>
+	<a class="btn btn-info" href="findpass">비밀번호 찾기</a>
 	<br><br>
+	
     <div class="g-signin2" data-onsuccess="onSignIn" data-width="250" data-height="50" data-longtitle="true"></div>
-    </form> 
+   
+    </div>
+    </div>
+    </div>
+    
   </body>
+  
 </html>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <meta charset="utf-8"/> -->
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"/> -->
+<!-- <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/> -->
+<!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
 
-</head>
-<body>
-<a id="kakao-login-btn"></a>
-<a href="http://developers.kakao.com/logout"></a>
-<script type='text/javascript'>
-  //<![CDATA[
-    // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('df217a549bc94fd82013f0349667ff97');  //여기서 아까 발급받은 키 중 javascript키를 사용해준다.
-    // 카카오 로그인 버튼을 생성합니다.
-    Kakao.Auth.createLoginButton({
-      container: '#kakao-login-btn',
-      success: function(authObj) {
-        alert(JSON.stringify(authObj));
-      },
-      fail: function(err) {
-         alert(JSON.stringify(err));
-      }
-    });
-  //]]>
-</script>
+<!-- </head> -->
+<!-- <body> -->
 
-</body>
-</html>
+<!-- <a id="kakao-login-btn"></a> -->
+<!-- <a href="http://developers.kakao.com/logout"></a> -->
+<!-- <script type='text/javascript'> -->
+
+<!-- </script> -->
+
+<!-- </body> -->
+<!-- </html> -->
