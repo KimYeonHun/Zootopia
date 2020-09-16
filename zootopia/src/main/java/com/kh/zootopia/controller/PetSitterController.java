@@ -43,6 +43,10 @@ public class PetSitterController {
 		
 		MemberDto userinfo= (MemberDto)session.getAttribute("userinfo");
 		model.addAttribute("userinfo", userinfo);
+		String member_id =userinfo.getMember_id();
+		
+		// 해당 아이디가 펫시터 등록을 했으면 안넘어가기 
+		// 등록을 안했으면 등록할 수 있게
 		 
 		return "petsitter/petsitter_join";
 	}
