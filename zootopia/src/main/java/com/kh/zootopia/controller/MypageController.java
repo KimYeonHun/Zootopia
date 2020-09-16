@@ -39,12 +39,6 @@ public String page() {
 
 
 
-@GetMapping("/mypage2")
-public String page2() {
-	return "member/mypage2";
-}
-
-
 
 
 

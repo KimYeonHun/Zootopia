@@ -48,7 +48,7 @@ public class Q_BoardController {
 			HttpSession session,
 			@ModelAttribute Q_BoardDto q_boardDto,
 			RedirectAttributes attr) {
-		 MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
+		MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
 		q_boardDto.setMember_id(userinfo.getMember_id());
 		int no = q_boardDao.write(q_boardDto);
 		attr.addAttribute("q_board_no",no);

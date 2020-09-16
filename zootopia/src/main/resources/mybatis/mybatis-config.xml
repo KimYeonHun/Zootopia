@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.kh.zootopia.entity.F_ReplyDto" alias="f_replyDto"/>
 		
 		<typeAlias type="com.kh.zootopia.entity.ReserveDto" alias="reserveDto"/>
-		
+		<typeAlias type="com.kh.zootopia.entity.MemberFileDto" alias="memberFileDto"/>
 
 	</typeAliases>
 	

@@ -59,3 +59,27 @@ MEMBER_ID REFERENCES Member(MEMBER_ID) ON DELETE CASCADE,
 PET_NAME REFERENCES Member(MEMBER_ID) ON DELETE CASCADE,
 PETSITTER_NO REFERENCES Member(MEMBER_ID) ON DELETE CASCADE,
 );
+
+
+-----------
+---회원 프로필---
+CREATE TABLE profile(
+member_id REFERENCES Member(member_id) ON DELETE CASCADE,
+profile_no NUMBER PRIMARY KEY,
+profile_name varchar2(4000) NOT NULL,
+profile_TYPE varchar2(10) NOT NULL,
+profile_SIZE NUMBER NOT null
+);
+CREATE SEQUENCE profile_seq nocache;
+
+
+
+
+
+
+
+
+
+
+
+
