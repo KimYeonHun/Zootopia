@@ -10,19 +10,22 @@ import com.kh.zootopia.entity.PetDto;
 
 @Repository
 public class PetDaoImpl implements PetDao{
+
 	@Autowired
-	private SqlSession sql;
+	private SqlSession sqlSession;
 	
-	@Autowired
-	private PasswordEncoder encoder;
 	
 	@Override
-	public void petUpdate(PetDto petDto) throws Exception {
-		sql.update("pet.petUpdate", petDto); 
+	public void insert(PetDto petDto) {
+		sqlSession.insert("pet.petinfo",petDto);
+	}
+	
+	
+	
 	}
 	
 
-}
+
 	
 
 

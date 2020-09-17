@@ -5,9 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="pet">
 
-<insert id="insertPet">
-        insert into
+<insert id="petinfo" parameterType="petDto">
+       INSERT INTO
         pet(
+           pet_no,
             pet_name,
             pet_gender,
             pet_kind,
@@ -17,18 +18,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             pet_total,
             pet_intro,
             pet_vaccin,
-            pet_toilet)
-        values(
-            #{pet_name},
-             #{pet_gender},
+            pet_toilet,
+            when
+            )VALUES(
+            pet_seq.nextval,
+             #{pet_name},
+             #{pet_gender , jdbcType=VARCHAR},
              #{pet_kind},
-             #{pet_type},
-             #{pet_age },
-             #{pet_size},
+             #{pet_type , jdbcType=VARCHAR},
+             #{pet_age},
+             #{pet_size , jdbcType=VARCHAR},
              #{pet_total},
-             #{pet_intro},
-             #{pet_vaccin},
-            #{pet_toilet} ,
+             #{pet_intro , jdbcType=VARCHAR},
+             #{pet_vaccin , jdbcType=VARCHAR},
+            #{pet_toilet , jdbcType=VARCHAR},
+            sysdate
             )
             
     </insert>
