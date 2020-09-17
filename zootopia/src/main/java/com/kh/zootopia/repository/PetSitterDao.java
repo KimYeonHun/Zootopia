@@ -17,4 +17,6 @@ public interface PetSitterDao {
 
 	int getNick (String   petsitter_nick) throws Exception;
 	
+	PetFileDto getimg(int petsitter_no);
+	
 }

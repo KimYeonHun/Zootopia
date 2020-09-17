@@ -161,6 +161,7 @@ public class MemberController {
 			return "redirect:check?error";
 		}
 	}
+	
 	// 아이디 result
 	@GetMapping("/result_id")
 	public String result_id(Model model, HttpSession session) {
