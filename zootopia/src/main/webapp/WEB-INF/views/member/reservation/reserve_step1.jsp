@@ -172,7 +172,7 @@
  
  
  <div style="background: rgb(252,252,252); display: flex; justify-content: center; align-items: center;
- flex-direction: column;" class="container-fluid text-center">  
+ flex-direction: column;" class="container-fluid ">  
  
  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 100px; ">
  

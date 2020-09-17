@@ -12,10 +12,32 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-  <div class="container-fluid ">
-<div class="offset-2 col-8">
+
+<script>
+
+
+// function color(){
+// 	var color = document.getElementById("color_mon").value;
+	
+// 	if(color == '월요일'){
+// 		document.getElementById("changecolor").style.backgroundColor="red";
+// 	}
+ 	
+		
+// }
+// <textarea name="test" onkeyUp="chkForm()">표준말로 입력하시오.</textarea>
+
+// function chkForm(){
+//     if(document.getElementsByName("test")[0].value.match(/흐미|옴마|잡것/)){
+//         document.getElementsByName("test")[0].style.color = "red";
+//     }
+// }
+
+</script>
+ <div class="container-fluid ">
+<div class="offset-3 col-6 "   >
   
-  <div style="width: 580px;" >
+  <div>
 <div style="display: flex; flex-direction: row;">
 <div style="overflow: hidden; border: none; border-radius: 12px; margin-top: 100px;">
    <img src="${pageContext.request.contextPath}/petsitter/img/${sitterDetail.petsitter_no}" 
@@ -23,19 +45,19 @@
    </div>
    <div style="margin-left: 32px; margin-top: 50px">
    	<p style="margin-top: 100px; font-size: 25px; color: blue; line-height: 37px;
-   	letter-spacing: -0.2px; font-weight:bolder;  " class="text-primary"> ${sitterDetail.petsitter_nick} 펫 매니저</p>
+   	letter-spacing: -0.2px; font-weight:bolder;  " class="text-info"> ${sitterDetail.petsitter_nick} 펫 매니저</p>
    </div>
  </div>   
     
     
    <div style="margin-top: 53px;">
-  <h2 style="font-weight: 600; font-size: 17px; letter-spacing: -0.2px; line-height: 25px; color: rgb(57,60,71);" class="text-primary">펫 매니저님을 소개합니다</h2>
+  <h2 style="font-weight: 600; font-size: 17px; letter-spacing: -0.2px; line-height: 25px; color: rgb(57,60,71);" class="text-info">펫 매니저님을 소개합니다</h2>
   
   <p style="font-size: 15px; line-height: 25px; color: rgb(85,85,85); margin-top: 32px;">${sitterDetail.career_info} </p>
   </div> 
  
    <h2 style="font-weight: 600; font-size: 17px; letter-spacing: -0.2px; line-height: 25px;
-  margin-bottom: 20px;" class="text-primary">자격증 및 수료 </h2>
+  margin-bottom: 20px;" class="text-info">자격증 및 수료 </h2>
     
     <div style="display: flex; flex-direction: row; align-items: center; margin: 32px 0px;">
    <div style="width: 200px; height: 200px; filter:blur(1.25px);">
@@ -68,7 +90,86 @@
    	</div>
    	
    	<!--  새로운 시작  -->
-   	<div style="width: 375px; border"></div>
+   	<div>
+   	<div style="width: 1000px; border-radius: 8px; border: 1px solid rgb(223,227,234);
+   	box-shadow: rgba(0,0,0,0.07) 1px 3px 7px; padding: 38px; margin-top: 38px; ">
+   		<h2 style="font-weight: 600; font-size: 17px; letter-spacing: -0.2px; line-height: 25px; color:rgb(57,60,71);
+   		margin-bottom: 24px;"> 펫시터 활동 요일</h2>
+   		<div>
+   			<div style="display: flex; flex-direction: row; justify-content: space-between;">
+   			
+   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
+   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1;
+   					"> 
+   					<!--  id="changecolor"   --> 
+<%--    					<input type="hidden"  value="${sitterDetail.monday}"  id="color_mon"  onkeyUp="color()"> --%>
+   						<p style="font-weight: 600; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; 
+   						color: white;" >월</p>
+   					</div>
+   				</div>
+   				
+   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
+   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);">
+   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);">
+   							화
+   						</P>
+   					</div>
+   				</div>
+   				
+   				
+   					<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
+   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);">
+   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);">
+   							수
+   						</P>
+   					</div>
+   				</div>
+   				
+   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
+   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);">
+   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);">
+   							목
+   						</P>
+   					</div>
+   				</div>
+   				
+   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
+   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);">
+   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);">
+   							금
+   						</P>
+   					</div>
+   				</div>
+   				
+   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
+   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);">
+   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center;  color: white;">
+   							토
+   						</P>
+   					</div>
+   				</div>
+   				
+   				
+   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
+   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: #6cc3d5;">
+   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: white;">
+   							일
+   						</P>
+   					</div>
+   				</div>
+   				
+   			</div>
+   			
+   		
+   			
+   		</div>
+   		  
+   	</div>
+   	
+ 	<div>
+   	<button class="btn btn-info btn-lg" > 예약하기</button>
+   	</div>
+   	</div> <!-- 새로운 시작의 끝부분 -->
    	</div>
    	</div>  <!-- 끝부분 -->
 
@@ -84,4 +185,7 @@ ${sitterDetail.sunday}
     
  ${sitterDetail.available_start_time} 
   ${sitterDetail.available_finish_time} 
+  
+  
+  
       </div>   
