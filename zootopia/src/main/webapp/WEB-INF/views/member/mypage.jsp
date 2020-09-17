@@ -6,7 +6,7 @@
  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script>
+<!-- <script>
 
 function preview(){
     //console.log("preview 실행!");
@@ -32,7 +32,7 @@ function preview(){
     }
     
 }
-    </script> 
+    </script>  -->
 <style>
    .w3-input {
     padding: 8px;
@@ -83,74 +83,52 @@ margin-left:50%;
 
 </div>
 
-
+<!-- 
 <div>
 <label>프로필 사진</label>
       <img  width="415" height="300">  
 
  <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
  onchange="preview();">
-       </div>         
+       </div>          -->
    
 
-<label>이름</label> 
+<%-- <label>이름</label> 
  <input class="w3-form" type="text" id="name" name="member_name" readonly value="${ member.name }">
     
     <label>권한</label> 
 <input class="w3-form" type="text" id="auth" name="auth" readonly value="${ member.auth}">
     </div>
-
+ --%>
 
   </div>
   <br>
 			<div>
-				<form id="member" action="../member/mypage" method="post">
-					
 					<p>
-						<label>아이디</label> 
-						<input class="w3-input" type="text" id="id" name="id" readonly value="${ member.id }"> 
+						<label>아이디 : ${userinfo.member_id}</label> 
 					</p>
 			
 					<p>
-						<label>이메일</label> 
-						<input class="w3-input" type="text" id="email" name="email" readonly value="${ member.email }"> 
+						<label>이메일 : ${userinfo.email}</label> 
 					</p>
 					<p>
-						<label>생일</label> 
-						<input class="w3-input" type="date" id="birth" name="birth" readonly value="${ member.birth }"> 
+						<label>전화 번호 : ${userinfo.phone}</label> 
 					</p>
 					<p>
-						<label>전화 번호</label> 
-						<input class="w3-input" type="text" id="phone" name="phone" readonly value="${ member.phone }"> 
-					</p>
-					
-					<p>
-						<label>성별</label> 
-						<input class="w3-form" type="text" id="gender" name="gender" readonly value="${ member.gender }">
-						 
+						<label>우편번호 : ${userinfo.post}</label> 
 					</p>
 					<p>
-						<label>우편번호</label> 
-						<input class="w3-form" type="text" id="post" name="post" readonly value="${ member.post }">
-						 
+						<label>기본 주소 : ${userinfo.baseaddr}</label> 
 					</p>
 					<p>
-						<label>기본 주소</label> 
-						<input class="w3-form" type="text" id="BASEADDR" name="BASEADDR" readonly value="${ member.baseaddr }">
-						 
+						<label>상세 주소 : ${userinfo.extraaddr}</label> 
 					</p>
-					<p>
-						<label>상세 주소</label> 
-						<input class="w3-form" type="text" id="EXTRAADDR" name="EXTRAADDR" readonly value="${ member.extraaddr }">
-						 
-					</p>
-					
-					
-					
+
 					<p class="w3-form">
+						<a href="mypage2">
 						<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button>
+						</a>
 					</p>
-				</form>
 			</div>
 			</div>
 			</div>

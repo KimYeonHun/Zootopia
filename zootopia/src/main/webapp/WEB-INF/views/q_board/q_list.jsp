@@ -35,8 +35,7 @@
                             var dataHtml = '';
 
                             $.each(data, function (index, item) {
-                                dataHtml += '<tr><td>' + item.q_board_no + '</td>\
-                            <td><a href="q_content?q_board_no=' + item.q_board_no + '">' + item.q_title + '</td></a>\
+                                dataHtml += '<tr><td><a href="q_content?q_board_no=' + item.q_board_no + '">' + item.q_title + '</td></a>\
                             <td>' + item.member_id + '</td>\
                             <td>' + item.q_when.split(' ')[0] + '</td>\
                             <td>' + item.q_read + '</td>\
@@ -87,7 +86,7 @@
                 <table class="table table-sm table-hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th>번호</th>
+                            
                             <th>제목</th>
                             <th>작성자</th>
                             <th>작성일</th>
@@ -95,32 +94,22 @@
                         </tr>
                     </thead>
                     <tbody id="tbody">
-                        <%-- <c:forEach var="q_boardDto" items="${list}">
-                            <tr class="table-light">
-                                <td scope="row">${q_boardDto.q_board_no}</td>
-                                <td><a
-                                        href="${pageContext.request.contextPath}/q_board/q_content?q_board_no=${q_boardDto.q_board_no}">${q_boardDto.q_title}</a>
-                                </td>
-                                <td>${q_boardDto.member_id}</td>
-                                <td>
-                                    <fmt:parseDate value="${q_boardDto.q_when}" var="time"
-                                        pattern="yyyy-MM-dd HH:mm:ss" />
-                                    <fmt:formatDate value="${time}" pattern="yyyy-MM-dd" />
-                                </td>
-                                <td>${q_boardDto.q_read}</td>
-                            </tr>
-                        </c:forEach> --%>
+                       
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
+	<div style="float: right;">
+		<div>
+			<input type="button" value="글쓰기" onclick="location.href='q_write';">
+		</div>
+	</div>
     <div class="container-fluid">
         <div class="row">
             <div class="offset-md-5 col-md-5">
                 <form action="union" method="post">
-
+					
                     <select name="type">
                         <option value="q_title" ${param.type=='q_title' ? 'selected' :''}>제목</option>
                         <option value="member_id" ${param.type=='member_id' ? 'selected' :''}>작성자</option>

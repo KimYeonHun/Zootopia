@@ -35,10 +35,15 @@
     <div class="dropdown">
         <button class="dropbtn">메뉴</button>
     <div class="dropdown-content">
+        <a href="#">??</a>
+        <c:if test="${userinfo.auth eq '회원' }">
+        	<a href="petsitter/petsitter_join">펫시터 지원</a>
+        </c:if>
+        <c:if test="${userinfo.auth eq '관리자' }">
+        	<a href="member/list">지원자 목록</a>
+        </c:if>
         <a href="q_board/q_list">Q&A</a>
-        <a href="#">??</a>
-        <a href="#">??</a>
-        <a href="#">??</a>
+        <a href="f_board/f_list">F&A</a>
       </div>
     </div>
     
@@ -71,11 +76,18 @@
 				<div class="home-thumb">
 					<h1 class="wow fadeInUp" data-wow-delay="0.4s">ZOOTOPIA</h1>
 
-          			<c:if test="${not empty userinfo eq 'false'}">
-
-          			<a href="member/login" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그인</a>
-	                <a href="member/join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">회원가입</a>
-					</c:if>
+          			 <c:choose>
+                      <c:when test="${not empty userinfo.member_id}">
+                         <a href="${pageContext.request.contextPath}/member/logout" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그아웃</a>
+                         <a href="${pageContext.request.contextPath}/member/mypage" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">마이페이지</a>
+                      </c:when>
+                      <c:otherwise>
+                         <a href="${pageContext.request.contextPath}/member/login" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그인</a>
+                         <a href="${pageContext.request.contextPath}/member/join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">회원가입</a>
+                      </c:otherwise>
+                   </c:choose>
+					
+					
 				</div>
 			</div>
 

@@ -48,7 +48,7 @@ public class Q_BoardController {
 			HttpSession session,
 			@ModelAttribute Q_BoardDto q_boardDto,
 			RedirectAttributes attr) {
-		 MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
+		MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
 		q_boardDto.setMember_id(userinfo.getMember_id());
 		int no = q_boardDao.write(q_boardDto);
 		attr.addAttribute("q_board_no",no);
@@ -165,6 +165,7 @@ public class Q_BoardController {
 		
 		return "q_board/q_edit";
 	}
+	
 	@PostMapping("/q_edit")
 	public String edit(
 			@ModelAttribute Q_BoardDto q_boardDto
@@ -176,9 +177,16 @@ public class Q_BoardController {
 	}
 
 	
+	  @PostMapping("/q_list") public String q_delete(@RequestParam int q_board_no)
+	  { sqlSession.delete("q_board.q_delete", q_board_no); return
+	  "redirect:q_list"; }
 	
 	
-	
+	  @GetMapping("delete")
+	  public String delete(@RequestParam("q_board_no")int q_board_no) {
+	  	q_boardDao.q_delete(q_board_no);
+	  	return "redirect:/q_board/q_list";
+	  }
 	
 	
 	

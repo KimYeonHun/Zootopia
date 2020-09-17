@@ -10,5 +10,10 @@ public interface Q_BoardDao {
 	public Q_BoardDto get(int q_board_no);
 
 	public void q_update(Q_BoardDto q_boardDto);
+
+	public void q_delete(int q_board_no);
+
+	
+	
 	
 }

@@ -20,15 +20,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			email,
 			gender
 		) values(
-			#{member_id},
-			#{member_pw},
-			#{birthday},
-			#{phone},
-			#{auth},
-			#{member_name},
-			#{post},
-			#{baseaddr},
-			#{extraaddr},
+			#{member_id, jdbcType=VARCHAR},
+			#{member_pw, jdbcType=VARCHAR},
+			#{birthday, jdbcType=VARCHAR},
+			#{phone, jdbcType=VARCHAR},
+			#{auth, jdbcType=VARCHAR},
+			#{member_name, jdbcType=VARCHAR},
+			#{post, jdbcType=VARCHAR},
+			#{baseaddr, jdbcType=VARCHAR},
+			#{extraaddr, jdbcType=VARCHAR},
 			#{email},
 			#{gender}
 		)
@@ -98,14 +98,47 @@ SELECT member_id FROM cert WHERE secret=#{secret}
 
 <!-- 회원정보 수정 -->
 	<update id="memberUpdate" parameterType="memberDto">
-		UPDATE MEMBER SET member_name = #{member_name},email = #{email},birthday = #{birthday},phone = #{phone},post = #{post},gender = #{gender},BASEADDR = #{baseaddr},EXTRAADDR = #{extraaddr}
-		WHERE member_id = #{member_id}
+		UPDATE MEMBER SET 
+		member_name = #{member_name, jdbcType=VARCHAR},
+		email = #{email, jdbcType=VARCHAR},
+		phone = #{phone, jdbcType=VARCHAR},
+		post = #{post},
+		BASEADDR = #{baseaddr, jdbcType=VARCHAR},
+		EXTRAADDR = #{extraaddr, jdbcType=VARCHAR}
+		WHERE member_id = #{member_id, jdbcType=VARCHAR}
 	</update>
 <!-- 비번체크 -->
 	<select id="checkpw" resultType="memberDto">
 	SELECT MEMBER_PW FROM MEMBER
 	WHERE MEMBER_ID = #{member_id}
 	</select>
+	
+	
+	<select id="getSeq" resultType="int">
+		select profile_seq.nextval from dual
+	</select>
+	
+	<insert id="file" parameterType="memberFileDto">
+		insert into profile(
+		member_id,
+		profile_name,
+		profile_no,
+		profile_type,
+		profile_size
+		) values(
+			#{member_id},
+			#{profile_name},
+			#{profile_no},
+			#{profile_type},
+			#{profile_size}
+		)	
+	</insert>
+	
+	<select id="poto" parameterType="String">
+	SELECT f.member_id, f.profile_no FROM MEMBER m INNER JOIN profile f
+	ON m.MEMBER_ID=f.MEMBER_ID WHERE m.MEMBER_ID=#{member_id};
+	</select>
+	
 
 
 </mapper>
