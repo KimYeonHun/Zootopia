@@ -12,6 +12,8 @@ List<PetDto> getList(String col, String order);
 PetDto get(int pet_no);
 
 void edit(PetDto petDto);
+void delete(int pet_no);
+
 
 		
 	

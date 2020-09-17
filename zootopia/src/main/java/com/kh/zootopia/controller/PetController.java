@@ -78,7 +78,10 @@ public class PetController {
 	}
 	
 
-//   @GetMapping("/delete")
-
+   @GetMapping("/delete/{pet_no}")
+public String delete(@PathVariable int pet_no){
+	   petDao.delete(pet_no);
+	   return "redirect:/pet/list";
+   }
 
 }

@@ -5,12 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 
 public class PetDto {
-private int pet_no;
-
-
+	private int pet_no;
 	private String pet_name;
 	private String pet_gender;
 	private String pet_kind;
@@ -23,4 +24,3 @@ private int pet_no;
 	private String pet_toilet;
 	private String when;
 }
-

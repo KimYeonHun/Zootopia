@@ -8,7 +8,7 @@
 <hr>
 <a href="list?col=pet_name&order=asc">이름순</a>
 <a href="list?col=when&order=desc">최신 등록순</a>
-<a href="list?col=pet_size&order=asc">크기 순으로 묶기</a>
+
 
 <hr>
 <table border="1">
@@ -32,11 +32,9 @@
 				<td>${petDto.pet_type}</td>
 				<td>${petDto.pet_size}</td>
 				<td>${petDto.when}</td>
-				<td>
-				<a href="detail/${petDto.pet_no}">상세</a> 
-				<a href="${pageContext.request.contextPath}/pet/edit?pet_no=${petDto.pet_no}">수정</a> 
-				<a href="delete/${itemDto.pet_no}">삭제</a>
-				</td>
+				<td><a href="detail/${petDto.pet_no}">상세</a> <a
+					href="${pageContext.request.contextPath}/pet/edit?pet_no=${petDto.pet_no}">수정</a>
+					<a href="delete/${petDto.pet_no}">삭제</a></td>
 			</tr>
 		</c:forEach>
 	</tbody>

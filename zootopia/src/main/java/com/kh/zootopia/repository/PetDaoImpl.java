@@ -49,6 +49,12 @@ public PetDto get(int pet_no) {
 	return petDto;
 }
 
+@Override
+public void delete(int pet_no) {
+	sqlSession.delete("pet.del",pet_no);
+	
+}
+
 
 	
 
