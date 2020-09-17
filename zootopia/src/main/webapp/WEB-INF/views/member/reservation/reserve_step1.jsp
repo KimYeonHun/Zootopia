@@ -185,8 +185,8 @@ align-items: center; padding-left:10px; border-radius: 3px; margin-top: 100px;">
 		style="border-radius: 5px; margin-top: 10px;" width="250px" height="250px" ></a>
 	</div>
 	<br>
-	<div style="font-size: 18px; color:rgb(57,60,71); letter-spacing: -0.2px;">
-		<p><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.petsitter_nick} 매니저</a></p>
+	<div style="font-size: 18px; letter-spacing: -0.2px; font-weight: bold;">
+		<p ><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.petsitter_nick} 펫 매니저</a></p>
 	</div>
 	
 
