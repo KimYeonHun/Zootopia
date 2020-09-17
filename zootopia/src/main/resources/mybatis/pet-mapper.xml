@@ -39,34 +39,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <select id="getList" resultType="petDto">
     SELECT * FROM pet
-    
-    
-    
     </select>
     
     
-    
-    <update id="petUpdate" parameterType="petDto">
-      
-        UPDATE PET SET
-            pet_name = #{pet_name}
-            ,pet_gender = #{pet_gender}
-            ,pet_kind  = #{pet_kind}
-            ,pet_type = #{pet_type}
-            ,pet_age  = #{pet_age}
-            ,pet_size = #{pet_size}
-            ,pet_total = #{pet_total}
-            ,pet_intro = #{pet_intro }
-            ,pet_vaccin = #{pet_vaccin}
-            ,pet_toilet = #{pet_toilet})
-        where
-            member_id = #{member_id}
-    </update>
-    
-<!-- 비번체크 -->
-   <select id="checkpw" resultType="memberDto">
-   SELECT MEMBER_PW FROM MEMBER
-   WHERE MEMBER_ID = #{member_id}
-   </select>
+ 
    
     </mapper>
