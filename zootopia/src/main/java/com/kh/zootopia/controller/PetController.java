@@ -61,15 +61,18 @@ public class PetController {
 	 */
 	
 	@GetMapping("/edit")
-	public String edit() {
+	public String edit(Model model,@RequestParam int pet_no) {
+		PetDto petDto = petDao.get(pet_no);
+		model.addAttribute("petDto",petDto);
 		return "pet/edit";
 	}
 
 	@PostMapping("/edit")
-	public String edit(@ModelAttribute PetDto petDto, @RequestParam int pet_no) {
+	public String edit(@ModelAttribute PetDto petDto) {
 		
-		PetDto editInfo = petDao.get(pet_no);
-		return "redirect:edit";
+		petDao.edit(petDto);
+		
+		return "redirect:list";
 	}
 	
 

@@ -69,7 +69,7 @@
 					<div class="form-group">
 						<div class="btn-group btn-group-toggle" data-toggle="buttons">
 							<label class="btn btn-info">대표 펫 종류</label> <select
-								name="pet_kind">
+								name="pet_type">
 								<option value="반려견">반려견</option>
 								<option value="반려묘">반려묘</option>
 							</select>
@@ -98,9 +98,8 @@
 
 					<label>세부 사항</label>
 					<div class="form-group">
-						<textarea name="info" form="inform" cols="55" rows="10">${petDto.pet_intro}</textarea>
-
-
+<%-- 						<textarea name="pet_intro" form="inform" cols="55" rows="10">${petDto.pet_intro}</textarea> --%>
+							<textarea name="pet_intro" cols="55" rows="10">${petDto.pet_intro}</textarea>
 					</div>
 					<div class="form-group">
 						<div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -125,6 +124,7 @@
 					</div>
 					<div class="form-group">
 						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<input type="hidden" name="pet_no" value="${petDto.pet_no}"> 
 							<button class="btn btn-info" type="submit">수정 완료</button>
 						</div>
 					</div>

@@ -41,7 +41,7 @@ public void edit(PetDto petDto) {
 }
 @Override
 public PetDto get(int pet_no) {
-	PetDto petDto=sqlSession.selectOne("pet.edit",pet_no);
+	PetDto petDto = sqlSession.selectOne("pet.get",pet_no);
 	return petDto;
 }
 

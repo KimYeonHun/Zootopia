@@ -34,7 +34,7 @@
 				<td>${petDto.when}</td>
 				<td>
 				<a href="detail/${petDto.pet_no}">상세</a> 
-				<a href="edit/${petDto.pet_no}">수정</a> 
+				<a href="${pageContext.request.contextPath}/pet/edit?pet_no=${petDto.pet_no}">수정</a> 
 				<a href="delete/${itemDto.pet_no}">삭제</a>
 				</td>
 			</tr>
