@@ -112,6 +112,13 @@ select * from pet_file where petsitter_no = #{petsitter_no}
 </select>
 
 
+<select id="getSitterList" parameterType="int" resultType="petSitterDto">
+
+	select * from petsitter where petsitter_no=#{petsitter_no}
+
+</select>
+
+
 </mapper>
 
 

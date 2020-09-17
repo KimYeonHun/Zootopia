@@ -12,10 +12,13 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous"></script>
 
+<!-- bootstrap datepicker -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.standalone.min.css" integrity="sha512-p4vIrJ1mDmOVghNMM4YsWxm0ELMJ/T0IkdEvrkNHIcgFsSzDi/fV7YxzTzb3mnMvFPawuIyIrHcpxClauEfpQg==" crossorigin="anonymous" />
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script> -->
+<script src="${pageContext.request.contextPath}/res/js/bootstrap-datepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous"></script>
 
     <!-- 
     
@@ -65,73 +68,120 @@
 
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
  
-<h1 class="text-primary">예약</h1>
+ <style>
+   #wrap{
+        margin-top: 100px;
+    }
+    #datePicker{
+        margin-top: 10px;
+    }
+ 
+ </style>
+<div class="container-fluid text-center">
+<div class="offset-2 col-8">
+
+<h1 class="text-primary" id="wrap">예약</h1>
 
 
-<form  class="form" action="" method="post">
 
 
+<form  class="form" method="post">
 
-		<label class="font-weight-bold text-primary"> 예약하실 날짜를 선택해주세요</label><br>
-		<input type="text" id="datePicker" class="form-control" name ="reservation_day" required >	
+	<label class="font-weight-bold text-primary "> 예약하실 날짜와 시간을 선택해주세요</label><br>
 
-
-
+        <div class= "text-center" >
+        <input type="text" id="datePicker" name ="reservation_day" required autocomplete="off" >
+      
+        <div id="timePicker">
+			<br><select   name="available_start_time" required>
+						<option value="">--</option>
+						<option value="09:00">09:00</option>
+						<option value="10:00">10:00</option>
+						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
+						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
+						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
+						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
+						<option value="19:00">19:00</option>
+						<option value="20:00">20:00</option>
+						<option value="21:00">21:00</option>
+					</select>
 			
+			부터
+		
+				<select  name="available_finish_time" required>
+					<option value="">--</option>
+					<option value="09:00">09:00</option>
+					<option value="10:00">10:00</option>
+					<option value="11:00">11:00</option>
+					<option value="12:00">12:00</option>
+					<option value="13:00">13:00</option>
+					<option value="14:00">14:00</option>
+					<option value="15:00">15:00</option>
+					<option value="16:00">16:00</option>
+					<option value="17:00">17:00</option>
+					<option value="18:00">18:00</option>
+					<option value="19:00">19:00</option>
+					<option value="20:00">20:00</option>
+					<option value="21:00">21:00</option>
+				</select>
 				
-<!-- 				<input type="time" name="available_start_time" class="form-control" required>~<input type="time" name="available_finish_time" class="form-control"  required><br> -->
-
-<!--    	<div class="col-4"> -->
-
-				<br><select name="available_start_time" required>
-					<option value="">--</option>
-					<option value="09:00">09:00</option>
-					<option value="10:00">10:00</option>
-					<option value="11:00">11:00</option>
-					<option value="12:00">12:00</option>
-					<option value="13:00">13:00</option>
-					<option value="14:00">14:00</option>
-					<option value="15:00">15:00</option>
-					<option value="16:00">16:00</option>
-					<option value="17:00">17:00</option>
-					<option value="18:00">18:00</option>
-					<option value="19:00">19:00</option>
-					<option value="20:00">20:00</option>
-					<option value="21:00">21:00</option>
-				</select>
-				부터
-			
-				<select name="available_finish_time" required>
-					<option value="">--</option>
-					<option value="09:00">09:00</option>
-					<option value="10:00">10:00</option>
-					<option value="11:00">11:00</option>
-					<option value="12:00">12:00</option>
-					<option value="13:00">13:00</option>
-					<option value="14:00">14:00</option>
-					<option value="15:00">15:00</option>
-					<option value="16:00">16:00</option>
-					<option value="17:00">17:00</option>
-					<option value="18:00">18:00</option>
-					<option value="19:00">19:00</option>
-					<option value="20:00">20:00</option>
-					<option value="21:00">21:00</option>
-				</select>
 				까지
+				
+					<button id="search" type="submit" class="btn btn-primary "> 펫시터 검색</button>
+				</div>
+		</div>
+  
+</form>
+</div>
+</div>
 
-<button type="submit" class="btn btn-primary "> 펫시터 검색</button>
-<!-- </div>	 -->
-<c:forEach var="petsitter" items="${list}">
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<div class="row">
+    <div class="offset-2 col-8">
+   
+        <table class="table table-sm table-hover">
+           
+            <tbody>
+             <c:forEach var="petsitter" items="${list}">
+                <tr class="text-center">
+                 <td style="width:200;"><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}"><img src="${pageContext.request.contextPath}/petsitter/img/${petsitter.petsitter_no}" width=200, height=200></a></td>
+                 <td><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.petsitter_nick}</a></td>
+                 <td><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.petsitter_career}</a></td>
+                </tr>
+                 </c:forEach>
+            </tbody>
+
+        </table>
+       
+    </div>
+</div>
+
+
+
+
 <!-- 펫시터 사진 펫시터 이름  펫시터 경력 (경력 어떻게 보여줄지..?) 예약하기 버튼  : 이름 선택 시 펫시터 상세 정보 보는 페이지-->
-<p>사진</p>
-<a><img src="${pageContext.request.contextPath}/petsitter/img/${petsitter.petsitter_no}" width=200, height=200></a>
-<p>${petsitter.petsitter_nick}</p> 
-<p>${petsitter.petsitter_career}</p>
-</c:forEach>
+
+
+
+
+
 
 <!-- <div class="col-2"> -->
 
 <!-- <a class="btn btn-primary" href="reserve_step2">다음</a> -->
 
-	</form>
 

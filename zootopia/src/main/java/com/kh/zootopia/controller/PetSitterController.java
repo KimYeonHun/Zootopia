@@ -44,6 +44,7 @@ public class PetSitterController {
 	@Autowired
 	private SitterPhotoService sitterPhotoService;
 	
+	
 	@GetMapping("/petsitter_join")
 	public String petsitter_join(
 //		@RequestParam String member_id,
@@ -53,7 +54,7 @@ public class PetSitterController {
 		
 		MemberDto userinfo= (MemberDto)session.getAttribute("userinfo");
 		model.addAttribute("userinfo", userinfo);
-		String member_id =userinfo.getMember_id();
+//		String member_id =userinfo.getMember_id();
 		
 		// 해당 아이디가 펫시터 등록을 했으면 안넘어가기 
 		// 등록을 안했으면 등록할 수 있게
@@ -69,15 +70,17 @@ public class PetSitterController {
 			@RequestParam MultipartFile photo
 			
 			) throws Exception {
-
+		
 		int result = petSitterDao.getNick(petSitterDto.getPetsitter_nick());
 		
 		if(result==0) { // 닉네임이 중복이 아닐때
 			
 			if(photo.getSize()!=0) {// 아이디가 중복아니고 사진이 들어있을 때
 				
-				petSitterDao.photo(petFileDto, photo, petSitterDto);
+			petSitterDao.photo(petFileDto, photo, petSitterDto);
+
 			}
+		
 			return  "redirect:petsitter_result";
 		
 		}else { //중복일때
@@ -126,6 +129,31 @@ public class PetSitterController {
 		return sitterPhotoService.getImg(petFileDto);
 		
 	}
+	
+	
+//	@GetMapping("/sitter_detail")
+//	public String sitter_detail() {
+//		
+//		
+//		return "/member/reservation/sitter_detail";
+//	}
+	
+	
+	@GetMapping("/sitter_detail/{petsitter_no}")
+	
+	public String sitter_detail(
+			@PathVariable int petsitter_no,
+			@ModelAttribute PetSitterDto petSitterDto,
+			Model model
+			) {
+		
+		PetSitterDto info =petSitterDao.getSitterList(petsitter_no);
+		
+		model.addAttribute("sitterDetail", info);
+		
+		return "/member/reservation/sitter_detail";
+	}
+	
 	
 	
 	

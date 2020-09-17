@@ -60,6 +60,7 @@ public class ReservationController {
 			
 			) {
 		
+	
 		
 		Map<String,Object > map = new HashMap<>();
 		map.put("available_start_time", available_start_time);
@@ -75,6 +76,7 @@ public class ReservationController {
 		
 		// 펫시터 찍기 
 		model.addAttribute("list", list);
+
 	
 		return "/member/reservation/reserve_step1";
 	}
