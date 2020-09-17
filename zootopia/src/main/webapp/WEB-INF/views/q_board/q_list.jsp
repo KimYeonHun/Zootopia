@@ -35,8 +35,7 @@
                             var dataHtml = '';
 
                             $.each(data, function (index, item) {
-                                dataHtml += '<tr><td>' + item.q_board_no + '</td>\
-                            <td><a href="q_content?q_board_no=' + item.q_board_no + '">' + item.q_title + '</td></a>\
+                                dataHtml += '<tr><td><a href="q_content?q_board_no=' + item.q_board_no + '">' + item.q_title + '</td></a>\
                             <td>' + item.member_id + '</td>\
                             <td>' + item.q_when.split(' ')[0] + '</td>\
                             <td>' + item.q_read + '</td>\
@@ -87,7 +86,7 @@
                 <table class="table table-sm table-hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th>번호</th>
+                            
                             <th>제목</th>
                             <th>작성자</th>
                             <th>작성일</th>

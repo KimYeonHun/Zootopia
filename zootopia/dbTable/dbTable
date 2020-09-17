@@ -59,3 +59,59 @@ MEMBER_ID REFERENCES Member(MEMBER_ID) ON DELETE CASCADE,
 PET_NAME REFERENCES Member(MEMBER_ID) ON DELETE CASCADE,
 PETSITTER_NO REFERENCES Member(MEMBER_ID) ON DELETE CASCADE,
 );
+
+
+-----------
+---회원 프로필---
+CREATE TABLE profile(
+member_id REFERENCES Member(member_id) ON DELETE CASCADE,
+profile_no NUMBER PRIMARY KEY,
+profile_name varchar2(4000) NOT NULL,
+profile_TYPE varchar2(10) NOT NULL,
+profile_SIZE NUMBER NOT null
+);
+CREATE SEQUENCE profile_seq nocache;
+
+
+
+CREATE TABLE petsitter(
+petsitter_no NUMBER PRIMARY KEY,
+--회원 아이디--
+member_id REFERENCES Member(MEMBER_ID) ON DELETE CASCADE,
+--펫시터 닉네임--
+petsitter_nick VARCHAR2(15) NOT NULL,
+-- 경력 --
+petsitter_career VARCHAR2(4000) NOT NULL,
+-- 자기소개 --
+career_info VARCHAR2(4000) NOT NULL,
+monday varchar2(10),
+tuesday varchar2(10),
+wednesday varchar2(10),
+thursday varchar2(10),
+friday varchar2(10),
+saturday varchar2(10),
+sunday varchar2(10),
+available_start_time DATE  NOT NULL,
+available_finish_time DATE NOT NULL,
+adress varchar2(50),
+--체크리스트 점수--
+sitter_checklist NUMBER,
+sitter_checklist_two NUMBER ,
+care_one NUMBER,
+care_two NUMBER,
+care_three NUMBER,
+care_four NUMBER,
+care_five NUMBER,
+-- 공격하는 강아지 대처--
+sitter_checklist_four varchar2(4000),
+-- 숨어있는 고양이--
+sitter_checklist_five varchar2(4000),
+-- 돌봄의 자세--
+sitter_checklist_six varchar2(4000),
+sitter_accept VARCHAR2(15) default'미승인' NOT NULL CHECK(sitter_accept IN ('미승인','승인중','승인'))
+);
+
+
+
+
+

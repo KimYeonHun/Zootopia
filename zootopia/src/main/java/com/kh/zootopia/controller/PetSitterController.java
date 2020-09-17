@@ -2,18 +2,26 @@ package com.kh.zootopia.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.sql.ResultSet;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.aspectj.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,6 +51,10 @@ public class PetSitterController {
 		
 		MemberDto userinfo= (MemberDto)session.getAttribute("userinfo");
 		model.addAttribute("userinfo", userinfo);
+		String member_id =userinfo.getMember_id();
+		
+		// 해당 아이디가 펫시터 등록을 했으면 안넘어가기 
+		// 등록을 안했으면 등록할 수 있게
 		 
 		return "petsitter/petsitter_join";
 	}
@@ -87,6 +99,33 @@ public class PetSitterController {
 		int result = petSitterDao.getNick(petsitter_nick);
 		return result ;
 	}
+	
+	// 이미지 다운로드
+	@GetMapping("/img/{petsitter_no}")
+	public ResponseEntity<ByteArrayResource> img(
+			@PathVariable int petsitter_no
+			) throws IOException{
+		
+		PetFileDto petFileDto = petSitterDao.getimg(petsitter_no);
+		
+		if(petFileDto == null) {
+			return ResponseEntity.notFound().build();
+		}else {
+			File target = new File("D:/upload",petFileDto.getPet_file_name());
+			byte[] data = FileUtils.readFileToByteArray(target);
+			ByteArrayResource res = new ByteArrayResource(data);
+			
+			return ResponseEntity .ok().contentType(MediaType.APPLICATION_OCTET_STREAM)
+					.contentLength(petFileDto.getPet_file_size())
+					.header(HttpHeaders.CONTENT_DISPOSITION	,"attachment; filename=\""+URLEncoder.encode(petFileDto.getPet_file_name(), "UTF-8")+"\"" )
+					.header(HttpHeaders.CONTENT_ENCODING, "UTF-8")
+					.body(res);
+		}
+		
+		
+	}
+	
+	
 	
 	
 

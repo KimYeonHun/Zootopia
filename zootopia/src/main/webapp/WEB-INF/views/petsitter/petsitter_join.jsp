@@ -41,6 +41,17 @@
 		}
 	}
 	
+	// 다중 체크박스 (하나만 선택되게 하기)
+	function haveCheck3(chk) {
+		var have = document.getElementsByName("adress");
+
+		for (j = 0; j < have.length; j++) {
+			if (have[j] != chk) {
+				have[j].checked = false;
+			}
+		}
+	}
+	
 
 ///////////////////////요일//////////////////////
 //////////////////////////////////////////
@@ -289,9 +300,14 @@ function checkNick(){
 			<div class="jumbotron">
 				<h3 class="text-primary">* 채용안내</h3> <br> <br> 
 				<h6 class="text-primary">* 면접</h6> 코로나19로 인해 모든 면접은
-				화상(ZOOM)으로 진행됩니다. <br><br>  <br> <h6 class="text-primary">* 서비스 교육( ★필수 수강★) 및 훈련사 교육(
+				화상(ZOOM)으로 진행됩니다. <br><br> 
+				<h6 class="text-primary">* 펫시터 활동 범위</h6>
+				펫시터는 현재 서울 지역에서만 활동이 가능하며, 이후 지역을 늘려갈 예정입니다.
+				<br> 지원하실 때 참고 바랍니다.<br>
+				 <br> <h6 class="text-primary">* 서비스 교육( ★필수 수강★) 및 훈련사 교육(
 				★선택 수강★)</h6> 교육날짜와 방법은 면접 통과 후 안내드립니다. <br> <br> #
-				훈련사 교육은 평일에만 진행되며, 서울에 위치한 훈련소에서 진행됩니다.  # 훈련사 교육은 펫시터 활동
+				훈련사 교육은 평일에만 진행되며, 서울에 위치한 훈련소에서 진행됩니다.  
+				 <br># 훈련사 교육은 펫시터 활동
 				중에도 수강 가능합니다.<br> # 서비스 교육과 훈련사 교육은 다른 날 진행됩니다. <br># 교육
 				후 추가적으로 필요한 내용은 영상(유튜브)를 통해 상시 제공됩니다. <br>
 				<br>
@@ -386,12 +402,50 @@ function checkNick(){
 				</div>	
 
 				<div class="form-group">
-				<label class="font-weight-bold text-primary" >돌봄 가능한 시간대</label>
-				<input type="time" name="available_start_time" class="form-control" required>~<input type="time" name="available_finish_time" class="form-control"  required><br>
+				<label class="font-weight-bold text-primary" >돌봄 가능한 시간대</label><br>
+<!-- 				<input type="time" name="available_start_time" class="form-control" required>~<input type="time" name="available_finish_time" class="form-control"  required><br> -->
+				<br><select name="available_start_time">
+					<option value="">--</option>
+					<option value="09:00">09:00</option>
+					<option value="10:00">10:00</option>
+					<option value="11:00">11:00</option>
+					<option value="12:00">12:00</option>
+					<option value="13:00">13:00</option>
+					<option value="14:00">14:00</option>
+					<option value="15:00">15:00</option>
+					<option value="16:00">16:00</option>
+					<option value="17:00">17:00</option>
+					<option value="18:00">18:00</option>
+					<option value="19:00">19:00</option>
+					<option value="20:00">20:00</option>
+					<option value="21:00">21:00</option>
+				</select>
+				부터
+				<select name="available_finish_time">
+					<option value="">--</option>
+					<option value="09:00">09:00</option>
+					<option value="10:00">10:00</option>
+					<option value="11:00">11:00</option>
+					<option value="12:00">12:00</option>
+					<option value="13:00">13:00</option>
+					<option value="14:00">14:00</option>
+					<option value="15:00">15:00</option>
+					<option value="16:00">16:00</option>
+					<option value="17:00">17:00</option>
+					<option value="18:00">18:00</option>
+					<option value="19:00">19:00</option>
+					<option value="20:00">20:00</option>
+					<option value="21:00">21:00</option>
+				</select>
+				까지
 				</div>
 				
-				
-			
+				<br>
+				<label class="font-weight-bold text-primary"> 활동 가능한 지역을 선택해주세요</label><br><br>
+				<input type="checkbox" name="adress" value="서울" id="seoul" checked><label for="seoul">서울&nbsp;</label>	<br>
+				<input type="checkbox" name="adress" value="경기" id="gyeonggi" disabled><label  for="gyeonggi">경기&nbsp;</label>	<br>
+				<input type="checkbox" name="adress" value="그 외" id="etc"disabled><label  for="etc">그 외</label><br>
+				<br>
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">반려 동물이 있으신가요?</label><br>
 				<input type="checkbox"   class="control-input" name="sitter_checklist" id="have_pet" value="10" onclick="haveCheck1(this);">
