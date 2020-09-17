@@ -60,6 +60,12 @@ public class PetSitterDaoImpl implements PetSitterDao {
 		return result;
 	}
 
+	@Override
+	public PetFileDto getimg(int petsitter_no) {
+		
+		return sqlSession.selectOne("petsitter.getimg", petsitter_no);
+	}
+
 
 
 	

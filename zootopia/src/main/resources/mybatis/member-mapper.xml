@@ -104,6 +104,7 @@ SELECT member_id FROM cert WHERE secret=#{secret}
 
 
 
+
 UPDATE MEMBER SET
 
 		 member_name = #{member_name , jdbcType=VARCHAR},
@@ -143,7 +144,10 @@ UPDATE MEMBER SET
 		)	
 	</insert>
 	
-	
+	<select id="poto" parameterType="String">
+	SELECT f.member_id, f.profile_no FROM MEMBER m INNER JOIN profile f
+	ON m.MEMBER_ID=f.MEMBER_ID WHERE m.MEMBER_ID=#{member_id};
+	</select>
 	
 
 
