@@ -25,6 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             pet_seq.nextval,
              #{pet_name},
              #{member_id},
+             #{pet_name},
+             #{member_id},
              #{pet_gender , jdbcType=VARCHAR},
              #{pet_kind},
              #{pet_type , jdbcType=VARCHAR},

@@ -17,17 +17,14 @@ public class PetDaoImpl implements PetDao {
 	@Autowired
 	private SqlSession sqlSession;
 
-	
 
-
-	
 	@Override
 	public void insert(PetDto petDto) {
 		sqlSession.insert("pet.petinfo",petDto);
 
+
 	}
 		
-
 	@Override
 	public List<PetDto> getList(){
 		return sqlSession.selectList("pet.getList");
