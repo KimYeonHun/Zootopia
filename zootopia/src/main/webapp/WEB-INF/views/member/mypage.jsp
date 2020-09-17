@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,15 +85,16 @@ margin-left:50%;
 
 </div>
 
-
 <div>
+
 <label>프로필 사진</label>
       <img  width="415" height="300">  
 <!-- 
  <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
  onchange="preview();"> -->
+<c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>         
-   
+   <c:if test="${userinfo.phone ne null && userinfo.phone!=''}">${fn:substring(userinfo.phone,0,fn:length(userinfo.phone)-3)}---</c:if>
 
 
 <label>이름</label> 
@@ -123,82 +126,89 @@ margin-left:50%;
   
 			<div>
 
-				<form id="member" action="../member/memberUpdate" method="POST">
+<!-- 				<form id="member" action="../member/memberUpdate" method="POST"> -->
 					
 
 
 					<p>
 
-						<label>아이디</label> 
-						<input class="w3-input" type="text" id="id" name="id" readonly value="${userinfo.member_id}"> 
+<!-- 						<label>아이디</label>  -->
+<%-- 						<input class="w3-input" type="text" id="id" name="id" readonly value="${userinfo.member_id}">  --%>
 
 						<label>아이디 : ${userinfo.member_id}</label> 
 
 					</p>
 			
 					<p>
-						<label>이메일</label> 
-						<input class="w3-input" type="text" id="email" name="email" readonly value="${userinfo.email}"> 
+<!-- 						<label>이메일</label>  -->
+<%-- 						<input class="w3-input" type="text" id="email" name="email" readonly value="${userinfo.email}">  --%>
 
 						<label>이메일 : ${userinfo.email}</label> 
 
 					</p>
 					<p>
 
-						<label>생일</label> 
-						<input class="w3-input" type="text" id="birth" name="birth" readonly value="${userinfo.birthday}"> 
+						<label>생일:${fn:substring(TextValue,0,10)}</label> 
+<%-- 						<input class="w3-input" type="text" id="birth" name="birth" readonly value="${userinfo.birthday}">  --%>
 
-						<label>전화 번호 : ${userinfo.phone}</label> 
 					</p>
 					<p>
-						<label>전화 번호</label> 
-						<input class="w3-input" type="text" id="phone" name="phone" readonly value="${userinfo.phone}"> 
+						<label>전화 번호 : ${userinfo.phone}</label> 
+<!-- 						<label>전화 번호</label>  -->
+<%-- 						<input class="w3-input" type="text" id="phone" name="phone" readonly value="${userinfo.phone}">  --%>
 					</p>
 					
 					<p>
-						<label>성별</label> 
-						<input class="w3-form" type="text" id="gender" name="gender" readonly value="${userinfo.gender}">
+						<label>성별:${userinfo.gender}</label> 
+<%-- 						<input class="w3-form" type="text" id="gender" name="gender" readonly value="${userinfo.gender}"> --%>
 						 
 
-						<label>우편번호 : ${userinfo.post}</label> 
 
 					</p>
 					<p>
-						<label>우편번호</label> 
-						<input class="w3-form" type="text" id="post" name="post" readonly value="${userinfo.post}">
+						<label>우편번호 : ${userinfo.post}</label> 
+<!-- 						<label>우편번호</label>  -->
+<%-- 						<input class="w3-form" type="text" id="post" name="post" readonly value="${userinfo.post}"> --%>
 						 
+
+
+					</p>
+					<p>
 
 						<label>기본 주소 : ${userinfo.baseaddr}</label> 
-
-					</p>
-					<p>
-
-						<label>기본 주소</label> 
-						<input class="w3-form" type="text" id="BASEADDR" name="BASEADDR" readonly value="${userinfo.baseaddr}">
+<!-- 						<label>기본 주소</label>  -->
+<%-- 						<input class="w3-form" type="text" id="BASEADDR" name="BASEADDR" readonly value="${userinfo.baseaddr}"> --%>
 						 
 
+
+					</p>
+
+					<p>
 						<label>상세 주소 : ${userinfo.extraaddr}</label> 
-
-					</p>
-
-					<p>
-						<label>상세 주소</label> 
-						<input class="w3-form" type="text" id="EXTRAADDR" name="EXTRAADDR" readonly value="${userinfo.extraaddr}">
+<!-- 						<label>상세 주소</label>  -->
+<%-- 						<input class="w3-form" type="text" id="EXTRAADDR" name="EXTRAADDR" readonly value="${userinfo.extraaddr}"> --%>
 						 
 					</p>
 					
 					
 					
 				
-				<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button>
+<!-- 				<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button> -->
 					
 				
-				</form>
+<!-- 				</form> -->
 
 
+<!-- 					<p class="w3-form"> -->
+<!-- 						<a href="mypage2"> -->
+<!-- 						<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button> -->
+<!-- 						</a> -->
+<!-- 					</p> -->
+					
 					<p class="w3-form">
-						<a href="mypage2">
-						<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button>
+						<a href="passcheck">
+						<input type="button" value="변경">
+<!-- 						<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button> -->
 						</a>
 					</p>
 

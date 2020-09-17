@@ -49,20 +49,20 @@ public class TestController {
 	}
 	
 	
-	@RequestMapping(value="/passcheck", method = RequestMethod.GET)
-	public String passcheck() throws Exception{
-		//1페이지를 보여준다
-		return "test/passcheck";
-	}
-	@RequestMapping(value="/passcheck", method = RequestMethod.POST)
-		public String passcheck(@ModelAttribute MemberDto memberDto) {
-			boolean result = testDao.passcheck(memberDto);
-			if(result) {
-				return"redirect:/test/memberUpdateView";
-			}		  
-			else {
-				return "redirect:passcheck?error";
-			}
-	}
+//	@RequestMapping(value="/passcheck", method = RequestMethod.GET)
+//	public String passcheck() throws Exception{
+//		//1페이지를 보여준다
+//		return "test/passcheck";
+//	}
+//	@RequestMapping(value="/passcheck", method = RequestMethod.POST)
+//		public String passcheck(@ModelAttribute MemberDto memberDto) {
+//			boolean result = testDao.passcheck(memberDto);
+//			if(result) {
+//				return"redirect:/test/memberUpdateView";
+//			}		  
+//			else {
+//				return "redirect:passcheck?error";
+//			}
+//	}
 //////////성공///////////////////////
 }

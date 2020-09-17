@@ -138,7 +138,14 @@ public class MemberDaoImpl implements MemberDao{
 
 	@Override
 	public boolean passcheck(MemberDto memberDto) {
-		// TODO Auto-generated method stub
+		MemberDto find = sqlSession.selectOne("member.get",memberDto.getMember_id());//1.id가져오기
+		if(find != null) {//id가있으면
+			//조회된 비밀번호와 입력된비밀번호를 비교
+			boolean pass = encoder.matches(memberDto.getMember_pw(),find.getMember_pw());
+			if(pass) {
+				return true;
+			}
+		}
 		return false;
 	}
 
