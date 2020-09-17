@@ -33,4 +33,5 @@ public class PetDaoImpl implements PetDao {
 		List<PetDto> list = sqlSession.selectList("pet.getList2",map);
 		return list;
 }
+
 }
