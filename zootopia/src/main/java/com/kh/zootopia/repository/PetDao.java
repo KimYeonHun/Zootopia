@@ -8,4 +8,5 @@ public interface PetDao {
 	void insert(PetDto petDto);
 List<PetDto> getList();
 List<PetDto> getList(String col, String order);
+PetDto get(int pet_no);
 }

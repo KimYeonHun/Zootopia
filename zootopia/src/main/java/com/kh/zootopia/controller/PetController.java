@@ -42,7 +42,13 @@ List<PetDto>list = petDao.getList(col,order);
 return "pet/list";
 	
 }
-//   @GetMapping("/detail")
+ @GetMapping("/detail")
+ public String detail(@RequestParam int pet_no , Model model) {
+	 PetDto petDto = petDao.get(pet_no);
+	 model.addAttribute("petDto",petDto);
+	return "pet/detail";
+	 
+ }
 //   @GetMapping("/edit")
 //   @PostMapping("/edit")
 //   @GetMapping("/delete")

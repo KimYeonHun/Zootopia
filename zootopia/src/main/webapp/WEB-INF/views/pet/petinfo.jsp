@@ -92,7 +92,7 @@
                             </div>
                             
                            <div class="form-group">
-                        <label>펫수</label>
+                        <label>펫 마리 수</label>
                         <input type="number" name="pet_total" class="form-control">
                     </div>
                    

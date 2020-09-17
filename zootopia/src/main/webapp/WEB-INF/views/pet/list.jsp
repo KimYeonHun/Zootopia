@@ -6,7 +6,9 @@
 <h1>PET 목록</h1>
 
 <hr>
-<a href="">이름순</a>
+<a href="list?col=pet_name&order=asc">이름순</a>
+<a href="list?col=when&order=desc">최신 등록순</a>
+<a href="list?col=pet_size&order=asc">크기 순</a>
 
 <hr>
 <table border="1">
@@ -30,9 +32,10 @@
 				<td>${petDto.pet_type}</td>
 				<td>${petDto.pet_size}</td>
 				<td>${petDto.when}</td>
-				<td><a href="detail/${itemDto.no}">상세</a> 
-				<a href="edit?no=${itemDto.no}">수정</a> 
-					<a href="delete/${itemDto.no}">삭제</a>
+				<td>
+				<a href="detail?pet_no=${petDto.pet_no}">상세</a> 
+				<a href="edit?no=${petDto.pet_no}">수정</a> 
+				<a href="delete/${itemDto.pet_no}">삭제</a>
 				</td>
 			</tr>
 		</c:forEach>
