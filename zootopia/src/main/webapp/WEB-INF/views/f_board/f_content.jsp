@@ -40,7 +40,7 @@
                 	var use_name = $('#user-name').val();
                 	var board_no = $('#f_board_no').val();
                 	var fr_content = $('#reply-textarea').val();
-                	var trTag = '<tr class="table-light"> <td scope="row">' + board_no + '</td> <td>' + use_name + '</td> <td>' + fr_content + '</td> </tr>'; 
+                	var trTag = '<tr class="table-light"> <td scope="row">' + use_name  + ':'  +  fr_content + '</td> </tr>'; 
                 	$('#reply-table').children().first().prepend(trTag);
                 }
                 $('#reply-textarea').val('');
@@ -135,9 +135,8 @@
     	<tbody>
 		    <c:forEach var="f_replyDto" items="${list}">
 		        <tr class="table-light">
-		            <td scope="row">${f_replyDto.f_board_no}</td>
-		            <td>${f_replyDto.fr_writer}</td>
-		            <td>${f_replyDto.fr_content}</td>
+		            
+		            <td>${f_replyDto.fr_writer} : ${f_replyDto.fr_content}</td>
 		        </tr>
 		    </c:forEach>
     	</tbody>

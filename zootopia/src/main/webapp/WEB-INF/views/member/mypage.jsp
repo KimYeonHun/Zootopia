@@ -6,7 +6,7 @@
  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script>
+<!-- <script>
 
 function preview(){
     //console.log("preview 실행!");
@@ -32,7 +32,7 @@ function preview(){
     }
     
 }
-    </script> 
+    </script>  -->
 <style>
    .w3-input {
     padding: 8px;
@@ -83,14 +83,14 @@ margin-left:50%;
 
 </div>
 
-
+<!-- 
 <div>
 <label>프로필 사진</label>
       <img  width="415" height="300">  
-<!-- 
+
  <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
- onchange="preview();"> -->
-       </div>         
+ onchange="preview();">
+       </div>          -->
    
 
 <%-- <label>이름</label> 

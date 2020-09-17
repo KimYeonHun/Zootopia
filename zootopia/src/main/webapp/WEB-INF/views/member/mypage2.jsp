@@ -7,12 +7,12 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script>
+    <!-- <script>
 
         function preview() {
             //console.log("preview 실행!");
 
-            var fileTag = document.querySelector("input[name=f]");
+            var fileTag = document.querySelector("input[name=file]");
 
             console.log(fileTag.files);
             //if(fileTag에 선택된 파일이 있다면){
@@ -33,7 +33,7 @@
             }
 
         }
-    </script>
+    </script> -->
     
     
     
@@ -118,7 +118,10 @@
             margin-left: 50%;
             border: none;
 
-
+		
+			
+			
+			
 
         }
     </style>
@@ -147,15 +150,17 @@
                     </div>
 
 
-                    <div>
+                    <%-- <div>
                     <form action="profile" method="post" enctype="multipart/form-data">
                         <label>프로필 사진</label>
-                        <img width="415" height="300">
-                        <input type="file" accept=".jpg, .gif, .png" name="file" multiple onchange="preview();">
+                        <input type="file" accept=".jpg, .gif, .png" name="file" multiple onchange="preview();"><br>
+                 
+                        <img class="pppp" width="200" height="200" ><br>
+
                         <input type="hidden" name="member_id" value="${memberDto.member_id}">
                     	<input type="submit" value="등록">
                     </form>
-                    </div>
+                    </div> --%>
 
 
                 </div>
@@ -166,10 +171,11 @@
             <div>
                 <form action="mypage2" method="post">
 
-
+					
                     <p>
                         <label>이름</label>
                         <input class="w3-input" type="text" name="member_name" value="${memberDto.member_name}">
+                        <input type="hidden" name="member_id" value="${memberDto.member_id}">
                     </p>
 
                     <p>
