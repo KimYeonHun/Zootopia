@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <head>
@@ -45,16 +45,17 @@
                 <form class="pet" method="post">
                  
                     <div class="form-group">
-                        <label>펫 이름</label>
+                        <label>대표 펫 이름</label>
                         <input type="text" name="pet_name" class="form-control" required>
                     </div>
                    
                     <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-info">성별</label>
+                            <label class="btn btn-info">대표 반려 동물 성별</label>
                             <select name="type" id="select">
                             <option value="수컷">수컷</option>
                             <option value="암컷">암컷</option>
+                            
                             </select>
                         </div>
                     </div>
@@ -66,7 +67,7 @@
                     
                    <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-info">종류</label>
+                            <label class="btn btn-info">대표 반려 동물 종류</label>
                           <select name="type" id="select">
                             <option value="반려견">반려견</option>
                             <option value="반려묘">반려묘</option>
@@ -82,7 +83,7 @@
                     </div>
                     <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-info">펫 크기</label>
+                            <label class="btn btn-info">대표 반려 동물 펫 크기</label>
                             <select name="type" id="select">
                             <option value="소형">소형</option>
                             <option value="중형">중형</option>
@@ -99,12 +100,12 @@
                      <label>세부 사항</label>
                   <div class="form-group">    
                         <textarea name="info" form="inform" cols="55" rows="10" autofocus required wrap="hard"
-                        placeholder="세부 사항을 적어주세요"></textarea>
+                        placeholder="주의 사항및  여러 반려 동물 관련 정보를 기입해 주세요"></textarea>
               
                     </div>
         <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-info">접종 여부</label>
+                            <label class="btn btn-info">대표 반려 동물 접종 여부</label>
                             <label class="btn btn-info">
                                <input value= "YES" type="radio" name="vaccin" id="option1" autocomplete="off"> YES
                             </label>
@@ -116,7 +117,7 @@
                 
                        <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-info">대소변 유무</label>
+                            <label class="btn btn-info">대표 반려 동물 대소변 유무</label>
                             <label class="btn btn-info">
                                <input value= "YES" type="radio" name="vaccin" id="option1" autocomplete="off"> YES
                             </label>
@@ -127,9 +128,9 @@
                     </div>
   
      <button id="submit" type="submit" class="btn-group btn-group-toggle">등록</button>
-</body>
 </form>
 </div>
 </div>
 </div>  
+</body>
 </html>

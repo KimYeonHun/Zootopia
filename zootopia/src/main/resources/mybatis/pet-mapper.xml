@@ -37,6 +37,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             
     </insert>
     
+    <select id="getList" resultType="petDto">
+    SELECT * FROM pet
+    
+    
+    
+    </select>
+    
+    
+    
     <update id="petUpdate" parameterType="petDto">
       
         UPDATE PET SET
