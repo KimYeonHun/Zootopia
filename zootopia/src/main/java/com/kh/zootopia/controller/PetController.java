@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,38 +19,59 @@ import com.kh.zootopia.repository.PetDao;
 @RequestMapping("/pet")
 public class PetController {
 
-   
-   @Autowired 
-   private PetDao petDao;
+	@Autowired
+	private PetDao petDao;
 
+	@GetMapping("/petinfo")
+	public String petinfo() {
+		return "pet/petinfo";
+	}
 
-   @GetMapping("/petinfo")
-   public String petinfo() {
-      return "pet/petinfo";
-   }
-@PostMapping("/petinfo")
-public String petinfo(@ModelAttribute PetDto petDto) {
-   petDao.insert(petDto);
-   return "redirect:list";
-}
-@GetMapping("/list")
-public String list(Model model,
-	@RequestParam(required = false , defaultValue = "pet_no") String col,
-	@RequestParam(required = false , defaultValue = "asc") String order
-	){
-List<PetDto>list = petDao.getList(col,order);
-	model.addAttribute("list",list);
-return "pet/list";
+	@PostMapping("/petinfo")
+	public String petinfo(@ModelAttribute PetDto petDto) {
+		petDao.insert(petDto);
+		return "redirect:list";
+	}
+
+	@GetMapping("/list")
+	public String list(Model model, @RequestParam(required = false, defaultValue = "pet_no") String col,
+			@RequestParam(required = false, defaultValue = "desc") String order) {
+		List<PetDto> list = petDao.getList(col, order);
+		model.addAttribute("list", list);
+		return "pet/list";
+
+	}
+
+	@GetMapping("/detail/{pet_no}")
+	public String detail(@PathVariable int pet_no, Model model) {
+		PetDto petDto = petDao.get(pet_no);
+		model.addAttribute("petDto", petDto);
+		return "pet/detail";
+
+	}
+
+	/*
+	 * @GetMapping("/edit/{pet_no}") public String edit(@RequestParam int pet_no,
+	 * Model model) { PetDto petDto = petDao.get(pet_no);
+	 * model.addAttribute("petDto", petDto);
+	 * 
+	 * return "pet/edit";
+	 * 
+	 * }
+	 */
 	
-}
- @GetMapping("/detail")
- public String detail(@RequestParam int pet_no , Model model) {
-	 PetDto petDto = petDao.get(pet_no);
-	 model.addAttribute("petDto",petDto);
-	return "pet/detail";
-	 
- }
-//   @GetMapping("/edit")
-//   @PostMapping("/edit")
+	@GetMapping("/edit")
+	public String edit() {
+		return "pet/edit";
+	}
+
+	@PostMapping("/edit")
+	public String edit(@ModelAttribute PetDto petDto, @RequestParam int pet_no) {
+		
+		PetDto editInfo = petDao.get(pet_no);
+		return "redirect:edit";
+	}
+	
+
 //   @GetMapping("/delete")
 }

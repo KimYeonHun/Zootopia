@@ -49,4 +49,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  SELECT * FROM pet WHERE pet_no=#{pet_no}
  </select>
    
+   <update id="edit" parameterType="petDto">
+   UPDATE pet SET 
+   pet_name=#{pet_name}, 
+   pet_gender=#{pet_gender}
+   pet_kind=#{pet_kind}, 
+   pet_type=#{pet_type}
+   pet_age=#{pet_age} , 
+   pet_size=#{pet_size}
+   pet_total=#{pet_total} , 
+   pet_intro=#{pet_intro}, 
+   pet_vaccin=#{pet_vaccin},  
+   pet_toilet=#{pet_toilet} WHERE pet_no = #{pet_no}
+   </update>
+   
     </mapper>

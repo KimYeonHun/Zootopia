@@ -34,7 +34,17 @@ public class PetDaoImpl implements PetDao {
 		return list;
 }
 @Override
-public PetDto get(int pet_no) {
-	return sqlSession.selectOne("pet.get",pet_no);
+public void edit(PetDto petDto) {
+	sqlSession.update("pet.edit",petDto);
+
+	
 }
+@Override
+public PetDto get(int pet_no) {
+	PetDto petDto=sqlSession.selectOne("pet.edit",pet_no);
+	return petDto;
+}
+
+	
+
 }
