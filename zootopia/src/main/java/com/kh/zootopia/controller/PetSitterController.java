@@ -33,6 +33,7 @@ import com.kh.zootopia.entity.PetFileDto;
 import com.kh.zootopia.entity.PetSitterDto;
 
 import com.kh.zootopia.repository.PetSitterDao;
+import com.kh.zootopia.service.SitterPhotoService;
 
 @Controller
 @RequestMapping("/petsitter")
@@ -40,7 +41,8 @@ public class PetSitterController {
 
 	@Autowired
 	private PetSitterDao petSitterDao;
-
+	@Autowired
+	private SitterPhotoService sitterPhotoService;
 	
 	@GetMapping("/petsitter_join")
 	public String petsitter_join(
@@ -108,20 +110,20 @@ public class PetSitterController {
 		
 		PetFileDto petFileDto = petSitterDao.getimg(petsitter_no);
 		
-		if(petFileDto == null) {
-			return ResponseEntity.notFound().build();
-		}else {
-			File target = new File("D:/upload",petFileDto.getPet_file_name());
-			byte[] data = FileUtils.readFileToByteArray(target);
-			ByteArrayResource res = new ByteArrayResource(data);
-			
-			return ResponseEntity .ok().contentType(MediaType.APPLICATION_OCTET_STREAM)
-					.contentLength(petFileDto.getPet_file_size())
-					.header(HttpHeaders.CONTENT_DISPOSITION	,"attachment; filename=\""+URLEncoder.encode(petFileDto.getPet_file_name(), "UTF-8")+"\"" )
-					.header(HttpHeaders.CONTENT_ENCODING, "UTF-8")
-					.body(res);
-		}
-		
+//		if(petFileDto == null) {
+//			return ResponseEntity.notFound().build();
+//		}else {
+//			File target = new File("D:/upload",petFileDto.getPet_file_name());
+//			byte[] data = FileUtils.readFileToByteArray(target);
+//			ByteArrayResource res = new ByteArrayResource(data);
+//			
+//			return ResponseEntity .ok().contentType(MediaType.APPLICATION_OCTET_STREAM)
+//					.contentLength(petFileDto.getPet_file_size())
+//					.header(HttpHeaders.CONTENT_DISPOSITION	,"attachment; filename=\""+URLEncoder.encode(petFileDto.getPet_file_name(), "UTF-8")+"\"" )
+//					.header(HttpHeaders.CONTENT_ENCODING, "UTF-8")
+//					.body(res);
+//		}
+		return sitterPhotoService.getImg(petFileDto);
 		
 	}
 	

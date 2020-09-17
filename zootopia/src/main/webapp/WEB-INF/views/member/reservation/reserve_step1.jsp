@@ -124,7 +124,8 @@
 <c:forEach var="petsitter" items="${list}">
 <!-- 펫시터 사진 펫시터 이름  펫시터 경력 (경력 어떻게 보여줄지..?) 예약하기 버튼  : 이름 선택 시 펫시터 상세 정보 보는 페이지-->
 <p>사진</p>
-<p>${petsitter.petsitter_nick}</p>
+<a><img src="${pageContext.request.contextPath}/petsitter/img/${petsitter.petsitter_no}" width=200, height=200></a>
+<p>${petsitter.petsitter_nick}</p> 
 <p>${petsitter.petsitter_career}</p>
 </c:forEach>
 

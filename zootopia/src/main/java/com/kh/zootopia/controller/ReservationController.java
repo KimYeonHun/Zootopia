@@ -68,7 +68,7 @@ public class ReservationController {
 		
 		// 날짜, 시간 
 		//날짜를 요일로 변경 후 시간 까지 
-		List<PetSitterDto> list = sqlSession.selectList("petsitter.getDay",map);
+		List<PetSitterDto> list = reserveDao.getSitterList(map);
 		
 		// 펫시터 검색 1. 요일 2. 시간 
 		// 날짜 = 요일로 변경 and 시간 
