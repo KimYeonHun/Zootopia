@@ -1,14 +1,7 @@
 package com.kh.zootopia.repository;
 
-import javax.annotation.Resource;
+import com.kh.zootopia.entity.PetDto;
 
-import org.springframework.stereotype.Repository;
-
-@Repository
-public class PetDao {
-
-	@Resource(name="sqlSession")
-	private Sqlsession sqlSession
-	
-
+public interface PetDao {
+	void insert(PetDto petDto);
 }

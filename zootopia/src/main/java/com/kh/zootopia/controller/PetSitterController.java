@@ -56,7 +56,6 @@ public class PetSitterController {
 			
 			) throws Exception {
 
-	
 		int result = petSitterDao.getNick(petSitterDto.getPetsitter_nick());
 		
 		if(result==0) { // 닉네임이 중복이 아닐때
@@ -64,16 +63,14 @@ public class PetSitterController {
 			if(photo.getSize()!=0) {// 아이디가 중복아니고 사진이 들어있을 때
 				
 				petSitterDao.photo(petFileDto, photo, petSitterDto);
-			}else {
-				return "redirect:petsitter_join?error";	
 			}
 			return  "redirect:petsitter_result";
-		}else { //중복일 때
-			
-			return "redirect:petsitter_join?overlap";
-		}
-	
 		
+		}else { //중복일때
+			
+			return "redirect:petsitter_join?error";
+		}
+
 		
 	}
 	
@@ -83,14 +80,14 @@ public class PetSitterController {
 		return "petsitter/petsitter_result";
 	}
 	
-//	
-//	@PostMapping("/getnick")
-//	@ResponseBody
-//	public int getNick(String  petsitter_nick) throws Exception {
-//		int result = petSitterDao.getNick(petsitter_nick);
-//		return result ;
-//	}
-//	
+	
+	@PostMapping("/getnick")
+	@ResponseBody
+	public int getNick(String  petsitter_nick) throws Exception {
+		int result = petSitterDao.getNick(petsitter_nick);
+		return result ;
+	}
+	
 	
 
 

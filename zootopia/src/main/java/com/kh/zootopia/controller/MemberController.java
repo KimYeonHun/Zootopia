@@ -1,5 +1,6 @@
 package com.kh.zootopia.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,17 +14,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.zootopia.entity.CertDto;
 
 import com.kh.zootopia.entity.MemberDto;
+import com.kh.zootopia.entity.MemberFileDto;
 import com.kh.zootopia.entity.PetSitterDto;
+import com.kh.zootopia.entity.Q_BoardDto;
 import com.kh.zootopia.repository.MemberDao;
+import com.kh.zootopia.repository.MemberFileDaoImpl;
 import com.kh.zootopia.service.CertService;
 import com.kh.zootopia.service.PassEmailService;
 
@@ -34,6 +40,12 @@ public class MemberController {
 
 	@Autowired
 	private MemberDao memberDao;
+
+
+	@Autowired
+	private SqlSession sqlSession;
+	
+	
 
 	//////////////////////////////
 
@@ -163,4 +175,44 @@ public class MemberController {
 	}
 
 	
+
+	@GetMapping("/mypage2")
+	public String edit(
+			HttpSession session,
+			@ModelAttribute MemberDto memberDto,
+			Model model) {
+		MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
+		memberDto = memberDao.get(userinfo.getMember_id());
+		model.addAttribute("memberDto", memberDto);
+		
+		return "/member/mypage2";
+	}
+	
+	@PostMapping("/mypage2")
+	public String edit(
+			@ModelAttribute MemberDto memberDto) {
+		
+		sqlSession.update("member.memberUpdate", memberDto);
+		
+		return "redirect:mypage";
+	}
+	
+	
+	@PostMapping("/profile")
+	private String profile(@ModelAttribute MemberFileDto memberFileDto,
+			@RequestParam MultipartFile file,
+			@RequestParam String member_id)throws IllegalStateException, IOException {
+		int no = sqlSession.selectOne("member.getSeq");
+		memberFileDto.setMember_id(member_id);
+		memberFileDto.setProfile_no(no);
+		memberFileDto.setProfile_type(file.getContentType());
+		memberFileDto.setProfile_size(file.getSize());
+		memberFileDto.setProfile_name(file.getOriginalFilename());
+		sqlSession.insert("member.file",memberFileDto);
+		return "redirect:mypage2";
+	}
+	
+	
+
+
 }

@@ -40,6 +40,7 @@ public String page() {
 	return "member/mypage";
 }
 
+
 @RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
 public String registerUpdateView() throws Exception{
 	
@@ -55,6 +56,10 @@ public String registerUpdate(MemberDto memberDto, HttpSession session) throws Ex
 	
 	return "redirect:/member/passcheck";
 }
+
+
+
+
 
 
 @RequestMapping(value="/passcheck", method = RequestMethod.GET)

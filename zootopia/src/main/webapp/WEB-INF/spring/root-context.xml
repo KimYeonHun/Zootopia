@@ -128,7 +128,12 @@
      	- @Aspect 과 그 하위 어노테이션을 활성화
       -->
      <aop:aspectj-autoproxy/>
+
     </beans>
+
+
+     
+
 
 
 
