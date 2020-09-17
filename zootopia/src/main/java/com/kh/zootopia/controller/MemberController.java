@@ -1,8 +1,10 @@
 package com.kh.zootopia.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -13,17 +15,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.zootopia.entity.CertDto;
 
 import com.kh.zootopia.entity.MemberDto;
+import com.kh.zootopia.entity.MemberFileDto;
 import com.kh.zootopia.entity.PetSitterDto;
+import com.kh.zootopia.entity.Q_BoardDto;
 import com.kh.zootopia.repository.MemberDao;
+import com.kh.zootopia.repository.MemberFileDaoImpl;
 import com.kh.zootopia.service.CertService;
 import com.kh.zootopia.service.PassEmailService;
 
@@ -34,6 +41,12 @@ public class MemberController {
 
 	@Autowired
 	private MemberDao memberDao;
+
+
+	@Autowired
+	private SqlSession sqlSession;
+	
+	
 
 	//////////////////////////////
 
@@ -151,6 +164,7 @@ public class MemberController {
 			return "redirect:check?error";
 		}
 	}
+	
 	// 아이디 result
 	@GetMapping("/result_id")
 	public String result_id(Model model, HttpSession session) {
@@ -162,10 +176,38 @@ public class MemberController {
 		
 	}
 
-	/////////////////////////////////////////////////
 	
 
+	@GetMapping("/mypage2")
+	public String edit(
+			HttpSession session,
+			@ModelAttribute MemberDto memberDto,
+			Model model) {
+		MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
+		memberDto = memberDao.get(userinfo.getMember_id());
+		model.addAttribute("memberDto", memberDto);
+		
+		return "/member/mypage2";
+	}
+	
+	@PostMapping("/mypage2")
+	public String edit(
+			HttpSession session,
+			@ModelAttribute MemberDto memberDto) {
+		/*
+		 * member_name: 김연훈 email: xdusgnsx@naver.com phone: 123123 post: 10081
+		 * baseaddr: 김포한강2로 362, extraaddr: 603동902호
+		 */
+		System.out.println(memberDto.toString());
+		sqlSession.update("member.memberUpdate", memberDto);
+		
+		return "redirect:mypage";
+	}
+	
+	
+	
 
+	
 
 
 }

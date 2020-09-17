@@ -77,9 +77,10 @@
       </div>
       
       <div class="row" id="login-wrap">
-      <div class="offset-2 col-8">
-      		<a class="btn btn-info " href="${pageContext.request.contextPath}/">메인화면</a>
-      		&emsp;<a class="btn btn-info" href="${pageContext.request.contextPath}/member/login">로그인 하러 가기</a>
+      <div class="offset-1 col-9">
+      		
+      		&emsp;<a class="btn btn-info" href="${pageContext.request.contextPath}/member/login">로그인</a>
+      		&emsp;<a class="btn btn-info" href="${pageContext.request.contextPath}/member/findid">아이디찾기</a>
       		</div>
       </div>
 </div>

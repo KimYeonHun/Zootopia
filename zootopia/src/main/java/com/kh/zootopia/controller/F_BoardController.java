@@ -19,8 +19,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.kh.zootopia.entity.F_BoardDto;
 import com.kh.zootopia.entity.F_ReplyDto;
 import com.kh.zootopia.entity.MemberDto;
-import com.kh.zootopia.entity.Q_BoardDto;
-import com.kh.zootopia.entity.Q_ReplyDto;
 import com.kh.zootopia.repository.F_BoardDao;
 import com.kh.zootopia.repository.F_ReplyDao;
 
