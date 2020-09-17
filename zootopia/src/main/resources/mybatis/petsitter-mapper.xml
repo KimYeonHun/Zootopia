@@ -112,6 +112,19 @@ select * from pet_file where petsitter_no = #{petsitter_no}
 </select>
 
 
+	<select id="getlist" resultType="petSitterDto">
+		select * from petsitter WHERE SITTER_ACCEPT='미승인' ORDER BY petsitter_no DESC
+	</select>
+
+
+	<select id="get" resultType="petSitterDto" parameterType="int">
+		select * from petsitter WHERE petsitter_no=#{petsitter_no}
+	</select>
+
+
+
+
+
 </mapper>
 
 
