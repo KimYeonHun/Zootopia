@@ -19,7 +19,7 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script> -->
 <script src="${pageContext.request.contextPath}/res/js/bootstrap-datepicker.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous"></script>
-
+<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
     <!-- 
     
     1. 정기 예약 
@@ -75,6 +75,9 @@
     #datePicker{
         margin-top: 10px;
     }
+    
+    
+    * { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
  
  </style>
 <div class="container-fluid text-center">
@@ -153,19 +156,52 @@
 <div class="row">
     <div class="offset-2 col-8">
    
-        <table class="table table-sm table-hover">
-           
-            <tbody>
-             <c:forEach var="petsitter" items="${list}">
-                <tr class="text-center">
-                 <td style="width:200;"><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}"><img src="${pageContext.request.contextPath}/petsitter/img/${petsitter.petsitter_no}" width=200, height=200></a></td>
-                 <td><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.petsitter_nick}</a></td>
-                 <td><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.petsitter_career}</a></td>
-                </tr>
-                 </c:forEach>
-            </tbody>
+<!--         <table class="table table-sm table-hover"> -->
+<!--             <tbody> -->
+<%--              <c:forEach var="petsitter" items="${list}"> --%>
+<!--                 <tr class="text-center"> -->
+<%--                  <td style="width:200;" ><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}"><img src="${pageContext.request.contextPath}/petsitter/img/${petsitter.petsitter_no}" width=200, height=200></a></td> --%>
+<%--                  <td style="width:100; height: 100;"><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.petsitter_nick} 매니저</a></td> --%>
+<%--                  <td style="width:200;" ><a  href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.petsitter_career}</a></td> --%>
+<!--                 </tr> -->
+<%--                  </c:forEach> --%>
+<!--             </tbody> -->
 
-        </table>
+<!--         </table> -->
+ 
+ 
+ 
+ <div style="background: rgb(252,252,252); display: flex; justify-content: center; align-items: center;
+ flex-direction: column;" class="container-fluid text-center">  
+ 
+ <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 100px; ">
+ 
+<c:forEach var="petsitter" items="${list}">    
+<div  style="width:310px; height: 462px; border:1px solid rgb(235,235,235); box-shadow: rgba(0,0,0,0.07) 1px 1px 12px; display: flex; flex-direction: column;
+align-items: center; padding-left:10px; border-radius: 3px; margin-top: 100px;">
+
+	<div style="background-size:cover;  left: 0px; right: 0px; top: 0px; bottom: 0px; ">
+		<a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}"><img src="${pageContext.request.contextPath}/petsitter/img/${petsitter.petsitter_no}" 
+		style="border-radius: 5px; margin-top: 10px;" width="250px" height="250px" ></a>
+	</div>
+	<br>
+	<div style="font-size: 18px; color:rgb(57,60,71); letter-spacing: -0.2px;">
+		<p><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.petsitter_nick} 매니저</a></p>
+	</div>
+	
+
+	
+	<div style="width: 219px; height: 88px; font-size: 13px; line-height: 23px; color: rgb(77,80,85); overflow: hidden;
+	text-overflow: ellipsis; display: -webkit-box; ">
+		<p><a  href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.career_info}</a></p>	
+	</div>
+
+	</div>
+		
+	 </c:forEach>
+</div>
+</div>
+
        
     </div>
 </div>

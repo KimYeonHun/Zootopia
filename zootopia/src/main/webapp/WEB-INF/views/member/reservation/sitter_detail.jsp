@@ -13,27 +13,36 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     
-    <div >
-    <img src="${pageContext.request.contextPath}/petsitter/img/${sitterDetail.petsitter_no}" width=200, height=200>
-    
-    ${sitterDetail.petsitter_nick} 
-    ${sitterDetail.petsitter_career} 
-    ${sitterDetail.career_info} 
-    
-    
-    ${sitterDetail.monday} 
-    ${sitterDetail.tuesday} 
-    ${sitterDetail.wednesday} 
-    ${sitterDetail.thursday} 
-    ${sitterDetail.friday} 
-    ${sitterDetail.saturday} 
-    ${sitterDetail.sunday} 
+   <div class="container-fluid">
+	<div class="row">
+	<table>
+	<tbody>
+	<tr>
+    <td><img src="${pageContext.request.contextPath}/petsitter/img/${sitterDetail.petsitter_no}" width=200, height=200></td>
     
     
+   	<td>${sitterDetail.petsitter_nick} </td>
+   	</tr>
+   	<tr>
+    <td>>${sitterDetail.petsitter_career}</td>
+   <td> ${sitterDetail.career_info} </td>
     
-      ${sitterDetail.available_start_time} 
-      ${sitterDetail.available_finish_time} 
-      
-      
+    
+   <td> ${sitterDetail.monday} </td>
+    <td>${sitterDetail.tuesday} </td>
+   <td> ${sitterDetail.wednesday} </td>
+   <td> ${sitterDetail.thursday} </td>
+   <td> ${sitterDetail.friday} </td>
+    <td>${sitterDetail.saturday} </td>
+    <td>${sitterDetail.sunday} </td>
+    
+    
+    
+     <td> ${sitterDetail.available_start_time} </td>
+      <td>${sitterDetail.available_finish_time} </td>
+       </tr>
+      </tbody>
+      </table>
+      </div>
       </div>
     
