@@ -25,8 +25,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.kh.zootopia.entity.Q_ReplyDto" alias="q_replyDto"/>
 		
 		<typeAlias type="com.kh.zootopia.entity.PetSitterDto" alias="petSitterDto"/>
-	
+		
 		<typeAlias type="com.kh.zootopia.entity.PetFileDto" alias="petFileDto"/>
+		
 		<typeAlias type="com.kh.zootopia.entity.F_BoardDto" alias="f_boardDto"/>
 		<typeAlias type="com.kh.zootopia.entity.F_ReplyDto" alias="f_replyDto"/>
 		

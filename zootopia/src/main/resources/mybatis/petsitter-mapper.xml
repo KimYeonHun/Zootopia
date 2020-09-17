@@ -107,6 +107,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- </select>	 -->
 
+<select id="getimg" resultType="petFileDto" parameterType="int">
+select * from pet_file where petsitter_no = #{petsitter_no}
+</select>
 
 
 </mapper>
