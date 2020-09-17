@@ -41,19 +41,18 @@
         <div class="row">
             <div class="offset-sm-4 col-sm-4 jumbotron">
             
-            <h1>MY PET 등록</h1>
+            <h1>MY PET</h1>
                 <form class="pet" method="post">
                  
                     <div class="form-group">
                         <label>펫 이름</label>
-                        <input type="text" name="pet_name" class="form-control" value="${userinfo.pet_name}">
+                        <input type="text"name="pet_name" class="form-control" value= "${pet_name}"/>
                     </div>
                    
                     <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-info">성별</label>
-                        <input class="form-control" type="text"  name="PET_GENDER" value="${userinfo.PET_GENDER}"/>
-                              
+                        <input  type="text"  name="PET_GENDER" class="form-control" value= "${PET_GENDER}"/>
                         </div>
                     </div>
                     
@@ -65,51 +64,53 @@
                    <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-info">종류</label>
-                            <input class="form-control" type="text"  name="pet_type" value="${userinfo.pet_type}"/>
+                            <input class="form-control" type="text"  name="pet_type" value="${pet_type}"/>
                         </div>
                     </div>
 
                  
                     <div class="form-group">
                         <label>펫 나이</label>
-                        <input type="number" name="pet_age" class="form-control" value="${userinfo.pet_age}"/>>
+                        <input type="number" name="pet_age" class="form-control" value="${pet_age}"/>
                     </div>
                     <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-info">펫 크기</label>
-                        <input class="form-control" type="text"  name="pet_size" value="${userinfo.pet_size}"/>
+                        <input class="form-control" type="text"  name="pet_size" value="${pet_size}"/>
                             </div>
                             </div>
                             
                            <div class="form-group">
                         <label>펫수</label>
-                        <input type="number" name="pet_total" class="form-control" value="${userinfo.pet_total}"/>
+                        <input type="number" name="pet_total" class="form-control" value="${pet_total}"/>
                     </div>
                    
                      <label>세부 사항</label>
                   <div class="form-group">    
-                        <textarea name="info" form="inform" cols="55" rows="10" autofocus required wrap="hard"
-                      value="${userinfo.pet_info"/}></textarea>
+                        <textarea name="info" form="inform" cols="55" rows="10" value="${pet_info}">
+                        </textarea>
               
                     </div>
         <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-info">접종 여부</label>
-                            <input class="form-control" type="text"  name="pet_vaccin" value="${userinfo.pet_vaccin}"/>
+                            <input class="form-control" type="text"  name="pet_vaccin" value="${pet_vaccin}"/>
                         </div>
                     </div>
                 
                        <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-info">대소변 유무</label>
-                           <input class="form-control" type="text"  name="pet_toilet" value="${userinfo.pet_toilet}"/>
+                           <input class="form-control" type="text"  name="pet_toilet" value="${pet_toilet}"/>
                         </div>
                     </div>
+    
+     <button id="submit" type="submit" class="btn-group btn-group-toggle">수정 완료</button>
+  </form>
+  </div>
+  </div>
+  </div>
   
-     <button id="submit" type="submit" class="btn-group btn-group-toggle">수정하기</button>
 </body>
-</form>
-</div>
-</div>
-</div>  
+
 </html>

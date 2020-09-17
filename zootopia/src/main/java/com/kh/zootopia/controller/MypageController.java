@@ -66,7 +66,7 @@ public String passcheck() throws Exception{
 	public String passcheck(@ModelAttribute MemberDto memberDto) {
 		boolean result = mdao.passcheck(memberDto);
 		if(result) {
-			return"redirect:/member/memberUpdateView";
+			return"redirect:/memberUpdateView";
 		}		  
 		else {
 			return "redirect:passcheck?error";

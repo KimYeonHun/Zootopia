@@ -125,7 +125,7 @@ margin-left:50%;
 					</p>
 					<p>
 						<label>생일</label> 
-						<input class="w3-input" type="date" id="birth" name="birth" readonly value="${userinfo.birthday}"> 
+						<input class="w3-input" type="text" id="birth" name="birth" readonly value="${userinfo.birthday}"> 
 					</p>
 					<p>
 						<label>전화 번호</label> 
@@ -155,9 +155,10 @@ margin-left:50%;
 					
 					
 					
-					<p class="w3-form">
-						<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button>
-					</p>
+				
+				<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button>
+					
+				
 				</form>
 			</div>
 			</div>

@@ -62,7 +62,7 @@
  <c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>     
 		<section id="container">
-			<form action="../test/memberUpdate" method="post">
+			<form action="../mypage" method="post">
 				<div class="form-group has-feedback">
 					<label class="control-label">아이디</label>
 					<input class="form-control" type="text"  name="member_id" value="${userinfo.member_id}" readonly="readonly"/>
@@ -101,9 +101,12 @@
 				</div>
 				<div class="form-group has-feedback">
 					<button class="btn btn-success" type="submit" id="submit">회원정보수정</button>
-					<button class="cencle btn btn-danger" type="button">취소</button>
 				</div>
-			</form>
+					</form>
+				<form action="../mypage">
+					<button class="cencle btn btn-danger" type="button">취소</button>
+					</form>
+			
 		</section>
 		
 	</body>

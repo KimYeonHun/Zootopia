@@ -1,13 +1,14 @@
 package com.kh.zootopia.repository;
 
-import com.kh.zootopia.entity.MemberDto;
-import com.kh.zootopia.entity.PetDto;
+import javax.annotation.Resource;
 
-public interface PetDao {
+import org.springframework.stereotype.Repository;
 
-	// pet정보 수정
-		public void petUpdate(PetDto petDto)throws Exception;
-		
+@Repository
+public class PetDao {
+
+	@Resource(name="sqlSession")
+	private Sqlsession sqlSession
 	
 
-	}
+}

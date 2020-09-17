@@ -46,61 +46,54 @@
                  
                     <div class="form-group">
                         <label>펫 이름</label>
-                        <input type="text" name="pet_name" class="form-control">
+                        <input type="text" name="pet_name" class="form-control" required>
                     </div>
                    
                     <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-info">성별</label>
-                            <label class="btn btn-info">
-                               <input value="수컷" type="radio" name="gender" id="option1" autocomplete="off"> 수컷
-                            </label>
-                            <label class="btn btn-info">
-                                <input value="암컷" type="radio" name="gender" id="option2" autocomplete="off"> 암컷
-                            </label>
+                            <select name="type" id="select">
+                            <option value="수컷">수컷</option>
+                            <option value="암컷">암컷</option>
+                            </select>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label>품종</label>
-                        <input type="text" name="pet_kind" class="form-control">
+                        <input type="text" name="pet_kind" class="form-control" required>
                     </div>
                     
                    <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-info">종류</label>
-                            <label class="btn btn-info">
-                               <input value="반려견" type="radio" name="pet_type" id="option1" autocomplete="off">반려견
-                            </label>
-                            <label class="btn btn-info">
-                                <input value="반려묘" type="radio" name="pet_type" id="option2" autocomplete="off">반려묘
-                            </label>
+                          <select name="type" id="select">
+                            <option value="반려견">반려견</option>
+                            <option value="반려묘">반려묘</option>
+                            </select>
+                          
                         </div>
                     </div>
 
                  
                     <div class="form-group">
                         <label>펫 나이</label>
-                        <input type="number" name="pet_age" class="form-control">
+                        <input type="number" name="pet_age" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-info">펫 크기</label>
-                           <label class="btn btn-info">
-                               <input value="소형" type="checkbox" name="size" id="option1" autocomplete="off"> 소형
-                            </label>
-                            <label class="btn btn-info">
-                                <input value="중형" type="checkbox" name="size" id="option2" autocomplete="off"> 중형
-                            </label>
-                            <label class="btn btn-info">
-                                <input value="대형" type="checkbox" name="size" id="option3" autocomplete="off"> 대형
-                            </label>
+                            <select name="type" id="select">
+                            <option value="소형">소형</option>
+                            <option value="중형">중형</option>
+                             <option value="대형">대형</option>
+                            </select>
                             </div>
                             </div>
                             
                            <div class="form-group">
                         <label>펫수</label>
-                        <input type="number" name="pet_total" class="form-control">
+                        <input type="number" name="pet_total" class="form-control" required>
                     </div>
                    
                      <label>세부 사항</label>
