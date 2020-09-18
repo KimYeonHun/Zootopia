@@ -44,7 +44,7 @@
 <div class="offset-3 col-6 " style="margin-top:150px;"  >
   
   <div>
-<div style="display: flex; flex-direction: row;">
+<div style="display: flex; flex-direction: row; margin-left: 100px;">
 <div style="overflow: hidden; border: none; border-radius: 12px; margin-top: 100px;">
    <img src="${pageContext.request.contextPath}/petsitter/img/${sitterDetail.petsitter_no}" 
    width=200, height=200>
@@ -56,18 +56,104 @@
  </div>   
     
     
-   <div style="margin-top: 53px;">
+   <div style="margin-top: 53px; margin-left: 100px;">
   <h2 style="font-weight: 600; font-size: 17px; letter-spacing: -0.2px; line-height: 25px; color: rgb(57,60,71);" class="text-info">펫 매니저님을 소개합니다</h2>
   
   <p style="font-size: 15px; line-height: 25px; color: rgb(85,85,85); margin-top: 32px;">${sitterDetail.career_info} </p>
   </div> 
- <hr>
+ <hr width = "90%">
  
+ <div style="margin-top: 60px; width: 600px; margin-left:100px;">
+ 
+ <h2 style="font-weight: 600; font-size: 17px; letter-spacing: -0.2px; line-height: 25px; color: rgb(57, 60, 71); margin-bottom: 24px;" class="text-info">
+  이용 가능 서비스
+ </h2>
+ 
+ <div style="display: flex; flex-flow: row wrap;">
+ 	<div style="display: flex; flex-direction: row; align-items: center; width: 200px; height: 69px;">
+ 		<img width="40" height="40" src="${pageContext.request.contextPath}/res/img/inside.PNG">
+ 	<div	style="margin-left: 13px;">
+ 	<p style="font-size: 13px; letter-spacing: -0.2px; line-height: 19px; ">
+ 		실내 놀이 
+ 	</p>
+ 	<p style="font-size: 11px; letter-spacing: -0.2px; line-height: 17px; color: rgb(94, 99, 109); margin-top: 5px;">터그놀이,노즈워크</p>
+ 	</div>
+ 	</div>
+ 	
+ 	<div style="display: flex; flex-direction: row; align-items: center; width: 200px; height: 69px;">
+ 		<img width="40" height="40" src="${pageContext.request.contextPath}/res/img/roadwork.PNG">
+ 			<div	style="margin-left: 13px;">
+ 				<p style="font-size: 13px; letter-spacing: -0.2px; line-height: 19px; ">
+ 		매일 산책
+ 	</p>
+ 	<p style="font-size: 11px; letter-spacing: -0.2px; line-height: 17px; color: rgb(94, 99, 109); margin-top: 5px;">
+ 	산책 및 실외 배변 가능</p>
+ 			</div>
+ 			</div>
+ 			
+ 				<div style="display: flex; flex-direction: row; align-items: center; width: 200px; height: 69px;">
+ 		<img width="40" height="40" src="${pageContext.request.contextPath}/res/img/bath.PNG">
+ 			<div	style="margin-left: 13px;">
+ 				<p style="font-size: 13px; letter-spacing: -0.2px; line-height: 19px; ">
+ 		목욕 가능
+ 	</p>
+ 	<p style="font-size: 11px; letter-spacing: -0.2px; line-height: 17px; color: rgb(94, 99, 109); margin-top: 5px;">
+ 	비용은 펫시터와 협의</p>
+ 			</div>
+ 			</div>
+ 			
+ 		
+
+ </div>
+  <div style="display: flex; flex-flow: row wrap;">
+  
+ 	<div style="display: flex; flex-direction: row; align-items: center; width: 200px; height: 69px; margin-top: 10px;">
+ 		<img width="40" height="40" src="${pageContext.request.contextPath}/res/img/emargency.PNG">
+ 			<div	style="margin-left: 13px;">
+ 				<p style="font-size: 13px; letter-spacing: -0.2px; line-height: 19px; ">
+ 		응급처치
+ 	</p>
+ 	<p style="font-size: 11px; letter-spacing: -0.2px; line-height: 17px; color: rgb(94, 99, 109); margin-top: 5px; ">
+ 	응급 상황 시 병원 이동 가능</p>
+ 			</div>
+ 			</div>
+ 			
+ 			<div style="display: flex; flex-direction: row; align-items: center; width: 200px; height: 69px; margin-top: 10px;">
+ 		<img width="40" height="40" src="${pageContext.request.contextPath}/res/img/phil.PNG">
+ 			<div	style="margin-left: 13px;">
+ 				<p style="font-size: 13px; letter-spacing: -0.2px; line-height: 19px; ">
+ 		약물 복용
+ 	</p>
+ 	<p style="font-size: 11px; letter-spacing: -0.2px; line-height: 17px; color: rgb(94, 99, 109); margin-top: 5px;">
+ 	경구(입) 약물 복용 가능</p>
+ 			</div>
+ 			</div>
+ 			
+ 			<div style="display: flex; flex-direction: row; align-items: center; width: 200px; height: 69px; margin-top: 10px;">
+ 		<img width="40" height="40" src="${pageContext.request.contextPath}/res/img/hair.PNG">
+ 			<div	style="margin-left: 13px;">
+ 				<p style="font-size: 13px; letter-spacing: -0.2px; line-height: 19px; ">
+ 		모발 관리
+ 	</p>
+ 	<p style="font-size: 11px; letter-spacing: -0.2px; line-height: 17px; color: rgb(94, 99, 109); margin-top: 5px;">
+ 	눈물 또는 빗질 관리 가능</p>
+ 			</div>
+ 			</div>
+  
+  
+  
+  
+  </div>
+ 
+ 
+ 
+ </div>
+ <hr width = "90%">
  <br> <br>
    <h2 style="font-weight: 600; font-size: 17px; letter-spacing: -0.2px; line-height: 25px;
-<!--   margin-bottom: 20px;" class="text-info">자격증 및 수료 </h2> -->
+ margin-bottom: 20px; margin-left: 100px;" class="text-info">자격증 및 수료 </h2> 
     
-    <div style="display: flex; flex-direction: row; align-items: center; margin: 32px 0px;">
+    <div style="display: flex; flex-direction: row; align-items: center; margin: 32px 0px; margin-left: 100px;">
    <div style="width: 200px; height: 200px; filter:blur(1.25px);">
    	<img  src="${pageContext.request.contextPath}/res/img/Qua1.jpeg">
    	</div>
@@ -76,7 +162,7 @@
    		<p style="font-size: 14px; letter-spacing: -0.2px; line-height: 19px; margin-top: 7px; "> (사) K.S 문화 교육원</p>
    	</div>
    </div>
-    <div style="display: flex; flex-direction: row; align-items: center; margin: 32px 0px;">
+    <div style="display: flex; flex-direction: row; align-items: center; margin: 32px 0px; margin-left: 100px;">
     <div style="width: 200px; height: 200px; filter:blur(1.25px);">
    	<img  src="${pageContext.request.contextPath}/res/img/Qua2.png">
    </div>
@@ -86,7 +172,7 @@
    		<p style="font-size: 14px; letter-spacing: -0.2px; line-height: 19px; margin-top: 7px; "> 한국반려동물자격협회</p>
    	</div>
    	      </div>
-   	<div style="display: flex; flex-direction: row; align-items: center; margin: 32px 0px;">
+   	<div style="display: flex; flex-direction: row; align-items: center; margin: 32px 0px; margin-left: 100px;">
     <div style="width: 200px; height: 200px; filter:blur(1.25px);">
    	<img  src="${pageContext.request.contextPath}/res/img/Qua3.jpg">
    </div>

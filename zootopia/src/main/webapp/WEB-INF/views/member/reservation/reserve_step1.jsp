@@ -85,7 +85,7 @@
 <div class="container-fluid text-center" style="margin-top:150px;">
 <div class="offset-2 col-8">
 
-<h1 class="text-primary" id="wrap">예약</h1>
+<h1 class="text-primary" id="wrap">하루 예약</h1>
 
 
 

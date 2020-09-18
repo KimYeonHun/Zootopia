@@ -726,7 +726,7 @@
 			else
 				top += height;
 
-			top += 100;
+			top += 150;
 			
 			if (this.o.rtl) {
 				var right = windowWidth - (left + width);
