@@ -97,7 +97,7 @@
    	</div>
    	</div>
    	
-   	 새로운 시작 
+
 <!--    	<div> -->
 <!--    	<div style="width: 1000px; border-radius: 8px; border: 1px solid rgb(223,227,234); -->
 <!--    	box-shadow: rgba(0,0,0,0.07) 1px 3px 7px; padding: 38px; margin-top: 38px; "> -->
@@ -172,7 +172,7 @@
 
    		</div> 
    		<div style="">
-   		<a href="${pageContext.request.contextPath}/member/reservation/ready"><button style="width: 100%;"  class="btn btn-info btn-lg btn-round pull-right"  >예약 하기</button></a>
+   		<a href="${pageContext.request.contextPath}/member/reservation/ready"><button style="width: 100%;"  class="btn btn-info btn-lg btn-round pull-right" >예약 하기</button></a>
    		</div>
    		<br><br><br><br><br><br><br><br><br><br>
    		

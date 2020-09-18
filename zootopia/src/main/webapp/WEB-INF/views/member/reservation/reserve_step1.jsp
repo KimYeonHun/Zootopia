@@ -82,7 +82,7 @@
     * { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
  
  </style>
-<div class="container-fluid text-center">
+<div class="container-fluid text-center" style="margin-top:150px;">
 <div class="offset-2 col-8">
 
 <h1 class="text-primary" id="wrap">예약</h1>
@@ -216,12 +216,8 @@ margin-left: 20px; margin-right: 20px;">
 <!-- 펫시터 사진 펫시터 이름  펫시터 경력 (경력 어떻게 보여줄지..?) 예약하기 버튼  : 이름 선택 시 펫시터 상세 정보 보는 페이지-->
 
 
-<%@ include file="/WEB-INF/template/footer.jsp"%>
 
 
 
-<!-- <div class="col-2"> -->
-
-<!-- <a class="btn btn-primary" href="reserve_step2">다음</a> -->
 
 
