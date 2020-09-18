@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pet">
+
+<insert id="petinfo" parameterType="petDto">
+       INSERT INTO
+        pet(
+           pet_no,
+            pet_name,
+            pet_gender,
+            pet_kind,
+            pet_type,
+            pet_age ,
+            pet_size,
+            pet_total,
+            pet_intro,
+            pet_vaccin,
+            pet_toilet,
+            when
+            )VALUES(
+            pet_seq.nextval,
+             #{pet_name},
+             #{pet_gender , jdbcType=VARCHAR},
+             #{pet_kind},
+             #{pet_type , jdbcType=VARCHAR},
+             #{pet_age},
+             #{pet_size , jdbcType=VARCHAR},
+             #{pet_total},
+             #{pet_intro , jdbcType=VARCHAR},
+             #{pet_vaccin , jdbcType=VARCHAR},
+            #{pet_toilet , jdbcType=VARCHAR},
+            sysdate
+            )
+            
+    </insert>
+    
+    <select id="getList" resultType="petDto">
+    SELECT * FROM pet
+    </select>
+    
+    <select id="getList2" resultType="petDto" parameterType="map">
+    SELECT * FROM pet ORDER BY ${col} ${order}
+    </select>
+    
+ <!-- 사진올리기 테스트 -->
+<!--  <insert id="petpic" parameterType="pfDto"> -->
+<!-- 	INSERT INTO PETF( -->
+<!-- 		petf_name,petf_type,petf_size; -->
+<!-- 	)VALUES( -->
+<!-- 	#{petf_name},#{petf_type},#{pett_size} -->
+<!-- 	) -->
+<!--  </insert> -->
+
+   
+
+    </mapper>
