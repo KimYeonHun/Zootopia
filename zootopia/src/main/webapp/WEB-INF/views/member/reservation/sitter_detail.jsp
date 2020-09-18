@@ -16,15 +16,16 @@
 <script>
 
 
-// function color(){
-// 	var color = document.getElementById("color_mon").value;
+function color(){
+	var color = document.getElementById("color_mon").value;
 	
-// 	if(color == '월요일'){
-// 		document.getElementById("changecolor").style.backgroundColor="red";
-// 	}
+	if(color == '월요일'){
+		document.getElementById("changecolor").style.backgroundColor="red";
+	}
  	
-		
-// }
+}
+
+
 // <textarea name="test" onkeyUp="chkForm()">표준말로 입력하시오.</textarea>
 
 // function chkForm(){
@@ -34,8 +35,13 @@
 // }
 
 </script>
+
+<%@ include file="/WEB-INF/template/header.jsp"%>
+
+
+
  <div class="container-fluid ">
-<div class="offset-3 col-6 "   >
+<div class="offset-3 col-6 " style="margin-top:150px;"  >
   
   <div>
 <div style="display: flex; flex-direction: row;">
@@ -55,7 +61,9 @@
   
   <p style="font-size: 15px; line-height: 25px; color: rgb(85,85,85); margin-top: 32px;">${sitterDetail.career_info} </p>
   </div> 
+ <hr>
  
+ <br> <br>
    <h2 style="font-weight: 600; font-size: 17px; letter-spacing: -0.2px; line-height: 25px;
   margin-bottom: 20px;" class="text-info">자격증 및 수료 </h2>
     
@@ -90,102 +98,94 @@
    	</div>
    	
    	<!--  새로운 시작  -->
-   	<div>
-   	<div style="width: 1000px; border-radius: 8px; border: 1px solid rgb(223,227,234);
-   	box-shadow: rgba(0,0,0,0.07) 1px 3px 7px; padding: 38px; margin-top: 38px; ">
-   		<h2 style="font-weight: 600; font-size: 17px; letter-spacing: -0.2px; line-height: 25px; color:rgb(57,60,71);
-   		margin-bottom: 24px;"> 펫시터 활동 요일</h2>
-   		<div>
-   			<div style="display: flex; flex-direction: row; justify-content: space-between;">
+<!--    	<div> -->
+<!--    	<div style="width: 1000px; border-radius: 8px; border: 1px solid rgb(223,227,234); -->
+<!--    	box-shadow: rgba(0,0,0,0.07) 1px 3px 7px; padding: 38px; margin-top: 38px; "> -->
+<!--    		<h2 style="font-weight: 600; font-size: 17px; letter-spacing: -0.2px; line-height: 25px; color:rgb(57,60,71); -->
+<!--    		margin-bottom: 24px;"> 펫시터 활동 요일</h2> -->
+<!--    		<div> -->
+<!--    			<div style="display: flex; flex-direction: row; justify-content: space-between;"> -->
    			
-   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
-   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1;
-   					"> 
-   					<!--  id="changecolor"   --> 
-<%--    					<input type="hidden"  value="${sitterDetail.monday}"  id="color_mon"  onkeyUp="color()"> --%>
-   						<p style="font-weight: 600; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; 
-   						color: white;" >월</p>
-   					</div>
-   				</div>
+<!--    				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;"> -->
+<!--    					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; -->
+<!--    					"id="changecolor">  -->
+<!--    					     -->
+<%--    					<input type="hidden"  value="${sitterDetail.monday}" > --%>
+<!--    						<p style="font-weight: 600; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center;  -->
+<!--    						color: white;" >월</p> -->
+<!--    					</div> -->
+<!--    				</div> -->
    				
-   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
-   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);">
-   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);">
-   							화
-   						</P>
-   					</div>
-   				</div>
-   				
-   				
-   					<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
-   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);">
-   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);">
-   							수
-   						</P>
-   					</div>
-   				</div>
-   				
-   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
-   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);">
-   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);">
-   							목
-   						</P>
-   					</div>
-   				</div>
-   				
-   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
-   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);">
-   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);">
-   							금
-   						</P>
-   					</div>
-   				</div>
-   				
-   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
-   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);">
-   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center;  color: white;">
-   							토
-   						</P>
-   					</div>
-   				</div>
+<!--    				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;"> -->
+<!--    					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);"> -->
+<!--    						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);"> -->
+<!--    							화 -->
+<!--    						</P> -->
+<!--    					</div> -->
+<!--    				</div> -->
    				
    				
-   				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;">
-   					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: #6cc3d5;">
-   						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: white;">
-   							일
-   						</P>
-   					</div>
-   				</div>
+<!--    					<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;"> -->
+<!--    					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);"> -->
+<!--    						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);"> -->
+<!--    							수 -->
+<!--    						</P> -->
+<!--    					</div> -->
+<!--    				</div> -->
    				
-   			</div>
+<!--    				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;"> -->
+<!--    					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);"> -->
+<!--    						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);"> -->
+<!--    							목 -->
+<!--    						</P> -->
+<!--    					</div> -->
+<!--    				</div> -->
+   				
+<!--    				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;"> -->
+<!--    					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);"> -->
+<!--    						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: rgb(157, 164, 180);"> -->
+<!--    							금 -->
+<!--    						</P> -->
+<!--    					</div> -->
+<!--    				</div> -->
+   				
+<!--    				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;"> -->
+<!--    					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: rgb(242, 243, 247);"> -->
+<!--    						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center;  color: white;"> -->
+<!--    							토 -->
+<!--    						</P> -->
+<!--    					</div> -->
+<!--    				</div> -->
+   				
+   				
+<!--    				<div style="display: flex; margin: 0.5px; background-color: white; width: 100px; height: 100px;"> -->
+<!--    					<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; background-color: #6cc3d5;"> -->
+<!--    						<P style="font-weight: 400; font-size: 12px; letter-spacing: -0.2px; line-height: 14px; text-align: center; color: white;"> -->
+<!--    							일 -->
+<!--    						</P> -->
+<!--    					</div> -->
+<!--    				</div> -->
+   				
+<!--    			</div> -->
    			
    		
-   			
-   		</div>
-   		  
-   	</div>
-   	
- 	<div>
-   	<button class="btn btn-info btn-lg" > 예약하기</button>
-   	</div>
-   	</div> <!-- 새로운 시작의 끝부분 -->
-   	</div>
-   	</div>  <!-- 끝부분 -->
 
-  ${sitterDetail.monday} 
-${sitterDetail.tuesday} 
- ${sitterDetail.wednesday} 
- ${sitterDetail.thursday} 
-${sitterDetail.friday}
-${sitterDetail.saturday} 
-${sitterDetail.sunday} 
-    
-    
-    
- ${sitterDetail.available_start_time} 
-  ${sitterDetail.available_finish_time} 
+   		</div> 
+   		<div style="">
+   		<a href="${pageContext.request.contextPath}/member/reservation/ready"><button style="width: 100%;"  class="btn btn-info btn-lg btn-round pull-right"  >예약 하기</button></a>
+   		</div>
+   		<br><br><br><br><br><br><br><br><br><br>
+   		
+
+   		</div>
+    	</div>
+    	
+<%@ include file="/WEB-INF/template/footer.jsp"%>
+<!--    	</div> 새로운 시작의 끝부분 -->
+
+<!--    	</div>  끝부분 -->
+
   
   
   
-      </div>   
+ 

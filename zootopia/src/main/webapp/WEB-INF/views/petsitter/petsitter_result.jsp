@@ -35,6 +35,7 @@
     <div class="row">
         <div class="offset-2 col-8">
             <a class="btn btn-info " href="${pageContext.request.contextPath}/">메인화면</a>
+            <a class="btn btn-info " href="${pageContext.request.contextPath}/member/mypage">마이 페이지</a>
       		
         </div>
     </div>

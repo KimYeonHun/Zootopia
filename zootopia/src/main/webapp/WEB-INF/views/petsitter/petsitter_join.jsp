@@ -324,7 +324,7 @@ function checkNick(){
 				<br><br>
 				<div class="offset-lg-2 col-lg-8">
 				<form class="form" action="petsitter_join" method="post" enctype="multipart/form-data">
-				<input type="hidden" name="member_id "value="${userinfo.member_id}">
+<%-- 				<input type="hidden" name="member_id "value="${userinfo.member_id}"> --%>
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">펫시터 활동 시 사용할 닉네임을 입력해주세요</label>  
 				<input type="text" name="petsitter_nick"  id="petsitter_nick"class="form-control nick" oninput="nicknameCheck();"required>

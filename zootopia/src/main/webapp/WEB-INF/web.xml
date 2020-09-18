@@ -71,5 +71,21 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	
+	<jsp-config>
+<taglib>
+<taglib-uri>/zootopia</taglib-uri>
+<taglib-location>/WEB-INF/tags/*</taglib-location>
+</taglib>
+<jsp-property-group>
+<url-pattern>*.jsp</url-pattern>
+<!-- <url-pattern>*.tag</url-pattern> -->
+<page-encoding>UTF-8</page-encoding>
+<!-- <include-prelude>/WEB-INF/include/pageInc.vm</include-prelude> -->
+<!-- <include-coda>/WEB-INF/include/taglibInc.vm</include-coda> -->
+</jsp-property-group>
+</jsp-config>
+
 
 </web-app>

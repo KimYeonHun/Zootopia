@@ -77,6 +77,6 @@
         안내사항 숙지 및 내용에 동의합니다.
         </label>
         <hr>
-        <a href="reserve_step1" class="btn btn-info btn-block" style="text-decoration:none">NEXT</a>
+        <a href="reserve_step2" class="btn btn-info btn-block" style="text-decoration:none">NEXT</a>
     </body>
 </html>

@@ -52,8 +52,8 @@ public class PetSitterController {
 			Model model
 			){
 		
-		MemberDto userinfo= (MemberDto)session.getAttribute("userinfo");
-		model.addAttribute("userinfo", userinfo);
+//		MemberDto userinfo= (MemberDto)session.getAttribute("userinfo");
+//		model.addAttribute("userinfo", userinfo);
 //		String member_id =userinfo.getMember_id();
 		
 		// 해당 아이디가 펫시터 등록을 했으면 안넘어가기 
@@ -73,10 +73,12 @@ public class PetSitterController {
 		
 		int result = petSitterDao.getNick(petSitterDto.getPetsitter_nick());
 		
+		MemberDto userinfo= (MemberDto)session.getAttribute("userinfo");
 		if(result==0) { // 닉네임이 중복이 아닐때
 			
 			if(photo.getSize()!=0) {// 아이디가 중복아니고 사진이 들어있을 때
 				
+			petSitterDto.setMember_id(userinfo.getMember_id());	
 			petSitterDao.photo(petFileDto, photo, petSitterDto);
 
 			}

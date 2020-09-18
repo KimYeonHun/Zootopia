@@ -178,7 +178,8 @@
  
 <c:forEach var="petsitter" items="${list}">    
 <div  style="width:310px; height: 462px; border:1px solid rgb(235,235,235); box-shadow: rgba(0,0,0,0.07) 1px 1px 12px; display: flex; flex-direction: column;
-align-items: center; padding-left:10px; border-radius: 3px; margin-top: 100px;">
+align-items: center; padding-left:10px; border-radius: 3px; margin-top: 100px;
+margin-left: 20px; margin-right: 20px;">
 
 	<div style="background-size:cover;  left: 0px; right: 0px; top: 0px; bottom: 0px; ">
 		<a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}"><img src="${pageContext.request.contextPath}/petsitter/img/${petsitter.petsitter_no}" 
@@ -188,9 +189,7 @@ align-items: center; padding-left:10px; border-radius: 3px; margin-top: 100px;">
 	<div style="font-size: 18px; letter-spacing: -0.2px; font-weight: bold;">
 		<p ><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.petsitter_nick} 펫 매니저</a></p>
 	</div>
-	
 
-	
 	<div style="width: 219px; height: 88px; font-size: 13px; line-height: 23px; color: rgb(77,80,85); overflow: hidden;
 	text-overflow: ellipsis; display: -webkit-box; ">
 		<p><a  href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.career_info}</a></p>	
