@@ -64,13 +64,18 @@ public class AdminController {
 		if(sitter_accept.equals("승인")) {
 			petSitterDto.setSitter_accept(sitter_accept);
 			sqlSession.update("petsitter.enrollment", petSitterDto);
+			
+			MemberDto memberDto = sqlSession.selectOne("member.get", petSitterDto.getMember_id());
+			sender.sendSimpleMessage(memberDto.getEmail(), "[zootopia]펫시터 신청", memberDto.getMember_name()+"님께\n"+"[ZOOTOPIA]펫시터에 지원 해주셔서 감사합니다\n"+"승인 되었음을 알려드립니다.");
+			session.setAttribute("member_id", memberDto);
+			
 			return "redirect:/member/list";
 		}
 		else {
 			sqlSession.delete("petsitter.delete", petSitterDto.getMember_id());
 			
 			MemberDto memberDto = sqlSession.selectOne("member.get", petSitterDto.getMember_id());
-			sender.sendSimpleMessage(memberDto.getEmail(), "[zootopia]펫시터 신청", memberDto.getMember_name()+"님께\n"+"[ZOOTOPIA]펫시터에 지원 해주셔서 감사합니다\n"+"유감스럽게도 미승인 되었습을 알려드립니다.");
+			sender.sendSimpleMessage(memberDto.getEmail(), "[zootopia]펫시터 신청", memberDto.getMember_name()+"님께\n"+"[ZOOTOPIA]펫시터에 지원 해주셔서 감사합니다\n"+"유감스럽게도 미승인 되었음을 알려드립니다.");
 			session.setAttribute("member_id", memberDto);
 			return "redirect:/member/list";
 		}
