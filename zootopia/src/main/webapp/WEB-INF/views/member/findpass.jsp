@@ -61,7 +61,7 @@
 		<div class="row">
 		<div class="offset-4 col-4">
 		
-    <h2 class="text-primary" id="findTitle"> 비밀번호 찾기</h2>
+    <h2 class="text-warning" id="findTitle"> 비밀번호 찾기</h2>
     
 	<div class="form">
 	<div class="form-group">
@@ -73,14 +73,14 @@
     	
     	
     	
-    	<button class="btn btn-primary " onclick="findPW();">비밀번호 찾기</button>
+    	<button class="btn btn-warning " onclick="findPW();">비밀번호 찾기</button>
       </div>
       
       <div class="row" id="login-wrap">
       <div class="offset-1 col-9">
       		
-      		&emsp;<a class="btn btn-info" href="${pageContext.request.contextPath}/member/login">로그인</a>
-      		&emsp;<a class="btn btn-info" href="${pageContext.request.contextPath}/member/findid">아이디찾기</a>
+      		&emsp;<a class="btn btn-secondary" href="${pageContext.request.contextPath}/member/login">로그인</a>
+      		&emsp;<a class="btn btn-secondary" href="${pageContext.request.contextPath}/member/findid">아이디찾기</a>
       		</div>
       </div>
 </div>

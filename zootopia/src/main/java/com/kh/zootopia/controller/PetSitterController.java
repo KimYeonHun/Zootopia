@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.sql.ResultSet;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -87,8 +88,14 @@ public class PetSitterController {
 			if(photo.getSize()!=0) {// 아이디가 중복아니고 사진이 들어있을 때
 				
 			petSitterDto.setMember_id(userinfo.getMember_id());	
-			petSitterDao.photo(petFileDto, photo, petSitterDto);
-
+			 petSitterDao.photo(petFileDto, photo, petSitterDto);
+			
+			 
+//			 // 멤버 
+//			 int no =sqlSession.selectOne("petsitter.getNo" , userinfo.getMember_id()); // 펫시터 번호
+//			 PetSitterDto list = petSitterDao.getSitterList(no);
+			 
+//			session.setAttribute("sitterinfo", list);
 			}
 		
 			return  "redirect:petsitter_result";
@@ -165,11 +172,33 @@ public class PetSitterController {
 	}
 	
 	@GetMapping("/list")
-	public String list() {
-		
+	public String list(
+			HttpSession session,
+			Model model ) {
+
+		// 1. 세션에서 아이디를 꺼낸다 
+		MemberDto member_id =(MemberDto)session.getAttribute("userinfo");
+//		System.out.println(member_id);
+		//2. 꺼낸 아이디로 펫시터 정보 조회 
+		PetSitterDto info = sqlSession.selectOne("petsitter.getOneList", member_id.getMember_id());
+//		System.out.println(info);
+		// 2번에서 나온걸 모델로 보낸다 
+		model.addAttribute("list", info);
 		return "petsitter/apply_list"; 
 	}
 	
+	
+//	@PostMapping("/list")
+//	public String list( 
+//			HttpSession session,
+//			Model model) {
+//	
+//		
+//		
+//		
+//		return "petsitter/apply_list"; 
+//	}
+//	
 
 	// 펫시터 지원 취소 
 	@GetMapping("/cancel_sitter")

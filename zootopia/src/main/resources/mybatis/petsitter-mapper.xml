@@ -153,7 +153,10 @@ select * from pet_file where petsitter_no = #{petsitter_no}
 		delete from petsitter where member_id=#{member_id}
 	</delete>
 
+<select id="getOneList" parameterType="String" resultType="petSitterDto">
+	select * from petsitter where member_id =#{member_id}
 
+</select>
 
 </mapper>
 
