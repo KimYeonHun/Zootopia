@@ -152,7 +152,7 @@ margin-left:50%;
 <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
  onchange="preview();">
                 
-                                                          </div>
+</div>
 <label>이름</label> 
  <input class="w3-form" type="text" id="name" name="member_name" readonly value="${ member.name }">
     
@@ -166,11 +166,11 @@ margin-left:50%;
 		  <div class="w3-card">
 	<div class="inputArea">
 
-
+<div>
  <canvas width="442" height="221" class="chartjs-render-monitor" id="chart" style="width: 442px; height: 221px; display: block;"></canvas>
-    </div>
+ </div>
      
-     
+     </div>
   </div>
   <br>
 			<div>

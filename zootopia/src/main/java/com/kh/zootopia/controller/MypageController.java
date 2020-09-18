@@ -78,12 +78,8 @@ public String passcheck() throws Exception{
 }
 //////////성공///////////////////////
 
-@GetMapping("/petsitterpage")
 
-public String petsitterpage() {
-	return "member/petsitterpage";
-}
-@PostMapping("/petsitterpage")
+@PostMapping("/mypage")
 public List<grapeVO> grpae(){
 	List<grapeVO>list = new ArrayList<>();
 	list.add(grapeVO.builder().month("6월").count(10).build());

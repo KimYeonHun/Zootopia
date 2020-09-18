@@ -5,9 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
 <script>
 
 
@@ -36,6 +39,80 @@ function preview(){
     
 }
     </script> 
+    
+    
+    <script> 
+        $(function(){
+         
+            $.get("${pageContext.request.contextPath}/member/mypage", function(response){
+                console.log(response);
+           
+
+                var label = [];
+                var data = [];
+
+                for(var i=0; i < response.length; i++){
+                    label.push(response[i].month);
+                    data.push(response[i].count);
+                }
+
+               
+                var ctx = document.querySelector("#chart").getContext("2d");
+
+           
+                var chart = new Chart(ctx, {
+             
+                    type: 'line',
+
+               
+                    data: {
+
+                   labels: ['6월','7월', '8월', '9월'],
+
+
+                                  datasets: [{
+                               label: '매칭 현황',
+                               data: [10, 15, 13, 14], 
+
+
+               
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            
+                        }],
+
+                    },
+
+             
+                    options: {
+                        scales: {
+                            yAxes:[{
+                                ticks:{
+                                    
+                                    suggestedMin : 0,         //최소값 지정
+                                    suggestedMax : 10,    //최대값 지정
+                                }
+                            }]
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 <style>
    .w3-input {
     padding: 8px;
@@ -88,7 +165,7 @@ margin-left:50%;
       <img  width="415" height="300">  
 <!-- 
  <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
-<<<<<<< HEAD
+
  onchange="preview();">
 <c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>         
@@ -96,7 +173,7 @@ margin-left:50%;
 
  onchange="preview();"> -->
 <c:set var="TextValue" value="${userinfo.birthday}"/>
-       </div>         
+ </div>         
 
 
 
@@ -108,39 +185,29 @@ margin-left:50%;
 <input class="w3-form" type="text" id="auth" name="auth" readonly value="${userinfo.auth}">
     </div>
 
-     <div>
+</div>
      <div class="w3-container">
 		  <div class="w3-card">
-	<div class="inputArea">
- <div>
-<a href="../pet/petinfo" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">MY 펫 </a>
-</div>
+     <div class="inputArea">
+
 <div>
-<a href="../petsitter/petsitter_join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">펫시터 지원하기</a>
-</div>
 
-만약에 펫시터 지원을 했으면 
-
-<c:choose>
-	                	<c:when test="${not empty userinfo.member_id}">
-		          			<a href="${pageContext.request.contextPath}/member/logout" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그아웃</a>
-	                		<a href="${pageContext.request.contextPath}/member/mypage" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">마이페이지</a>
-	                	</c:when>
-	                	<c:otherwise>
-		          			<a href="${pageContext.request.contextPath}/member/login" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그인</a>
-			                <a href="${pageContext.request.contextPath}/member/join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">회원가입</a>
-	                	</c:otherwise>
-	                </c:choose>
-
-
-
-
-
-
+	<c:if test="${userinfo.auth eq '펫시터'}">
+	<canvas width="442" height="221" class="chartjs-render-monitor" id="chart" style="width: 442px; height: 221px; display: block;"></canvas>
+	</c:if>
+	
 </div>
 
 
-  </div>
+
+
+
+
+
+
+
+
+
   </div>
   </div>
   
@@ -227,11 +294,12 @@ margin-left:50%;
 					
 					<p class="w3-form">
 						<a href="passcheck">
-						<input type="button" value="변경">
-<!-- 						<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button> -->
+				
+		<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button> 
 						</a>
 					</p>
 
+			</div>
 			</div>
 			</div>
 					
