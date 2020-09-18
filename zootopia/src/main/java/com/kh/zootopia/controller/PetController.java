@@ -47,22 +47,17 @@ public class PetController {
 		return "redirect:list";
 	}
 
-
-   @GetMapping("/petinfo")
-   public String petinfo() {
-      return "pet/petinfo";
-   }
    //////////////////////////////////////////////////////////
-@PostMapping("/petinfo")
-public String petinfo(@ModelAttribute PetDto petDto,@RequestParam MultipartFile FILEPET) {
-   petDao.insert(petDto);
-//   petDao.insert(pfDto);
-   PETFDTO pfDto = new PETFDTO();
-   pfDto.setPetf_name(FILEPET.getOriginalFilename()); 
-   pfDto.setPetf_size(FILEPET.getSize());
-   pfDto.setPetf_type(FILEPET.getContentType());
-   return "redirect:list";
-}
+////@PostMapping("/petinfo")
+//public String petinfo(@ModelAttribute PetDto petDto,@RequestParam MultipartFile FILEPET) {
+//   petDao.insert(petDto);
+////   petDao.insert(pfDto);
+//   PETFDTO pfDto = new PETFDTO();
+//   pfDto.setPetf_name(FILEPET.getOriginalFilename()); 
+//   pfDto.setPetf_size(FILEPET.getSize());
+//   pfDto.setPetf_type(FILEPET.getContentType());
+//   return "redirect:list";
+//}
 /////////////////////////////////////////////////////////////
 @GetMapping("/list")
 public String list(Model model,

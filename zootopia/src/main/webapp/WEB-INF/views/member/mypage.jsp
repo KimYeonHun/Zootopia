@@ -9,10 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script>
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
+
 function preview(){
     //console.log("preview 실행!");
     
@@ -96,12 +94,10 @@ margin-left:50%;
        </div>         
 
 
-
-=======
  onchange="preview();"> -->
 <c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>         
->>>>>>> refs/remotes/origin/master
+
 
 
 
@@ -124,26 +120,6 @@ margin-left:50%;
 </div>
 
 만약에 펫시터 지원을 했으면 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <c:choose>
 	                	<c:when test="${not empty userinfo.member_id}">
