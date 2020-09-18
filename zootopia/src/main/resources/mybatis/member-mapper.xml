@@ -104,8 +104,6 @@ SELECT member_id FROM cert WHERE secret=#{secret}
 
 
 
-<<<<<<< HEAD
-
 UPDATE MEMBER SET
 
 		 member_name = #{member_name , jdbcType=VARCHAR},
@@ -116,17 +114,6 @@ UPDATE MEMBER SET
 		 extraaddr = #{extraaddr , jdbcType=VARCHAR}
 		WHERE member_id = #{member_id , jdbcType=VARCHAR}
 
-=======
-UPDATE MEMBER SET
-
-		 member_name = #{member_name , jdbcType=VARCHAR},
-		 email = #{email , jdbcType=VARCHAR},
-		 phone = #{phone , jdbcType=VARCHAR},
-		 post = #{post , jdbcType=VARCHAR},
-		 baseaddr = #{baseaddr , jdbcType=VARCHAR},
-		 extraaddr = #{extraaddr , jdbcType=VARCHAR}
-		WHERE member_id = #{member_id , jdbcType=VARCHAR}
->>>>>>> branch 'dong_pet' of https://github.com/KimYeonHun/Zootopia
 
 
 	</update>
