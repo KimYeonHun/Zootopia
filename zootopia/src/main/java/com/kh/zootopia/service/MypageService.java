@@ -11,3 +11,4 @@ public interface MypageService {
 
 	public boolean passpw(MemberDto memberDto);
 }
+

@@ -62,7 +62,8 @@
  <c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>     
 		<section id="container">
-			<form action="../mypage" method="post">
+<!-- 			<form action="../mypage" method="post"> -->
+			<form action="../member/memberUpdate" method="post">
 				<div class="form-group has-feedback">
 					<label class="control-label">아이디</label>
 					<input class="form-control" type="text"  name="member_id" value="${userinfo.member_id}" readonly="readonly"/>
@@ -110,5 +111,5 @@
 		</section>
 		
 	</body>
-	
+
 </html>

@@ -9,6 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
 function preview(){
     //console.log("preview 실행!");
     
@@ -84,14 +88,20 @@ margin-left:50%;
 
 <label>프로필 사진</label>
       <img  width="415" height="300">  
-
+<!-- 
  <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
+<<<<<<< HEAD
  onchange="preview();">
 <c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>         
 
 
 
+=======
+ onchange="preview();"> -->
+<c:set var="TextValue" value="${userinfo.birthday}"/>
+       </div>         
+>>>>>>> refs/remotes/origin/master
 
 
 

@@ -54,9 +54,8 @@ public String registerUpdate(MemberDto memberDto, HttpSession session) throws Ex
 	service.memberUpdate(memberDto);
 	
 	
-	return "redirect:/member/passcheck";
+	return "redirect:/member/mypage";
 }
-
 
 
 
@@ -71,7 +70,7 @@ public String passcheck() throws Exception{
 	public String passcheck(@ModelAttribute MemberDto memberDto) {
 		boolean result = mdao.passcheck(memberDto);
 		if(result) {
-			return"redirect:/memberUpdateView";
+			return"redirect:/member/memberUpdateView";
 		}		  
 		else {
 			return "redirect:passcheck?error";

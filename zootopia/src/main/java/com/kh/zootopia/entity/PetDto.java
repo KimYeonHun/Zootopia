@@ -1,3 +1,4 @@
+
 package com.kh.zootopia.entity;
 
 import lombok.AllArgsConstructor;
