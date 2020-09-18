@@ -8,7 +8,7 @@
  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<!-- <script>
+<script>
 
 function preview(){
     //console.log("preview 실행!");
@@ -34,7 +34,7 @@ function preview(){
     }
     
 }
-    </script>  -->
+    </script> 
 <style>
    .w3-input {
     padding: 8px;
@@ -85,30 +85,19 @@ margin-left:50%;
 
 </div>
 
-<<<<<<< HEAD
-=======
-<!-- 
->>>>>>> refs/remotes/origin/master
 <div>
 
 <label>프로필 사진</label>
       <img  width="415" height="300">  
-
+<!-- 
  <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
-<<<<<<< HEAD
  onchange="preview();"> -->
 <c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>         
-   <c:if test="${userinfo.phone ne null && userinfo.phone!=''}">${fn:substring(userinfo.phone,0,fn:length(userinfo.phone)-3)}---</c:if>
 
 
 <label>이름</label> 
  <input class="w3-form" type="text" id="name" name="member_name" readonly value="${userinfo.member_name}">
-=======
- onchange="preview();">
-       </div>          -->
-   
->>>>>>> refs/remotes/origin/master
 
 <%-- <label>이름</label> 
  <input class="w3-form" type="text" id="name" name="member_name" readonly value="${ member.name }">
