@@ -94,6 +94,10 @@ margin-left:50%;
  onchange="preview();"> -->
 <c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>         
+<<<<<<< HEAD
+=======
+   <c:if test="${userinfo.phone ne null && userinfo.phone!=''}">${fn:substring(userinfo.phone,0,fn:length(userinfo.phone)-3)}---</c:if>
+>>>>>>> branch 'dong_pet' of https://github.com/KimYeonHun/Zootopia
 
 
 <label>이름</label> 
