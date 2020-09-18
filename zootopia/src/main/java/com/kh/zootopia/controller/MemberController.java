@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -41,13 +42,16 @@ public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
 
+
 	@Autowired
 	private SqlSession sqlSession;
 	
 	
+
 	//////////////////////////////
+
 	//////로그인////////////////////
-	/////////////////////////////
+
 
 	@Autowired
 	private PassEmailService sender;
@@ -172,8 +176,8 @@ public class MemberController {
 		
 	}
 
-	/////////////////////////////////////////////////
 	
+
 	@GetMapping("/mypage2")
 	public String edit(
 			HttpSession session,
@@ -188,30 +192,21 @@ public class MemberController {
 	
 	@PostMapping("/mypage2")
 	public String edit(
+			HttpSession session,
 			@ModelAttribute MemberDto memberDto) {
-		
+		/*
+		 * member_name: 김연훈 email: xdusgnsx@naver.com phone: 123123 post: 10081
+		 * baseaddr: 김포한강2로 362, extraaddr: 603동902호
+		 */
+		System.out.println(memberDto.toString());
 		sqlSession.update("member.memberUpdate", memberDto);
 		
 		return "redirect:mypage";
 	}
 	
 	
-	@PostMapping("/profile")
-	private String profile(@ModelAttribute MemberFileDto memberFileDto,
-			@RequestParam MultipartFile file,
-			@RequestParam String member_id)throws IllegalStateException, IOException {
-		int no = sqlSession.selectOne("member.getSeq");
-		memberFileDto.setMember_id(member_id);
-		memberFileDto.setProfile_no(no);
-		memberFileDto.setProfile_type(file.getContentType());
-		memberFileDto.setProfile_size(file.getSize());
-		memberFileDto.setProfile_name(file.getOriginalFilename());
-		sqlSession.insert("member.file",memberFileDto);
-		return "redirect:mypage2";
-	}
-	
 	
 
-
+	
 
 }
