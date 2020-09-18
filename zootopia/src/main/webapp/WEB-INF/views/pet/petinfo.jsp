@@ -44,6 +44,7 @@
             <h1>MY PET 등록</h1>
                 <form action="petinfo" method="post">
                  
+                 
                     <div class="form-group">
                         <label>대표 펫 이름</label>
                         <input type="text" name="pet_name" class="form-control">
