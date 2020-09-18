@@ -30,11 +30,37 @@
       
     </style>
    
-   
            
 </head>
 
 <body>
+   <script>
+   function preview() {
+       //console.log("preview 실행!");
+
+       var fileTag = document.querySelector("input[name=f]");
+
+       console.log(fileTag.files);
+       //if(fileTag에 선택된 파일이 있다면){
+       if (fileTag.files.length > 0) {
+           //하나라고 가정하고 0번 위치의 파일만 읽어와서 미리보기를 실행!
+
+           var reader = new FileReader();
+           reader.onload = function (data) {//data는 읽은 파일의 내용
+               //미리보기를 구현
+               var imgTag = document.querySelector("img");
+               imgTag.src = data.target.result;
+           };
+           reader.readAsDataURL(fileTag.files[0]);//읽도록 지시
+       }
+       else {//취소한 경우
+           var imgTag = document.querySelector("img");
+           imgTag.src = "";
+       }
+
+   }
+   
+   </script>
     <div class="container-fluid">
        
         
@@ -42,8 +68,14 @@
             <div class="offset-sm-4 col-sm-4 jumbotron">
             
             <h1>MY PET 등록</h1>
-                <form action="petinfo" method="post">
+                <form action="petinfo" method="post" enctype="multipart/form-data">
                  
+                 	<div class="form-group">
+                        <label>사진</label>
+                        <img  width="415" height="300">      
+                        <input type="file" accept=".jpg, .gif, .png" name="f" multiple onchange="preview();">
+                    </div>
+                                     
                     <div class="form-group">
                         <label>대표 펫 이름</label>
                         <input type="text" name="pet_name" class="form-control">

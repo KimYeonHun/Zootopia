@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.zootopia.entity.PetDto;
+import com.kh.zootopia.entity.PetFileDto;
 import com.kh.zootopia.repository.PetDao;
 
 @Controller
@@ -27,11 +28,13 @@ public class PetController {
    public String petinfo() {
       return "pet/petinfo";
    }
+   //////////////////////////////////////////////////////////
 @PostMapping("/petinfo")
-public String petinfo(@ModelAttribute PetDto petDto) {
+public String petinfo(@ModelAttribute PetDto petDto,PetFileDto petFileDto) {
    petDao.insert(petDto);
    return "redirect:list";
 }
+/////////////////////////////////////////////////////////////
 @GetMapping("/list")
 public String list(Model model,
 	@RequestParam(required = false , defaultValue = "pet_no") String col,
