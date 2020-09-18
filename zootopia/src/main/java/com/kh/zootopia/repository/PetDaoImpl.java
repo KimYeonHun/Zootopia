@@ -8,8 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
+import com.kh.zootopia.entity.PETFDTO;
 import com.kh.zootopia.entity.PetDto;
+import com.kh.zootopia.entity.PetFileDto;
 
 @Repository
 public class PetDaoImpl implements PetDao {
@@ -33,5 +34,10 @@ public class PetDaoImpl implements PetDao {
 		List<PetDto> list = sqlSession.selectList("pet.getList2",map);
 		return list;
 }
+	///사진 등록하기 테스트
+	@Override
+	public void insert(PETFDTO pfDto) {
+		sqlSession.insert("pet.petpic",pfDto);	
+	}
 
 }

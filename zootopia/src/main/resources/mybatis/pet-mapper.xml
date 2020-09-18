@@ -45,7 +45,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     SELECT * FROM pet ORDER BY ${col} ${order}
     </select>
     
- 
+ <!-- 사진올리기 테스트 -->
+<!--  <insert id="petpic" parameterType="pfDto"> -->
+<!-- 	INSERT INTO PETF( -->
+<!-- 		petf_name,petf_type,petf_size; -->
+<!-- 	)VALUES( -->
+<!-- 	#{petf_name},#{petf_type},#{pett_size} -->
+<!-- 	) -->
+<!--  </insert> -->
+
    
 
     </mapper>

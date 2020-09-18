@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.kh.zootopia.entity.PETFDTO;
 import com.kh.zootopia.entity.PetDto;
 import com.kh.zootopia.entity.PetFileDto;
 import com.kh.zootopia.repository.PetDao;
@@ -30,8 +32,13 @@ public class PetController {
    }
    //////////////////////////////////////////////////////////
 @PostMapping("/petinfo")
-public String petinfo(@ModelAttribute PetDto petDto,PetFileDto petFileDto) {
+public String petinfo(@ModelAttribute PetDto petDto,@RequestParam MultipartFile FILEPET) {
    petDao.insert(petDto);
+//   petDao.insert(pfDto);
+   PETFDTO pfDto = new PETFDTO();
+   pfDto.setPetf_name(FILEPET.getOriginalFilename()); 
+   pfDto.setPetf_size(FILEPET.getSize());
+   pfDto.setPetf_type(FILEPET.getContentType());
    return "redirect:list";
 }
 /////////////////////////////////////////////////////////////
