@@ -49,17 +49,16 @@
 				<form action="petinfo" method="post">
 
 					<div class="form-group">
-						<label>대표 펫 이름</label> <input type="text" name="pet_name"
+						<label>대표 펫 이름</label><input type="text" name="pet_name"
 							class="form-control">
 					</div>
-
+            
 					<div class="form-group">
 						<div class="btn-group btn-group-toggle" data-toggle="buttons">
 							<label class="btn btn-info">성별</label> <select name="pet_gender">
 								<option value="수컷">수컷</option>
 								<option value="암컷">암컷</option>
 							</select>
-
 						</div>
 					</div>
 
@@ -111,7 +110,6 @@
 								name="pet_vaccin">
 								<option value="YES">YES</option>
 								<option value="NO">NO</option>
-
 							</select>
 						</div>
 					</div>

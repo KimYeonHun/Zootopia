@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class PetDto {
 	private int pet_no;
 	private String pet_name;
+	private String member_id;
 	private String pet_gender;
 	private String pet_kind;
 	private String pet_type;

@@ -24,9 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             )VALUES(
             pet_seq.nextval,
              #{pet_name},
-             #{member_id},
-             #{pet_name},
-             #{member_id},
+             #{member_id, jdbcType=VARCHAR},
              #{pet_gender , jdbcType=VARCHAR},
              #{pet_kind},
              #{pet_type , jdbcType=VARCHAR},
@@ -41,8 +39,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             
     </insert>
     
-    <select id="getList" resultType="petDto">
-    SELECT * FROM pet
+    <select id="getList" parameterType="String">
+    SELECT * FROM pet where member_id = #{member_id}
     </select>
     
     <select id="getList2" resultType="petDto" parameterType="map">

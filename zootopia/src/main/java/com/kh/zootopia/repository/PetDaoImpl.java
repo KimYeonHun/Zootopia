@@ -25,10 +25,17 @@ public class PetDaoImpl implements PetDao {
 
 	}
 		
-	@Override
-	public List<PetDto> getList(){
-		return sqlSession.selectList("pet.getList");
-			}
+//	@Override
+//	public List<PetDto> getList(){
+//		return sqlSession.selectList("pet.getList");
+//			}
+	public PetDto getList(String member_id){
+		
+		return sqlSession.selectOne("pet.getList", member_id);
+	}
+	
+	
+	
 	@Override
 	public List<PetDto> getList(String col, String order) {
 		Map<String , Object> map =new HashMap<>();

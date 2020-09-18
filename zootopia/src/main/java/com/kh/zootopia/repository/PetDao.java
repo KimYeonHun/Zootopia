@@ -7,7 +7,7 @@ import com.kh.zootopia.entity.PetDto;
 
 public interface PetDao {
 	void insert(PetDto petDto);
-List<PetDto> getList();
+PetDto getList(String member_id);
 List<PetDto> getList(String col, String order);
 PetDto get(int pet_no);
 
