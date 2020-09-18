@@ -103,7 +103,6 @@ SELECT member_id FROM cert WHERE secret=#{secret}
 	<update id="memberUpdate" parameterType="memberDto">
 
 
-
 UPDATE MEMBER SET
 
 		 member_name = #{member_name , jdbcType=VARCHAR},
@@ -113,7 +112,6 @@ UPDATE MEMBER SET
 		 baseaddr = #{baseaddr , jdbcType=VARCHAR},
 		 extraaddr = #{extraaddr , jdbcType=VARCHAR}
 		WHERE member_id = #{member_id , jdbcType=VARCHAR}
-
 
 
 	</update>
