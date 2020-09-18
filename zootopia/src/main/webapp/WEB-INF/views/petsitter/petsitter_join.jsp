@@ -19,6 +19,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 
+
 // 다중 체크박스 (하나만 선택되게 하기)
 	function haveCheck1(chk) {
 		var have = document.getElementsByName("sitter_checklist");
@@ -290,7 +291,7 @@ function checkNick(){
 
 
 
-
+<%@ include file="/WEB-INF/template/header.jsp"%>
 <div class="container-fluid text-center" id="wrap">
 	<div class="row">
 	
@@ -357,6 +358,7 @@ function checkNick(){
 				<textarea name="petsitter_career"  class="form-control career " rows="5" oninput="careerlength1();" required></textarea>
 				<span class="career-count1">0</span> /1000
 				</div>
+				
 				<div class="form-group">
 				<label class="font-weight-bold text-primary">자기 소개</label>
 				<textarea name="career_info"  class="form-control introduce" rows="5" oninput="careerlength2();" required></textarea>
@@ -533,7 +535,7 @@ function checkNick(){
 				
 				<c:if test="${param.error !=null}">
 				<script>
-					alert("닉네임이 중복되어 등록을 진행할 수 없습니다");
+					alert("이미 펫시터에 지원한 아이디 혹은 닉네임 입니다");
 				</script>
 <!-- 				<div><h6 class="font-weight-bold text-danger">이미지를 등록해주세요</h6></div> -->
 				</c:if>
@@ -547,3 +549,5 @@ function checkNick(){
 	</div>
 
 </div>
+
+<%@ include file="/WEB-INF/template/footer.jsp"%>

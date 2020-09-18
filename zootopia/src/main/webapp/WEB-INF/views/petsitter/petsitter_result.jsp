@@ -15,6 +15,8 @@
         margin-top: 200px;
     }
 </style>
+<%@ include file="/WEB-INF/template/header.jsp"%>
+
    <div class="container-fluid text-center" id="wrap">
 	<div class="row">
         <div class="offset-2 col-8">
@@ -40,3 +42,5 @@
         </div>
     </div>
 </div>
+
+<%@ include file="/WEB-INF/template/footer.jsp"%>

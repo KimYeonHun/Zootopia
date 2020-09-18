@@ -20,4 +20,6 @@ public interface PetSitterDao {
 	PetFileDto getimg(int petsitter_no );
 	
 	PetSitterDto getSitterList(int petsitter_no);	
+//	
+	void CancelSitter(String member_id);
 }

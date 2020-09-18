@@ -13,28 +13,28 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
-<script>
 
 
-function color(){
-	var color = document.getElementById("color_mon").value;
+
+<!-- // function color(){ -->
+<!-- // 	var color = document.getElementById("color_mon").value; -->
 	
-	if(color == '월요일'){
-		document.getElementById("changecolor").style.backgroundColor="red";
-	}
+<!-- // 	if(color == '월요일'){ -->
+<!-- // 		document.getElementById("changecolor").style.backgroundColor="red"; -->
+<!-- // 	} -->
  	
-}
+<!-- // } -->
 
 
-// <textarea name="test" onkeyUp="chkForm()">표준말로 입력하시오.</textarea>
+<!-- // <textarea name="test" onkeyUp="chkForm()">표준말로 입력하시오.</textarea> -->
 
-// function chkForm(){
-//     if(document.getElementsByName("test")[0].value.match(/흐미|옴마|잡것/)){
-//         document.getElementsByName("test")[0].style.color = "red";
-//     }
-// }
+<!-- // function chkForm(){ -->
+<!-- //     if(document.getElementsByName("test")[0].value.match(/흐미|옴마|잡것/)){ -->
+<!-- //         document.getElementsByName("test")[0].style.color = "red"; -->
+<!-- //     } -->
+<!-- // } -->
 
-</script>
+
 
 <%@ include file="/WEB-INF/template/header.jsp"%>
 
@@ -65,7 +65,7 @@ function color(){
  
  <br> <br>
    <h2 style="font-weight: 600; font-size: 17px; letter-spacing: -0.2px; line-height: 25px;
-  margin-bottom: 20px;" class="text-info">자격증 및 수료 </h2>
+<!--   margin-bottom: 20px;" class="text-info">자격증 및 수료 </h2> -->
     
     <div style="display: flex; flex-direction: row; align-items: center; margin: 32px 0px;">
    <div style="width: 200px; height: 200px; filter:blur(1.25px);">
@@ -97,7 +97,7 @@ function color(){
    	</div>
    	</div>
    	
-   	<!--  새로운 시작  -->
+   	 새로운 시작 
 <!--    	<div> -->
 <!--    	<div style="width: 1000px; border-radius: 8px; border: 1px solid rgb(223,227,234); -->
 <!--    	box-shadow: rgba(0,0,0,0.07) 1px 3px 7px; padding: 38px; margin-top: 38px; "> -->

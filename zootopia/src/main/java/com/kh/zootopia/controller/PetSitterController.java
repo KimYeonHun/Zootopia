@@ -44,6 +44,8 @@ public class PetSitterController {
 	@Autowired
 	private SitterPhotoService sitterPhotoService;
 	
+	@Autowired
+	private SqlSession sqlSession;
 	
 	@GetMapping("/petsitter_join")
 	public String petsitter_join(
@@ -74,7 +76,13 @@ public class PetSitterController {
 		int result = petSitterDao.getNick(petSitterDto.getPetsitter_nick());
 		
 		MemberDto userinfo= (MemberDto)session.getAttribute("userinfo");
-		if(result==0) { // 닉네임이 중복이 아닐때
+		
+		// 멤버 아이디가 중복 일 때 
+		
+		// 펫시터 지원 불가 
+		int countId = sqlSession.selectOne("petsitter.getId", userinfo.getMember_id());
+		
+		if(result==0&&countId==0) { // 닉네임이 중복이 아닐때
 			
 			if(photo.getSize()!=0) {// 아이디가 중복아니고 사진이 들어있을 때
 				
@@ -156,10 +164,29 @@ public class PetSitterController {
 		return "/member/reservation/sitter_detail";
 	}
 	
+	@GetMapping("/list")
+	public String list() {
+		
+		return "petsitter/apply_list"; 
+	}
+	
+
+	// 펫시터 지원 취소 
+	@GetMapping("/cancel_sitter")
+	public String cancelPetsitter(
+			
+			HttpSession session
+			){
+		// 멤버 아이디로 펫시터 번호 뽑고 
+		// 펫시터 번호로 지원 내용 삭제
+		MemberDto userinfo= (MemberDto)session.getAttribute("userinfo");
+		petSitterDao.CancelSitter(userinfo.getMember_id());
+		
+		return "petsitter/cancel";
+	}
 	
 	
-	
-	
+
 
 
 

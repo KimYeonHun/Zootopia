@@ -20,6 +20,8 @@
 <script src="${pageContext.request.contextPath}/res/js/bootstrap-datepicker.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  
+  <%@ include file="/WEB-INF/template/header.jsp"%>
     <!-- 
     
     1. 정기 예약 
@@ -176,7 +178,9 @@
  
  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 100px; ">
  
-<c:forEach var="petsitter" items="${list}">    
+<c:forEach var="petsitter" items="${list}">   
+
+ <c:if test="${petsitter.sitter_accept eq'승인'}">
 <div  style="width:310px; height: 462px; border:1px solid rgb(235,235,235); box-shadow: rgba(0,0,0,0.07) 1px 1px 12px; display: flex; flex-direction: column;
 align-items: center; padding-left:10px; border-radius: 3px; margin-top: 100px;
 margin-left: 20px; margin-right: 20px;">
@@ -196,7 +200,8 @@ margin-left: 20px; margin-right: 20px;">
 	</div>
 
 	</div>
-		
+	
+	 </c:if>
 	 </c:forEach>
 </div>
 </div>
@@ -211,7 +216,7 @@ margin-left: 20px; margin-right: 20px;">
 <!-- 펫시터 사진 펫시터 이름  펫시터 경력 (경력 어떻게 보여줄지..?) 예약하기 버튼  : 이름 선택 시 펫시터 상세 정보 보는 페이지-->
 
 
-
+<%@ include file="/WEB-INF/template/footer.jsp"%>
 
 
 
