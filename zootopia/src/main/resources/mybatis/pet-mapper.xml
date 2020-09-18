@@ -25,6 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             pet_seq.nextval,
              #{pet_name},
              #{member_id},
+             #{pet_name},
+             #{member_id},
              #{pet_gender , jdbcType=VARCHAR},
              #{pet_kind},
              #{pet_type , jdbcType=VARCHAR},
@@ -65,4 +67,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    pet_toilet=#{pet_toilet} WHERE pet_no = #{pet_no}
    </update>
    
+   <delete id="del" parameterType= "int">
+	DELETE pet WHERE pet_no=#{pet_no}
+	</delete>
+	
     </mapper>

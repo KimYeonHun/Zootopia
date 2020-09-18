@@ -111,7 +111,7 @@ margin-left:50%;
 		  <div class="w3-card">
 	<div class="inputArea">
  
-<a href="pet" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">MY 펫 </a>
+       <h3><a href="${pageContext.request.contextPath}/pet/petinfo">PET등록</a></h3>
 </div>
 =======
  --%>

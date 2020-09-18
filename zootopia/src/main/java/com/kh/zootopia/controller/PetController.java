@@ -1,7 +1,6 @@
 package com.kh.zootopia.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import com.kh.zootopia.entity.PetDto;
 import com.kh.zootopia.repository.PetDao;
 
@@ -19,8 +19,10 @@ import com.kh.zootopia.repository.PetDao;
 @RequestMapping("/pet")
 public class PetController {
 
-	@Autowired
+	@Autowired 
+
 	private PetDao petDao;
+
 
 	@GetMapping("/petinfo")
 	public String petinfo() {
@@ -76,5 +78,10 @@ public class PetController {
 	}
 	
 
-//   @GetMapping("/delete")
+   @GetMapping("/delete/{pet_no}")
+public String delete(@PathVariable int pet_no){
+	   petDao.delete(pet_no);
+	   return "redirect:/pet/list";
+   }
+
 }
