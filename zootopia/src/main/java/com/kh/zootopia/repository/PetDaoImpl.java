@@ -69,9 +69,19 @@ public void delete(int pet_no) {
 
 	///사진 등록하기 테스트
 	@Override
-	public void insert(PETFDTO pfDto) {
+	public int addpet(PETFDTO pfDto) {
+		int pet_no = sqlSession.selectOne("PETF_seq");
+		pfDto.setPet_no(pet_no);
 		sqlSession.insert("pet.petpic",pfDto);	
+		return 0;
 	}
+
+	
+
+//	@Override
+//	public void insert(PETFDTO pfDto) {
+//		sqlSession.insert("pet.petpic",pfDto);	
+//	}
 
 
 }

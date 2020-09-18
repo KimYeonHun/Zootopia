@@ -36,7 +36,7 @@ private MemberDao mdao;
 private MypageService service;
 
 @GetMapping("/mypage")
-public String page() {
+public String page(HttpSession session,MemberDto memberDto) {
 	return "member/mypage";
 }
 
@@ -50,10 +50,10 @@ public String registerUpdateView() throws Exception{
 
 @RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
 public String registerUpdate(MemberDto memberDto, HttpSession session) throws Exception{
-	
 	service.memberUpdate(memberDto);
 	
 	
+	session.setAttribute("userinfo",memberDto);
 	return "redirect:/member/mypage";
 }
 

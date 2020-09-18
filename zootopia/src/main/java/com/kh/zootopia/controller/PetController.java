@@ -39,10 +39,18 @@ public class PetController {
 	}
 
 	@PostMapping("/petinfo")
-	public String petinfo(@ModelAttribute PetDto petDto, HttpSession session) {
+	public String petinfo(@ModelAttribute PetDto petDto, HttpSession session
+			,PETFDTO pfDto,@RequestParam MultipartFile FILEPET) {
 		MemberDto member = (MemberDto) session.getAttribute("userinfo"); // 로그인한 정보 userinfo를 MemberDto에 담는다.
 		petDto.setMember_id(member.getMember_id());
 		petDao.insert(petDto );
+		
+		
+		petDao.addpet(pfDto);
+		
+		 pfDto.setPetf_name(FILEPET.getOriginalFilename()); 
+	     pfDto.setPetf_size(FILEPET.getSize());
+	     pfDto.setPetf_type(FILEPET.getContentType());
 		
 		return "redirect:list";
 	}

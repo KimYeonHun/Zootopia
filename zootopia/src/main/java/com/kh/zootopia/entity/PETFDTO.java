@@ -13,8 +13,5 @@ public class PETFDTO {
 	//fk
 	private String member_id;
 	private int pet_no;
-	public void setPetf_size(long size) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

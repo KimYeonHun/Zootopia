@@ -70,15 +70,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
     
  <!-- 사진올리기 테스트 -->
-<!--  <insert id="petpic" parameterType="pfDto"> -->
-<!-- 	INSERT INTO PETF( -->
-<!-- 		petf_name,petf_type,petf_size; -->
-<!-- 	)VALUES( -->
-<!-- 	#{petf_name},#{petf_type},#{pett_size} -->
-<!-- 	) -->
-<!--  </insert> -->
-
-   
+ <select id="petsel">
+ SELECT PETF_seq.nextval FROM dual
+ </select>
+ <insert id="petpic" parameterType="pfDto">
+	INSERT INTO PETF(
+		pet_no,petf_name,petf_type,petf_size;
+	)VALUES(
+	#{pet_no},#{petf_name},#{petf_type},#{pett_size}
+	)
+ </insert>
 
 
     </mapper>

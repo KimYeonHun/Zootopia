@@ -20,7 +20,8 @@ void delete(int pet_no);
 
 
 ///파일 사진올리기 테스트
-void insert(PETFDTO pfDto);
+
+int addpet(PETFDTO pfDto);
 }
 
 

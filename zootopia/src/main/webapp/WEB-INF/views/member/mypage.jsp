@@ -104,8 +104,8 @@ margin-left:50%;
 <label>이름</label> 
  <input class="w3-form" type="text" id="name" name="member_name" readonly value="${userinfo.member_name}">
 
-    <label>권한</label> 
-<input class="w3-form" type="text" id="auth" name="auth" readonly value="${userinfo.auth}">
+<!--     <label>권한</label>  -->
+<%-- <input class="w3-form" type="text" id="auth" name="auth" readonly value="${userinfo.auth}"> --%>
     </div>
 
      <div>
