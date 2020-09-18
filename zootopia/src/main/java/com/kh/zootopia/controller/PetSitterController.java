@@ -181,10 +181,16 @@ public class PetSitterController {
 //		System.out.println(member_id);
 		//2. 꺼낸 아이디로 펫시터 정보 조회 
 		PetSitterDto info = sqlSession.selectOne("petsitter.getOneList", member_id.getMember_id());
+		if(info !=null) {
+			model.addAttribute("list", info);
+			return "petsitter/apply_list"; 
+		}else {
+			return"home";
+		}
 //		System.out.println(info);
 		// 2번에서 나온걸 모델로 보낸다 
-		model.addAttribute("list", info);
-		return "petsitter/apply_list"; 
+		
+		
 	}
 	
 	
@@ -208,10 +214,17 @@ public class PetSitterController {
 			){
 		// 멤버 아이디로 펫시터 번호 뽑고 
 		// 펫시터 번호로 지원 내용 삭제
-		MemberDto userinfo= (MemberDto)session.getAttribute("userinfo");
-		petSitterDao.CancelSitter(userinfo.getMember_id());
 		
-		return "petsitter/cancel";
+		MemberDto userinfo= (MemberDto)session.getAttribute("userinfo");
+		PetSitterDto info = sqlSession.selectOne("petsitter.getOneList", userinfo.getMember_id());
+		if(info ==null) {// 펫시터 정보가 없으면 
+		
+			return "home";
+		}else {
+			petSitterDao.CancelSitter(userinfo.getMember_id());
+			return "petsitter/cancel";
+		}
+
 	}
 	
 	
