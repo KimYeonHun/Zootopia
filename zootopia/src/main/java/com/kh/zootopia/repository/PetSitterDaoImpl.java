@@ -61,13 +61,35 @@ public class PetSitterDaoImpl implements PetSitterDao {
 	}
 
 	@Override
-	public PetFileDto getimg(int petsitter_no) {
+	public PetFileDto getimg(int  petsitter_no) {
 		
 		return sqlSession.selectOne("petsitter.getimg", petsitter_no);
 	}
 
+	@Override
+	public PetSitterDto getSitterList(int petsitter_no) {
+		
+		return sqlSession.selectOne("petsitter.getSitterList", petsitter_no);
+	}
+	
+	
+
+	@Override
+	public void CancelSitter( String member_id) {
+		
+		int pet = sqlSession.selectOne("petsitter.getNo", member_id);
+		
+		
+		sqlSession.delete("petsitter.cancel", pet);
+		
+		
+		
+		
+	}
 
 
+
+	
 	
 	
 }
