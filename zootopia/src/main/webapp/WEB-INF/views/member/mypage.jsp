@@ -84,9 +84,9 @@ margin-left:50%;
 
 <label>프로필 사진</label>
       <img  width="415" height="300">  
-<!-- 
+
  <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
- onchange="preview();"> -->
+ onchange="preview();">
 <c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>         
 
@@ -98,10 +98,6 @@ margin-left:50%;
 <label>이름</label> 
  <input class="w3-form" type="text" id="name" name="member_name" readonly value="${userinfo.member_name}">
 
-<%-- <label>이름</label> 
- <input class="w3-form" type="text" id="name" name="member_name" readonly value="${ member.name }">
-
-    
     <label>권한</label> 
 <input class="w3-form" type="text" id="auth" name="auth" readonly value="${userinfo.auth}">
     </div>
@@ -110,11 +106,52 @@ margin-left:50%;
      <div class="w3-container">
 		  <div class="w3-card">
 	<div class="inputArea">
- 
-<a href="pet" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">MY 펫 </a>
+ <div>
+<a href="../pet/petinfo" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">MY 펫 </a>
 </div>
-=======
- --%>
+<div>
+<a href="../petsitter/petsitter_join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">펫시터 지원하기</a>
+</div>
+
+만약에 펫시터 지원을 했으면 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<c:choose>
+	                	<c:when test="${not empty userinfo.member_id}">
+		          			<a href="${pageContext.request.contextPath}/member/logout" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그아웃</a>
+	                		<a href="${pageContext.request.contextPath}/member/mypage" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">마이페이지</a>
+	                	</c:when>
+	                	<c:otherwise>
+		          			<a href="${pageContext.request.contextPath}/member/login" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그인</a>
+			                <a href="${pageContext.request.contextPath}/member/join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">회원가입</a>
+	                	</c:otherwise>
+	                </c:choose>
+
+
+
+
+
+
+</div>
 
 
   </div>
