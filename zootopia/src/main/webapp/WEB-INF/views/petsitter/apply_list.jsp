@@ -63,6 +63,11 @@
 				<label class="font-weight-bold text-primary">돌봄에 있어 가장 중요하게 생각하는 부분에 대해서 설명해주세요.</label>
 				<textarea  class="form-control checkLength3" rows="5" name="sitter_checklist_six "readonly></textarea>
 				</div>
+				
+				<div class="form-group">
+				<label class="font-weight-bold text-primary">승인 상태</label>
+				<input type="text" class="form-control " readonly required>
+				</div>
 	</div>
 	<br>   	<br>
 	
