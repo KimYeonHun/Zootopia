@@ -38,16 +38,14 @@
 
 
 <div class="jumbotron fixed-top" style="padding:2rem 2rem " id="header">
-
-
 <!-- 	<h2>Zootopia</h2> -->
 
             <a href="<%=request.getContextPath()%>"> 
             
             <i class="fa fa-4x fa-paw text-info offset-2 col-8 text-center" ></i>
             </a>
-        
   </div>
+
 
 	
 

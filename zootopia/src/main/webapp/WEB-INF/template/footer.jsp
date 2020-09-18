@@ -3,7 +3,7 @@
 
     
     
-      <div class="jumbotron text-center" >
+      <div class="jumbotron text-center mt-6 mb-0" >
   	<p class="text-muted"> 주식회사 주토피아 <br> 개인정보 책임 관리자: 김개똥 
   	<br>사업자 등록 번호: 121-22-444111 <br>서울 마포구 마포대로 122, 18층(공덕동, 프론트원)고객센터 1522-9759</p>
   	<p>© 2020 zootopia. All Rights Reserved.</p>
