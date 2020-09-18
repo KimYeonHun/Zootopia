@@ -42,13 +42,16 @@ public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
 
+
 	@Autowired
 	private SqlSession sqlSession;
 	
 	
+
 	//////////////////////////////
+
 	//////로그인////////////////////
-	/////////////////////////////
+
 
 	@Autowired
 	private PassEmailService sender;
@@ -173,8 +176,8 @@ public class MemberController {
 		
 	}
 
-	/////////////////////////////////////////////////
 	
+
 	@GetMapping("/mypage2")
 	public String edit(
 			HttpSession session,
@@ -205,7 +208,6 @@ public class MemberController {
 	
 
 	
-
 
 
 }
