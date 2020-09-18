@@ -15,23 +15,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			phone,
 			auth,
 			member_name,
-			post,baseaddr,
+			post,
+			baseaddr,
 			extraaddr,
 			email,
 			gender
 		) values(
 			#{member_id, jdbcType=VARCHAR},
 			#{member_pw, jdbcType=VARCHAR},
-			#{birthday, jdbcType=VARCHAR},
+
+			#{birthday, jdbcType=VARCHAR },
 			#{phone, jdbcType=VARCHAR},
 			#{auth, jdbcType=VARCHAR},
 			#{member_name, jdbcType=VARCHAR},
-			#{post, jdbcType=VARCHAR},
-			#{baseaddr, jdbcType=VARCHAR},
+			#{post},
+			#{baseaddr},
 			#{extraaddr, jdbcType=VARCHAR},
-			#{email},
-			#{gender}
-		)
+			#{email, jdbcType=VARCHAR},
+			#{gender, jdbcType=VARCHAR}
+
+
 	</insert>
 
 
@@ -98,14 +101,19 @@ SELECT member_id FROM cert WHERE secret=#{secret}
 
 <!-- 회원정보 수정 -->
 	<update id="memberUpdate" parameterType="memberDto">
-		UPDATE MEMBER SET 
-		member_name = #{member_name, jdbcType=VARCHAR},
-		email = #{email, jdbcType=VARCHAR},
-		phone = #{phone, jdbcType=VARCHAR},
-		post = #{post},
-		BASEADDR = #{baseaddr, jdbcType=VARCHAR},
-		EXTRAADDR = #{extraaddr, jdbcType=VARCHAR}
-		WHERE member_id = #{member_id, jdbcType=VARCHAR}
+
+
+UPDATE MEMBER SET
+
+		 member_name = #{member_name , jdbcType=VARCHAR},
+		 email = #{email , jdbcType=VARCHAR},
+		 phone = #{phone , jdbcType=VARCHAR},
+		 post = #{post , jdbcType=VARCHAR},
+		 baseaddr = #{baseaddr , jdbcType=VARCHAR},
+		 extraaddr = #{extraaddr , jdbcType=VARCHAR}
+		WHERE member_id = #{member_id , jdbcType=VARCHAR}
+
+
 	</update>
 <!-- 비번체크 -->
 	<select id="checkpw" resultType="memberDto">

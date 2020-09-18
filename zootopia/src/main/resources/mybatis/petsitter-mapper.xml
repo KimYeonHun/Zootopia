@@ -120,9 +120,17 @@ select * from pet_file where petsitter_no = #{petsitter_no}
 	<select id="get" resultType="petSitterDto" parameterType="int">
 		select * from petsitter WHERE petsitter_no=#{petsitter_no}
 	</select>
+	
+	
+	<update id="enrollment" parameterType="petSitterDto">
+		update petsitter set
+		sitter_accept = #{sitter_accept}
+		where member_id=#{member_id}
+	</update>
 
-
-
+	<delete id="delete" parameterType="String">
+		delete from petsitter where member_id=#{member_id}
+	</delete>
 
 
 </mapper>
