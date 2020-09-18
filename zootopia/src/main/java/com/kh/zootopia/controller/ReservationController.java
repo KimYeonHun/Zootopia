@@ -93,10 +93,12 @@ public class ReservationController {
 	@PostMapping("/reserve_step2")
 	public String reserve_step2(
 			@ModelAttribute ReserveDto reserveDto,
-			HttpSession session, PetSitterDto petSitterDto
+			HttpSession session,
+			Model model
 			) {
-		MemberDto userinfo = (MemberDto)session.getAttribute("userinfo");
-		int reserveno = reserveDao.reserve(reserveDto);
+		MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
+		List<PetDto>
+		reserveDao.reserve(reserveDto);
 		return "redirect:/member/reservation/result";
 	}
 	

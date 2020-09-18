@@ -157,7 +157,7 @@
     });
     $(function(){
         var dataList = getDataList();
-        var $select = $('select#petlist');
+        var $select = $('#petlist');
         for (var i = 0; i < dataList.length; i++) {
           var data= dataList[i];
           var $option = $('<option>')
@@ -223,7 +223,9 @@
     <div class="lt offset-2 col-8">
       <div>예약자 <input class="form-control" type="text" name="res_name" value="${userinfo.member_name}" required></div>
       <div class="form-group">반려동물
-        <select class="form-control" id="petlist" name="res_pet"></select>    
+        <select class="form-control" id="petlist" name="res_pet">
+        	<option value='' selected>-- 선택 --</option>
+        </select>    
       </div>
       <div>방문펫시터 <input class="form-control" type="text" name="res_petsitter" required></div>
       <div>예약일 <input class="form-control" name="res_date" type="text" required></div>
@@ -403,6 +405,7 @@
       </div>
       <hr style="height:5px; background-color:lightskyblue;">
       <button id="submit" type="submit" class="btn btn-info btn-block">SAVE</button>
+  </div>
   </div>
 </body>
 
