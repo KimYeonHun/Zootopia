@@ -1,8 +1,5 @@
 package com.kh.zootopia.entity;
 
-import java.util.List;
-
-import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

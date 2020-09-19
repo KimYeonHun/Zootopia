@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+  <%@ include file="/WEB-INF/template/header.jsp"%>  	
+  <br><br>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/minty/bootstrap.min.css"
         integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
@@ -57,3 +58,5 @@
         </div>
     </div>
 </body>
+<br><br>
+<%@ include file="/WEB-INF/template/footer.jsp"%>

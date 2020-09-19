@@ -37,5 +37,8 @@ public interface MemberDao {
 
 
 	boolean join(MemberDto memberDto);
+
+
+	boolean passcheck(MemberDto memberDto);
 	
 }

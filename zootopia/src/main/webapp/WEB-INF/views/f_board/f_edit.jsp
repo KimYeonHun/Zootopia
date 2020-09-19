@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+      <%@ include file="/WEB-INF/template/header.jsp"%>  	
+      <br><br>
 <h1>글쓰기</h1>
 
 
@@ -12,3 +14,5 @@
 	<%-- 날짜:<input type="text" name="q_when" value="${q_boardDto.q_when}"> --%>	
 <input type="submit" value="등록">
 </form>
+<br><br>
+<%@ include file="/WEB-INF/template/footer.jsp"%>
