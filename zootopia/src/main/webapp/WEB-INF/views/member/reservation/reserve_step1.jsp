@@ -85,6 +85,9 @@
 <div class="container-fluid text-center" style="margin-top:150px;">
 <div class="offset-2 col-8">
 
+
+
+
 <h1 class="text-primary" id="wrap">하루 예약</h1>
 
 
@@ -139,11 +142,12 @@
 					<button id="search" type="submit" class="btn btn-primary "> 펫시터 검색</button>
 				</div>
 		</div>
-  
+   
 </form>
-</div>
+
 </div>
 
+</div>
 
 <br>
 
@@ -159,6 +163,7 @@
     <div class="offset-2 col-8">
    
 <!--         <table class="table table-sm table-hover"> -->
+
 <!--             <tbody> -->
 <%--              <c:forEach var="petsitter" items="${list}"> --%>
 <!--                 <tr class="text-center"> -->
@@ -186,22 +191,23 @@ align-items: center; padding-left:10px; border-radius: 3px; margin-top: 100px;
 margin-left: 20px; margin-right: 20px;">
 
 	<div style="background-size:cover;  left: 0px; right: 0px; top: 0px; bottom: 0px; ">
-		<a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}"><img src="${pageContext.request.contextPath}/petsitter/img/${petsitter.petsitter_no}" 
+		<a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}?day=${map.reservation_day}&start=${map.available_start_time}&finish=${map.available_finish_time}"><img src="${pageContext.request.contextPath}/petsitter/img/${petsitter.petsitter_no}" 
 		style="border-radius: 5px; margin-top: 10px;" width="250px" height="250px" ></a>
 	</div>
 	<br>
 	<div style="font-size: 18px; letter-spacing: -0.2px; font-weight: bold;">
-		<p ><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.petsitter_nick} 펫 매니저</a></p>
+		<p ><a href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}?day=${map.reservation_day}&start=${map.available_start_time}&finish=${map.available_finish_time}">${petsitter.petsitter_nick} 펫 매니저</a></p>
 	</div>
 
 	<div style="width: 219px; height: 88px; font-size: 13px; line-height: 23px; color: rgb(77,80,85); overflow: hidden;
 	text-overflow: ellipsis; display: -webkit-box; ">
-		<p><a  href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}">${petsitter.career_info}</a></p>	
+		<p><a  href="${pageContext.request.contextPath}/petsitter/sitter_detail/${petsitter.petsitter_no}?day=${map.reservation_day}&start=${map.available_start_time}&finish=${map.available_finish_time}">${petsitter.career_info}</a></p>	
 	</div>
-
+	
 	</div>
 	
 	 </c:if>
+	
 	 </c:forEach>
 </div>
 </div>

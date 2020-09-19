@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.sql.ResultSet;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -159,15 +161,29 @@ public class PetSitterController {
 	@GetMapping("/sitter_detail/{petsitter_no}")
 	
 	public String sitter_detail(
+			@RequestParam String day,
+			@RequestParam String start,
+			@RequestParam String finish,
 			@PathVariable int petsitter_no,
 			@ModelAttribute PetSitterDto petSitterDto,
+			HttpSession session,
 			Model model
 			) {
 		
+		MemberDto member_id =(MemberDto)session.getAttribute("userinfo");
+		Map<String, Object> map = new HashMap<>();
+		map.put("res_day", day);
+		map.put("res_start", start);
+		map.put("res_finish", finish);
+		map.put("petsitter_no", petsitter_no);
+		map.put("member_id", member_id.getMember_id());
+		
+		sqlSession.insert("petsitter.get_pre", map);
+		
+		//day=${map.reservation_day}&start=${map.available_start_time}&finish=${map.available_finish_time}
+		
 		PetSitterDto info =petSitterDao.getSitterList(petsitter_no);
-		
 		model.addAttribute("sitterDetail", info);
-		
 		return "/member/reservation/sitter_detail";
 	}
 	

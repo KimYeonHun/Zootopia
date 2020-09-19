@@ -159,6 +159,12 @@ select * from pet_file where petsitter_no = #{petsitter_no}
 
 </select>
 
+
+<insert id="get_pre" parameterType="map">
+	insert into pre_res values (pre_res_seq.nextval,#{member_id},#{petsitter_no},#{res_day}
+	,#{res_start},#{res_finish})
+</insert>
+
 </mapper>
 
 

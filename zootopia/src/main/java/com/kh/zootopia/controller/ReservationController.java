@@ -67,13 +67,17 @@ public class ReservationController {
 			Model model
 			
 			) {
-		
-	
-		
+
 		Map<String,Object > map = new HashMap<>();
 		map.put("available_start_time", available_start_time);
 		map.put("available_finish_time", available_finish_time);
 		map.put("reservation_day", reservation_day);
+		
+		//파라미터 값 저장 (날짜, 시작 시간, 끝나는 시간 )
+		
+		
+		//펫시터 닉네임 저장 
+		
 		
 		// 날짜, 시간 
 		//날짜를 요일로 변경 후 시간 까지 
@@ -84,7 +88,10 @@ public class ReservationController {
 		
 		// 펫시터 찍기 
 		model.addAttribute("list", list);
-
+		model.addAttribute("map", map);
+	
+		
+		// 펫시터 번호 = 멤버 번호 조회 해서 예약 페이지에 부르기 
 	
 		return "/member/reservation/reserve_step1";
 	}
