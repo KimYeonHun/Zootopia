@@ -53,11 +53,28 @@ PET_
 );
  
 --예약--
-CREATE TABLE RESERVATION(
-RE_NO NUMBER PRIMARY KEY,
-MEMBER_ID REFERENCES Member(MEMBER_ID) ON DELETE CASCADE,
-PET_NAME REFERENCES Member(MEMBER_ID) ON DELETE CASCADE,
-PETSITTER_NO REFERENCES Member(MEMBER_ID) ON DELETE CASCADE,
+CREATE TABLE reservation(
+res_no NUMBER PRIMARY KEY,
+res_name REFERENCES member(member_id)ON DELETE CASCADE,
+res_pet REFERENCES pet(pet_no)ON DELETE CASCADE,
+res_petsitter REFERENCES petsitter(petsitter_no)ON DELETE CASCADE,
+res_date DATE NOT NULL,
+res_place varchar2(10) NOT NULL CHECK (res_place IN('우리집','기관','기타')),
+res_post char(6) NOT NULL,
+res_Baddr varchar2(300) NOT NULL,
+res_Eaddr varchar2(300) NOT NULL,
+res_pack varchar2(50) NOT NULL CHECK (res_pack IN( '30분','60분')),
+res_pluspack1 varchar2(50),
+res_pluspack2 varchar2(50),
+singularity varchar2(4000),
+location varchar2(100) NOT NULL,
+common_porch char(2) NOT NULL CHECK (common_porch IN('Y','N')),
+access_method varchar2(12) NOT NULL CHECK (access_method IN('비밀번호','열쇠','카드')),
+cctv char(2) NOT NULL CHECK (cctv IN('Y','N')),
+safety_door char(2) NOT NULL CHECK (safety_door IN('Y','N')),
+parking char(2) NOT NULL CHECK (parking IN('Y','N')),
+useparking varchar2(100),
+res_price NUMBER NOT NULL
 );
 
 

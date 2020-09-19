@@ -86,6 +86,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from petsitter where petsitter_nick = #{petsitter_nick}
 	</select>
 
+	
+	<select id="getPetsitter" parameterType="int" resultType="String">
+		Select petsitter_nick from petsitter where  petsitter_no = #{petsitter_no}
+	</select>
+
+
 	<select id="getDay" parameterType="map" resultType="petsitterDto">
 		<![CDATA[select * FROM petsitter WHERE 
 			monday=to_char(to_date(#{reservation_day},'yyyy-mm-dd'),'DAY') 
@@ -109,14 +115,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 select * from pet_file where petsitter_no = #{petsitter_no}
 </select>
 
-
-
 <select id="getSitterList" parameterType="int" resultType="petSitterDto">
-
-	select * from petsitter where petsitter_no=#{petsitter_no}
-
+   select * from petsitter where petsitter_no=#{petsitter_no}
 </select>
-
 
 <select id="getNo" resultType="int" parameterType="String">
  select petsitter_no from petsitter where member_id=#{member_id}
