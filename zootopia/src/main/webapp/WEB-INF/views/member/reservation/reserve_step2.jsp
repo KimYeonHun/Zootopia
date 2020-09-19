@@ -223,7 +223,7 @@
         
       </div>
       <div>방문펫시터 <input class="form-control" type="text" name="res_petsitter" required></div>
-      <div>예약일 <input class="form-control" name="res_date" type="date" required></div>
+      <div>예약일 <input class="form-control" name="res_date" type="text" required></div>
       <div>예약자 주소 
 <!--         <div class="row"> -->
 <!--           <div class="col-4"> -->
@@ -244,7 +244,7 @@
             <input type="text" id="address" placeholder="주소" name="res_Baddr" class="form-control" value="${userinfo.baseaddr}">
             <input type="hidden" id="extraAddress">
           </div>
-          <div class="col-3">
+          <div class="col-5">
             <input type="text" id="detailAddress" placeholder="상세주소" name="res_Eaddr" class="form-control" value="${userinfo.extraaddr}">
           </div>
         </div>
