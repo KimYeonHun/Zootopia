@@ -76,9 +76,9 @@
                         <img  width="415" height="300">      
                         <input type="file" accept=".jpg, .gif, .png" name="FILEPET" multiple onchange="preview();">
                     </div>
-                                     
+           			<input type="hidden" name="member_id" value="${userinfo.member_id}">                          
                     <div class="form-group">
-                        <label>대표 펫 이름</label>
+                        <label>펫 이름</label>
                         <input type="text" name="pet_name" class="form-control">
                     </div>
                    

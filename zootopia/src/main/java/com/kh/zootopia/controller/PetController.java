@@ -26,7 +26,6 @@ import com.kh.zootopia.repository.PetDao;
 public class PetController {
 
 	@Autowired 
-
 	private PetDao petDao;
 
 
@@ -39,11 +38,12 @@ public class PetController {
 	}
 
 	@PostMapping("/petinfo")
-	public String petinfo(@ModelAttribute PetDto petDto, HttpSession session) {
+	public String petinfo(@RequestParam String member_id,@ModelAttribute PetDto petDto, HttpSession session) {
 		MemberDto member = (MemberDto) session.getAttribute("userinfo"); // 로그인한 정보 userinfo를 MemberDto에 담는다.
 		petDto.setMember_id(member.getMember_id());
 		petDao.insert(petDto );
-		
+		System.out.println("111111111111111111111111");
+		System.out.println(member_id);
 		return "redirect:list";
 	}
 
@@ -60,13 +60,20 @@ public class PetController {
 //}
 /////////////////////////////////////////////////////////////
 @GetMapping("/list")
-public String list(Model model,
-	@RequestParam(required = false , defaultValue = "pet_no") String col,
-	@RequestParam(required = false , defaultValue = "asc") String order
+public String list( Model model,HttpSession session
+		 
 	){
-List<PetDto>list = petDao.getList(col,order);
-	model.addAttribute("list",list);
-return "pet/list";
+	MemberDto member = (MemberDto) session.getAttribute("userinfo"); // 로그인한 정보 userinfo를 MemberDto에 담는다.
+	
+	System.out.println("----------------------------");
+	System.out.println(member.toString());
+	
+	String member_id = member.getMember_id();
+	List<PetDto> list = sqlSession.selectList("pet.getList",member_id);
+	model.addAttribute("list", list);
+	
+	
+return "pet/listeesewrdedwwer";
 
 	
 	}

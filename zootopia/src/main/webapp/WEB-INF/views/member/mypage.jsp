@@ -9,10 +9,19 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 
 <script>
-
 
 function preview(){
     //console.log("preview 실행!");
@@ -113,28 +122,14 @@ function preview(){
             });
         });
     </script>
-<style>
-   .w3-input {
-    padding: 8px;
-    display: block;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    width: 50%;
+<style type="text/css">
+ .jumbotron{
+         background-color: RGB(72,209,199);
+         color: white;
 }
-.w3-form {
-    padding: 8px;
-    display: block;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    width: 100%;
-}
-.w3-card{
- padding: 8px;
-width:50%;
-margin-left:50%;
- border: none;
- 
-}
+
+
+
 </style>
 
 <title>마이페이지</title>
@@ -142,80 +137,89 @@ margin-left:50%;
 <body>
 
 
-
-
-	<div class="w3-content w3-container w3-margin-top">
-		<div class="w3-container w3-card-4">
-			<div class="w3-center w3-large w3-margin-top">
+<div class="container-fluid">
+<div class ="row">
+			<div class="offset-sm-4 col-sm-4 jumbotron">
 			
-				<h3>My Page</h3>
-			</div>
-			<div class="w3-container">
-		  <div class="w3-card">
-	<div class="inputArea">
- 
+			
+			<h1 id="myHeader">My Page</h1>
+			
+			    <div class="form-group">
+			
+		
+	
 
  
+
+<div>
+	<div class="w3-container w3-card-4">
+
+      <img  width="312" height="150  ">  
+
+ <input type="file" accept=".jpg, .gif, .png" name="f" multiple onchange="preview();">
 
 </div>
 
-<div>
-
-<label>프로필 사진</label>
-      <img  width="415" height="300">  
-<!-- 
- <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
-
- onchange="preview();">
 <c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>         
 
+             
+	<div class="w3-container w3-card-4">
 
- onchange="preview();"> -->
-<c:set var="TextValue" value="${userinfo.birthday}"/>
- </div>         
-
-
-
-
-<label>이름</label> 
- <input class="w3-form" type="text" id="name" name="member_name" readonly value="${userinfo.member_name}">
-
-    <label>권한</label> 
-<input class="w3-form" type="text" id="auth" name="auth" readonly value="${userinfo.auth}">
-    </div>
-
+			<div class="col-md-offset-2 col-md-8 col-sm-12">
+				<div class="home-thumb">
+ <c:choose>
+	<c:when test="${userinfo.auth eq '펫시터'}">
+	
+	<canvas width="442" height="221" class="chartjs-render-monitor" id="chart" style="width: 442px; height: 221px; display: block;"></canvas>
+	
+	<a href="${pageContext.request.contextPath}/petsitter/list" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">펫시터 목록
+</a>
+	 	 
+	 	 	 <div>
+	 	 <a href="${pageContext.request.contextPath}/pet/petinfo" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">My Pet 등록 하기 </a>
+	 	</div>
+	 	
+	 	
+	 	
+	 	</c:when>
+	 <c:otherwise>
+	 <div>
+	 <a href="${pageContext.request.contextPath}/petsitter/petsitter_join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">펫시터 신청하기</a>
+	</div>
+	 <div>
+	 <a href="${pageContext.request.contextPath}/pet/petinfo" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">My Pet 등록 하기 </a>
+		</div>
+	</c:otherwise>
+	  </c:choose>
 </div>
-     <div class="w3-container">
-		  <div class="w3-card">
-     <div class="inputArea">
+</div>
+</div>
+
+
+<p>
+
+</p>
+	         
+
+
+
+
+
 
 <div>
 
-	<c:if test="${userinfo.auth eq '펫시터'}">
-	<canvas width="442" height="221" class="chartjs-render-monitor" id="chart" style="width: 442px; height: 221px; display: block;"></canvas>
-	</c:if>
-	
-</div>
-
-
-
-
-
-
-
-
-
-
-
-  </div>
-  </div>
-  
-			<div>
-
-<!-- 				<form id="member" action="../member/memberUpdate" method="POST"> -->
+			<form id="member"  method="POST"> 
+<p>
+<label>이름 :</label> 
+ ${userinfo.member_name} 
+</p>
+<p>
+    <label>권한 : </label> 
+${userinfo.auth}
+</p>
 					
-
+</div>
 
 					<p>
 
@@ -295,13 +299,16 @@ margin-left:50%;
 					<p class="w3-form">
 						<a href="passcheck">
 				
-		<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button> 
+		<button type="submit" class="btn btn-info btn-block">회원정보 변경</button> 
 						</a>
 					</p>
 
-			</div>
-			</div>
-			</div>
+	</div>
+</div>
+	</div>
+	
+		
+	
 					
 </body>
 </html>

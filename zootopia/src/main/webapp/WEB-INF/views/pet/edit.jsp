@@ -45,7 +45,7 @@
 
 				<h1>MY PET 수정</h1>
 				<form action = "edit"class="pet" method="post">
-
+					
 					<div class="form-group">
 						<label>대표 펫 이름</label> <input type="text" name="pet_name"
 							class="form-control" value="${petDto.pet_name}" />
