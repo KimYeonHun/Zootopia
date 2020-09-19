@@ -12,7 +12,6 @@ import com.kh.zootopia.entity.MemberDto;
 import com.kh.zootopia.entity.PetSitterDto;
 import com.kh.zootopia.entity.ReserveDto;
 
-import com.kh.zootopia.entity.PetSitterDto;
 
 @Repository
 public class ReserveDaoImpl implements ReserveDao{

@@ -100,6 +100,8 @@ public class ReservationController {
 		
 		model.addAttribute("list", pet_name);
 		
+		
+		
 		return "/member/reservation/reserve_step2";
 	}
 
