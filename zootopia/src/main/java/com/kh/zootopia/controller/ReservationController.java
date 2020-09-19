@@ -68,6 +68,7 @@ public class ReservationController {
 			
 			) {
 		
+	
 		
 		Map<String,Object > map = new HashMap<>();
 		map.put("available_start_time", available_start_time);
@@ -76,13 +77,14 @@ public class ReservationController {
 		
 		// 날짜, 시간 
 		//날짜를 요일로 변경 후 시간 까지 
-		List<PetSitterDto> list = sqlSession.selectList("petsitter.getDay",map);
+		List<PetSitterDto> list = reserveDao.getSitterList(map);
 		
 		// 펫시터 검색 1. 요일 2. 시간 
 		// 날짜 = 요일로 변경 and 시간 
 		
 		// 펫시터 찍기 
 		model.addAttribute("list", list);
+
 	
 		return "/member/reservation/reserve_step1";
 	}
@@ -107,14 +109,7 @@ public class ReservationController {
 			@ModelAttribute ReserveDto reserveDto
 			
 			) {
-		 // 로그인 한 회원정보
-		
-		
-		// 회원 정보를 통해서 펫 정보 불러오기 
-		
-//		System.out.println(petinfo);
-//		System.out.println(pet_name);
-		reserveDao.pet(reserveDto);
+	
 		reserveDao.reserve(reserveDto);
 		return "redirect:/member/reservation/result";
 	}

@@ -33,7 +33,7 @@
 		<div class="row">
 		<div class="offset-4 col-4">
     
-    <h2 class="text-primary" id="findTitle"> 아이디 찾기</h2>
+    <h2 class="text-secondary" id="findTitle"> 아이디 찾기</h2>
     
     <div class="form">
     <form action="findid" method="post">
@@ -43,7 +43,7 @@
     <div class="form-group">
     <input type="text" class="email form-control"  name="email"placeholder="이메일" required>
     </div>
-   	<button class="btn btn-primary" >아이디 찾기</button>
+   	<button class="btn btn-secondary" >아이디 찾기</button>
     </form>
     </div>
 	
@@ -56,8 +56,8 @@
   <div class="row" id="login-wrap">
       <div class="offset-1 col-9">
 <%--       		<a class="btn btn-info " href="${pageContext.request.contextPath}/">메인화면</a> --%>
-      		&emsp;<a class="btn btn-info" href="${pageContext.request.contextPath}/member/login">로그인 </a>
-      		&emsp;<a class="btn btn-info" href="${pageContext.request.contextPath}/member/findpass">비밀번호 찾기</a>
+      		&emsp;<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/login">로그인 </a>
+      		&emsp;<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/findpass">비밀번호 찾기</a>
       		</div>
       </div>
     

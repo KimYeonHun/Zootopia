@@ -17,6 +17,9 @@ public interface PetSitterDao {
 
 	int getNick (String   petsitter_nick) throws Exception;
 	
-	PetFileDto getimg(int petsitter_no);
+	PetFileDto getimg(int petsitter_no );
 	
+	PetSitterDto getSitterList(int petsitter_no);	
+//	
+	void CancelSitter(String member_id);
 }
