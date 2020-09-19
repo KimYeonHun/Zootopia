@@ -187,10 +187,12 @@ public class PetSitterController {
 		}else {
 			return"home";
 		}
+
 //		System.out.println(info);
 		// 2번에서 나온걸 모델로 보낸다 
 		
 		
+
 	}
 	
 	

@@ -50,7 +50,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 <select id="get" resultType="memberDto" parameterType="string">
 	SELECT * FROM MEMBER WHERE member_id = #{member_id}
-
 </select>
 
 

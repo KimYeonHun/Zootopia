@@ -17,8 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kh.zootopia.entity.MemberDto;
+import com.kh.zootopia.entity.PetDto;
 import com.kh.zootopia.entity.PetSitterDto;
 import com.kh.zootopia.entity.ReserveDto;
+import com.kh.zootopia.repository.MemberDao;
+import com.kh.zootopia.repository.PetDao;
+import com.kh.zootopia.repository.PetSitterDao;
 import com.kh.zootopia.repository.ReserveDao;
 
 @Controller
@@ -28,8 +33,11 @@ public class ReservationController {
 	@Autowired
 	private ReserveDao reserveDao;
 	
+	@Autowired PetSitterDao petsitterDao;
+
 	@Autowired
 	private SqlSession sqlSession;
+
 	
 	@GetMapping("/ready")
 	public String ready() {
@@ -84,16 +92,27 @@ public class ReservationController {
 	////////////////////////////////////
 	
 	@GetMapping("/reserve_step2")
-	public String reserve_step2() {
+	public String reserve_step2(
+			HttpSession session,Model model){
+		
+		MemberDto userinfo=(MemberDto)session.getAttribute("userinfo");
+		List<PetDto> pet_name = sqlSession.selectList("reservation.getMyPet", userinfo.getMember_id());
+		
+		model.addAttribute("list", pet_name);
+		
 		return "/member/reservation/reserve_step2";
 	}
+
+	
 	@PostMapping("/reserve_step2")
 	public String reserve_step2(
-			@ModelAttribute ReserveDto reserveDto,
-			HttpSession session
+			@ModelAttribute ReserveDto reserveDto
+			
 			) {
+	
+		reserveDao.reserve(reserveDto);
 		return "redirect:/member/reservation/result";
 	}
 	
-
 }
+
