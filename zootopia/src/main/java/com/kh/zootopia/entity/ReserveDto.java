@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 public class ReserveDto {
 	private int res_no;
 	private String res_name;
-	private String res_pet;
-	private String petplus;
+	private int res_pet;
 	private int res_petsitter;
 	private String res_date;
 	private String res_place;

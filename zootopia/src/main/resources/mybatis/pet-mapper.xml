@@ -46,6 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     SELECT * FROM pet ORDER BY ${col} ${order}
     </select>
     
+    
  <select id="get" resultType="petDto" parameterType="int">
  SELECT * FROM pet WHERE pet_no=#{pet_no}
  </select>

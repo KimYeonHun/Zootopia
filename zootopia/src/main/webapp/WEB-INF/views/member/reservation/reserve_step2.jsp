@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>ZOOTOPIA RESERVATION</title>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
   <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i,900,900i"
@@ -155,17 +155,6 @@
         }
       });
     });
-    $(function(){
-        var dataList = getDataList();
-        var $select = $('#petlist');
-        for (var i = 0; i < dataList.length; i++) {
-          var data= dataList[i];
-          var $option = $('<option>')
-          $option.attr('value', i);
-          $option.text(data);
-          $select.append($option);
-        }
-    });
     $(function () {
       $('#selectBox2').change(function () {
         var state = $('#selectBox2 option:selected').val();
@@ -220,37 +209,43 @@
     <div class="jumbotron">
       <h1>예약 정보 입력</h1>
     </div>
+<form action="reserve_step2" method="post">
     <div class="lt offset-2 col-8">
       <div>예약자 <input class="form-control" type="text" name="res_name" value="${userinfo.member_name}" required></div>
       <div class="form-group">반려동물
+		
         <select class="form-control" id="petlist" name="res_pet">
-        	<option value='' selected>-- 선택 --</option>
+       <c:forEach var="petinfo" items="${list}">
+        	<option value=" " selected>-- 선택 --</option>
+        	<option value="${petinfo.pet_name}" >${petinfo.pet_name}</option>
+        </c:forEach>
         </select>    
+        
       </div>
       <div>방문펫시터 <input class="form-control" type="text" name="res_petsitter" required></div>
-      <div>예약일 <input class="form-control" name="res_date" type="text" required></div>
-      <div>방문장소
+      <div>예약일 <input class="form-control" name="res_date" type="date" required></div>
+      <div>예약자 주소 
+<!--         <div class="row"> -->
+<!--           <div class="col-4"> -->
+<!--             <select class="form-control" name="res_place" id="selectBox"> -->
+<!--               <option value='' selected>-- 선택 --</option> -->
+<!--               <option value="home">우리집</option> -->
+<!--               <option value="organization">기관</option> -->
+<!--               <option value="etc">기타</option> -->
+<!--             </select> -->
+<!--           </div> -->
+<!--           <div class="addr" onclick="execDaumPostcode()"> -->
+<!--             <button class=" btn btn-info btn-block">주소찾기</button> -->
+<!--           </div> -->
+<!--         </div> -->
         <div class="row">
-          <div class="col-4">
-            <select class="form-control" name="res_place" id="selectBox">
-              <option value='' selected>-- 선택 --</option>
-              <option value="home">우리집</option>
-              <option value="organization">기관</option>
-              <option value="etc">기타</option>
-            </select>
-          </div>
-          <div class="addr" onclick="execDaumPostcode()">
-            <button class=" btn btn-info btn-block">주소찾기</button>
-          </div>
-        </div>
-        <div class="row">
-          <input type="hidden" id="postcode" name="res_post">
+          <input type="hidden" id="postcode" name="res_post"value="${userinfo.post}" >
           <div class="col-5">
-            <input type="text" id="address" placeholder="주소" name="res_Baddr" class="form-control">
+            <input type="text" id="address" placeholder="주소" name="res_Baddr" class="form-control" value="${userinfo.baseaddr}">
             <input type="hidden" id="extraAddress">
           </div>
           <div class="col-3">
-            <input type="text" id="detailAddress" placeholder="상세주소" name="res_Eaddr" class="form-control">
+            <input type="text" id="detailAddress" placeholder="상세주소" name="res_Eaddr" class="form-control" value="${userinfo.extraaddr}">
           </div>
         </div>
       </div>
@@ -406,6 +401,7 @@
       <hr style="height:5px; background-color:lightskyblue;">
       <button id="submit" type="submit" class="btn btn-info btn-block">SAVE</button>
   </div>
+  </form>
   </div>
 </body>
 

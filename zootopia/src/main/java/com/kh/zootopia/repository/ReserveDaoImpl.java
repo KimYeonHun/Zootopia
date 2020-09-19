@@ -17,10 +17,15 @@ public class ReserveDaoImpl implements ReserveDao{
 
 	@Override
 	public int reserve(ReserveDto reserveDto) {
-		int reserveno = sqlSession.selectOne("reserve.getSeq");
-		reserveDto.setRes_no(reserveno);
+		int res_no = sqlSession.selectOne("reservation.getSeq");
 		sqlSession.insert("reservation.reserve",reserveDto);
-		return reserveno;
+		return res_no;
+	}
+
+	@Override
+	public int pet(ReserveDto reserveDto) {
+		int pet_no = sqlSession.selectOne("reservation.getPet");
+		return ;
 	}
 
 

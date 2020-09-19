@@ -121,8 +121,7 @@ public class PetSitterController {
 					.header(HttpHeaders.CONTENT_ENCODING, "UTF-8")
 					.body(res);
 		}
-		
-		
+			
 	}
 	
 	

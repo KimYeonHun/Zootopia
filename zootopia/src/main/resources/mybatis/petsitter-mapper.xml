@@ -86,6 +86,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from petsitter where petsitter_nick = #{petsitter_nick}
 	</select>
 	
+	<select id="getPetsitter" parameterType="int" resultType="String">
+		Select petsitter_nick from petsitter where  petsitter_no = #{petsitter_no}
+	</select>
 
 	
 	<select id="getDay" parameterType="map" resultType="petsitterDto">

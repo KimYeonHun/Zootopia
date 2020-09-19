@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.zootopia.entity.MemberDto;
+import com.kh.zootopia.entity.PetDto;
 import com.kh.zootopia.entity.PetSitterDto;
 import com.kh.zootopia.entity.ReserveDto;
+import com.kh.zootopia.repository.MemberDao;
+import com.kh.zootopia.repository.PetDao;
 import com.kh.zootopia.repository.PetSitterDao;
 import com.kh.zootopia.repository.ReserveDao;
 
@@ -87,20 +90,34 @@ public class ReservationController {
 	////////////////////////////////////
 	
 	@GetMapping("/reserve_step2")
-	public String reserve_step2(){
+	public String reserve_step2(
+			HttpSession session,Model model){
+		
+		MemberDto userinfo=(MemberDto)session.getAttribute("userinfo");
+		List<PetDto> pet_name = sqlSession.selectList("reservation.getMyPet", userinfo.getMember_id());
+		
+		model.addAttribute("list", pet_name);
+		
 		return "/member/reservation/reserve_step2";
 	}
+
+	
 	@PostMapping("/reserve_step2")
 	public String reserve_step2(
-			@ModelAttribute ReserveDto reserveDto,
-			HttpSession session,
-			Model model
+			@ModelAttribute ReserveDto reserveDto
+			
 			) {
-		MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
-		List<PetDto>
+		 // 로그인 한 회원정보
+		
+		
+		// 회원 정보를 통해서 펫 정보 불러오기 
+		
+//		System.out.println(petinfo);
+//		System.out.println(pet_name);
+		reserveDao.pet(reserveDto);
 		reserveDao.reserve(reserveDto);
 		return "redirect:/member/reservation/result";
 	}
 	
-
 }
+
