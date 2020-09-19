@@ -158,6 +158,9 @@ select * from pet_file where petsitter_no = #{petsitter_no}
 	select * from petsitter where member_id =#{member_id}
 
 </select>
+ <select id="list" resultType="petSitterDto">
+	select * from petsitter where sitter_accept='승인'
+</select> 
 
 
 <insert id="get_pre" parameterType="map">
