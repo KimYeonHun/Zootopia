@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-@Data@AllArgsConstructor@NoArgsConstructor@Builder
+@Data@NoArgsConstructor@AllArgsConstructor@Builder
 public class F_BoardDto {
 	
 	private int 
