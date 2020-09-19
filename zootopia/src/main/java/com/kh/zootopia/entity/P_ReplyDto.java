@@ -5,10 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data@NoArgsConstructor@AllArgsConstructor@Builder
-public class grapeVO {
-private String month;
-private int count;
-
+@Data@AllArgsConstructor@NoArgsConstructor@Builder
+public class P_ReplyDto {
+	private int NO,petsitter_no;
+	private String member_id, content,WHEN;
 }
-

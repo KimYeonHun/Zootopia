@@ -85,9 +85,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getNick" parameterType="String" resultType="int">
 		select count(*) from petsitter where petsitter_nick = #{petsitter_nick}
 	</select>
-	
 
 	
+	<select id="getPetsitter" parameterType="int" resultType="String">
+		Select petsitter_nick from petsitter where  petsitter_no = #{petsitter_no}
+	</select>
+
+
 	<select id="getDay" parameterType="map" resultType="petsitterDto">
 		<![CDATA[select * FROM petsitter WHERE 
 			monday=to_char(to_date(#{reservation_day},'yyyy-mm-dd'),'DAY') 
@@ -111,6 +115,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 select * from pet_file where petsitter_no = #{petsitter_no}
 </select>
 
+<select id="getSitterList" parameterType="int" resultType="petSitterDto">
+   select * from petsitter where petsitter_no=#{petsitter_no}
+</select>
+
+<select id="getNo" resultType="int" parameterType="String">
+ select petsitter_no from petsitter where member_id=#{member_id}
+</select>
+
+
+<select id="getId" parameterType="String" resultType="int">
+	select count(*) from petsitter where member_id = #{member_id}
+</select>
+
+
+<delete id="cancel">
+	delete from petsitter where petsitter_no = #{petsitter_no}
+
+</delete>
 
 	<select id="getlist" resultType="petSitterDto">
 		select * from petsitter WHERE SITTER_ACCEPT='미승인' ORDER BY petsitter_no DESC
@@ -132,6 +154,19 @@ select * from pet_file where petsitter_no = #{petsitter_no}
 		delete from petsitter where member_id=#{member_id}
 	</delete>
 
+<select id="getOneList" parameterType="String" resultType="petSitterDto">
+	select * from petsitter where member_id =#{member_id}
+
+</select>
+ <select id="list" resultType="petSitterDto">
+	select * from petsitter where sitter_accept='승인'
+</select> 
+
+
+<insert id="get_pre" parameterType="map">
+	insert into pre_res values (pre_res_seq.nextval,#{member_id},#{petsitter_no},#{res_day}
+	,#{res_start},#{res_finish})
+</insert>
 
 </mapper>
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reservation">
+	
+	<select id="getSeq" resultType="int">
+		select res_seq.nextval from dual
+	</select>
+	
+	<select id="getPet" parameterType="int" resultType="String">
+		select pet_name from pet where pet_no = #{pet_no}
+	</select>
+	
+	
+	<insert id="reserve" parameterType="reserveDto">
+	 insert into reservation(
+		 res_no,
+		 res_name,
+		 res_pet,
+		 res_petsitter,
+		 res_date,
+		 res_place,
+		 res_post,
+		 res_Baddr,
+		 res_Eaddr,
+		 res_pack,
+		 res_pack,
+		 res_pluspack1,
+		 res_pluspack2,
+		 singularity,
+		 location,
+		 common_porch,
+		 access_method,
+		 cctv,
+		 safety_door,
+		 parking,
+		 useparking,
+		 res_price
+	 )values(
+		 #{res_no},
+		 #{res_name},
+		 #{res_pet},
+		 #{res_petsitter},
+		 #{res_date},
+		 #{res_place},
+		 #{res_post},
+		 #{res_Baddr},
+		 #{res_Eaddr},
+		 #{res_pack},
+		 #{res_pack},
+		 #{res_pluspack1},
+		 #{res_pluspack2},
+		 #{singularity},
+		 #{location},
+		 #{common_porch},
+		 #{access_method},
+		 #{cctv},
+		 #{safety_door},
+		 #{parking},
+		 #{useparking},
+		 #{res_price}
+	 )
+	</insert>
+	
+	<select id="getMyPet" parameterType="String" resultType="petDto" > 
+		select * from pet where member_id =#{member_id}
+	</select>
+
+	
+</mapper>

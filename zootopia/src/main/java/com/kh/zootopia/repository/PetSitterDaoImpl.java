@@ -45,7 +45,7 @@ public class PetSitterDaoImpl implements PetSitterDao {
 		String name= no+"."+exc;
 		Object file = PetFileDto.builder().petsitter_no(no).pet_file_name(name).pet_file_size(photo.getSize()).pet_file_type(photo.getContentType());
 	
-		File target = new File("D:/upload", name); // 이름 처리 
+		File target = new File("C:/upload", name); // 이름 처리 
 		 photo.transferTo(target);
 		 
 		 sqlSession.insert("petsitter.sitter_file", file);
@@ -61,13 +61,35 @@ public class PetSitterDaoImpl implements PetSitterDao {
 	}
 
 	@Override
-	public PetFileDto getimg(int petsitter_no) {
+	public PetFileDto getimg(int  petsitter_no) {
 		
 		return sqlSession.selectOne("petsitter.getimg", petsitter_no);
 	}
 
+	@Override
+	public PetSitterDto getSitterList(int petsitter_no) {
+		
+		return sqlSession.selectOne("petsitter.getSitterList", petsitter_no);
+	}
+	
+	
+
+	@Override
+	public void CancelSitter( String member_id) {
+		
+		int pet = sqlSession.selectOne("petsitter.getNo", member_id);
+		
+		
+		sqlSession.delete("petsitter.cancel", pet);
+		
+		
+		
+		
+	}
 
 
+
+	
 	
 	
 }

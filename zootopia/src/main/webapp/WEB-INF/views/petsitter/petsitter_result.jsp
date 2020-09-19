@@ -15,6 +15,8 @@
         margin-top: 200px;
     }
 </style>
+<%@ include file="/WEB-INF/template/header.jsp"%>
+
    <div class="container-fluid text-center" id="wrap">
 	<div class="row">
         <div class="offset-2 col-8">
@@ -35,7 +37,8 @@
     <div class="row">
         <div class="offset-2 col-8">
             <a class="btn btn-info " href="${pageContext.request.contextPath}/">메인화면</a>
-      		
+            <a class="btn btn-info " href="${pageContext.request.contextPath}/petsitter/list">지원 내역 확인하기</a>
         </div>
     </div>
 </div>
+

@@ -4,19 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
-public class Q_BoardDto {
+public class pre_resDto {
 	
-	private int 
-	q_board_no,
-	q_read,
-	q_replycount,
-	q_group_no;
-	private String 
-	member_id,
-	q_title,
-	q_head,
-	q_content,
-	q_when,
-	q_file;
+	private int pre_no,petsitter_no;
+	private String res_day,res_start,res_finish,member_id;
+
 }
