@@ -128,10 +128,25 @@ public class ReservationController {
 	
 	@PostMapping("/reserve_step2")
 	public String reserve_step2(
+
 			@ModelAttribute ReserveDto reserveDto,
-			HttpSession session
+			HttpSession session,
+
+			@RequestParam String res_pack,
+			@ModelAttribute ReserveDto reserveDto2
+
 			) {
+
 		MemberDto userinfo=(MemberDto)session.getAttribute("userinfo");
+
+		int a = Integer.parseInt(res_pack.substring(0, 1));
+		int price = (a/30)*8000;
+		
+		reserveDto.setRes_price(price);
+		System.out.println("123123123213-----------------------------");
+		System.out.println(reserveDto.toString());
+		
+
 		reserveDao.reserve(reserveDto);
 		sqlSession.delete("reservation.del_res",userinfo.getMember_id());
 		return "redirect:reserve_result";

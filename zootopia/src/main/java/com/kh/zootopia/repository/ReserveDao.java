@@ -15,7 +15,7 @@ public interface ReserveDao {
 	// 펫시터 조회 
 	List<PetSitterDto> getSitterList(Map< String, Object> map);
 
-	int reserve(ReserveDto reserveDto);
+	void reserve(ReserveDto reserveDto);
 
 
 }

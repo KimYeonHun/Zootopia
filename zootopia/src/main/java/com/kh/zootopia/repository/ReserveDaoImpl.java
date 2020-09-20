@@ -21,10 +21,8 @@ public class ReserveDaoImpl implements ReserveDao{
 
 
 	@Override
-	public int reserve(ReserveDto reserveDto) {
-		int res_no = sqlSession.selectOne("reservation.getSeq");
+	public void reserve(ReserveDto reserveDto) {
 		sqlSession.insert("reservation.reserve",reserveDto);
-		return res_no;
 	}
 
 

@@ -190,7 +190,6 @@ public class PetSitterController {
 			sqlSession.insert("petsitter.get_pre", map);
 		}
 
-		
 		//day=${map.reservation_day}&start=${map.available_start_time}&finish=${map.available_finish_time}
 		
 		PetSitterDto info =petSitterDao.getSitterList(petsitter_no);
