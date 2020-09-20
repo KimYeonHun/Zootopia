@@ -222,8 +222,8 @@
         </select>    
         
       </div>
-      <div>방문펫시터 <input class="form-control" type="text" name="res_petsitter" required></div>
-      <div>예약일 <input class="form-control" name="res_date" type="text" required></div>
+      <div>방문펫시터 <input class="form-control" type="text" value="${pre_resDto.petsitter_no}" name="res_petsitter" required></div>
+      <div>예약일 <input class="form-control" name="res_date" value="${pre_resDto.res_day}" type="text" required>
       <div>예약자 주소 
 <!--         <div class="row"> -->
 <!--           <div class="col-4"> -->

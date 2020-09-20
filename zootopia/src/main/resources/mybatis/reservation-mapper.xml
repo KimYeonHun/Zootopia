@@ -9,10 +9,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select res_seq.nextval from dual
 	</select>
 	
-	<select id="getPet" parameterType="int" resultType="String">
-		select pet_name from pet where pet_no = #{pet_no}
+	<select id="getMyPet" parameterType="String" resultType="petDto" > 
+		select * from pet where member_id =#{member_id}
 	</select>
 	
+	<select id="getSitter" parameterType="String" resultType="pre_resDto">
+		select * from pre_res where member_id=#{member_id}
+	</select>
 	
 	<insert id="reserve" parameterType="reserveDto">
 	 insert into reservation(
@@ -64,9 +67,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 )
 	</insert>
 	
-	<select id="getMyPet" parameterType="String" resultType="petDto" > 
-		select * from pet where member_id =#{member_id}
-	</select>
+	
 
 	
 </mapper>
