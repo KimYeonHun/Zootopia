@@ -4,46 +4,45 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<!-- mybatis를 운용하기 위한 설정이 있다면 이곳에 작성 -->
-	
-	<!-- properties : 이 문서 또는 외부에서 사용할 변수 -->
-	<properties></properties>
-	
-	<!-- settings : myBatis 실행 중 반영되어야 할 규칙을 지정 -->
-	<settings>
-		<setting name="cacheEnabled" value="true"/>
-		<setting name="lazyLoadingEnabled" value="true"/>
-		<setting name="autoMappingBehavior" value="FULL"/>
-	</settings>
-	
-	<!-- typeAliases : 클래스에 부여하는 별칭 -->
-	<typeAliases>
-		
-		<typeAlias type="com.kh.zootopia.entity.MemberDto" alias="memberDto"/>
+   <!-- mybatis를 운용하기 위한 설정이 있다면 이곳에 작성 -->
+   
+   <!-- properties : 이 문서 또는 외부에서 사용할 변수 -->
+   <properties></properties>
+   
+   <!-- settings : myBatis 실행 중 반영되어야 할 규칙을 지정 -->
+   <settings>
+      <setting name="cacheEnabled" value="true"/>
+      <setting name="lazyLoadingEnabled" value="true"/>
+      <setting name="autoMappingBehavior" value="FULL"/>
+   </settings>
+   
+   <!-- typeAliases : 클래스에 부여하는 별칭 -->
+   <typeAliases>
+      
+      <typeAlias type="com.kh.zootopia.entity.MemberDto" alias="memberDto"/>
 
 
 <typeAlias type="com.kh.zootopia.entity.PetDto" alias="petDto"/>
 
-	<typeAlias type="com.kh.zootopia.entity.CertDto" alias="certDto"/>
+   <typeAlias type="com.kh.zootopia.entity.CertDto" alias="certDto"/>
 
-		<typeAlias type="com.kh.zootopia.entity.CertDto" alias="certDto"/> 
-		<typeAlias type="com.kh.zootopia.entity.Q_BoardDto" alias="q_boardDto"/>
-		<typeAlias type="com.kh.zootopia.entity.Q_ReplyDto" alias="q_replyDto"/>
-		
-		<typeAlias type="com.kh.zootopia.entity.PetSitterDto" alias="petSitterDto"/>
-		
-		<typeAlias type="com.kh.zootopia.entity.PetFileDto" alias="petFileDto"/>
-		
-		<typeAlias type="com.kh.zootopia.entity.F_BoardDto" alias="f_boardDto"/>
-		<typeAlias type="com.kh.zootopia.entity.F_ReplyDto" alias="f_replyDto"/>
+      <typeAlias type="com.kh.zootopia.entity.pre_resDto" alias="pre_resDto"/> 
+      <typeAlias type="com.kh.zootopia.entity.Q_BoardDto" alias="q_boardDto"/>
+      <typeAlias type="com.kh.zootopia.entity.Q_ReplyDto" alias="q_replyDto"/>
+      
+      <typeAlias type="com.kh.zootopia.entity.PetSitterDto" alias="petSitterDto"/>
+      
+      <typeAlias type="com.kh.zootopia.entity.PetFileDto" alias="petFileDto"/>
+      
+      <typeAlias type="com.kh.zootopia.entity.F_BoardDto" alias="f_boardDto"/>
+      <typeAlias type="com.kh.zootopia.entity.F_ReplyDto" alias="f_replyDto"/>
 
-		
-		<typeAlias type="com.kh.zootopia.entity.ReserveDto" alias="reserveDto"/>
-		<typeAlias type="com.kh.zootopia.entity.MemberFileDto" alias="memberFileDto"/>
-		<typeAlias type="com.kh.zootopia.entity.P_ReplyDto" alias="p_ReplyDto"/>
-	</typeAliases>
-	
+      
+      <typeAlias type="com.kh.zootopia.entity.ReserveDto" alias="reserveDto"/>
+      <typeAlias type="com.kh.zootopia.entity.MemberFileDto" alias="memberFileDto"/>
+      <typeAlias type="com.kh.zootopia.entity.P_ReplyDto" alias="p_ReplyDto"/>
+   </typeAliases>
+   
 </configuration>
-
 
 

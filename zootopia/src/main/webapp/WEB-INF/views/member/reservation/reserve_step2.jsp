@@ -222,8 +222,8 @@
         </select>    
         
       </div>
-      <div>방문펫시터 <input class="form-control" type="text" name="res_petsitter" required></div>
-      <div>예약일 <input class="form-control" name="res_date" type="text" required></div>
+      <div>방문펫시터 <input class="form-control" type="text" value="${pre_resDto.petsitter_no}" name="res_petsitter" required></div>
+      <div>예약일 <input class="form-control" name="res_date" value="${pre_resDto.res_day}" type="text" required>
       <div>예약자 주소 
 <!--         <div class="row"> -->
 <!--           <div class="col-4"> -->
@@ -251,7 +251,7 @@
       </div>
       <div>예약패키지
         <div class="row gallary">
-          <div class="col-md-3 col-sm-7"><button class="btn" name="res_pack" value="30분">
+          <div class="col-md-3 col-sm-7"><button type="button" class="btn" name="res_pack" value="30분">
               <img src="${pageContext.request.contextPath}/res/img/30min1.PNG" width="230" height="230"></button>
             <button type="button" class="btn mo" data-toggle="modal" data-target="#myModal1"><img src="${pageContext.request.contextPath}/res/img/lens.png"
                 width="25" height="25"></button>
@@ -266,7 +266,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-7"><button class="btn" name="res_pack" value="60분">
+          <div class="col-md-3 col-sm-7"><button type="button" class="btn" name="res_pack" value="60분">
               <img src="${pageContext.request.contextPath}/res/img/60min1.PNG" width="230" height="230"></button>
             <button type="button" class="btn mo" data-toggle="modal" data-target="#myModal2"><img src="${pageContext.request.contextPath}/res/img/lens.png"
                 width="25" height="25"></button>
@@ -281,7 +281,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-7"><button class="btn" name="res_pack" value="60분">
+          <div class="col-md-3 col-sm-7"><button type="button" class="btn" name="res_pack" value="60분">
               <img src="${pageContext.request.contextPath}/res/img/twin60min3.PNG" width="230" height="230"></button>
             <button type="button" class="btn mo" data-toggle="modal" data-target="#myModal3"><img src="${pageContext.request.contextPath}/res/img/lens.png"
                 width="25" height="25"></button>
@@ -296,7 +296,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-7"><button class="btn" name="res_pack" value="30분">
+          <div class="col-md-3 col-sm-7"><button type="button" class="btn" name="res_pack" value="30분">
               <img src="${pageContext.request.contextPath}/res/img/cat30min1.PNG" width="230" height="230"></button>
             <button type="button" class="btn mo" data-toggle="modal" data-target="#myModal4"><img src="${pageContext.request.contextPath}/res/img/lens.png"
                 width="25" height="25"></button>
@@ -312,27 +312,25 @@
             </div>
           </div>
         </div>
-        <div class="form-group">돌봄 추가 옵션
-          <div class="form-group">
-            <label>실내 돌봄(강아지or고양이)</label>
-            <select class="form-control" name="res_pluspack1">
-              <option value='' selected>---- 없음 ----</option>
-              <option value='30분'>30분 추가 ( +8,000원 )</option>
-              <option value='60분'>60분 추가 ( +16,000원 )</option>
-              <option value='120분'>120분 추가 ( +32,000원 )</option>
-            </select>
-            <label>산책 돌봄(강아지)</label>
-            <select class="form-control" name="res_pluspack2">
-              <option value='' selected>---- 없음 ----</option>
-              <option value='30분'>30분 추가 ( +8,000원 )</option>
-              <option value='60분'>60분 추가 ( +16,000원 )</option>
-              <option value='120분'>120분 추가 ( +32,000원 )</option>
-            </select>
-          </div>
-        </div>
-        <p style="color: brown;">
-          *실내돌봄과 산책돌봄을 포함한 총 돌봄시간은 최대 3시간입니다. 산책 돌봄은 최대 2시간까지 추가할 수 있습니다.
-        </p>
+<!--         <div class="form-group">돌봄 추가 옵션 -->
+<!--           <div class="form-group"> -->
+<!--             <label>실내 돌봄(강아지or고양이)</label> -->
+<!--             <select class="form-control" name="res_pluspack1"> -->
+<!--               <option value='' selected>---- 없음 ----</option> -->
+<!--               <option value='30분'>30분 추가 ( +8,000원 )</option> -->
+<!--               <option value='60분'>60분 추가 ( +16,000원 )</option> -->
+<!--               <option value='120분'>120분 추가 ( +32,000원 )</option> -->
+<!--             </select> -->
+<!--             <label>산책 돌봄(강아지)</label> -->
+<!--             <select class="form-control" name="res_pluspack2"> -->
+<!--               <option value='' selected>---- 없음 ----</option> -->
+<!--               <option value='30분'>30분 추가 ( +8,000원 )</option> -->
+<!--               <option value='60분'>60분 추가 ( +16,000원 )</option> -->
+<!--               <option value='120분'>120분 추가 ( +32,000원 )</option> -->
+<!--             </select> -->
+<!--           </div> -->
+<!--         </div> -->
+   
       <div>요청사항
         <div class="row">
           <textarea class="form-control" width="100%" rows="6" name="singularity" placeholder="반려동물 돌봄 시 요청사항을 알려주세요."></textarea>
@@ -400,6 +398,7 @@
       </div>
       <hr style="height:5px; background-color:lightskyblue;">
       <button id="submit" type="submit" class="btn btn-info btn-block">SAVE</button>
+  </div>
   </div>
   </form>
   </div>

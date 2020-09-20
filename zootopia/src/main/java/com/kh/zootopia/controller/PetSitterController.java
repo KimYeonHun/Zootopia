@@ -167,7 +167,7 @@ public class PetSitterController {
 			@PathVariable int petsitter_no,
 			@ModelAttribute PetSitterDto petSitterDto,
 			HttpSession session,
-			Model model
+			Model model1
 			) {
 		
 		MemberDto member_id =(MemberDto)session.getAttribute("userinfo");
@@ -183,7 +183,7 @@ public class PetSitterController {
 		//day=${map.reservation_day}&start=${map.available_start_time}&finish=${map.available_finish_time}
 		
 		PetSitterDto info =petSitterDao.getSitterList(petsitter_no);
-		model.addAttribute("sitterDetail", info);
+		model1.addAttribute("sitterDetail", info);
 		return "/member/reservation/sitter_detail";
 	}
 	

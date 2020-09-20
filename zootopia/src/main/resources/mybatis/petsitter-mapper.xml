@@ -168,6 +168,13 @@ select * from pet_file where petsitter_no = #{petsitter_no}
 	,#{res_start},#{res_finish})
 </insert>
 
+
+
+
+<select id="getpet" parameterType="int" resultType="petsitterDto">
+	Select * from petsitter where petsitter_no = #{petsitter_no}
+</select>
+
 </mapper>
 
 

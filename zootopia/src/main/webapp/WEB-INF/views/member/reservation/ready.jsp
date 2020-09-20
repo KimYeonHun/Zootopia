@@ -77,6 +77,15 @@
         안내사항 숙지 및 내용에 동의합니다.
         </label>
         <hr>
-        <a href="reserve_step1" class="btn btn-info btn-block" style="text-decoration:none">NEXT</a>
+        
+        
+        <form action="${pageContext.request.contextPath}/member/reservation/reserve_step2" method="get">
+  
+        <input type="hidden" name="petsitter_no" value="${petSitterDto.petsitter_no}">
+        <button type="submit" class="btn btn-info btn-block">전송</button>
+  
+        </form>
+        
+        
     </body>
 </html>
