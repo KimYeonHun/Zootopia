@@ -126,10 +126,17 @@ public class ReservationController {
 	
 	@PostMapping("/reserve_step2")
 	public String reserve_step2(
+			@RequestParam String res_pack,
 			@ModelAttribute ReserveDto reserveDto
 			
 			) {
-	
+		int a = Integer.parseInt(res_pack.substring(0, 1));
+		int price = (a/30)*8000;
+		
+		reserveDto.setRes_price(price);
+		System.out.println("123123123213-----------------------------");
+		System.out.println(reserveDto.toString());
+		
 		reserveDao.reserve(reserveDto);
 		return "redirect:/member/reservation/result";
 	}
