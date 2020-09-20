@@ -23,7 +23,7 @@ public class interceptor extends HandlerInterceptorAdapter {
 		
 		if(obj == null) {
 			// 로그인이 안되어있으면
-			response.sendRedirect("login");
+			response.sendRedirect("http://localhost:8080/zootopia/member/login");
 			return false;
 		}
 		
