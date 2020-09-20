@@ -3,14 +3,13 @@
 
     
     
-
-    <%@ include file="/WEB-INF/template/header.jsp"%>
+ <%@ include file="/WEB-INF/template/header.jsp"%>
     
     <div class="row">
     <div class="offset-2 col-8" style="margin-top: 200px;">
     
 
-     <h3  class="text-center text-secondary " style="font-weight: bold;">서비스 이용에 불편을 드려 죄송합니다 <br> 잠시 후 다시 이용해 주시기 바랍니다</h3>
+     <h3  class="text-center text-secondary " style="font-weight: bold;">존재하지 않는 페이지입니다</h3>
       </div>
     </div>
     <div class="row">
