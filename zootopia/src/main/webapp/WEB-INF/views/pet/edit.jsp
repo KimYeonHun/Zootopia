@@ -1,11 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/template/header.jsp"%>
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <title>MY PET 수정</title>
 
 <link rel="stylesheet"
@@ -37,6 +46,8 @@
 </head>
 
 <body>
+	
+
 	<div class="container-fluid">
 
 
@@ -45,7 +56,7 @@
 
 				<h1>MY PET 수정</h1>
 				<form action = "edit"class="pet" method="post">
-					
+
 					<div class="form-group">
 						<label>대표 펫 이름</label> <input type="text" name="pet_name"
 							class="form-control" value="${petDto.pet_name}" />
@@ -91,15 +102,12 @@
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label>펫수</label> <input type="number" name="pet_total"
-							class="form-control" value="${petDto.pet_total}" />
-					</div>
+					
 
 					<label>세부 사항</label>
 					<div class="form-group">
 <%-- 						<textarea name="pet_intro" form="inform" cols="55" rows="10">${petDto.pet_intro}</textarea> --%>
-							<textarea name="pet_intro" cols="55" rows="10">${petDto.pet_intro}</textarea>
+							<textarea name="pet_intro" cols="40" rows="10">${petDto.pet_intro}</textarea>
 					</div>
 					<div class="form-group">
 						<div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -126,7 +134,9 @@
 						<div class="btn-group btn-group-toggle" data-toggle="buttons">
 							<input type="hidden" name="pet_no" value="${petDto.pet_no}"> 
 							<button class="btn btn-info" type="submit">수정 완료</button>
-						</div>
+					</div>
+							<a class="btn btn-info" href="${pageContext.request.contextPath}">홈으로</a>
+				<a class="btn btn-info" href="${pageContext.request.contextPath}/pet/list">뒤로가기</a>
 					</div>
 				</form>
 			</div>
@@ -136,3 +146,5 @@
 </body>
 
 </html>
+
+<%@ include file="/WEB-INF/template/footer.jsp"%>

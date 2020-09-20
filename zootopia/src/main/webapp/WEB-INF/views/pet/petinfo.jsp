@@ -36,31 +36,31 @@
 
 <body>
    <script>
-   function preview() {
-       //console.log("preview 실행!");
-
-       var fileTag = document.querySelector("input[name=f]");
-
-       console.log(fileTag.files);
-       //if(fileTag에 선택된 파일이 있다면){
-       if (fileTag.files.length > 0) {
-           //하나라고 가정하고 0번 위치의 파일만 읽어와서 미리보기를 실행!
-
-           var reader = new FileReader();
-           reader.onload = function (data) {//data는 읽은 파일의 내용
-               //미리보기를 구현
-               var imgTag = document.querySelector("img");
-               imgTag.src = data.target.result;
-           };
-           reader.readAsDataURL(fileTag.files[0]);//읽도록 지시
-       }
-       else {//취소한 경우
-           var imgTag = document.querySelector("img");
-           imgTag.src = "";
-       }
-
-   }
-   
+   function preview(){
+	    //console.log("preview 실행!");
+	    
+	    var fileTag = document.querySelector("input[name=f]");
+	    
+	    console.log(fileTag.files);
+	    //if(fileTag에 선택된 파일이 있다면){
+	    if(fileTag.files.length > 0){
+	        //하나라고 가정하고 0번 위치의 파일만 읽어와서 미리보기를 실행!
+	        
+	        var reader = new FileReader();
+	        reader.onload = function(data){//data는 읽은 파일의 내용
+	            //미리보기를 구현
+	            var imgTag = document.querySelector("img");
+	            imgTag.src = data.target.result;
+	        };
+	        reader.readAsDataURL(fileTag.files[0]);//읽도록 지시
+	    }
+	    else{//취소한 경우
+	        var imgTag = document.querySelector("img");
+	        imgTag.src = "";
+	    }
+	    
+	}
+	    
    </script>
     <div class="container-fluid">
        
@@ -71,12 +71,27 @@
             <h1>MY PET 등록</h1>
                 <form action="petinfo" method="post" enctype="multipart/form-data">
                  
+                    
                  	<div class="form-group">
-                        <label>사진</label>
-                        <img  width="415" height="300">      
-                        <input type="file" accept=".jpg, .gif, .png" name="FILEPET" multiple onchange="preview();">
+                 	
+			 
+			
+		
+	
+
+ 
+
+<div>
+
+
+      <img  width="312" height="150  ">  
+
+ <input type="file" accept=".jpg, .gif, .png" name="f" multiple onchange="preview();">
+
+</div>
                     </div>
            			<input type="hidden" name="member_id" value="${userinfo.member_id}">                          
+                  
                     <div class="form-group">
                         <label>펫 이름</label>
                         <input type="text" name="pet_name" class="form-control">
@@ -94,13 +109,13 @@
                     </div>
                     
                     <div class="form-group">
-                        <label>대표 펫 품종</label>
+                        <label>펫 품종</label>
                         <input type="text" name="pet_kind" class="form-control">
                     </div>
                     
                    <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-info">대표 펫 종류</label>
+                            <label class="btn btn-info"> 펫 종류</label>
                             <select name= "pet_type">
                               <option value="반려견">반려견</option>
                                 <option value="반려묘">반려묘</option>
@@ -110,12 +125,12 @@
 
                  
                     <div class="form-group">
-                        <label>대표 펫 나이</label>
+                        <label> 펫 나이</label>
                         <input type="number" name="pet_age" class="form-control">
                     </div>
                     <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-info">대표 펫 크기</label>
+                            <label class="btn btn-info"> 펫 크기</label>
                             <select name= "pet_size">
                               <option value="소형">소형</option>
                                 <option value="중형">중형</option>
@@ -124,20 +139,16 @@
                             </div>
                             </div>
                             
-                           <div class="form-group">
-                        <label>펫수</label>
-                        <input type="number" name="pet_total" class="form-control">
-                    </div>
-                   
+
                      <label>세부 사항</label>
                   <div class="form-group">    
-                        <textarea name="pet_intro" cols="55" rows="10" autofocus required wrap="hard"
+                        <textarea name="pet_intro" cols="40" rows="10" autofocus required wrap="hard"
                         placeholder="세부 사항을 적어주세요"></textarea>
               
                     </div>
         <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-info">대표 펫 접종 여부</label>
+                            <label class="btn btn-info"> 펫 접종 여부</label>
                             <select name= "pet_vaccin">
                               <option value="YES">YES</option>
                                 <option value="NO">NO</option>
@@ -148,7 +159,7 @@
                 
                        <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-info">대표 펫  대소변 유무</label>
+                            <label class="btn btn-info"> 펫  대소변 유무</label>
                              <select name= "pet_toilet">
                               <option value="YES">YES</option>
                                 <option value="NO">NO</option>
@@ -156,7 +167,8 @@
                         </div>
                     </div>
   
-     <button id="submit" type="submit" class="btn-group btn-group-toggle">등록</button>
+     <button id="submit" type="submit" class="btn btn-info">등록</button>
+     	<a href ="${pageContext.request.contextPath}/member/mypage" class="btn btn-info">취소 하기</a>
 </form>
 </div>
 </div>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-
+<%@ include file="/WEB-INF/template/header.jsp"%>
 <script>
 
 function preview(){
@@ -47,6 +48,9 @@ function preview(){
     }
     
 }
+    
+    
+    
     </script> 
     
     
@@ -80,8 +84,8 @@ function preview(){
 
 
                                   datasets: [{
-                               label: '매칭 현황',
-                               data: [10, 15, 13, 14], 
+                               label: 'Zootoita 총 매칭 현황',
+                               data: [600, 400, 300, 900], 
 
 
                
@@ -113,7 +117,7 @@ function preview(){
                                 ticks:{
                                     
                                     suggestedMin : 0,         //최소값 지정
-                                    suggestedMax : 10,    //최대값 지정
+                                    suggestedMax : 1000,    //최대값 지정
                                 }
                             }]
                         }
@@ -136,7 +140,7 @@ function preview(){
 </head>
 <body>
 
-
+<br>   	<br>   	<br>   	<br>  <br>   <br>  <br>
 <div class="container-fluid">
 <div class ="row">
 			<div class="offset-sm-4 col-sm-4 jumbotron">
@@ -152,46 +156,57 @@ function preview(){
  
 
 <div>
-	<div class="w3-container w3-card-4">
+
 
       <img  width="312" height="150  ">  
 
  <input type="file" accept=".jpg, .gif, .png" name="f" multiple onchange="preview();">
 
 </div>
-
+	<div class="w3-container w3-card-4">
 <c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>         
 
              
 	<div class="w3-container w3-card-4">
 
-			<div class="col-md-offset-2 col-md-8 col-sm-12">
+			
 				<div class="home-thumb">
  <c:choose>
 	<c:when test="${userinfo.auth eq '펫시터'}">
-	
+	<p>
 	<canvas width="442" height="221" class="chartjs-render-monitor" id="chart" style="width: 442px; height: 221px; display: block;"></canvas>
-	
-	<a href="${pageContext.request.contextPath}/petsitter/list" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">펫시터 목록
-</a>
-	 	 
-	 	 	 <div>
-	 	 <a href="${pageContext.request.contextPath}/pet/petinfo" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">My Pet 등록 하기 </a>
-	 	</div>
-	 	
-	 	
-	 	
+	 	 </p>
+	 	 	 <p>
+	 	 <a class="btn btn-info" href="${pageContext.request.contextPath}/pet/petinfo" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">My Pet 등록 하기 </a>
+	 	</p>
 	 	</c:when>
 	 <c:otherwise>
-	 <div>
-	 <a href="${pageContext.request.contextPath}/petsitter/petsitter_join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">펫시터 신청하기</a>
-	</div>
-	 <div>
-	 <a href="${pageContext.request.contextPath}/pet/petinfo" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">My Pet 등록 하기 </a>
-		</div>
+	<p>
+	 <a class="btn btn-info" href="${pageContext.request.contextPath}/petsitter/petsitter_join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">펫시터 신청하기</a>
+	<p>
+	 	<a  class="btn btn-info" href="${pageContext.request.contextPath}/petsitter/list">펫시터 지원 내역
+</a>
+	 </p>
+	
+	
+	 <p>
+	 <a class="btn btn-info" href="${pageContext.request.contextPath}/pet/petinfo" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">My Pet 등록 하기 </a>
+		</p>
 	</c:otherwise>
 	  </c:choose>
+	  
+	   <a class="btn btn-info" href="${pageContext.request.contextPath}/pet/list" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">My Pet 목록 </a>
+	   <!--<c:choose>
+	<c:when test="${!empty petsitterDto.member_id != null}">
+	<p>
+	 	<a  class="btn btn-info" href="${pageContext.request.contextPath}/petsitter/list">펫시터 지원 내역
+</a>
+	 </p>
+	 	
+	 	</c:when>
+	   </c:choose>
+	  -->
 </div>
 </div>
 </div>
@@ -283,23 +298,12 @@ ${userinfo.auth}
 					
 					
 					
-				
-<!-- 				<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button> -->
-					
-				
-<!-- 				</form> -->
-
-
-<!-- 					<p class="w3-form"> -->
-<!-- 						<a href="mypage2"> -->
-<!-- 						<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button> -->
-<!-- 						</a> -->
-<!-- 					</p> -->
+			
 					
 					<p class="w3-form">
 						<a href="passcheck">
 				
-		<button type="submit" class="btn btn-info btn-block">회원정보 변경</button> 
+		<a class="btn btn-info" href="memberUpdateView">회원정보 수정</a>
 						</a>
 					</p>
 
@@ -312,3 +316,6 @@ ${userinfo.auth}
 					
 </body>
 </html>
+    	<br>   	<br>   	<br>   	<br>
+    	
+<%@ include file="/WEB-INF/template/footer.jsp"%>

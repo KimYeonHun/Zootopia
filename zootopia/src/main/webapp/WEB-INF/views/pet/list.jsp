@@ -2,15 +2,21 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<%@ include file="/WEB-INF/template/header.jsp"%>
 
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
 <h1>MY PET 목록</h1>
 
-<hr>
-<a href="list?col=pet_name&order=asc">이름순</a>
-<a href="list?col=when&order=desc">최신 등록순</a>
 
 
-<hr>
+
 <table border="1">
 	<thead>
 		<tr>
@@ -26,7 +32,7 @@
 	</thead>
 	<tbody>
 		<c:forEach var="petDto" items="${list}">
-			<input type="hidden" name="member_id "value="${petDto.member_id}">
+			<input type="hidden" name="member_id "value="${memberDto.member_id}">
 			
 			<tr>
 			    <td>${petDto.pet_no}</td>
@@ -41,5 +47,9 @@
 					<a href="delete/${petDto.pet_no}">삭제</a></td>
 			</tr>
 		</c:forEach>
+		
 	</tbody>
 </table>
+			<a class="btn btn-info" href="${pageContext.request.contextPath}">홈으로</a>
+				<a class="btn btn-info" href="${pageContext.request.contextPath}/member/mypage">뒤로가기</a>
+<%@ include file="/WEB-INF/template/footer.jsp"%>

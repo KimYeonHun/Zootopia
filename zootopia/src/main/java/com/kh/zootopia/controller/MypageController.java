@@ -82,10 +82,10 @@ public String passcheck() throws Exception{
 @PostMapping("/mypage")
 public List<grapeVO> grpae(){
 	List<grapeVO>list = new ArrayList<>();
-	list.add(grapeVO.builder().month("6월").count(10).build());
-	list.add(grapeVO.builder().month("7월").count(14).build());
-	list.add(grapeVO.builder().month("8월").count(10).build());
-	list.add(grapeVO.builder().month("9월").count(15).build());
+	list.add(grapeVO.builder().month("6월").count(600).build());
+	list.add(grapeVO.builder().month("7월").count(400).build());
+	list.add(grapeVO.builder().month("8월").count(300).build());
+	list.add(grapeVO.builder().month("9월").count(900).build());
 return list;
 }
 }

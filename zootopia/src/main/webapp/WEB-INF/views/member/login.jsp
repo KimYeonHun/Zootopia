@@ -56,6 +56,8 @@
 	
 	<a  class="btn btn-info"href="findid">아이디 찾기</a>
 	<a class="btn btn-info" href="findpass">비밀번호 찾기</a>
+	<a class="btn btn-info" href="join">회원 가입</a>
+	
 	<br><br>
 	
     <div class="g-signin2" data-onsuccess="onSignIn" data-width="250" data-height="50" data-longtitle="true"></div>
