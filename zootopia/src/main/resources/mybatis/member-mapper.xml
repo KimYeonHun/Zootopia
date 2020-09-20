@@ -33,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{extraaddr, jdbcType=VARCHAR},
 			#{email, jdbcType=VARCHAR},
 			#{gender, jdbcType=VARCHAR}
-
+)
 
 	</insert>
 

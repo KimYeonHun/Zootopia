@@ -176,7 +176,11 @@ public class MemberController {
 		
 	}
 
+	/////////////////////비회원 
 	
+	
+	
+	///// 회원///
 
 	@GetMapping("/mypage2")
 	public String edit(

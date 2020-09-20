@@ -29,6 +29,7 @@
 		}
 	</style>
     
+<%@ include file="/WEB-INF/template/header.jsp"%>
  <div class="continer-fluid text-center" id="wrap">
 		<div class="row">
 		<div class="offset-4 col-4">
@@ -64,7 +65,7 @@
    	</div>
 	</div>
 	</div>
-   
- 	
+   <br> <br> <br> <br> <br> <br> <br> <br> <br>
+ 	<%@ include file="/WEB-INF/template/footer.jsp"%>
     
   
