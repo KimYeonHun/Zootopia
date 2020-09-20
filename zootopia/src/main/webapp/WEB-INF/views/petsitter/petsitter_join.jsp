@@ -335,19 +335,19 @@ function checkNick(){
 				</div>
 				
 				 <div class="form-group">
-				<label class="font-weight-bold text-primary">본명</label><input type="text"  class="form-control" value="${userinfo.member_name}">
+				<label class="font-weight-bold text-primary">본명</label><input type="text"  class="form-control" value="${userinfo.member_name}" readonly>
 				</div>
 				
 				 <div class="form-group">
-				<label class="font-weight-bold text-primary">나이</label><input type="text"   class="form-control" value="${userinfo.getAge()}"> 
+				<label class="font-weight-bold text-primary">나이</label><input type="text"   class="form-control" value="${userinfo.getAge()}" readonly> 
 				</div>
 				
 				 <div class="form-group">
-				<label class="font-weight-bold text-primary">성별</label><input type="text"  class="form-control"  value="${userinfo.gender}">  
+				<label class="font-weight-bold text-primary">성별</label><input type="text"  class="form-control"  value="${userinfo.gender}" readonly>  
 				</div>
 				
 				<div class="form-group">
-				<label class="font-weight-bold text-primary" >연락처</label><input type="text"   class="form-control" value="${userinfo.phone}">
+				<label class="font-weight-bold text-primary" >연락처</label><input type="text"   class="form-control" value="${userinfo.phone}" readonly>
 				<!--  회원정보 수정 시 수정 할 수 있도록... -->
 				</div>
 				

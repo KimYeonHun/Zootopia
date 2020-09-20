@@ -58,7 +58,7 @@
         <div class="dropdown">
             <button class="dropbtn">메뉴</button>
             <div class="dropdown-content">
-                <a href="#">??</a>
+                <a href="member/reservation/reserve_step1">펫시터 예약하기</a>
                 <c:if test="${userinfo.auth eq '회원' }">
                     <a href="petsitter/petsitter_join">펫시터 지원</a>
                 </c:if>

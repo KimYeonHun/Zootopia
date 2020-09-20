@@ -257,8 +257,9 @@
    		
 
    		</div> 
-   		<div style="">
-   		<a href="${pageContext.request.contextPath}/member/reservation/ready"><button style="width: 100%;"  class="btn btn-info btn-lg btn-round pull-right" >예약 하기</button></a>
+   		<div style=""><form action="${pageContext.request.contextPath}/member/reservation/ready" method="get">
+   		<a href="${pageContext.request.contextPath}/member/reservation/ready"><button style="width: 100%;"  class="btn btn-info btn-lg btn-round pull-right" >예약 하기</button>
+   		<input type="hidden" name="petsitter_no" value="${sitterDetail.petsitter_no}"></a></form>
    		</div>
    		<br><br><br><br><br><br><br><br><br><br>
    		
