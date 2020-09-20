@@ -80,12 +80,14 @@
 			
 			
 			<exclude-mapping path="/"/>
+			<exclude-mapping path="/petsitter/img/**"/>
 			<exclude-mapping path="/member/find*"/>
 			<exclude-mapping path="/member/join"/>
 			<exclude-mapping path="/member/login"/>
 			<exclude-mapping path="/member/check"/>
 			<exclude-mapping path="/member/result_id"/>
 			<exclude-mapping path="/member/logout"/>
+			<exclude-mapping path="/member/reservation/reserve_step1"/>
 			<exclude-mapping path="/f_board/f_content"/>
 			<exclude-mapping path="/f_board/f_list"/>
 			<exclude-mapping path="/f_board/f_list_data"/>
