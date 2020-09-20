@@ -149,6 +149,39 @@ public class MemberDaoImpl implements MemberDao{
 		return false;
 	}
 
-	
+	//비번변경
+	@Override
+	public void upass(MemberDto memberDto) {
+		sqlSession.update("member.changepw2");
 
+	}
+
+
+
+	
+//	@Override
+//	public boolean coin(MemberDto memberDto) {
+//		
+//		MemberDto find = sqlSession.selectOne( "member.get",
+//		memberDto.getMember_id());
+//		
+//		
+//		if(find == null) {
+//			memberDto.setMember_pw(encoder.encode(memberDto.getMember_pw()));
+//			
+//			sqlSession.update("member.changepw2", memberDto);
+//			return true;
+//		}
+//		else {
+//			return false;
+//		}
+//	}
+//
+//
+//
+//	@Override
+//	public MemberDto getUserPw(String member_id) {
+//		MemberDto find = sqlSession.selectOne("member.get",member_id);
+//		return find;
+//	}
 }

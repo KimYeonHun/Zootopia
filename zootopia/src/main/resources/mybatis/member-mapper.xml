@@ -147,7 +147,15 @@ UPDATE MEMBER SET
 	ON m.MEMBER_ID=f.MEMBER_ID WHERE m.MEMBER_ID=#{member_id};
 	</select>
 	
+<update id="changepw2" parameterType="memberDto">
+	update member set member_pw =#{member_pw,jdbcType=VARCHAR} where MEMBER_ID=#{member_id,jdbcType=VARCHAR}
+</update>
 
+<!-- 1.아이디를 이용한 단일조회-->
+<select id="getp" parameterType="String" resultType="memberDto">
+ SELECT member_pw FROM MEMBER WHERE MEMBER_ID =#{member_id}
+</select>
+<!-- test -->
 
 </mapper>
 

@@ -3,7 +3,9 @@ package com.kh.zootopia.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.zootopia.entity.MemberDto;
@@ -34,6 +37,10 @@ public class MypageController{
 private MemberDao mdao;
 @Autowired
 private MypageService service;
+@Autowired
+private SqlSession sql;
+@Autowired
+private PasswordEncoder encoder;
 
 @GetMapping("/mypage")
 public String page(HttpSession session,MemberDto memberDto) {
@@ -92,6 +99,22 @@ public List<grapeVO> grpae(){
 	list.add(grapeVO.builder().month("9월").count(15).build());
 return list;
 }
-}
 
+@GetMapping("passupdate")
+public String uppass(){
+return "/member/passupdate";
+}
+///
+@PostMapping("passupdate")
+public String updatePasswordChange(@ModelAttribute MemberDto memberDto) {
+
+		mdao.upass(memberDto);
+		return"redirect:/";
+
+}
+@GetMapping("updatepass")
+public String pssup() {
+	return"/member/updatepass";
+}
+}
 

@@ -119,12 +119,13 @@ margin-left:50%;
 <a href="../petsitter/petsitter_join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">펫시터 지원하기</a>
 </div>
 
-만약에 펫시터 지원을 했으면 
+
 
 <c:choose>
 	                	<c:when test="${not empty userinfo.member_id}">
 		          			<a href="${pageContext.request.contextPath}/member/logout" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그아웃</a>
 	                		<a href="${pageContext.request.contextPath}/member/mypage" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">마이페이지</a>
+	                		<a href="${pageContext.request.contextPath}/member/passupdate" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">비밀번호변경</a>
 	                	</c:when>
 	                	<c:otherwise>
 		          			<a href="${pageContext.request.contextPath}/member/login" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그인</a>

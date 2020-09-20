@@ -40,5 +40,17 @@ public interface MemberDao {
 
 
 	boolean passcheck(MemberDto memberDto);
+
+
+	void upass(MemberDto memberDto);
+
+
+//	boolean coin(MemberDto memberDto);
+//
+//
+//	MemberDto getUserPw(String member_id);
+
+
+
 	
 }
