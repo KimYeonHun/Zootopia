@@ -39,11 +39,13 @@
 
 <div class="jumbotron fixed-top" style="padding:2rem 2rem " id="header">
 <!-- 	<h2>Zootopia</h2> -->
-
+<div class="offset-2 col-8 text-center">
             <a href="<%=request.getContextPath()%>"> 
             
-            <i class="fa fa-4x fa-paw text-info offset-2 col-8 text-center" ></i>
+<!--             <i class="fa fa-4x fa-paw text-info offset-2 col-8 text-center" ></i> -->
+		<img src="${pageContext.request.contextPath}/res/img/logo_re.png"  width="70px;" height="70px;" >
             </a>
+            </div>
   </div>
 
 

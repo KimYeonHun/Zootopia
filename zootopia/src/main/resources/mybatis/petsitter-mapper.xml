@@ -172,9 +172,24 @@ select * from pet_file where petsitter_no = #{petsitter_no}
 
 
 <select id="getpet" parameterType="int" resultType="petsitterDto">
-	Select * from petsitter where petsitter_no = #{petsitter_no}
+	Select * from petsitter where petsitter_no =#{petsitter_no}
 </select>
 
+
+
+
+
+
+<!--  예약 중복 아이디 찾기 -->
+<select id="overlap_id" parameterType="String" resultType="pre_resDto">
+	SELECT * FROM pre_res where member_id=#{member_id}
+	</select>
+	
+	
+	<delete id="delete_res" parameterType="String" >
+		DELETE FROM pre_res WHERE member_id=#{member_id}
+		
+	</delete>
 </mapper>
 
 

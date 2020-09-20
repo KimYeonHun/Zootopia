@@ -34,7 +34,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{email, jdbcType=VARCHAR},
 			#{gender, jdbcType=VARCHAR}
 
+
 )
+
 	</insert>
 
 

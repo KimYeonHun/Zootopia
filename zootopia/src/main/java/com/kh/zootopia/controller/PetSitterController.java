@@ -34,7 +34,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.kh.zootopia.entity.MemberDto;
 import com.kh.zootopia.entity.PetFileDto;
 import com.kh.zootopia.entity.PetSitterDto;
-
+import com.kh.zootopia.entity.pre_resDto;
 import com.kh.zootopia.repository.PetSitterDao;
 import com.kh.zootopia.service.SitterPhotoService;
 
@@ -171,6 +171,7 @@ public class PetSitterController {
 			) {
 		
 		MemberDto member_id =(MemberDto)session.getAttribute("userinfo");
+		
 		Map<String, Object> map = new HashMap<>();
 		map.put("res_day", day);
 		map.put("res_start", start);
@@ -178,8 +179,17 @@ public class PetSitterController {
 		map.put("petsitter_no", petsitter_no);
 		map.put("member_id", member_id.getMember_id());
 		
-		sqlSession.insert("petsitter.get_pre", map);
 		
+		pre_resDto overlap_member =sqlSession.selectOne("petsitter.overlap_id",member_id.getMember_id());
+		// 아이디를 넣었을 때 정보 확인 
+		
+		if(overlap_member !=null) { // 정보가 있으면 
+			sqlSession.delete("petsitter.delete_res",member_id.getMember_id());
+			sqlSession.insert("petsitter.get_pre", map);
+		}else { // 없으면 
+			sqlSession.insert("petsitter.get_pre", map);
+		}
+
 		//day=${map.reservation_day}&start=${map.available_start_time}&finish=${map.available_finish_time}
 		
 		PetSitterDto info =petSitterDao.getSitterList(petsitter_no);
@@ -201,7 +211,7 @@ public class PetSitterController {
 			model.addAttribute("list", info);
 			return "petsitter/apply_list"; 
 		}else {
-			return"home";
+			return"petsitter/apply_list?error";
 		}
 
 //		System.out.println(info);
