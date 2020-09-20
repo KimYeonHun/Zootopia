@@ -111,8 +111,10 @@ public class ReservationController {
 	public String reserve_step2(@RequestParam int petsitter_no,
 			HttpSession session,Model model
 			){
+		
 		System.out.println("-------------------------------");
 		System.out.println(petsitter_no);
+		
 		MemberDto userinfo=(MemberDto)session.getAttribute("userinfo");
 		List<PetDto> petinfo = sqlSession.selectList("reservation.getMyPet", userinfo.getMember_id());
 		
@@ -126,13 +128,27 @@ public class ReservationController {
 	
 	@PostMapping("/reserve_step2")
 	public String reserve_step2(
-			@ModelAttribute ReserveDto reserveDto
-			
+			@ModelAttribute ReserveDto reserveDto,
+			HttpSession session
 			) {
-	
+		MemberDto userinfo=(MemberDto)session.getAttribute("userinfo");
 		reserveDao.reserve(reserveDto);
-		return "redirect:/member/reservation/result";
+		sqlSession.delete("reservation.del_res",userinfo.getMember_id());
+		return "redirect:reserve_result";
 	}
+	
+	
+//	@GetMapping("/reserve_result")
+//	public String reserve_result(
+//			
+//		
+//			) {
+//		
+//		MemberDto userinfo = (MemberDto)session.getAttribute("userinfo");
+//		
+//		
+//		return  "/member/reservation/result";
+//	}
 	
 }
 

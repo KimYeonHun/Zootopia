@@ -45,7 +45,7 @@ public class PetSitterDaoImpl implements PetSitterDao {
 		String name= no+"."+exc;
 		Object file = PetFileDto.builder().petsitter_no(no).pet_file_name(name).pet_file_size(photo.getSize()).pet_file_type(photo.getContentType());
 	
-		File target = new File("C:/upload", name); // 이름 처리 
+		File target = new File("D:/upload", name); // 이름 처리 
 		 photo.transferTo(target);
 		 
 		 sqlSession.insert("petsitter.sitter_file", file);

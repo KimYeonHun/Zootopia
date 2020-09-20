@@ -27,8 +27,6 @@ public class TestFilter {
 			HttpServletResponse resp,
 			Model model
 			) {
-		
-
 		return "/error/404";
 	}
 	
