@@ -1,5 +1,7 @@
 package com.kh.zootopia.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +23,7 @@ import com.kh.zootopia.entity.MemberDto;
 import com.kh.zootopia.entity.PetDto;
 import com.kh.zootopia.entity.PetSitterDto;
 import com.kh.zootopia.entity.ReserveDto;
+import com.kh.zootopia.entity.pre_resDto;
 import com.kh.zootopia.repository.MemberDao;
 import com.kh.zootopia.repository.PetDao;
 import com.kh.zootopia.repository.PetSitterDao;
@@ -40,7 +43,13 @@ public class ReservationController {
 
 	
 	@GetMapping("/ready")
-	public String ready() {
+	public String ready(@RequestParam int petsitter_no,
+			Model model) {
+//		System.out.println(petsitter_no);
+		PetSitterDto petSitterDto = sqlSession.selectOne("petsitter.getpet", petsitter_no);
+//		System.out.println(petSitterDto.toString());
+		model.addAttribute("petSitterDto", petSitterDto);
+		//여기까지 들어왔엉 오늘 하루도 보람찬 하루였어  자고일어나서 완성해야징^^
 		return "/member/reservation/ready";
 	}
 	
@@ -99,16 +108,18 @@ public class ReservationController {
 	////////////////////////////////////
 	
 	@GetMapping("/reserve_step2")
-	public String reserve_step2(
-			HttpSession session,Model model){
-		
+	public String reserve_step2(@RequestParam int petsitter_no,
+			HttpSession session,Model model
+			){
+		System.out.println("-------------------------------");
+		System.out.println(petsitter_no);
 		MemberDto userinfo=(MemberDto)session.getAttribute("userinfo");
-		List<PetDto> pet_name = sqlSession.selectList("reservation.getMyPet", userinfo.getMember_id());
+		List<PetDto> petinfo = sqlSession.selectList("reservation.getMyPet", userinfo.getMember_id());
 		
-		model.addAttribute("list", pet_name);
+		model.addAttribute("list", petinfo);
 		
-		
-		
+		pre_resDto pre_resDto = sqlSession.selectOne("reservation.getSitter",userinfo.getMember_id());
+		model.addAttribute("pre_resDto", pre_resDto);
 		return "/member/reservation/reserve_step2";
 	}
 
