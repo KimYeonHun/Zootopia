@@ -36,13 +36,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             
     </insert>
     
-    <select id="getList" parameterType="String">
+    <select id="getList" parameterType="String" resultType="petDto">
     select * from pet where member_id=#{member_id}
     </select>
     
-    <select id="getList2" resultType="petDto" parameterType="map">
-    SELECT * FROM pet ORDER BY ${col} ${order}
-    </select>
+<!--     <select id="getList2" resultType="petDto" parameterType="map"> -->
+<!--     SELECT * FROM pet ORDER BY ${col} ${order} -->
+<!--     </select> -->
     
     
  <select id="get" resultType="petDto" parameterType="int">

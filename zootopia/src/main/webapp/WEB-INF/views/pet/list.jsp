@@ -17,6 +17,7 @@
 
 
 
+<input type="hidden" name="member_id "value="${userinfo.member_id}">
 <table border="1">
 	<thead>
 		<tr>
@@ -32,8 +33,6 @@
 	</thead>
 	<tbody>
 		<c:forEach var="petDto" items="${list}">
-			<input type="hidden" name="member_id "value="${memberDto.member_id}">
-			
 			<tr>
 			    <td>${petDto.pet_no}</td>
 				<td>${petDto.pet_name}</td>
