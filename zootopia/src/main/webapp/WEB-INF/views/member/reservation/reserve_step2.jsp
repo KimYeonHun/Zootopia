@@ -401,6 +401,7 @@
       <hr style="height:5px; background-color:lightskyblue;">
       <button id="submit" type="submit" class="btn btn-info btn-block">SAVE</button>
   </div>
+  </div>
   </form>
   </div>
 </body>
