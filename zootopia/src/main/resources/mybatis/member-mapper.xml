@@ -23,7 +23,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		) values(
 			#{member_id, jdbcType=VARCHAR},
 			#{member_pw, jdbcType=VARCHAR},
-
 			#{birthday, jdbcType=VARCHAR },
 			#{phone, jdbcType=VARCHAR},
 			#{auth, jdbcType=VARCHAR},
@@ -33,8 +32,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{extraaddr, jdbcType=VARCHAR},
 			#{email, jdbcType=VARCHAR},
 			#{gender, jdbcType=VARCHAR}
-
 )
+
+
 	</insert>
 
 
@@ -103,7 +103,8 @@ SELECT member_id FROM cert WHERE secret=#{secret}
 
 
 UPDATE MEMBER SET
-
+		
+		 auth = #{auth, jdbcType=VARCHAR},
 		 member_name = #{member_name , jdbcType=VARCHAR},
 		 email = #{email , jdbcType=VARCHAR},
 		 phone = #{phone , jdbcType=VARCHAR},

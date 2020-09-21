@@ -53,6 +53,7 @@
 }
 	</script>
 	<body>
+	<%@ include file="/WEB-INF/template/header.jsp"%>
 	<div>
 <label>프로필 사진</label>
       <img  width="415" height="300">  
@@ -67,6 +68,10 @@
 				<div class="form-group has-feedback">
 					<label class="control-label">아이디</label>
 					<input class="form-control" type="text"  name="member_id" value="${userinfo.member_id}" readonly="readonly"/>
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label">권한</label>
+					<input class="form-control" type="text"  name="auth" value="${userinfo.auth}" readonly="readonly"/>
 				</div>
 				<div class="form-group has-feedback">
 					<label class="control-label">이름</label>
@@ -113,3 +118,4 @@
 	</body>
 
 </html>
+<%@ include file="/WEB-INF/template/footer.jsp"%>

@@ -101,7 +101,7 @@ public class MemberController {
 		System.out.println(memberDto.toString());
 		boolean result = memberDao.join(memberDto);
 		if(result) {
-			return "redirect:join_finish";
+			return "redirect:/";
 		}
 		else {
 			return "redirect:join?error";
@@ -176,7 +176,11 @@ public class MemberController {
 		
 	}
 
+	/////////////////////비회원 
 	
+	
+	
+	///// 회원///
 
 	@GetMapping("/mypage2")
 	public String edit(

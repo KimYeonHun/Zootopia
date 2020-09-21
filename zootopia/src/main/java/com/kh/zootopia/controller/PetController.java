@@ -61,11 +61,17 @@ public class PetController {
 /////////////////////////////////////////////////////////////
 @GetMapping("/list")
 public String list(Model model,
+		HttpSession session,
 	@RequestParam(required = false , defaultValue = "pet_no") String col,
 	@RequestParam(required = false , defaultValue = "asc") String order
 	){
-List<PetDto>list = petDao.getList(col,order);
-	model.addAttribute("list",list);
+
+	MemberDto member_id = (MemberDto)session.getAttribute("userinfo");
+	List<PetDto> myList = petDao.getList(member_id.getMember_id());
+	
+	
+//List<PetDto>list = petDao.getList(col,order);
+	model.addAttribute("list",myList);
 return "pet/list";
 
 	

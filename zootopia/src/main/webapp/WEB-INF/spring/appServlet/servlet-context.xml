@@ -62,24 +62,42 @@
 
 
 	
+<!--  
+	인터셉터 등록
+		-MVC 설정 사용 
+		-범위 설정 시 * 와 **는 차이가 있음   /* 현재의 하위 패키지  /** 전체 
+		-exclude-mapping을 사용하면 주소의 뺄셈이 가능 
+		- mapping이 주소 더하기 exclude-mapping 이 주소 빼기 
+		- 제일 마지막에 해도 되는...!  AOP -> 시간에 흐름대로 만들 필요가 없고... 
+	 -->
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/petsitter/**"/>
+			<mapping path="/member/**"/>
+			<mapping path="/f_board/**"/>
+			<mapping path="/q_board/**"/>
+			
+			
+			<exclude-mapping path="/"/>
+			<exclude-mapping path="/petsitter/img/**"/>
+			<exclude-mapping path="/member/find*"/>
+			<exclude-mapping path="/member/join"/>
+			<exclude-mapping path="/member/login"/>
+			<exclude-mapping path="/member/check"/>
+			<exclude-mapping path="/member/result_id"/>
+			<exclude-mapping path="/member/logout"/>
+			<exclude-mapping path="/member/reservation/reserve_step1"/>
+			<exclude-mapping path="/f_board/f_content"/>
+			<exclude-mapping path="/f_board/f_list"/>
+			<exclude-mapping path="/f_board/f_list_data"/>
+			<exclude-mapping path="/q_board/q_list"/>
+			<exclude-mapping path="/q_board/q_list_data"/>
+			
 
-
-	<!-- 
-		인터셉터 등록 
-		- mvc 설정 사용
-		- 범위 설정 시 * 와 **는 차이가 있음
-		- exclue-mapping을 사용하면 주소의 뺄샘이 가능
-		
-		예시
-		<interceptors>
-			<interceptor>
-				<mapping path="/**"/>
-				<exclude-mapping path="/test"/>
-				<beans:bean class="com.kh.spring15.interceptor.TestInterceptor"></beans:bean>
-			</interceptor>
-		</interceptors>
-	-->
-
+			<beans:bean class="com.kh.zootopia.error.interceptor"></beans:bean>
+		</interceptor>
+	</interceptors>
 	
 	
 	

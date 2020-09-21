@@ -201,15 +201,17 @@
 </head>
 
 <body>
+
+
   <div class="container-fluid">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-      <a class="navbar-brand" href="#">ZOOTOPIA</a>
+      <a class="navbar-brand" href="${pageContext.request.contextPath}/">ZOOTOPIA</a>
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="#">후기게시판</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">펫시터지원</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/petsitter/petsitter_join">펫시터지원</a>
         </li>
       </ul>
     </nav>
