@@ -70,6 +70,10 @@
 					<input class="form-control" type="text"  name="member_id" value="${userinfo.member_id}" readonly="readonly"/>
 				</div>
 				<div class="form-group has-feedback">
+					<label class="control-label">권한</label>
+					<input class="form-control" type="text"  name="auth" value="${userinfo.auth}" readonly="readonly"/>
+				</div>
+				<div class="form-group has-feedback">
 					<label class="control-label">이름</label>
 					<input class="form-control" type="text"  name="member_name" value="${userinfo.member_name}"/>
 				</div>
