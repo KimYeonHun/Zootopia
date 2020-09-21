@@ -1,15 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
+
+<script>
 
 function preview(){
     //console.log("preview 실행!");
@@ -35,120 +48,193 @@ function preview(){
     }
     
 }
+    
+    
+    
     </script> 
-<style>
-   .w3-input {
-    padding: 8px;
-    display: block;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    width: 50%;
+    
+    
+    <script> 
+        $(function(){
+         
+            $.get("${pageContext.request.contextPath}/member/mypage", function(response){
+                console.log(response);
+           
+
+                var label = [];
+                var data = [];
+
+                for(var i=0; i < response.length; i++){
+                    label.push(response[i].month);
+                    data.push(response[i].count);
+                }
+
+               
+                var ctx = document.querySelector("#chart").getContext("2d");
+
+           
+                var chart = new Chart(ctx, {
+             
+                    type: 'line',
+
+               
+                    data: {
+
+                   labels: ['6월','7월', '8월', '9월'],
+
+
+                                  datasets: [{
+                               label: 'Zootoita 총 매칭 현황',
+                               data: [600, 400, 300, 900], 
+
+
+               
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            
+                        }],
+
+                    },
+
+             
+                    options: {
+                        scales: {
+                            yAxes:[{
+                                ticks:{
+                                    
+                                    suggestedMin : 0,         //최소값 지정
+                                    suggestedMax : 1000,    //최대값 지정
+                                }
+                            }]
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+<style type="text/css">
+ .jumbotron{
+         background-color: RGB(72,209,199);
+         color: white;
 }
-.w3-form {
-    padding: 8px;
-    display: block;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    width: 100%;
-}
-.w3-card{
- padding: 8px;
-width:50%;
-margin-left:50%;
- border: none;
- 
-}
+
+
+
 </style>
 
 <title>마이페이지</title>
 </head>
 <body>
 
-
-
-
-	<div class="w3-content w3-container w3-margin-top">
-		<div class="w3-container w3-card-4">
-			<div class="w3-center w3-large w3-margin-top">
+<br>   	<br>   	<br>   	<br>  <br>   <br>  <br>
+<div class="container-fluid">
+<div class ="row">
+			<div class="offset-sm-4 col-sm-4 jumbotron">
 			
-				<h3>My Page</h3>
-			</div>
-			<div class="w3-container">
-		  <div class="w3-card">
-	<div class="inputArea">
- 
+			
+			<h1 id="myHeader">My Page</h1>
+			
+			    <div class="form-group">
+			
+		
+	
 
  
 
-</div>
-
 <div>
 
-<label>프로필 사진</label>
-      <img  width="415" height="300">  
-<!-- 
- <input type="file" accept=".jpg, .gif, .png" name="f" multiple 
-<<<<<<< HEAD
- onchange="preview();">
+
+      <img  width="312" height="150  ">  
+
+ <input type="file" accept=".jpg, .gif, .png" name="f" multiple onchange="preview();">
+
+</div>
+	<div class="w3-container w3-card-4">
 <c:set var="TextValue" value="${userinfo.birthday}"/>
        </div>         
 
+             
+	<div class="w3-container w3-card-4">
 
- onchange="preview();"> -->
-<c:set var="TextValue" value="${userinfo.birthday}"/>
-       </div>         
-
-
-
-
-<label>이름</label> 
- <input class="w3-form" type="text" id="name" name="member_name" readonly value="${userinfo.member_name}">
-
-    <label>권한</label> 
-<input class="w3-form" type="text" id="auth" name="auth" readonly value="${userinfo.auth}">
-    </div>
-
-     <div>
-     <div class="w3-container">
-		  <div class="w3-card">
-	<div class="inputArea">
- <div>
-<a href="../pet/petinfo" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">MY 펫 </a>
+			
+				<div class="home-thumb">
+ <c:choose>
+	<c:when test="${userinfo.auth eq '펫시터'}">
+	<p>
+	<canvas width="442" height="221" class="chartjs-render-monitor" id="chart" style="width: 442px; height: 221px; display: block;"></canvas>
+	 	 </p>
+	 	 	 <p>
+	 	 <a class="btn btn-info" href="${pageContext.request.contextPath}/pet/petinfo" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">My Pet 등록 하기 </a>
+	 	</p>
+	 	</c:when>
+	 <c:otherwise>
+	<p>
+	 <a class="btn btn-info" href="${pageContext.request.contextPath}/petsitter/petsitter_join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">펫시터 신청하기</a>
+	<p>
+	 	<a  class="btn btn-info" href="${pageContext.request.contextPath}/petsitter/list">펫시터 지원 내역
+</a>
+	 </p>
+	
+	
+	 <p>
+	 <a class="btn btn-info" href="${pageContext.request.contextPath}/pet/petinfo" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">My Pet 등록 하기 </a>
+		</p>
+	</c:otherwise>
+	  </c:choose>
+	  
+	   <a class="btn btn-info" href="${pageContext.request.contextPath}/pet/list" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">My Pet 목록 </a>
+	   <!--<c:choose>
+	<c:when test="${!empty petsitterDto.member_id != null}">
+	<p>
+	 	<a  class="btn btn-info" href="${pageContext.request.contextPath}/petsitter/list">펫시터 지원 내역
+</a>
+	 </p>
+	 	
+	 	</c:when>
+	   </c:choose>
+	  -->
 </div>
+</div>
+</div>
+
+
+<p>
+
+</p>
+	         
+
+
+
+
+
+
 <div>
-<a href="../petsitter/petsitter_join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">펫시터 지원하기</a>
-</div>
 
-만약에 펫시터 지원을 했으면 
-
-<c:choose>
-	                	<c:when test="${not empty userinfo.member_id}">
-		          			<a href="${pageContext.request.contextPath}/member/logout" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그아웃</a>
-	                		<a href="${pageContext.request.contextPath}/member/mypage" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">마이페이지</a>
-	                	</c:when>
-	                	<c:otherwise>
-		          			<a href="${pageContext.request.contextPath}/member/login" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">로그인</a>
-			                <a href="${pageContext.request.contextPath}/member/join" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">회원가입</a>
-	                	</c:otherwise>
-	                </c:choose>
-
-
-
-
-
-
-</div>
-
-
-  </div>
-  </div>
-  </div>
-  
-			<div>
-
-<!-- 				<form id="member" action="../member/memberUpdate" method="POST"> -->
+			<form id="member"  method="POST"> 
+<p>
+<label>이름 :</label> 
+ ${userinfo.member_name} 
+</p>
+<p>
+    <label>권한 : </label> 
+${userinfo.auth}
+</p>
 					
-
+</div>
 
 					<p>
 
@@ -212,28 +298,24 @@ margin-left:50%;
 					
 					
 					
-				
-<!-- 				<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button> -->
-					
-				
-<!-- 				</form> -->
-
-
-<!-- 					<p class="w3-form"> -->
-<!-- 						<a href="mypage2"> -->
-<!-- 						<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button> -->
-<!-- 						</a> -->
-<!-- 					</p> -->
+			
 					
 					<p class="w3-form">
 						<a href="passcheck">
-						<input type="button" value="변경">
-<!-- 						<button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button> -->
+				
+		<a class="btn btn-info" href="memberUpdateView">회원정보 수정</a>
 						</a>
 					</p>
 
-			</div>
-			</div>
+	</div>
+</div>
+	</div>
+	
+		
+	
 					
 </body>
 </html>
+    	<br>   	<br>   	<br>   	<br>
+    	
+<%@ include file="/WEB-INF/template/footer.jsp"%>

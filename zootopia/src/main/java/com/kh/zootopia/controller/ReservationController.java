@@ -153,17 +153,14 @@ public class ReservationController {
 	}
 	
 	
-//	@GetMapping("/reserve_result")
-//	public String reserve_result(
-//			
-//		
-//			) {
-//		
-//		MemberDto userinfo = (MemberDto)session.getAttribute("userinfo");
-//		
-//		
-//		return  "/member/reservation/result";
-//	}
+	@GetMapping("/reserve_result")
+	public String reserve_result(
+			) {
+		
+		
+
+		return  "/member/reservation/result";
+	}
 	
 }
 

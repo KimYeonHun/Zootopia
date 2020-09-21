@@ -23,7 +23,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		) values(
 			#{member_id, jdbcType=VARCHAR},
 			#{member_pw, jdbcType=VARCHAR},
-
 			#{birthday, jdbcType=VARCHAR },
 			#{phone, jdbcType=VARCHAR},
 			#{auth, jdbcType=VARCHAR},
@@ -33,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{extraaddr, jdbcType=VARCHAR},
 			#{email, jdbcType=VARCHAR},
 			#{gender, jdbcType=VARCHAR}
-
+)
 
 )
 
