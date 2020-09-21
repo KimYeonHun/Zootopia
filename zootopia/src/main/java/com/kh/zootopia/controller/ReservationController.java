@@ -154,14 +154,9 @@ public class ReservationController {
 	
 	
 	@GetMapping("/reserve_result")
-	public String reserve_result(
-			
-		
-			) {
-		
+	public String reserve_result() {
 	
-		
-		
+
 		return  "/member/reservation/result";
 	}
 	

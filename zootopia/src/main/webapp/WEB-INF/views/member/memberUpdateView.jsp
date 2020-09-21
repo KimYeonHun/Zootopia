@@ -53,6 +53,7 @@
 }
 	</script>
 	<body>
+	<%@ include file="/WEB-INF/template/header.jsp"%>
 	<div>
 <label>프로필 사진</label>
       <img  width="415" height="300">  
@@ -113,3 +114,4 @@
 	</body>
 
 </html>
+<%@ include file="/WEB-INF/template/footer.jsp"%>

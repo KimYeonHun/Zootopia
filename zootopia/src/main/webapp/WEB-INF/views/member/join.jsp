@@ -87,8 +87,8 @@
 		        });
 			
 		});
-	</script>
-	        
+
+	        </script>
 </head>
 
 <body>
