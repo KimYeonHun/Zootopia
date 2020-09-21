@@ -24,7 +24,7 @@ public class SitterPhotoServiceImpl implements SitterPhotoService{
 		if(petFileDto == null) {
 			return ResponseEntity.notFound().build();
 		}else {
-			File target = new File("D:/upload",petFileDto.getPet_file_name());
+			File target = new File("D:/upload/kh34",petFileDto.getPet_file_name());
 			byte[] data = FileUtils.readFileToByteArray(target);
 			ByteArrayResource res = new ByteArrayResource(data);
 			

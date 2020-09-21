@@ -131,26 +131,20 @@ public class ReservationController {
 	@PostMapping("/reserve_step2")
 	public String reserve_step2(
 
-			
-
-
 			@ModelAttribute ReserveDto reserveDto,
 			HttpSession session,
-
 			@RequestParam String res_pack,
 			@ModelAttribute ReserveDto reserveDto2
 
 
 			) {
 
-
-
 		MemberDto userinfo=(MemberDto)session.getAttribute("userinfo");
 
 
 		reserveDao.reserve(reserveDto);
-		sqlSession.delete("reservation.del_res",userinfo.getMember_id());
-		return "redirect:reserve_result";
+//		sqlSession.delete("reservation.del_res",userinfo.getMember_id());
+		return "redirect:result";
 	}
 	
 	

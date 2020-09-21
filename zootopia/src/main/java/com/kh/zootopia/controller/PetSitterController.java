@@ -211,7 +211,7 @@ public class PetSitterController {
 			model.addAttribute("list", info);
 			return "petsitter/apply_list"; 
 		}else {
-			return"petsitter/apply_list?error";
+			return"/member/mypage";
 		}
 
 //		System.out.println(info);

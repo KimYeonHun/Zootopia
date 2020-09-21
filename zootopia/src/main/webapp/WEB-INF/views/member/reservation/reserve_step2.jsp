@@ -207,9 +207,9 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
       <a class="navbar-brand" href="${pageContext.request.contextPath}/">ZOOTOPIA</a>
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">후기게시판</a>
-        </li>
+<!--         <li class="nav-item"> -->
+<%--           <a class="nav-link" href="${pageContext.request.contextPath}/f_board/f_list">후기게시판</a> --%>
+<!--         </li> -->
         <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/petsitter/petsitter_join">펫시터지원</a>
         </li>

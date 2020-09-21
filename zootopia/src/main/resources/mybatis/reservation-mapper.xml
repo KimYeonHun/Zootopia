@@ -62,10 +62,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	
-<delete id="del_res" parameterType="String">
-		DELETE FROM pre_res WHERE member_id = #{member_id};
+<!-- <delete id="del_res" parameterType="String"> -->
+<!-- 		DELETE FROM pre_res WHERE member_id = #{member_id} -->
 	
-	</delete>
+<!-- 	</delete> -->
 
 	
 </mapper>
