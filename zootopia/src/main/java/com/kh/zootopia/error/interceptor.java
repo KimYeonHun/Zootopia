@@ -13,17 +13,13 @@ public class interceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		
-		System.out.println("***********");
-		System.out.println("인터셉터 실행");
-		System.out.println(" *************");
+
 		
 		HttpSession session = request.getSession();
 		Object obj = session.getAttribute("userinfo");
 		
 		if(obj == null) {
-			// 로그인이 안되어있으면
-			//response.sendRedirect("/zootopia/member/login");
+			
 			response.sendRedirect(request.getContextPath()+"/member/login");
 			return false;
 		}

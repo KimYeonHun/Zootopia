@@ -204,7 +204,7 @@ public class PetSitterController {
 
 		// 1. 세션에서 아이디를 꺼낸다 
 		MemberDto member_id =(MemberDto)session.getAttribute("userinfo");
-//		System.out.println(member_id);
+//		(member_id);
 		//2. 꺼낸 아이디로 펫시터 정보 조회 
 		PetSitterDto info = sqlSession.selectOne("petsitter.getOneList", member_id.getMember_id());
 		if(info !=null) {
@@ -214,7 +214,7 @@ public class PetSitterController {
 			return"/member/mypage";
 		}
 
-//		System.out.println(info);
+//		(info);
 		// 2번에서 나온걸 모델로 보낸다 
 		
 		

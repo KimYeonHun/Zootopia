@@ -98,7 +98,7 @@ public class MemberController {
 	@PostMapping("/join")
 	public String join(@ModelAttribute MemberDto memberDto) {
 		memberDto.setAuth("회원");
-		System.out.println(memberDto.toString());
+		
 		boolean result = memberDao.join(memberDto);
 		if(result) {
 			return "redirect:/";
@@ -132,7 +132,7 @@ public class MemberController {
 	) {
 		// 1. 파라미터 값으로 이름과 이메일을 받는다
 		String info = memberDao.searchid(member_name, email);
-//		System.out.println(info);
+//		(info);
 		if (info != null) {// 여기가 찾는 회원이 있을때니까 아이디가 있는곳이고
 			String secret = certService.CreateCert(info);
 			// 인증번호 랜덤 생성 후 ,
@@ -202,7 +202,7 @@ public class MemberController {
 		 * member_name: 김연훈 email: xdusgnsx@naver.com phone: 123123 post: 10081
 		 * baseaddr: 김포한강2로 362, extraaddr: 603동902호
 		 */
-		System.out.println(memberDto.toString());
+	
 		sqlSession.update("member.memberUpdate", memberDto);
 		
 		return "redirect:mypage";

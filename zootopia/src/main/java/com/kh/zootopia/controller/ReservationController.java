@@ -45,9 +45,9 @@ public class ReservationController {
 	@GetMapping("/ready")
 	public String ready(@RequestParam int petsitter_no,
 			Model model) {
-//		System.out.println(petsitter_no);
+//		(petsitter_no);
 		PetSitterDto petSitterDto = sqlSession.selectOne("petsitter.getpet", petsitter_no);
-//		System.out.println(petSitterDto.toString());
+//		(petSitterDto.toString());
 		model.addAttribute("petSitterDto", petSitterDto);
 		//여기까지 들어왔엉 오늘 하루도 보람찬 하루였어  자고일어나서 완성해야징^^
 		return "/member/reservation/ready";
@@ -112,8 +112,8 @@ public class ReservationController {
 			HttpSession session,Model model
 			){
 		
-		System.out.println("-------------------------------");
-		System.out.println(petsitter_no);
+	
+	
 		
 		MemberDto userinfo=(MemberDto)session.getAttribute("userinfo");
 		List<PetDto> pet_name = sqlSession.selectList("reservation.getMyPet", userinfo.getMember_id());

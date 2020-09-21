@@ -63,11 +63,10 @@ public class Q_BoardController {
 		model.addAttribute("q_boardDto", q_boardDto);
 		
 		
-		System.out.println("----------------------");
-		System.out.println(q_board_no);
+	
 		
 		List<Q_ReplyDto> list = sqlSession.selectList("q_resply.getList", q_board_no);
-		System.out.println(list.toString());
+	
 		model.addAttribute("list", list);
 		
 		return "q_board/q_content";
@@ -131,12 +130,12 @@ public class Q_BoardController {
 			@ModelAttribute Q_ReplyDto q_replyDto
 			) {
 		
-//		System.out.println(qr_content);
-//		System.out.println(q_board_no);
+//		(qr_content);
+//		(q_board_no);
 		MemberDto userinfo = (MemberDto) session.getAttribute("userinfo");
-//		System.out.println("작성자"+userinfo.getMember_id());
+//		("작성자"+userinfo.getMember_id());
 		int no = sqlSession.selectOne("q_resply.getSeq");
-//		System.out.println("리플 번호" + no);
+//		("리플 번호" + no);
 		
 		q_replyDto.setQ_board_no(q_board_no);
 		q_replyDto.setQr_no(no);

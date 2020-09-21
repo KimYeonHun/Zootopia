@@ -45,8 +45,7 @@ public class AdminController {
 	public String content(@PathVariable int petsitter_no, Model model) {
 		
 		 PetSitterDto petSitterDto = sqlSession.selectOne("petsitter.get", petsitter_no);
-		 System.out.println("------------------");
-		 System.out.println(petSitterDto.toString());
+		
 		 
 		 int sum = petSitterDto.getSitter_checklist()+petSitterDto.getSitter_checklist_two()+petSitterDto.getCare_one()
 		 + petSitterDto.getCare_two()+ petSitterDto.getCare_three()+ petSitterDto.getCare_four()+petSitterDto.getCare_five();

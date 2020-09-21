@@ -30,8 +30,7 @@ public class F_BoardController {
 	
 	@Autowired
 	private F_BoardDao f_boardDao;
-	@Autowired
-	private F_ReplyDao f_replyDao;
+
 	
 	
 	@GetMapping("/f_write")
@@ -59,7 +58,7 @@ public class F_BoardController {
 		model.addAttribute("f_boardDto", f_boardDto);
 		
 		List<F_ReplyDto> list = sqlSession.selectList("f_reply.getList", f_board_no);
-		System.out.println(list.toString());
+		
 		model.addAttribute("list", list);
 		
 		return "f_board/f_content";
@@ -92,15 +91,15 @@ public class F_BoardController {
 		int no = sqlSession.selectOne("f_reply.getSeq");
 		
 		f_replyDto.setF_board_no(f_board_no);
-		System.out.println("--------------------------------------------");
-		System.out.println(f_board_no);
-		f_replyDto.setFr_no(no);
-		System.out.println("no : " + no);
-		f_replyDto.setFr_content(fr_content);
-		System.out.println(fr_content);
-		f_replyDto.setFr_writer(userinfo.getMember_id());
-		System.out.println(userinfo.getMember_id());
 		
+	
+		f_replyDto.setFr_no(no);
+	
+		f_replyDto.setFr_content(fr_content);
+	
+		f_replyDto.setFr_writer(userinfo.getMember_id());
+	
+	
 		try {
 			sqlSession.insert("f_reply.write", f_replyDto);
 			return "success";
