@@ -53,7 +53,7 @@ public String registerUpdate(MemberDto memberDto, HttpSession session) throws Ex
 	
 	service.memberUpdate(memberDto);
 	
-	
+	session.setAttribute("userinfo", memberDto);
 	return "redirect:/member/mypage";
 }
 

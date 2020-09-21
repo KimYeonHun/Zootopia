@@ -69,9 +69,7 @@
     .parkinfo {
       display: none;
     }
-    .petmore{
-      display: none;
-    }
+
 
     div {
       margin: 5px;
@@ -155,19 +153,36 @@
         }
       });
     });
-    $(function () {
-      $('#selectBox2').change(function () {
-        var state = $('#selectBox2 option:selected').val();
-        if (state == '고양이') {
-          $("select option[value*='no']").prop('hidden', true);
-        }
-      });
-    });
+
+    $(function() {
+    	$("#ck1").click(function () {
+        	var state1 = $('#ck1').val();
+    	if(state1=='30'){
+    	   $("input[name=res_price]").val('13000');    		
+    	}});
+    	$("#ck2").click(function () {
+        	var state2 = $('#ck2').val();
+    	if(state2=='60') {
+    	      $("input[name=res_price]").val('25000');
+    		}});
+    	$("#ck3").click(function () {
+        	var state3 = $('#ck3').val();
+    	if(state3=='60') {
+    	      $("input[name=res_price]").val('23000');
+    		}});
+    	$("#ck4").click(function () {
+    	var state4 = $('#ck4').val();
+    	if(state4=='30') {
+    	      $("input[name=res_price]").val('13000');
+    		}});
+    	});
+	
     $(document).ready(function () {
-      $('#submit').click(function () {
-        var radioVal = $('.yesorno :checked').val();
+        $('#submit').click(function () {
+          var radioVal = $('.yesorno :checked').val();
+        });
       });
-    });
+
     $(function () {
       $("#parkY").click(function () {
         var state = $('#parkY').val();
@@ -181,14 +196,6 @@
           $('.parkinfo').hide();
         }
       })
-    });
-    $(function () {
-      if($("#pplus").click(function () {
-        $('.petmore').show();
-      }));
-      if($("#ppdel").click(function () {
-        $('.petmore').hide();
-      }));
     });
   </script>
 </head>
@@ -213,19 +220,25 @@
     </div>
 <form action="reserve_step2" method="post">
     <div class="lt offset-2 col-8">
-      <div>예약자 <input class="form-control" type="text" name="res_name" value="${userinfo.member_name}" required></div>
+      <div>예약자 <input class="form-control" type="text" value="${userinfo.member_name}" required></div>
+      <input class="form-control" type="hidden" name="res_name" value="${userinfo.member_id}" required>
       <div class="form-group">반려동물
 		
         <select class="form-control" id="petlist" name="res_pet">
-       <c:forEach var="petinfo" items="${list}">
         	<option value=" " selected>-- 선택 --</option>
-        	<option value="${petinfo.pet_name}" >${petinfo.pet_name}</option>
+       <c:forEach var="petinfo" items="${list}">
+        	<option value="${petinfo.pet_no}" >${petinfo.pet_name}</option>
         </c:forEach>
         </select>    
         
       </div>
-      <div>방문펫시터 <input class="form-control" type="text" value="${pre_resDto.petsitter_no}" name="res_petsitter" required></div>
-      <div>예약일 <input class="form-control" name="res_date" value="${pre_resDto.res_day}" type="text" required>
+      <div>방문펫시터<input class="form-control" type="text" value="${petSitterDto.petsitter_nick}" required>
+      <input class="form-control" type="hidden" value="${petSitterDto.petsitter_no}" name="res_petsitter" required></div>
+      <div>예약일 <input class="form-control" name="res_date" value="${pre_resDto.res_day}" type="text" required></div>
+      <div class="row">
+      <div class="col-5">돌봄 시작 시간 <input class="form-control" value="${pre_resDto.res_start}" type="text" required></div>
+      <div class="col-5">돌봄 끝나는 시간 <input class="form-control" value="${pre_resDto.res_finish}" type="text" required></div>
+      </div>
       <div>예약자 주소 
 <!--         <div class="row"> -->
 <!--           <div class="col-4"> -->
@@ -251,10 +264,12 @@
           </div>
         </div>
       </div>
-      <div>예약패키지
-        <div class="row gallary">
-          <div class="col-md-3 col-sm-7"><button type="button" class="btn" name="res_pack" value="30분">
-              <img src="${pageContext.request.contextPath}/res/img/30min1.PNG" width="230" height="230"></button>
+      <div>스페셜 예약 패키지
+        <div class="row gallary form-group">
+         <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <div class="col-md-3 col-sm-7">
+              <img src="${pageContext.request.contextPath}/res/img/30min1.PNG" width="230" height="230">
+              <label class="btn btn-outline-info"><input class="yesorno" id="ck1" type="radio" name="res_pack" value="30" autocomplete="off">선택</label>
             <button type="button" class="btn mo" data-toggle="modal" data-target="#myModal1"><img src="${pageContext.request.contextPath}/res/img/lens.png"
                 width="25" height="25"></button>
             <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -268,10 +283,11 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-7"><button type="button" class="btn" name="res_pack" value="60분">
-              <img src="${pageContext.request.contextPath}/res/img/60min1.PNG" width="230" height="230"></button>
+          <div class="col-md-3 col-sm-7">
+              <img src="${pageContext.request.contextPath}/res/img/60min1.PNG" width="230" height="230">
+              <label class="btn btn-outline-info"><input class="yesorno" id="ck2" type="radio" name="res_pack" value="60" autocomplete="off">선택</label>
             <button type="button" class="btn mo" data-toggle="modal" data-target="#myModal2"><img src="${pageContext.request.contextPath}/res/img/lens.png"
-                width="25" height="25"></button>
+                width="25" height="25"></button> 
             <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
               aria-hidden="true">
               <div class="modal-dialog">
@@ -283,8 +299,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-7"><button type="button" class="btn" name="res_pack" value="60분">
-              <img src="${pageContext.request.contextPath}/res/img/twin60min3.PNG" width="230" height="230"></button>
+          <div class="col-md-3 col-sm-7">
+              <img src="${pageContext.request.contextPath}/res/img/twin60min3.PNG" width="230" height="230">
+              <label class="btn btn-outline-info"><input class="yesorno" id="ck3" type="radio" name="res_pack" value="60" autocomplete="off">선택</label>
             <button type="button" class="btn mo" data-toggle="modal" data-target="#myModal3"><img src="${pageContext.request.contextPath}/res/img/lens.png"
                 width="25" height="25"></button>
             <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -298,8 +315,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-7"><button type="button" class="btn" name="res_pack" value="30분">
-              <img src="${pageContext.request.contextPath}/res/img/cat30min1.PNG" width="230" height="230"></button>
+          <div class="col-md-3 col-sm-7">
+              <img src="${pageContext.request.contextPath}/res/img/cat30min1.PNG" width="230" height="230">
+              <label class="btn btn-outline-info"><input class="yesorno" id="ck4" type="radio" name="res_pack" value="30" autocomplete="off">선택</label>
             <button type="button" class="btn mo" data-toggle="modal" data-target="#myModal4"><img src="${pageContext.request.contextPath}/res/img/lens.png"
                 width="25" height="25"></button>
             <div id="myModal4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -313,6 +331,7 @@
               </div>
             </div>
           </div>
+        </div>
         </div>
 <!--         <div class="form-group">돌봄 추가 옵션 -->
 <!--           <div class="form-group"> -->
@@ -340,12 +359,12 @@
       </div>
       <div>돌봄용품위치
         <div class="row">
-          <textarea class="form-control" width="100%" rows="6" name="location" placeholder="돌봄용품을 한곳에 모아주시고 위치를 안내해주세요."></textarea>
+          <textarea class="form-control" width="100%" rows="6" name="location" placeholder="돌봄용품을 한곳에 모아주시고 위치를 안내해주세요."required="required"></textarea>
         </div>
       </div>
       <hr style="height:5px; background-color:lightskyblue;">
       <h2>부가정보</h2><br>
-    </div>
+    
     <div class="set lt">
       <div class="form-group">공동현관유무
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -395,8 +414,8 @@
         placeholder="주차 이용 방법에 대해 알려주세요"></textarea>
       <hr style="border-top:3px double #bbb;">
       <div class="form-group reserveprice" style="text-align: right;">
-        <span name="res"></span>
-        <span name="res_price" id="price">총 금액 ${res_price} 원</span>
+        <span id="price">총 금액 <input class="form-control-md" id="total" name="res_price" type="text" style="border: none "> 원</span>
+        <input type="hidden" name="pre_no" value="${pre_resDto.pre_no}">
       </div>
       <hr style="height:5px; background-color:lightskyblue;">
       <button id="submit" type="submit" class="btn btn-info btn-block">SAVE</button>

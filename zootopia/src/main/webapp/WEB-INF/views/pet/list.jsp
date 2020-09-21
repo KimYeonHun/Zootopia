@@ -51,4 +51,3 @@
 </table>
 			<a class="btn btn-info" href="${pageContext.request.contextPath}">홈으로</a>
 				<a class="btn btn-info" href="${pageContext.request.contextPath}/member/mypage">뒤로가기</a>
-<%@ include file="/WEB-INF/template/footer.jsp"%>

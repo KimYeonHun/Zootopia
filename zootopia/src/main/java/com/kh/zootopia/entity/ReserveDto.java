@@ -12,13 +12,10 @@ public class ReserveDto {
 	private int res_pet;
 	private int res_petsitter;
 	private String res_date;
-	private String res_place;
 	private String res_post;
 	private String res_Baddr;
 	private String res_Eaddr;
-	private String res_pack;
-	private String res_pluspack1;
-	private String res_pluspack2;
+	private int res_pack;
 	private String singularity;
 	private String location;
 	private String common_porch;
@@ -28,4 +25,5 @@ public class ReserveDto {
 	private String parking;
 	private String useparking;
 	private int res_price;
+	private int pre_no;
 }
