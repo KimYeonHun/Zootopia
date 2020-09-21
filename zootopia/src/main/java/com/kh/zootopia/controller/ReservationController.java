@@ -114,9 +114,11 @@ public class ReservationController {
 		System.out.println("-------------------------------");
 		System.out.println(petsitter_no);
 		MemberDto userinfo=(MemberDto)session.getAttribute("userinfo");
-		List<PetDto> petinfo = sqlSession.selectList("reservation.getMyPet", userinfo.getMember_id());
+		List<PetDto> pet_name = sqlSession.selectList("reservation.getMyPet", userinfo.getMember_id());
+		model.addAttribute("list", pet_name);
 		
-		model.addAttribute("list", petinfo);
+		PetSitterDto petsitterDto = sqlSession.selectOne("petsitter.get",petsitter_no);
+	    model.addAttribute("petSitterDto", petsitterDto);
 		
 		pre_resDto pre_resDto = sqlSession.selectOne("reservation.getSitter",userinfo.getMember_id());
 		model.addAttribute("pre_resDto", pre_resDto);
@@ -126,19 +128,16 @@ public class ReservationController {
 	
 	@PostMapping("/reserve_step2")
 	public String reserve_step2(
-			@RequestParam String res_pack,
 			@ModelAttribute ReserveDto reserveDto
-			
 			) {
-		int a = Integer.parseInt(res_pack.substring(0, 1));
-		int price = (a/30)*8000;
-		
-		reserveDto.setRes_price(price);
-		System.out.println("123123123213-----------------------------");
-		System.out.println(reserveDto.toString());
-		
 		reserveDao.reserve(reserveDto);
 		return "redirect:/member/reservation/result";
+	}
+	
+	
+	@GetMapping("/result")
+	public String result() {
+		return "/member/reservation/result";
 	}
 	
 }
